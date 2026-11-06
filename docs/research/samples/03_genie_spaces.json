@@ -1,0 +1,194 @@
+{
+  "probe": "GET /api/2.0/genie/spaces (page_size=100, paginated)",
+  "http": 200,
+  "top_level_keys": [
+    "spaces",
+    "next_page_token"
+  ],
+  "pages": 3,
+  "space_count": 230,
+  "field_presence": {
+    "space_id": 230,
+    "title": 230,
+    "description": 156,
+    "warehouse_id": 230,
+    "create_time": 230,
+    "update_time": 230
+  },
+  "examples": [
+    {
+      "space_id": "01f1d0c52c5212a0a957f1117779ad81",
+      "title": "NSCLC RWE \u2014 HEOR Cohort Explorer",
+      "description": "Plain-language questions on the advanced-NSCLC synthetic cohort (not real patients).",
+      "warehouse_id": "bda22e07d7130a32",
+      "create_time": "2026-10-25T22:41:09.591Z",
+      "update_time": "2026-10-25T23:14:50.897Z"
+    },
+    {
+      "space_id": "01f1d0a58f67189b8e7581086da8e417",
+      "title": "E2E patient profiles",
+      "description": "DRM2026-ONC-001 patient profiles (blinded) \u2014 built for admin@example.com by the Clinical Data Platform from Gold SDTM (AE, CM, DM, EX, LB, MH, ",
+      "warehouse_id": "4b28691c780d9875",
+      "create_time": "2026-10-25T18:54:51.930Z",
+      "update_time": "2026-10-25T19:04:44.046Z"
+    },
+    {
+      "space_id": "01f1cfc0a28f178a87d7e680119e1c97",
+      "title": "CDP \u00b7 DRM2026-ONC-001 (blinded) \u00b7 cdp-extended",
+      "description": "Blinded copy of study DRM2026-ONC-001 for the Clinical Data Platform (Genie chat add-on). Join genie_adverse_events to genie_subjects on usubjid. Treatment ",
+      "warehouse_id": "4b28691c780d9875",
+      "create_time": "2026-10-24T15:36:09.317Z",
+      "update_time": "2026-10-25T17:56:28.425Z"
+    },
+    {
+      "space_id": "01f1ceeb4c961f3b9bf033eacaa85e59",
+      "title": "East Region Staffing & Capacity (demo)",
+      "description": "Natural-language questions about daily hospital census, occupancy, staffed-bed capacity, admissions, and the 120-day census forecast across East Region care sit",
+      "warehouse_id": "4b28691c780d9875",
+      "create_time": "2026-10-23T14:09:02.279Z",
+      "update_time": "2026-10-24T09:07:17.550Z"
+    }
+  ],
+  "detail": {
+    "get_space": {
+      "http": 200,
+      "body": {
+        "space_id": "01f1d0c52c5212a0a957f1117779ad81",
+        "title": "NSCLC RWE \u2014 HEOR Cohort Explorer",
+        "description": "Plain-language questions on the advanced-NSCLC synthetic cohort (not real patients).",
+        "warehouse_id": "bda22e07d7130a32",
+        "parent_path": "/Users/user10@example.com/.bundle/nsclc_heor_rwe/dev/resources",
+        "create_time": "2026-10-25T22:41:09.591Z",
+        "update_time": "2026-10-25T23:14:50.897Z"
+      }
+    },
+    "get_space_include_serialized": {
+      "http": 200,
+      "keys": [
+        "space_id",
+        "title",
+        "description",
+        "warehouse_id",
+        "parent_path",
+        "serialized_space",
+        "etag",
+        "create_time",
+        "update_time"
+      ],
+      "serialized_space_shape": {
+        "version": "int",
+        "config": {
+          "sample_questions": [
+            {
+              "id": "str",
+              "question": [
+                "str"
+              ]
+            }
+          ]
+        },
+        "data_sources": {
+          "tables": [
+            {
+              "identifier": "str",
+              "column_configs": [
+                {
+                  "column_name": "str",
+                  "description": [
+                    "..."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "instructions": {
+          "text_instructions": [
+            {
+              "id": "str",
+              "content": [
+                "str"
+              ]
+            }
+          ],
+          "example_question_sqls": [
+            {
+              "id": "str",
+              "question": [
+                "str"
+              ],
+              "sql": [
+                "str"
+              ]
+            }
+          ],
+          "join_specs": [
+            {
+              "id": "str",
+              "left": {
+                "identifier": "str",
+                "alias": "str"
+              },
+              "right": {
+                "identifier": "str",
+                "alias": "str"
+              },
+              "sql": [
+                "str"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "permissions_genie": {
+      "path": "/api/2.0/permissions/genie/01f1d0c52c5212a0a957f1117779ad81",
+      "http": 200,
+      "body": {
+        "object_id": "/genie/1635280482778914",
+        "object_type": "genie",
+        "access_control_list": [
+          {
+            "user_name": "user10@example.com",
+            "display_name": "Parastou Eslami",
+            "all_permissions": [
+              {
+                "permission_level": "CAN_MANAGE",
+                "inherited": true,
+                "inherited_from_object": [
+                  "/directories/3135704314979488"
+                ]
+              }
+            ]
+          },
+          {
+            "group_name": "admins",
+            "all_permissions": [
+              {
+                "permission_level": "CAN_MANAGE",
+                "inherited": true,
+                "inherited_from_object": [
+                  "/directories/"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "permissions_dashboards_path": {
+      "http": 404,
+      "body": {
+        "error_code": "RESOURCE_DOES_NOT_EXIST",
+        "message": "Dashboard 01f1d0c52c5212a0a957f1117779ad81 does not exist",
+        "details": [
+          {
+            "@type": "type.googleapis.com/google.rpc.RequestInfo",
+            "request_id": "2435e85b-6a26-4805-8234-775c9c76a83a",
+            "serving_data": ""
+          }
+        ]
+      }
+    }
+  }
+}

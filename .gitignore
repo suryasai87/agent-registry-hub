@@ -1,0 +1,23 @@
+# Dependencies and environments
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Databricks CLI / bundle state
+.databricks/
+
+# Local env files and OS noise
+.env
+.env.*
+.DS_Store
+
+# app/static is the built frontend that Databricks Apps serves; it is committed on purpose.
+
+# Whitepaper render output (rebuild with docs/whitepaper/build.py)
+docs/whitepaper/build/
+docs/whitepaper/.render.html
+
+# Local Claude Code worktrees and agent state
+.claude/

@@ -1,0 +1,229 @@
+{
+  "list": {
+    "path": "GET /api/2.1/unity-catalog/functions?catalog_name=main&schema_name=supply_agentic_demo",
+    "http": 200,
+    "top_level_keys": [
+      "functions"
+    ],
+    "count": 3,
+    "field_presence": {
+      "name": 3,
+      "catalog_name": 3,
+      "schema_name": 3,
+      "data_type": 3,
+      "full_data_type": 3,
+      "routine_body": 3,
+      "routine_definition": 3,
+      "parameter_style": 3,
+      "is_deterministic": 3,
+      "sql_data_access": 3,
+      "security_type": 3,
+      "specific_name": 3,
+      "owner": 3,
+      "comment": 3,
+      "properties": 3,
+      "metastore_id": 3,
+      "full_name": 3,
+      "created_at": 3,
+      "created_by": 3,
+      "updated_at": 3,
+      "updated_by": 3,
+      "function_id": 3,
+      "securable_type": 3,
+      "securable_kind": 3,
+      "cache_version_info": 3,
+      "etag": 3
+    },
+    "functions": [
+      {
+        "name": "ebom_mbom_gaps",
+        "catalog_name": "main",
+        "schema_name": "supply_agentic_demo",
+        "data_type": "TABLE_TYPE",
+        "full_data_type": "(part_id STRING, part_name STRING, subsystem STRING, criticality STRING, revision STRING)",
+        "routine_body": "SQL",
+        "routine_definition": "SELECT e.part_id, p.part_name, p.subsystem, p.criticality, e.revision\n  FROM ebom e JOIN parts_master p ON e.part_id = p.part_id\n  LEFT JOIN mbom m ON e.part_id = m.part_id\n  WHERE m.part_id IS NULL",
+        "parameter_style": "S",
+        "is_deterministic": true,
+        "sql_data_access": "READS_SQL_DATA",
+        "security_type": "DEFINER",
+        "specific_name": "ebom_mbom_gaps",
+        "owner": "admin@example.com",
+        "comment": "Parts present in the Engineering BOM but missing from the Manufacturing BOM (EBOM to MBOM reconciliation gaps that speed up change decisions).",
+        "properties": "{\"sqlConfig.spark.databricks.sql.functions.aiFunctions.batchSession.terminate.enabled\":\"true\",\"sqlConfig.spark.sql.scripting.maxNumberOfCharacters\":\"1000000\",\"sqlConfig.spark.sql.ansi.enforceReservedKeywords\":\"false\",\"sqlConfig.spark.sql.streaming.optimizer.subqueryEarlyUnnesting.enabled\":\"false\",\"s",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+        "full_name": "main.supply_agentic_demo.ebom_mbom_gaps",
+        "created_at": 1788354821073,
+        "created_by": "admin@example.com",
+        "updated_at": 1788354821073,
+        "updated_by": "admin@example.com",
+        "function_id": "a9acf03a-a4cb-405d-8c93-5e3d84f88d8b",
+        "securable_type": "FUNCTION",
+        "securable_kind": "FUNCTION_STANDARD",
+        "cache_version_info": {
+          "metastore_version": -1
+        },
+        "etag": "CAESCAAAAaBiQPvR"
+      },
+      {
+        "name": "ecr_impact",
+        "catalog_name": "main",
+        "schema_name": "supply_agentic_demo",
+        "data_type": "TABLE_TYPE",
+        "full_data_type": "(ecr_id STRING, title STRING, status STRING, risk_class STRING, affected_part_id STRING, part_name STRING, criticality STRING, min_days_of_supply DOUBLE, supplier_risk STRING)",
+        "routine_body": "SQL",
+        "routine_definition": "SELECT e.ecr_id, e.title, e.status, e.risk_class, e.affected_part_id, p.part_name, p.criticality,\n         MIN(i.days_of_supply) AS min_days_of_supply, s.risk_rating AS supplier_risk\n  FROM (SELECT ecr_id, title, status, risk_class, explode(affected_parts) AS affected_part_id\n        FROM ecr WHERE ecr_id = in_ecr_id) e\n  JOIN parts_master p ON e.affected_part_id = p.part_id\n  LEFT JOIN inventory ...<trimmed>",
+        "parameter_style": "S",
+        "is_deterministic": true,
+        "sql_data_access": "READS_SQL_DATA",
+        "security_type": "DEFINER",
+        "specific_name": "ecr_impact",
+        "owner": "admin@example.com",
+        "comment": "For an Engineering Change Request, expands every affected part and returns its criticality, inventory days-of-supply and supplier risk to support change decision making.",
+        "properties": "{\"sqlConfig.spark.databricks.sql.functions.aiFunctions.batchSession.terminate.enabled\":\"true\",\"sqlConfig.spark.sql.scripting.maxNumberOfCharacters\":\"1000000\",\"sqlConfig.spark.sql.ansi.enforceReservedKeywords\":\"false\",\"sqlConfig.spark.sql.streaming.optimizer.subqueryEarlyUnnesting.enabled\":\"false\",\"s",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+        "full_name": "main.supply_agentic_demo.ecr_impact",
+        "created_at": 1788354849272,
+        "created_by": "admin@example.com",
+        "updated_at": 1788354849272,
+        "updated_by": "admin@example.com",
+        "function_id": "a8094c86-7a49-47c9-9688-ab3eda208a4b",
+        "securable_type": "FUNCTION",
+        "securable_kind": "FUNCTION_STANDARD",
+        "cache_version_info": {
+          "metastore_version": -1
+        },
+        "etag": "CAESCAAAAaBiQWn4"
+      },
+      {
+        "name": "part_inventory_risk",
+        "catalog_name": "main",
+        "schema_name": "supply_agentic_demo",
+        "data_type": "TABLE_TYPE",
+        "full_data_type": "(part_id STRING, part_name STRING, criticality STRING, total_on_hand INT, min_days_of_supply DOUBLE, supplier_name STRING, supplier_risk STRING, lead_time_days INT, risk_flag STRING)",
+        "routine_body": "SQL",
+        "routine_definition": "SELECT p.part_id, p.part_name, p.criticality, CAST(SUM(i.on_hand_qty) AS INT), MIN(i.days_of_supply),\n         s.supplier_name, s.risk_rating, p.lead_time_days,\n         CASE WHEN MIN(i.days_of_supply) < 10 OR s.risk_rating = 'High' THEN 'AT RISK'\n              WHEN MIN(i.days_of_supply) < 25 THEN 'WATCH' ELSE 'OK' END\n  FROM parts_master p\n  LEFT JOIN inventory i ON p.part_id = i.part_id\n  LEFT J...<trimmed>",
+        "parameter_style": "S",
+        "is_deterministic": true,
+        "sql_data_access": "READS_SQL_DATA",
+        "security_type": "DEFINER",
+        "specific_name": "part_inventory_risk",
+        "owner": "admin@example.com",
+        "comment": "Material impact and planning risk for a part: inventory position, supplier risk, lead time and an overall AT RISK / WATCH / OK flag.",
+        "properties": "{\"sqlConfig.spark.databricks.sql.functions.aiFunctions.batchSession.terminate.enabled\":\"true\",\"sqlConfig.spark.sql.scripting.maxNumberOfCharacters\":\"1000000\",\"sqlConfig.spark.sql.ansi.enforceReservedKeywords\":\"false\",\"sqlConfig.spark.sql.streaming.optimizer.subqueryEarlyUnnesting.enabled\":\"false\",\"s",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+        "full_name": "main.supply_agentic_demo.part_inventory_risk",
+        "created_at": 1788354825579,
+        "created_by": "admin@example.com",
+        "updated_at": 1788354825579,
+        "updated_by": "admin@example.com",
+        "function_id": "b5898551-6211-45b8-93a3-5be0aefb91ea",
+        "securable_type": "FUNCTION",
+        "securable_kind": "FUNCTION_STANDARD",
+        "cache_version_info": {
+          "metastore_version": -1
+        },
+        "etag": "CAESCAAAAaBiQQ1r"
+      }
+    ]
+  },
+  "get_one": {
+    "path": "GET /api/2.1/unity-catalog/functions/main.supply_agentic_demo.ebom_mbom_gaps",
+    "http": 200,
+    "keys": [
+      "name",
+      "catalog_name",
+      "schema_name",
+      "data_type",
+      "full_data_type",
+      "routine_body",
+      "routine_definition",
+      "parameter_style",
+      "is_deterministic",
+      "sql_data_access",
+      "security_type",
+      "specific_name",
+      "return_params",
+      "owner",
+      "comment",
+      "properties",
+      "metastore_id",
+      "full_name",
+      "created_at",
+      "created_by",
+      "updated_at",
+      "updated_by",
+      "function_id",
+      "securable_type",
+      "securable_kind",
+      "cache_version_info",
+      "etag"
+    ]
+  },
+  "permissions": {
+    "path": "GET /api/2.1/unity-catalog/permissions/function/main.supply_agentic_demo.ebom_mbom_gaps",
+    "http": 200,
+    "body": {}
+  },
+  "effective_permissions": {
+    "path": "GET /api/2.1/unity-catalog/effective-permissions/function/main.supply_agentic_demo.ebom_mbom_gaps",
+    "http": 200,
+    "body": {
+      "privilege_assignments": [
+        {
+          "principal": "account users",
+          "privileges": [
+            {
+              "privilege": "ALL_PRIVILEGES",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            },
+            {
+              "privilege": "MANAGE",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            },
+            {
+              "privilege": "READ_METADATA",
+              "inherited_from_type": "METASTORE",
+              "inherited_from_name": "metastore_aws_us_east_1"
+            }
+          ]
+        },
+        {
+          "principal": "user70@example.com",
+          "privileges": [
+            {
+              "privilege": "READ_METADATA",
+              "inherited_from_type": "METASTORE",
+              "inherited_from_name": "metastore_aws_us_east_1"
+            }
+          ]
+        }
+      ],
+      "total_assignments": 2
+    }
+  },
+  "system_ai_functions": {
+    "http": 200,
+    "count": 16,
+    "names": [
+      "ai_analyze_sentiment",
+      "ai_classify",
+      "ai_decide",
+      "ai_enrich",
+      "ai_extract",
+      "ai_fix_grammar",
+      "ai_gen",
+      "ai_mask",
+      "ai_parse_document",
+      "ai_prep_search",
+      "ai_search",
+      "ai_similarity",
+      "ai_summarize",
+      "ai_transcribe",
+      "ai_translate",
+      "python_exec"
+    ]
+  }
+}

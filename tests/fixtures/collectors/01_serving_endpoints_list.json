@@ -1,0 +1,552 @@
+{
+  "probe": "GET /api/2.0/serving-endpoints",
+  "http": 200,
+  "endpoint_count": 208,
+  "count_by_task": {
+    "agent/v1/responses": 80,
+    "llm/v1/chat": 59,
+    "None": 56,
+    "agent/v1/chat": 9,
+    "llm/v1/embeddings": 3,
+    "llm/v1/systemone": 1
+  },
+  "count_by_endpoint_type": {
+    "None": 148,
+    "FOUNDATION_MODEL_API": 56,
+    "EXTERNAL_MODEL": 4
+  },
+  "count_by_tile_problem_type": {
+    "None": 123,
+    "MULTI_AGENT_SUPERVISOR": 41,
+    "KNOWLEDGE_ASSISTANT": 33,
+    "INFORMATION_EXTRACTION": 10,
+    "MODEL_SPECIALIZATION": 1
+  },
+  "count_by_state_ready": {
+    "READY": 201,
+    "NOT_READY": 7
+  },
+  "with_ai_gateway": 17,
+  "with_guardrails": 4,
+  "with_tags": 45,
+  "with_MONITOR_EXPERIMENT_ID_tag": 8,
+  "examples": [
+    {
+      "name": "ads-ai-gateway",
+      "creator": "admin@example.com",
+      "creation_timestamp": 1786602113000,
+      "last_updated_timestamp": 1786602113000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {
+        "served_entities": [
+          {
+            "name": "reasoning",
+            "type": "EXTERNAL_MODEL",
+            "external_model": {
+              "provider": "databricks-model-serving",
+              "name": "databricks-meta-llama-3-3-70b-instruct",
+              "task": "llm/v1/chat"
+            }
+          }
+        ]
+      },
+      "id": "4b09ff3ed58b41cb9e4cf823573419a7",
+      "route_optimized": false,
+      "task": "llm/v1/chat",
+      "endpoint_type": "EXTERNAL_MODEL",
+      "permission_level": "CAN_MANAGE",
+      "ai_gateway": {
+        "usage_tracking_config": {
+          "enabled": true
+        },
+        "inference_table_config": {
+          "catalog_name": "main",
+          "schema_name": "ads_audit",
+          "table_name_prefix": "gateway_native",
+          "enabled": true
+        },
+        "rate_limits": [
+          {
+            "calls": 300,
+            "key": "endpoint",
+            "renewal_period": "minute"
+          }
+        ],
+        "guardrails": {
+          "input": {
+            "safety": false,
+            "pii_detection": true,
+            "pii": {
+              "behavior": "MASK"
+            }
+          },
+          "output": {
+            "safety": false,
+            "pii_detection": true,
+            "pii": {
+              "behavior": "MASK"
+            }
+          }
+        }
+      },
+      "creator_display_name": "Surya Sai Turaga",
+      "creator_kind": "User",
+      "description": ""
+    },
+    {
+      "name": "agent_eval_demo_coordinator",
+      "creator": "user01@example.com",
+      "creation_timestamp": 1785095410000,
+      "last_updated_timestamp": 1785207786000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING",
+        "suspend": "NOT_SUSPENDED",
+        "system_update_failure": false
+      },
+      "config": {
+        "served_entities": [
+          {
+            "name": "payer_coordinator_agent-1",
+            "entity_name": "ppareek.agent_eval_demo.payer_coordinator_agent",
+            "entity_version": "1",
+            "type": "UC_MODEL"
+          }
+        ],
+        "served_models": [
+          {
+            "name": "payer_coordinator_agent-1",
+            "model_name": "ppareek.agent_eval_demo.payer_coordinator_agent",
+            "model_version": "1",
+            "type": "UC_MODEL"
+          }
+        ]
+      },
+      "tags": [
+        {
+          "key": "environment",
+          "value": "dev"
+        },
+        {
+          "key": "MONITOR_EXPERIMENT_ID",
+          "value": "2103506480290820"
+        },
+        {
+          "key": "project",
+          "value": "agent_eval_demo"
+        }
+      ],
+      "id": "3b42e07b26d442f481225ba07ac05c9c",
+      "route_optimized": false,
+      "task": "agent/v1/responses",
+      "permission_level": "CAN_MANAGE",
+      "ai_gateway": {
+        "usage_tracking_config": {
+          "enabled": false
+        },
+        "inference_table_config": {
+          "catalog_name": "ppareek",
+          "schema_name": "agent_eval_demo",
+          "table_name_prefix": "payer_coordinator_agent",
+          "enabled": true
+        }
+      },
+      "creator_display_name": "Pulkit Pareek",
+      "creator_kind": "User",
+      "description": ""
+    },
+    {
+      "name": "agents_main-guanyu_chen-multi_agent_langgraph",
+      "creator": "user08@example.com",
+      "creation_timestamp": 1773357194000,
+      "last_updated_timestamp": 1773694980000,
+      "state": {
+        "ready": "NOT_READY",
+        "config_update": "UPDATE_FAILED",
+        "suspend": "NOT_SUSPENDED",
+        "system_update_failure": false
+      },
+      "config": {},
+      "tags": [
+        {
+          "key": "MONITOR_EXPERIMENT_ID",
+          "value": "2209926754791906"
+        }
+      ],
+      "id": "e96592d3b7bb4c50bc02b294b22c0ba6",
+      "route_optimized": false,
+      "permission_level": "CAN_MANAGE",
+      "ai_gateway": {
+        "usage_tracking_config": {
+          "enabled": false
+        },
+        "inference_table_config": {
+          "catalog_name": "main",
+          "schema_name": "guanyu_chen",
+          "table_name_prefix": "multi_agent_langgraph",
+          "enabled": true
+        }
+      },
+      "creator_display_name": "Guanyu Chen",
+      "creator_kind": "User",
+      "description": ""
+    },
+    {
+      "name": "agents_main-guanyu_chen-simple_rag_agent",
+      "creator": "user08@example.com",
+      "creation_timestamp": 1772142447000,
+      "last_updated_timestamp": 1781179122000,
+      "state": {
+        "ready": "NOT_READY",
+        "config_update": "UPDATE_FAILED",
+        "suspend": "NOT_SUSPENDED",
+        "system_update_failure": false
+      },
+      "config": {
+        "served_entities": [
+          {
+            "name": "main-guanyu_chen-simple_rag_agent_10",
+            "entity_name": "main.guanyu_chen.simple_rag_agent",
+            "entity_version": "10",
+            "type": "UC_MODEL"
+          }
+        ],
+        "served_models": [
+          {
+            "name": "main-guanyu_chen-simple_rag_agent_10",
+            "model_name": "main.guanyu_chen.simple_rag_agent",
+            "model_version": "10",
+            "type": "UC_MODEL"
+          }
+        ]
+      },
+      "tags": [
+        {
+          "key": "MONITOR_EXPERIMENT_ID",
+          "value": "4474659946806451"
+        }
+      ],
+      "id": "282f01dec02348b982df24054dc94f4e",
+      "route_optimized": false,
+      "task": "agent/v1/chat",
+      "permission_level": "CAN_MANAGE",
+      "ai_gateway": {
+        "usage_tracking_config": {
+          "enabled": false
+        },
+        "inference_table_config": {
+          "catalog_name": "main",
+          "schema_name": "guanyu_chen",
+          "table_name_prefix": "simple_rag_agent",
+          "enabled": true
+        }
+      },
+      "creator_display_name": "Guanyu Chen",
+      "creator_kind": "User",
+      "description": ""
+    },
+    {
+      "name": "appeal-overturn-model",
+      "creator": "user09@example.com",
+      "creation_timestamp": 1790130931000,
+      "last_updated_timestamp": 1790130931000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING",
+        "suspend": "NOT_SUSPENDED",
+        "system_update_failure": false
+      },
+      "config": {
+        "served_entities": [
+          {
+            "name": "champion",
+            "entity_name": "main.appeals_ml.appeal_overturn_model",
+            "entity_version": "3",
+            "type": "UC_MODEL"
+          }
+        ],
+        "served_models": [
+          {
+            "name": "champion",
+            "model_name": "main.appeals_ml.appeal_overturn_model",
+            "model_version": "3",
+            "type": "UC_MODEL"
+          }
+        ]
+      },
+      "id": "f165fa5392b4403e84c7080bced3e816",
+      "route_optimized": false,
+      "permission_level": "CAN_MANAGE",
+      "creator_display_name": "Raven Mukherjee",
+      "creator_kind": "User",
+      "description": ""
+    },
+    {
+      "name": "ka-0445f231-endpoint",
+      "creator": "user03@example.com",
+      "creation_timestamp": 1766119622000,
+      "last_updated_timestamp": 1766119622000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {},
+      "id": "03d6990659de4764a05e25689fdca3cd",
+      "route_optimized": false,
+      "task": "agent/v1/responses",
+      "permission_level": "CAN_MANAGE",
+      "creator_display_name": "Christopher Messer",
+      "creator_kind": "User",
+      "tile_endpoint_metadata": {
+        "tile_id": "0445f231-aa3c-4107-a2cd-3e67e3db55c6",
+        "tile_model_name": "ka-base-model-2423db5a",
+        "problem_type": "KNOWLEDGE_ASSISTANT"
+      },
+      "description": ""
+    },
+    {
+      "name": "kie-000ddc00-endpoint",
+      "creator": "user03@example.com",
+      "creation_timestamp": 1769464667000,
+      "last_updated_timestamp": 1769479446000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING",
+        "suspend": "NOT_SUSPENDED",
+        "system_update_failure": false
+      },
+      "config": {},
+      "id": "39d032522c6a457191c69b7343614365",
+      "route_optimized": false,
+      "task": "agent/v1/chat",
+      "permission_level": "CAN_MANAGE",
+      "creator_display_name": "Christopher Messer",
+      "creator_kind": "User",
+      "tile_endpoint_metadata": {
+        "tile_id": "000ddc00-db2a-48cf-8d2c-6a6d734d5c9f",
+        "tile_model_name": "kie-base-model-26ba204b",
+        "problem_type": "INFORMATION_EXTRACTION"
+      },
+      "description": ""
+    },
+    {
+      "name": "kie-1fbbf5ec-endpoint",
+      "creator": "user08@example.com",
+      "creation_timestamp": 1773707284000,
+      "last_updated_timestamp": 1773707284000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {},
+      "id": "633a2fe778764e49bd854705474a1257",
+      "route_optimized": false,
+      "task": "llm/v1/chat",
+      "permission_level": "CAN_MANAGE",
+      "creator_display_name": "Guanyu Chen",
+      "creator_kind": "User",
+      "tile_endpoint_metadata": {
+        "tile_id": "1fbbf5ec-924d-42c4-bc8b-7ea94fdbbfa9",
+        "tile_model_name": "kie-base-model-7df22a67",
+        "problem_type": "INFORMATION_EXTRACTION"
+      },
+      "description": ""
+    },
+    {
+      "name": "mas-0849ad0e-endpoint",
+      "creator": "user02@example.com",
+      "creation_timestamp": 1773412408000,
+      "last_updated_timestamp": 1773412408000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {},
+      "id": "05c608a8e8b944c5b6282e6f282ef144",
+      "route_optimized": false,
+      "task": "agent/v1/responses",
+      "permission_level": "CAN_MANAGE",
+      "creator_display_name": "Anna C. Smith",
+      "creator_kind": "User",
+      "tile_endpoint_metadata": {
+        "tile_id": "0849ad0e-fe02-4fdc-94f0-6569632d2d59",
+        "tile_model_name": "mas-base-model-178f2777",
+        "problem_type": "MULTI_AGENT_SUPERVISOR"
+      },
+      "description": ""
+    },
+    {
+      "name": "t2t-de6faa1d-endpoint",
+      "creator": "user01@example.com",
+      "creation_timestamp": 1774373032000,
+      "last_updated_timestamp": 1774373032000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING",
+        "suspend": "NOT_SUSPENDED",
+        "system_update_failure": false
+      },
+      "config": {},
+      "id": "c162072d6bf940029aa509468f75ec7c",
+      "route_optimized": false,
+      "task": "agent/v1/chat",
+      "permission_level": "CAN_MANAGE",
+      "creator_display_name": "Pulkit Pareek",
+      "creator_kind": "User",
+      "tile_endpoint_metadata": {
+        "tile_id": "de6faa1d-2543-462b-b5a3-9153989a8e29",
+        "tile_model_name": "t2t-base-model-ddbe34a6",
+        "problem_type": "MODEL_SPECIALIZATION"
+      },
+      "description": ""
+    },
+    {
+      "name": "databricks-gpt-6-1-sol",
+      "creation_timestamp": 1790640000000,
+      "last_updated_timestamp": 1790640000000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {
+        "served_entities": [
+          {
+            "name": "databricks-gpt-6-1-sol",
+            "entity_name": "system.ai.databricks-gpt-6-1-sol",
+            "type": "FOUNDATION_MODEL",
+            "foundation_model": {
+              "name": "system.ai.databricks-gpt-6-1-sol",
+              "display_name": "GPT-6.1 Sol",
+              "docs": "https://docs.databricks.com/machine-learning/foundation-mode",
+              "description": "GPT-6.1 Sol is OpenAI's upgrade to GPT-6 Sol, with strong performance on agentic coding, computer use, and professional ",
+              "price": "142.857143",
+              "input_price": "28.571429",
+              "price_unit": "DBUs per 1M tokens",
+              "pricing_model": "Pay-per-token",
+              "model_class": "gpt",
+              "api_types": [
+                "mlflow/v1/chat/completions",
+                "openai/v1/responses",
+                "cursor/v1/chat/completions",
+                "mlflow/v1/responses",
+                "codex/v1/responses",
+                "anthropic/v1/messages"
+              ],
+              "ai_gateway_v2_supported": true
+            }
+          }
+        ]
+      },
+      "task": "llm/v1/chat",
+      "endpoint_type": "FOUNDATION_MODEL_API",
+      "permission_level": "CAN_MANAGE",
+      "capabilities": {
+        "function_calling": true,
+        "openai_reasoning": true,
+        "anthropic_reasoning": false,
+        "image_input": true,
+        "long_context": true,
+        "video_input_translation": false,
+        "audio_input_translation": false,
+        "image_output": false,
+        "priority_processing": true
+      }
+    },
+    {
+      "name": "databricks-gte-large-en",
+      "creation_timestamp": 1699610000000,
+      "last_updated_timestamp": 1699610000000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {
+        "served_entities": [
+          {
+            "name": "databricks-gte-large-en",
+            "entity_name": "system.ai.gte_large_en_v1_5",
+            "type": "FOUNDATION_MODEL",
+            "foundation_model": {
+              "name": "system.ai.gte_large_en_v1_5",
+              "display_name": "GTE Large (En)",
+              "docs": "https://docs.databricks.com/machine-learning/foundation-mode",
+              "description": "General text embeddings (GTE) can map any text to a low-dimensional dense vector which can be used for tasks like retrie",
+              "price": "1.857",
+              "input_price": "1.857",
+              "price_unit": "DBUs per 1M tokens",
+              "pricing_model": "Pay-per-token",
+              "model_class": "gte",
+              "api_types": [
+                "mlflow/v1/embeddings"
+              ],
+              "ai_gateway_v2_supported": true
+            }
+          }
+        ]
+      },
+      "task": "llm/v1/embeddings",
+      "endpoint_type": "FOUNDATION_MODEL_API",
+      "permission_level": "CAN_MANAGE",
+      "capabilities": {
+        "function_calling": false,
+        "openai_reasoning": false,
+        "anthropic_reasoning": false,
+        "image_input": false,
+        "long_context": false,
+        "video_input_translation": false,
+        "audio_input_translation": false,
+        "image_output": false,
+        "priority_processing": false
+      }
+    },
+    {
+      "name": "databricks-openjev-qwen35-4b",
+      "creation_timestamp": 1790812800000,
+      "last_updated_timestamp": 1790812800000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {
+        "served_entities": [
+          {
+            "name": "databricks-openjev-qwen35-4b",
+            "entity_name": "system.ai.databricks-openjev-qwen35-4b",
+            "type": "FOUNDATION_MODEL",
+            "foundation_model": {
+              "name": "system.ai.databricks-openjev-qwen35-4b",
+              "display_name": "OpenJev (Qwen 3.5 4B)",
+              "docs": "https://docs.databricks.com/machine-learning/foundation-mode",
+              "description": "OpenJev (Qwen 3.5 4B) evaluates yes/no, choice, and scoring questions about text or structured data, returning structure",
+              "input_price": "0.6",
+              "price_unit": "DBUs per 1M tokens",
+              "pricing_model": "Pay-per-token",
+              "model_class": "qwen",
+              "api_types": [
+                "typesafe/v1/systemone"
+              ],
+              "ai_gateway_v2_supported": false
+            }
+          }
+        ]
+      },
+      "task": "llm/v1/systemone",
+      "endpoint_type": "FOUNDATION_MODEL_API",
+      "permission_level": "CAN_MANAGE",
+      "capabilities": {
+        "function_calling": false,
+        "openai_reasoning": false,
+        "anthropic_reasoning": false,
+        "image_input": false,
+        "long_context": false,
+        "video_input_translation": false,
+        "audio_input_translation": false,
+        "image_output": false,
+        "priority_processing": false
+      }
+    }
+  ]
+}

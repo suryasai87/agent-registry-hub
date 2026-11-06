@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Databricks Release Notes</title>
+        <link>https://docs.databricks.com/aws/en/release-notes</link>
+        <description>Databricks Release Notes updates</description>
+        <lastBuildDate>Fri, 23 Oct 2026 21:35:53 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>rssFeed.ts</generator>
+        <language>en-us</language>
+        <copyright>© Databricks 2026. All rights reserved. Apache, Apache Spark, Spark and the Spark logo are trademarks of the Apache Software Foundation.</copyright>
+        <item>
+            <title><![CDATA[DataFrame caching on serverless compute is now in Public Preview]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/serverless#dataframe-caching-on-serverless-compute-is-now-in-public-preview</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/serverless#dataframe-caching-on-serverless-compute-is-now-in-public-preview</guid>
+            <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>DataFrame caching on serverless compute is now in <a href="/aws/en/release-notes/release-types">Public Preview</a>. You can cache a DataFrame with <code>df.cache()</code> or <code>df.persist()</code> on serverless compute to reuse an expensive result for the rest of your session. Caching requires serverless environment version 5 or above, Databricks Connect for Python 18.1.8 or above, or Databricks Connect for Scala 18.1.5 or above. The preview is enabled by default for most workspaces. Workspace admins can disable it from the <strong>Previews</strong> page. See <a href="/aws/en/compute/serverless/dataframe-cache">Cache DataFrames on serverless compute</a>.</p>]]></description>
+            <category>Serverless</category>
+        </item>
+<item>
+            <title><![CDATA[DataFrame caching on serverless compute is now in Public Preview]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#dataframe-caching-on-serverless-compute-is-now-in-public-preview</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#dataframe-caching-on-serverless-compute-is-now-in-public-preview</guid>
+            <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>DataFrame caching on serverless compute is now in <a href="/aws/en/release-notes/release-types">Public Preview</a>. You can cache a DataFrame with <code>df.cache()</code> or <code>df.persist()</code> on serverless compute to reuse an expensive result for the rest of your session. Caching requires serverless environment version 5 or above, Databricks Connect for Python 18.1.8 or above, or Databricks Connect for Scala 18.1.5 or above. The preview is enabled by default for most workspaces. Workspace admins can disable it from the <strong>Previews</strong> page. See <a href="/aws/en/compute/serverless/dataframe-cache">Cache DataFrames on serverless compute</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Compute</category>
+            <category>Serverless</category>
+        </item>
+<item>
+            <title><![CDATA[Google Analytics Aggregated connector is available in Beta]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#google-analytics-aggregated-connector-is-available-in-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#google-analytics-aggregated-connector-is-available-in-beta</guid>
+            <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The managed <a href="/aws/en/ingestion/lakeflow-connect/google-analytics-aggregated">Google Analytics Aggregated connector</a> is now available in Lakeflow Connect in <a href="/aws/en/release-notes/release-types">Beta</a>. Workspace admins can control access to this feature from the <strong>Previews</strong> page.</p>
+<p>Use the connector to ingest aggregated Google Analytics 4 report data, such as user activity, acquisition, engagement, monetization, demographics, and tech reports, into Databricks. You can also define custom reports with your own dimensions, metrics, and aggregation level. The connector supports incremental ingestion and both service account and OAuth user-to-machine (U2M) authentication.</p>]]></description>
+            <category>Product</category>
+            <category>Ingestion</category>
+            <category>Lakeflow Connect</category>
+        </item>
+<item>
+            <title><![CDATA[Files API 3.0 for Unity Catalog volumes is now in Beta]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#files-api-30-for-unity-catalog-volumes-is-now-in-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#files-api-30-for-unity-catalog-volumes-is-now-in-beta</guid>
+            <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Files API 3.0 is in <a href="/aws/en/release-notes/release-types">Beta</a> and introduces two new capabilities:</p>
+<ul>
+<li><strong>Multipart uploads:</strong> Upload files larger than 5 GB to Unity Catalog volumes.</li>
+<li><strong>Conditional operations:</strong> Upload, download, and delete files based on their current version to prevent unintended changes.</li>
+</ul>
+<p>For more information, see <a href="/aws/en/volumes/files-api">What is Files API?</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Catalog</category>
+        </item>
+<item>
+            <title><![CDATA[Box Audit Logs managed ingestion connector (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#box-audit-logs-managed-ingestion-connector-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#box-audit-logs-managed-ingestion-connector-beta</guid>
+            <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The Box Audit Logs connector in Lakeflow Connect is now available in Beta. Use the connector to ingest enterprise audit events from Box into Databricks. See <a href="/aws/en/ingestion/lakeflow-connect/box-audit-logs">Box Audit Logs connector</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Ingestion</category>
+            <category>Lakeflow Connect</category>
+        </item>
+<item>
+            <title><![CDATA[Genie One enhancements]]></title>
+            <link>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#genie-one-enhancements</link>
+            <guid>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#genie-one-enhancements</guid>
+            <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<ul>
+<li><strong>Conversation outline</strong>: Use the conversation outline along the left edge of Genie One conversations to jump between your messages. Hover over a tick in the outline to preview a message and the start of its response. See <a href="/aws/en/genie-one/chat#navigate-conversation">Navigate a long conversation</a>.</li>
+<li><strong>Upload skills (Public Preview)</strong>: You can now click <strong>Upload skills</strong> to upload your existing skill files and folders to your skills folder in the workspace. See <a href="/aws/en/genie-one/chat#upload-skills">Upload a skill</a>.</li>
+<li><strong>Snippets from external tool queries (Public Preview)</strong>: Genie Ontology now also extracts snippets from queries that <a href="/aws/en/integrations">external tools</a>, such as dbt, run on Databricks. These runs appear in <a href="/aws/en/sql/user/queries/query-history">query history</a> alongside queries that you run in Databricks. See <a href="/aws/en/genie/genie-ontology">Genie Ontology</a>.</li>
+<li><strong>Remembered sign-in email in the Genie mobile app (Public Preview)</strong>: The Genie mobile app now remembers the email address of the last user who signed in and prefills it at the next sign-in. See <a href="/aws/en/genie-one/mobile">Use Genie on mobile</a>.</li>
+</ul>]]></description>
+            <category>aibi</category>
+            <category>genie</category>
+        </item>
+<item>
+            <title><![CDATA[Dashboard enhancements]]></title>
+            <link>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#dashboard-enhancements</link>
+            <guid>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#dashboard-enhancements</guid>
+            <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<ul>
+<li><strong>Private bookmarks</strong>: Dashboard viewers can now save filter combinations as private bookmarks to return to later. Private bookmarks are visible only to the user who creates them. See <a href="/aws/en/dashboards/manage#private-bookmarks">Save a private bookmark</a>.</li>
+<li><strong>Bulk import from Power BI and Tableau</strong>: Genie Code can now import up to 100 Power BI or Tableau files at a time as AI/BI dashboards and metric views. See <a href="/aws/en/dashboards/manage/import-bi#bulk-import">Import multiple files in bulk</a>.</li>
+<li><strong>Field picker tooltips</strong>: Hovering over a field or measure name in the field picker now shows its full name in a tooltip.</li>
+<li><strong>Layered combo charts</strong>: Authors can now build combo charts from separate chart layers. See <a href="/aws/en/dashboards/manage/visualizations/types#combo">Combo chart</a>.</li>
+<li><strong>Custom waterfall totals</strong>: Authors can now customize totals on waterfall charts. See <a href="/aws/en/dashboards/manage/visualizations/types#waterfall">Waterfall chart</a>.</li>
+<li><strong>Sankey label improvements</strong>: Labels on Sankey diagrams now overlap less.</li>
+</ul>]]></description>
+            <category>aibi</category>
+            <category>dashboards</category>
+        </item>
+<item>
+            <title><![CDATA[Serverless job environments from pyproject.toml (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#serverless-job-environments-from-pyprojecttoml-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#serverless-job-environments-from-pyprojecttoml-beta</guid>
+            <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Serverless notebook and Python script tasks can use a <code>pyproject.toml</code> file to configure their job environment. Configure the project environment in the Jobs UI, the Jobs API, or a bundle. Workspace admins can enable <strong>Project-Scoped Shared Compute</strong> on the <a href="/aws/en/admin/workspace-settings/manage-previews"><strong>Previews</strong> page</a>. See <a href="/aws/en/compute/serverless/dependencies#project-environment">Configure a project environment with <code>pyproject.toml</code></a>.</p>]]></description>
+            <category>Product</category>
+            <category>Jobs</category>
+        </item>
+<item>
+            <title><![CDATA[Shared Serverless for Asset Bundles (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#shared-serverless-for-asset-bundles-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#shared-serverless-for-asset-bundles-beta</guid>
+            <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>With Shared Serverless for Asset Bundles, notebooks and files in the same bundle can share serverless compute and an environment defined in the bundle-root <code>pyproject.toml</code> file. Workspace admins can enable <strong>Project-Scoped Shared Compute</strong> on the <a href="/aws/en/admin/workspace-settings/manage-previews"><strong>Previews</strong> page</a>. See <a href="/aws/en/compute/serverless/notebooks/shared-serverless#asset-bundles-serverless">Shared Serverless for Asset Bundles</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Compute</category>
+            <category>Bundles</category>
+        </item>
+<item>
+            <title><![CDATA[Microsoft Entra ID connector is available in Beta]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#microsoft-entra-id-connector-is-available-in-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#microsoft-entra-id-connector-is-available-in-beta</guid>
+            <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The managed <a href="/aws/en/ingestion/lakeflow-connect/microsoft-entra-id">Microsoft Entra ID connector</a> is now available in Beta in Databricks Lakeflow Connect.</p>
+<p>Use the connector to ingest Microsoft Entra ID users, groups, applications, service principals, directory roles, identity configuration, and audit and sign-in logs into Databricks. The connector uses OAuth machine-to-machine authentication and supports incremental ingestion for audit and sign-in logs.</p>]]></description>
+            <category>Product</category>
+            <category>Ingestion</category>
+            <category>Lakeflow Connect</category>
+        </item>
+<item>
+            <title><![CDATA[Genie Code tasks in Lakeflow Jobs are available by default for workspaces with the compliance security profile enabled starting in November 2026]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/whats-coming#genie-code-tasks-in-lakeflow-jobs-are-available-by-default-for-workspaces-with-the-compliance-security-profile-enabled-starting-in-november-2026</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/whats-coming#genie-code-tasks-in-lakeflow-jobs-are-available-by-default-for-workspaces-with-the-compliance-security-profile-enabled-starting-in-november-2026</guid>
+            <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Starting in November 2026, Genie Code tasks in Lakeflow Jobs are available by default for workspaces with the <a href="/aws/en/security/privacy/security-profile">compliance security profile</a> enabled.</p>
+<p>A Genie Code task runs your prompt autonomously as part of a job. It can read upstream task outputs and call tools as needed, and it returns a link to the resulting Genie Code chat with its response.</p>
+<p>See <a href="/aws/en/jobs/tasks/genie-code">Genie Code task for jobs</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Genie Code</category>
+            <category>Jobs</category>
+            <category>Security</category>
+            <category>whatscoming</category>
+        </item>
+<item>
+            <title><![CDATA[Screen MCP tool calls and results for jailbreaks (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#screen-mcp-tool-calls-and-results-for-jailbreaks-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#screen-mcp-tool-calls-and-results-for-jailbreaks-beta</guid>
+            <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now screen MCP tool calls and their results in Unity Gateway for jailbreak and prompt injection attempts. Apply the <strong>Jailbreak</strong> guardrail on input, output, or both. See <a href="/aws/en/data-governance/unity-catalog/service-policies/create-service-policy#use-a-built-in-policy">Attach a built-in policy</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+            <category>Security</category>
+        </item>
+<item>
+            <title><![CDATA[Screen MCP tool calls and results for jailbreaks (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#screen-mcp-tool-calls-and-results-for-jailbreaks-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#screen-mcp-tool-calls-and-results-for-jailbreaks-beta</guid>
+            <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now screen MCP tool calls and their results in Unity Gateway for jailbreak and prompt injection attempts. Apply the <strong>Jailbreak</strong> guardrail on input, output, or both. See <a href="/aws/en/data-governance/unity-catalog/service-policies/create-service-policy#use-a-built-in-policy">Attach a built-in policy</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+            <category>Security</category>
+        </item>
+<item>
+            <title><![CDATA[Lakeflow pipelines system tables are now generally available (GA)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#lakeflow-pipelines-system-tables-are-now-generally-available-ga</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#lakeflow-pipelines-system-tables-are-now-generally-available-ga</guid>
+            <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The <code>lakeflow</code> system tables <code>pipelines</code> and <code>pipeline_update_timeline</code> are now generally available. These tables record the pipelines and pipeline updates in your account.</p>
+<p>For a reference of these tables, see <a href="/aws/en/admin/system-tables/jobs">Jobs system table reference</a>.</p>]]></description>
+            <category>Product</category>
+            <category>System Tables</category>
+        </item>
+<item>
+            <title><![CDATA[Genie Code tasks in Lakeflow Jobs are now generally available]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#genie-code-tasks-in-lakeflow-jobs-are-now-generally-available</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#genie-code-tasks-in-lakeflow-jobs-are-now-generally-available</guid>
+            <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Genie Code tasks in Lakeflow Jobs are now generally available. A Genie Code task runs your prompt autonomously as part of a job. It can read upstream task outputs and call tools as needed, and it returns a link to the resulting Genie Code chat with its response. See <a href="/aws/en/jobs/tasks/genie-code">Genie Code task for jobs</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Genie Code</category>
+            <category>Jobs</category>
+        </item>
+<item>
+            <title><![CDATA[SurveyMonkey connector is available in Beta]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#surveymonkey-connector-is-available-in-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#surveymonkey-connector-is-available-in-beta</guid>
+            <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The managed <a href="/aws/en/ingestion/lakeflow-connect/surveymonkey">SurveyMonkey connector</a> is now available in Lakeflow Connect in <a href="/aws/en/release-notes/release-types">Beta</a>. Workspace admins can control access to this feature from the <strong>Previews</strong> page.</p>
+<p>Use the connector to ingest surveys, survey structure, collectors, survey responses, and contacts from SurveyMonkey into Databricks. The connector uses OAuth user-to-machine (U2M) authentication and supports incremental ingestion, UI-based pipeline authoring, Declarative Automation Bundles, and API-based pipeline authoring.</p>]]></description>
+            <category>Product</category>
+            <category>Ingestion</category>
+            <category>Lakeflow Connect</category>
+        </item>
+<item>
+            <title><![CDATA[Oracle Eloqua connector is available in Beta]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#oracle-eloqua-connector-is-available-in-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#oracle-eloqua-connector-is-available-in-beta</guid>
+            <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The managed <a href="/aws/en/ingestion/lakeflow-connect/oracle-eloqua">Oracle Eloqua connector</a> is now available in Lakeflow Connect in <a href="/aws/en/release-notes/release-types">Beta</a>. Workspace admins can control access to this feature from the <strong>Previews</strong> page.</p>
+<p>Use the connector to ingest marketing data such as contacts, accounts, campaigns, email and form assets, form submissions, events, and website visitors from Oracle Eloqua into Databricks. The connector uses OAuth user-to-machine (U2M) authentication and supports incremental ingestion, UI-based pipeline authoring, Declarative Automation Bundles, and API-based pipeline authoring.</p>]]></description>
+            <category>Product</category>
+            <category>Ingestion</category>
+            <category>Lakeflow Connect</category>
+        </item>
+<item>
+            <title><![CDATA[Asana connector is available in Beta]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#asana-connector-is-available-in-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#asana-connector-is-available-in-beta</guid>
+            <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The managed <a href="/aws/en/ingestion/lakeflow-connect/asana">Asana connector</a> is now available in Lakeflow Connect in <a href="/aws/en/release-notes/release-types">Beta</a>. Workspace admins can control access to this feature from the <strong>Previews</strong> page.</p>
+<p>Use the connector to ingest work management data such as workspaces, teams, projects, tasks, portfolios, and goals from Asana into Databricks. The connector uses OAuth user-to-machine (U2M) authentication.</p>]]></description>
+            <category>Product</category>
+            <category>Ingestion</category>
+            <category>Lakeflow Connect</category>
+        </item>
+<item>
+            <title><![CDATA[Lakebase Insights moves to per-project settings, with on-demand runs (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/lakebase#lakebase-insights-moves-to-per-project-settings-with-on-demand-runs-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/lakebase#lakebase-insights-moves-to-per-project-settings-with-on-demand-runs-beta</guid>
+            <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Lakebase Insights now diagnoses issues using telemetry from the <code>system.lakebase</code> system tables and recommends next steps. The <strong>Lakebase Insights</strong> workspace preview enables automatic telemetry capture. Users with <strong>CAN MANAGE</strong> can configure Insights directly in each project's <strong>Settings</strong>, without creating an observability configuration.</p>
+<p>This preview was previously named <strong>Lakebase Advanced Postgres Telemetry</strong>. Workspaces that used Insights before already have it enabled. To set up Insights:</p>
+<ul>
+<li>If the preview isn't already enabled, ask a workspace admin to enable <strong>Lakebase Insights</strong> from the <a href="/aws/en/admin/workspace-settings/manage-previews">Previews page</a>. Insights needs telemetry in <code>system.lakebase</code> to analyze a project, so enabling the Insights preview also enables <strong>Lakebase Observability in System Tables</strong> if it isn't already enabled. Workspace admins can enable the observability preview separately to capture telemetry without Insights.</li>
+<li>To schedule Insights runs for a project, you need <strong>CAN MANAGE</strong> on that project. Enable Insights and set its analysis frequency in <strong>Settings</strong>.</li>
+<li>You can run Insights on demand at any time, with or without a schedule.</li>
+</ul>
+<p>If you scheduled Insights through an observability configuration, those jobs have stopped. Their schedules do not carry over. Those configurations no longer write telemetry to their Unity Catalog destinations, so their dashboards retain historical data but receive no new data.</p>
+<p>To continue receiving scheduled insights, enable Insights and set an analysis frequency in each project's <strong>Settings</strong>. Each project runs separately, and each run uses compute and model tokens, so choose which projects to analyze and how often. Insights remains in <a href="/aws/en/release-notes/release-types">Beta</a>. See <a href="/aws/en/oltp/projects/observability-ai-insights">Detect issues with Insights</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Lakebase</category>
+        </item>
+<item>
+            <title><![CDATA[DeepSeek V4.1 Flash (1017) is now available on Unity Gateway]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#deepseek-v41-flash-1017-is-now-available-on-unity-gateway</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#deepseek-v41-flash-1017-is-now-available-on-unity-gateway</guid>
+            <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p><a href="/aws/en/machine-learning/foundation-model-apis/supported-models#deepseek-v4-1-flash-1017">DeepSeek V4.1 Flash (1017)</a> is now available on Unity Gateway with text and image inputs. See <a href="/aws/en/unity-gateway/model-region-availability">supported regions</a>. You can access this model using <a href="/aws/en/machine-learning/foundation-model-apis">Foundation Model APIs</a>.</p>
+<p>Customers are responsible for ensuring their compliance with <a href="/aws/en/machine-learning/model-serving/acceptable-use-models">applicable terms</a>.</p>]]></description>
+            <category>Generative AI</category>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Databricks Runtime 19: October 19, 2026]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/runtime/19#databricks-runtime-19-october-19-2026</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/runtime/19#databricks-runtime-19-october-19-2026</guid>
+            <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<div></div>
+<h3><div></div>Behavioral changes</h3>
+<ul>
+<li>Spark Connect DataFrame execution metrics now hide internal operators and metrics associated with row filters and column masks. This protects information about policy execution when inspecting <code>df.executionInfo.metrics</code>, including its text representation. The boundary of the protected portion of the plan and its own metrics remain visible. Query results are unchanged. Notebooks or tools that depend on detailed metrics inside protected subplans may need to be updated. </li>
+</ul>]]></description>
+            <category>Databricks Runtime</category>
+        </item>
+<item>
+            <title><![CDATA[Saving an unchanged job no longer adds rows to the jobs system tables]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#saving-an-unchanged-job-no-longer-adds-rows-to-the-jobs-system-tables</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#saving-an-unchanged-job-no-longer-adds-rows-to-the-jobs-system-tables</guid>
+            <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Saving a job without changing its settings no longer adds rows to <code>system.lakeflow.jobs</code> or <code>system.lakeflow.job_tasks</code>, and <code>change_time</code> stays at the last change. This applies to saves from the UI, the Jobs API, and Declarative Automation Bundles. See <a href="/aws/en/admin/system-tables/jobs#jobs">Jobs table schema</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Jobs</category>
+            <category>System tables &amp; audit logs</category>
+        </item>
+<item>
+            <title><![CDATA[Filter data per end user with OAuth custom identity claims]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#filter-data-per-end-user-with-oauth-custom-identity-claims</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#filter-data-per-end-user-with-oauth-custom-identity-claims</guid>
+            <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now add a custom identity claim to a service principal's OAuth token and filter rows by it in a dynamic view or ABAC policy. Serve many end users through one service principal while each sees only their own data.</p>
+<p>See <a href="/aws/en/dev-tools/auth/oauth-custom-identity-claims">Filter data per end user with OAuth custom identity claims</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Security</category>
+        </item>
+<item>
+            <title><![CDATA[DeepSeek V4.1 Flash is scheduled for retirement]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#deepseek-v41-flash-is-scheduled-for-retirement</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#deepseek-v41-flash-is-scheduled-for-retirement</guid>
+            <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>DeepSeek V4.1 Flash will be retired on November 19, 2026. DeepSeek V4.1 Flash (1017) is the recommended replacement. See <a href="/aws/en/machine-learning/retired-models-policy#retired">Deprecated and retired models</a> for migration guidance.</p>]]></description>
+            <category>Generative AI</category>
+            <category>Product</category>
+        </item>
+<item>
+            <title><![CDATA[DeepSeek V4.1 Flash (1017) is now available on Unity Gateway]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#deepseek-v41-flash-1017-is-now-available-on-unity-gateway</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#deepseek-v41-flash-1017-is-now-available-on-unity-gateway</guid>
+            <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p><a href="/aws/en/machine-learning/foundation-model-apis/supported-models#deepseek-v4-1-flash-1017">DeepSeek V4.1 Flash (1017)</a> is now available on Unity Gateway with text and image inputs. See <a href="/aws/en/unity-gateway/model-region-availability">supported regions</a>. You can access this model using <a href="/aws/en/machine-learning/foundation-model-apis">Foundation Model APIs</a>.</p>
+<p>Customers are responsible for ensuring their compliance with <a href="/aws/en/machine-learning/model-serving/acceptable-use-models">applicable terms</a>.</p>]]></description>
+            <category>Generative AI</category>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Asynchronous processing with transformWithState is now generally available]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#asynchronous-processing-with-transformwithstate-is-now-generally-available</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#asynchronous-processing-with-transformwithstate-is-now-generally-available</guid>
+            <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Asynchronous processing for the Python row-based <code>transformWithState</code> API is now generally available. Run state operations and user logic concurrently for higher throughput with only minor code changes. See <a href="/aws/en/stateful-applications/async">Asynchronous processing with <code>transformWithState</code></a>.</p>]]></description>
+            <category>Product</category>
+            <category>Pipelines</category>
+        </item>
+<item>
+            <title><![CDATA[File upload in Genie One and Genie Agents will soon be available by default for compliance security profile workspaces with supported compliance standards]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/whats-coming#file-upload-in-genie-one-and-genie-agents-will-soon-be-available-by-default-for-compliance-security-profile-workspaces-with-supported-compliance-standards</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/whats-coming#file-upload-in-genie-one-and-genie-agents-will-soon-be-available-by-default-for-compliance-security-profile-workspaces-with-supported-compliance-standards</guid>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Starting November 15, 2026, file upload in Genie One and Genie Agents will be available by default for workspaces that have the <a href="/aws/en/security/privacy/security-profile">compliance security profile</a> enabled, if the workspace's compliance standard supports file upload. You can upload files to a conversation and analyze them in natural language alongside your other data.</p>
+<p>Workspaces with a compliance standard that doesn't support file upload yet can't use it. To check whether your standard supports file upload, open its page from the list of supported <a href="/aws/en/security/privacy/security-profile#compliance-security-profile-overview">compliance standards</a> and see the feature availability table.</p>
+<p>See <a href="/aws/en/genie-one/chat#upload-a-file">Upload a file</a> and <a href="/aws/en/genie-agents/file-upload">Upload a file to a Genie Agent</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Genie Agents</category>
+            <category>aibi</category>
+            <category>whatscoming</category>
+        </item>
+<item>
+            <title><![CDATA[Delegate budget access with access control lists (ACLs)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#delegate-budget-access-with-access-control-lists-acls</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#delegate-budget-access-with-access-control-lists-acls</guid>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Budgets now support access control lists (ACLs). Account and workspace admins can grant the Budget Manager or Budget Viewer role to users, groups, or Databricks service principals, delegating who can view and manage a budget. See <a href="/aws/en/admin/account-settings/budget-permissions">Manage budget permissions</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[TypeSafe AI Jev 1.14.0 is now available on Unity Gateway]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#typesafe-ai-jev-1140-is-now-available-on-unity-gateway</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#typesafe-ai-jev-1140-is-now-available-on-unity-gateway</guid>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>TypeSafe AI <a href="/aws/en/machine-learning/foundation-model-apis/supported-models#typesafe-ai-jev-1-14-0">Jev 1.14.0</a> is now available on Unity Gateway. TypeSafe AI hosts it, and an account admin must enable the <strong>TypeSafe AI Models</strong> preview. TypeSafe's terms govern its use.</p>]]></description>
+            <category>Generative AI</category>
+            <category>Product</category>
+        </item>
+<item>
+            <title><![CDATA[Delegate access to Genie budgets]]></title>
+            <link>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#delegate-access-to-genie-budgets</link>
+            <guid>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#delegate-access-to-genie-budgets</guid>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Budgets used to manage Genie costs now support access control lists (ACLs). Account admins and workspace admins can grant the <strong>Budget Manager</strong> or <strong>Budget Viewer</strong> role to specific users, groups, or Databricks service principals, delegating who can view and manage each budget. See <a href="/aws/en/admin/account-settings/budget-permissions">Manage budget permissions</a> and <a href="/aws/en/genie/budgets">Manage budgets and cost controls for Genie</a>.</p>]]></description>
+            <category>aibi</category>
+            <category>genie</category>
+        </item>
+<item>
+            <title><![CDATA[File upload in Genie One and Genie Agents is now generally available]]></title>
+            <link>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#file-upload-in-genie-one-and-genie-agents-is-now-generally-available</link>
+            <guid>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#file-upload-in-genie-one-and-genie-agents-is-now-generally-available</guid>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>File upload in Genie One and Genie Agents is now generally available, so workspace admins no longer need to turn on a preview. Upload files to a conversation and analyze them in natural language alongside your other data. For supported file types and limits, see <a href="/aws/en/genie-one/chat#upload-a-file">Upload a file</a> and <a href="/aws/en/genie-agents/file-upload">Upload a file to a Genie Agent</a>.</p>
+<p>File upload in Genie One isn't supported for users who have only <a href="/aws/en/ai-bi/consumers">consumer access</a>.</p>]]></description>
+            <category>aibi</category>
+            <category>genie</category>
+            <category>genieagents</category>
+        </item>
+<item>
+            <title><![CDATA[TypeSafe AI Jev 1.14.0 is now available on Unity Gateway]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#typesafe-ai-jev-1140-is-now-available-on-unity-gateway</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#typesafe-ai-jev-1140-is-now-available-on-unity-gateway</guid>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>TypeSafe AI <a href="/aws/en/machine-learning/foundation-model-apis/supported-models#typesafe-ai-jev-1-14-0">Jev 1.14.0</a> is now available on Unity Gateway. TypeSafe AI hosts it, and an account admin must enable the <strong>TypeSafe AI Models</strong> preview. TypeSafe's terms govern its use.</p>]]></description>
+            <category>Generative AI</category>
+            <category>Product</category>
+        </item>
+<item>
+            <title><![CDATA[Delegate budget access with access control lists (ACLs)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#delegate-budget-access-with-access-control-lists-acls</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#delegate-budget-access-with-access-control-lists-acls</guid>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Budgets now support access control lists (ACLs). Account and workspace admins can grant the Budget Manager or Budget Viewer role to users, groups, or Databricks service principals, delegating who can view and manage a budget. See <a href="/aws/en/admin/account-settings/budget-permissions">Manage budget permissions</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Consumer access to query Unity Gateway services is generally available]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#consumer-access-to-query-unity-gateway-services-is-generally-available</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#consumer-access-to-query-unity-gateway-services-is-generally-available</guid>
+            <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Users with the consumer access entitlement no longer need an account admin to enable the "Consumer access to Unity Gateway" preview to query the model services and model provider services shared with them, or to use Unity Gateway coding agent features. See <a href="/aws/en/ai-bi/consumers#consumer-access-capabilities">Consumer access capabilities</a>.</p>
+<p>This change can increase model traffic from consumer access users, including traffic to external providers. To control this traffic, account admins can set budgets and rate limits, or disable direct model access, for consumer access users. See <a href="/aws/en/ai-gateway/budgets">Manage budgets for Unity Gateway</a>, <a href="/aws/en/ai-gateway/rate-limits">Apply rate limits to model and MCP services</a>, and <a href="/aws/en/security/auth/entitlements">Manage entitlements</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+            <category>Security</category>
+        </item>
+<item>
+            <title><![CDATA[Genie Agents enhancements]]></title>
+            <link>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#genie-agents-enhancements</link>
+            <guid>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#genie-agents-enhancements</guid>
+            <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<ul>
+<li><strong>Flash (Beta)</strong>: Agent mode now offers Flash, an option that prioritizes response speed over depth. Flash is most efficient on simpler, everyday tasks. See <a href="/aws/en/genie-agents/concepts#flash">Flash</a>.</li>
+<li><strong>Agent mode model upgrade</strong>: Agent mode now uses upgraded models that better handle long context and respond faster. See <a href="/aws/en/genie-agents/concepts#agent-mode">Agent mode</a>.</li>
+</ul>]]></description>
+            <category>aibi</category>
+            <category>genieagents</category>
+        </item>
+<item>
+            <title><![CDATA[Genie One enhancements]]></title>
+            <link>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#genie-one-enhancements-1</link>
+            <guid>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#genie-one-enhancements-1</guid>
+            <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<ul>
+<li><strong>Collaborative document editing</strong>: People you share a Genie One document with can now edit it if they have CAN EDIT permission. See <a href="/aws/en/genie-one/documents#share">Share a document</a>.</li>
+<li><strong>Group memberships in user info</strong>: When Genie One retrieves a user's information, it now also returns the user's group memberships. You can use workspace instructions and table descriptions to tailor how Genie One responds to members of specific groups.</li>
+<li><strong>Reuse context from past investigations</strong>: When you ask a question similar to one you asked before, Genie One can now use the context from the earlier investigation to answer faster. See <a href="/aws/en/genie-one/chat#recall-past-conversations">Recall past conversations</a>.</li>
+<li><strong>Share skills with Unity Gateway (Beta)</strong>: You can now publish Genie One skills to a Unity Catalog schema and share them with your team. Unity Gateway governs shared skills, so teammates can discover and install existing skills from one central location instead of keeping copies in sync. See <a href="/aws/en/genie-one/chat#share-skills">Share a skill with your team</a>.</li>
+</ul>]]></description>
+            <category>aibi</category>
+            <category>genie</category>
+        </item>
+<item>
+            <title><![CDATA[Dashboard enhancements and bug fixes]]></title>
+            <link>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#dashboard-enhancements-and-bug-fixes</link>
+            <guid>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#dashboard-enhancements-and-bug-fixes</guid>
+            <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<ul>
+<li><strong>Lakehouse Real-Time warehouse support (Beta)</strong>: AI/BI dashboards now work with Lakehouse Real-Time SQL warehouses. See <a href="/aws/en/compute/sql-warehouse/real-time-dashboards">Use Lakehouse Real-Time with AI/BI dashboards</a>.</li>
+<li><strong>Dashboard Insights (Beta)</strong>: Viewers can now have Genie analyze the charts on a published dashboard page and summarize notable findings, such as trends and outliers, as insight cards. See <a href="/aws/en/dashboards/genie-spaces#dashboard-insights">Dashboard Insights</a>.</li>
+<li><strong>Import Power BI <code>.tmdl</code> files</strong>: Authors can now upload Power BI <code>.tmdl</code> files to create metric views with the <code>/importBI</code> Genie Code skill. See <a href="/aws/en/dashboards/manage/import-bi#upload-a-file">Import one file at a time</a>.</li>
+<li><strong>Pivot table drill-down</strong>: Viewers can now drill down through the row and column hierarchy of a pivot table one level at a time. See <a href="/aws/en/dashboards/manage/filters#pivot-drill-down">Drill down in pivot tables</a>.</li>
+<li><strong>Theme fonts for rich text titles</strong>: Rich text widget titles and descriptions now inherit the dashboard theme's font styles. See <a href="/aws/en/dashboards/manage/settings#custom-font">Customize colors and fonts</a>.</li>
+<li><strong>Pivot table null header fix</strong>: Pivot tables now show <code>NULL</code> values and the text <code>null</code> as separate headers instead of merging them into one.</li>
+<li><strong>Cross-dataset measure export fix</strong>: Exported cross-dataset measures now use the measure name as the column header.</li>
+<li><strong>Decimal precision fix</strong>: Visualizations that Genie generates now respect decimal precision.</li>
+</ul>]]></description>
+            <category>aibi</category>
+            <category>dashboards</category>
+        </item>
+<item>
+            <title><![CDATA[Consumer access to query Unity Gateway services is generally available]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#consumer-access-to-query-unity-gateway-services-is-generally-available</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#consumer-access-to-query-unity-gateway-services-is-generally-available</guid>
+            <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Users with the consumer access entitlement no longer need an account admin to enable the "Consumer access to Unity Gateway" preview to query the model services and model provider services shared with them, or to use Unity Gateway coding agent features. See <a href="/aws/en/ai-bi/consumers#consumer-access-capabilities">Consumer access capabilities</a>.</p>
+<p>This change can increase model traffic from consumer access users, including traffic to external providers. To control this traffic, account admins can set budgets and rate limits, or disable direct model access, for consumer access users. See <a href="/aws/en/ai-gateway/budgets">Manage budgets for Unity Gateway</a>, <a href="/aws/en/ai-gateway/rate-limits">Apply rate limits to model and MCP services</a>, and <a href="/aws/en/security/auth/entitlements">Manage entitlements</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+            <category>Security</category>
+        </item>
+<item>
+            <title><![CDATA[Redesigned MLflow Logs tab for AI Runtime runs]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#redesigned-mlflow-logs-tab-for-ai-runtime-runs</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#redesigned-mlflow-logs-tab-for-ai-runtime-runs</guid>
+            <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The MLflow run page <strong>Logs</strong> tab for AI Runtime runs now supports searching and filtering logs by node, level, and time range, following a running workload as new output arrives, and downloading logs. For new runs, it replaces the log files previously stored on the run's <strong>Artifacts</strong> tab, which are deprecated. Logs are available for 60 days. Logs for existing runs remain on the <strong>Artifacts</strong> tab. See <a href="/aws/en/machine-learning/ai-runtime/monitor-deploy/tracking-observability#logs-tab">View logs in the MLflow Logs tab</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Machine Learning</category>
+        </item>
+<item>
+            <title><![CDATA[Google Gemini 4 Argon is now available on Unity Gateway]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#google-gemini-4-argon-is-now-available-on-unity-gateway</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#google-gemini-4-argon-is-now-available-on-unity-gateway</guid>
+            <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Google <a href="/aws/en/machine-learning/foundation-model-apis/supported-models#gemini-4-argon">Gemini 4 Argon</a> is now available on Unity Gateway. You can access this model using <a href="/aws/en/machine-learning/foundation-model-apis">Foundation Model APIs</a>.</p>
+<p>Customers are responsible for ensuring their compliance with <a href="/aws/en/machine-learning/model-serving/acceptable-use-models">applicable terms</a>.</p>]]></description>
+            <category>Generative AI</category>
+            <category>Product</category>
+        </item>
+<item>
+            <title><![CDATA[Google Gemini 4 Argon is now available on Unity Gateway]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#google-gemini-4-argon-is-now-available-on-unity-gateway</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#google-gemini-4-argon-is-now-available-on-unity-gateway</guid>
+            <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Google <a href="/aws/en/machine-learning/foundation-model-apis/supported-models#gemini-4-argon">Gemini 4 Argon</a> is now available on Unity Gateway. You can access this model using <a href="/aws/en/machine-learning/foundation-model-apis">Foundation Model APIs</a>.</p>
+<p>Customers are responsible for ensuring their compliance with <a href="/aws/en/machine-learning/model-serving/acceptable-use-models">applicable terms</a>.</p>]]></description>
+            <category>Generative AI</category>
+            <category>Product</category>
+        </item>
+<item>
+            <title><![CDATA[Databricks AI Runtime SDK replaces serverless_gpu]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#databricks-ai-runtime-sdk-replaces-serverless_gpu</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#databricks-ai-runtime-sdk-replaces-serverless_gpu</guid>
+            <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Starting in GPU environment version 6, the Databricks AI Runtime SDK (<code>databricks-sdk-air</code>) replaces the deprecated <code>serverless_gpu</code> package. It provides the <code>@distributed</code> and <code>ray_init</code> APIs and the <code>databricks.air.data</code> utilities under the <code>databricks.air</code> namespace. The <code>gpus</code> and <code>gpu_type</code> arguments are renamed to <code>num_accelerators</code> and <code>accelerator_type</code>. The old names still work in <code>databricks.air</code> but emit a <code>FutureWarning</code>, and support will end in version 7.</p>
+<p>Serverless GPU environment version 6 includes both packages. Version 6 is the last version that includes <code>serverless_gpu</code>. Versions 5 and below continue to use it. See <a href="/aws/en/machine-learning/ai-runtime/connecting/distributed-training#migrate-serverless-gpu"> Migrate from <code>serverless_gpu</code></a>.</p>]]></description>
+            <category>Product</category>
+            <category>Machine Learning</category>
+        </item>
+<item>
+            <title><![CDATA[Unity Gateway Skills API and developer tools are available in Beta]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#unity-gateway-skills-api-and-developer-tools-are-available-in-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#unity-gateway-skills-api-and-developer-tools-are-available-in-beta</guid>
+            <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The Unity Gateway Skills REST API is now available in <a href="/aws/en/release-notes/release-types">Beta</a>, with create, read, update, list, delete, and finalize support across Databricks developer tools:</p>
+<ul>
+<li>Databricks CLI</li>
+<li>Python SDK</li>
+<li>Go SDK</li>
+<li>Go Modular SDK</li>
+<li>Java SDK</li>
+<li>JavaScript SDK</li>
+</ul>
+<p>See the <a href="/aws/en/ai-gateway/skill-reference">Skills API and SDK reference</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Unity Gateway Skills API and developer tools are available in Beta]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#unity-gateway-skills-api-and-developer-tools-are-available-in-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#unity-gateway-skills-api-and-developer-tools-are-available-in-beta</guid>
+            <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The Unity Gateway Skills REST API is now available in <a href="/aws/en/release-notes/release-types">Beta</a>, with create, read, update, list, delete, and finalize support across Databricks developer tools:</p>
+<ul>
+<li>Databricks CLI</li>
+<li>Python SDK</li>
+<li>Go SDK</li>
+<li>Go Modular SDK</li>
+<li>Java SDK</li>
+<li>JavaScript SDK</li>
+</ul>
+<p>See the <a href="/aws/en/ai-gateway/skill-reference">Skills API and SDK reference</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Knowledge Assistant and Supervisor Agent are now legacy]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#knowledge-assistant-and-supervisor-agent-are-now-legacy</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#knowledge-assistant-and-supervisor-agent-are-now-legacy</guid>
+            <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p><a href="/aws/en/agents/agent-bricks/knowledge-assistant">Knowledge Assistant</a> and <a href="/aws/en/agents/agent-bricks/multi-agent-supervisor">Supervisor Agent</a> are now <a href="/aws/en/release-notes/runtime/databricks-runtime-ver">legacy</a> offerings. For new agents written in code, Databricks recommends the <a href="/aws/en/agents/custom-agents/agent-bricks-cli">Agent Bricks CLI</a>. To build agents without code, use <a href="/aws/en/genie-agents">Genie Agents</a>. See <a href="/aws/en/agents/legacy">Legacy agent offerings</a>.</p>]]></description>
+            <category>Generative AI</category>
+            <category>Product</category>
+        </item>
+<item>
+            <title><![CDATA[Use OpenJev as the evaluator for LLM-as-a-judge service policies (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#use-openjev-as-the-evaluator-for-llm-as-a-judge-service-policies-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#use-openjev-as-the-evaluator-for-llm-as-a-judge-service-policies-beta</guid>
+            <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now select OpenJev (Qwen3.5 4B) as the evaluator model service of a custom LLM-as-a-judge service policy. OpenJev classifies content without generating output tokens, so it typically responds faster than a chat evaluator. See <a href="/aws/en/data-governance/unity-catalog/service-policies/policy-examples#openjev-evaluator">Use OpenJev as the evaluator</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+            <category>Security</category>
+        </item>
+<item>
+            <title><![CDATA[Use request tags in Unity Gateway service policies (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#use-request-tags-in-unity-gateway-service-policies-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#use-request-tags-in-unity-gateway-service-policies-beta</guid>
+            <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Custom service policies in Unity Gateway can now check caller-supplied request tags, such as requiring a tag before a model request or MCP tool call proceeds. See <a href="/aws/en/data-governance/unity-catalog/service-policies/policy-function-reference#request-tags">Request tags</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Unity Gateway supports Amazon Bedrock Mantle]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#unity-gateway-supports-amazon-bedrock-mantle</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#unity-gateway-supports-amazon-bedrock-mantle</guid>
+            <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now access Amazon Bedrock Mantle models through Unity Gateway model provider services, with Unity Catalog permissions, rate limits, budgets, and inference tables. See <a href="/aws/en/ai-gateway/model-provider-services">Model providers external to Databricks</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Use request tags in Unity Gateway service policies (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#use-request-tags-in-unity-gateway-service-policies-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#use-request-tags-in-unity-gateway-service-policies-beta</guid>
+            <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Custom service policies in Unity Gateway can now check caller-supplied request tags, such as requiring a tag before a model request or MCP tool call proceeds. See <a href="/aws/en/data-governance/unity-catalog/service-policies/policy-function-reference#request-tags">Request tags</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Use OpenJev as the evaluator for LLM-as-a-judge service policies (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#use-openjev-as-the-evaluator-for-llm-as-a-judge-service-policies-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#use-openjev-as-the-evaluator-for-llm-as-a-judge-service-policies-beta</guid>
+            <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now select OpenJev (Qwen3.5 4B) as the evaluator model service of a custom LLM-as-a-judge service policy. OpenJev classifies content without generating output tokens, so it typically responds faster than a chat evaluator. See <a href="/aws/en/data-governance/unity-catalog/service-policies/policy-examples#openjev-evaluator">Use OpenJev as the evaluator</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+            <category>Security</category>
+        </item>
+<item>
+            <title><![CDATA[Unity Gateway supports Amazon Bedrock Mantle]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#unity-gateway-supports-amazon-bedrock-mantle</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#unity-gateway-supports-amazon-bedrock-mantle</guid>
+            <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now access Amazon Bedrock Mantle models through Unity Gateway model provider services, with Unity Catalog permissions, rate limits, budgets, and inference tables. See <a href="/aws/en/ai-gateway/model-provider-services">Model providers external to Databricks</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Genie Agents enhancements and bug fixes]]></title>
+            <link>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#genie-agents-enhancements-and-bug-fixes</link>
+            <guid>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#genie-agents-enhancements-and-bug-fixes</guid>
+            <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<ul>
+<li><strong>Connect to external tools (Beta)</strong>: A Genie Agent can now search and take actions in external tools like Google Drive and Microsoft 365 through MCP connectors. See <a href="/aws/en/genie-agents/external-tools">Connect a Genie Agent to external tools and sources</a>.</li>
+<li><strong>Automatic content search on attached volumes (Beta)</strong>: When you attach a volume to a Genie Agent, Databricks now automatically enables content search for it. See <a href="/aws/en/genie-agents/volumes#content-search">How content search works</a>.</li>
+<li><strong>Automatic volume sync (Beta)</strong>: Content search now stays in sync with attached volumes automatically. When you add, change, or remove files, Databricks updates the index without any manual step. See <a href="/aws/en/genie-agents/volumes#content-search">How content search works</a>.</li>
+<li><strong>Volumes from restricted catalogs (Beta)</strong>: You can now attach a volume as a source for a Genie Agent even when the volume's catalog isn't accessible from the agent's workspace by default, such as a catalog that is <a href="/aws/en/data-governance/unity-catalog/access-control/workspace-catalog-binding">bound to specific workspaces</a>. See <a href="/aws/en/genie-agents/volumes#attach-volumes">Attach volumes to a Genie Agent</a>.</li>
+<li><strong>File upload fix</strong>: Fixed a bug where uploading a file to a Genie Agent through Genie One created duplicate conversations.</li>
+<li><strong>Deletion warning for sources and instructions</strong>: Deleting sources or instructions from a Genie Agent now asks you to confirm to prevent accidental deletions.</li>
+<li><strong>Column display name fix</strong>: Fixed a bug where Genie Code did not update column display names in a Genie Agent.</li>
+</ul>]]></description>
+            <category>aibi</category>
+            <category>genieagents</category>
+        </item>
+<item>
+            <title><![CDATA[The Discover page and domains are now GA]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#the-discover-page-and-domains-are-now-ga</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#the-discover-page-and-domains-are-now-ga</guid>
+            <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The <a href="/aws/en/discover/discover-page">Discover page</a> and <a href="/aws/en/uc-semantics/domains">domains</a> are now generally available. Discover is a curated browsing experience that helps users find assets across Databricks without requiring deep knowledge of catalog hierarchies. Use <em>domains</em> and <em>subdomains</em> to organize assets such as tables, dashboards, notebooks, and Genie Agents by business area, highlight key assets with custom curation, and explore AI-recommended assets.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Catalog</category>
+        </item>
+<item>
+            <title><![CDATA[Enforce partner guardrails with external service policies (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#enforce-partner-guardrails-with-external-service-policies-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#enforce-partner-guardrails-with-external-service-policies-beta</guid>
+            <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now enforce a third-party guardrail on Unity Gateway traffic. An external service policy sends request and response content to your guardrail vendor and blocks the call when the vendor denies it, with no changes to your applications. See <a href="/aws/en/data-governance/unity-catalog/service-policies/external-policies">Enforce a partner guardrail with an external service policy</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+            <category>Security</category>
+        </item>
+<item>
+            <title><![CDATA[Anthropic Claude Haiku 5.5 is now available on Unity Gateway]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/unity-gateway#anthropic-claude-haiku-55-is-now-available-on-unity-gateway</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/unity-gateway#anthropic-claude-haiku-55-is-now-available-on-unity-gateway</guid>
+            <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Anthropic <a href="/aws/en/machine-learning/foundation-model-apis/supported-models#claude-haiku-5-5">Claude Haiku 5.5</a> is now available on Unity Gateway. You can access this model using <a href="/aws/en/machine-learning/foundation-model-apis">Foundation Model APIs</a>.</p>
+<p>Customers are responsible for ensuring their compliance with <a href="/aws/en/machine-learning/model-serving/acceptable-use-models">applicable terms</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Enforce partner guardrails with external service policies (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#enforce-partner-guardrails-with-external-service-policies-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#enforce-partner-guardrails-with-external-service-policies-beta</guid>
+            <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now enforce a third-party guardrail on Unity Gateway traffic. An external service policy sends request and response content to your guardrail vendor and blocks the call when the vendor denies it, with no changes to your applications. See <a href="/aws/en/data-governance/unity-catalog/service-policies/external-policies">Enforce a partner guardrail with an external service policy</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+            <category>Security</category>
+        </item>
+<item>
+            <title><![CDATA[Anthropic Claude Haiku 5.5 is now available on Unity Gateway]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#anthropic-claude-haiku-55-is-now-available-on-unity-gateway</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#anthropic-claude-haiku-55-is-now-available-on-unity-gateway</guid>
+            <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Anthropic <a href="/aws/en/machine-learning/foundation-model-apis/supported-models#claude-haiku-5-5">Claude Haiku 5.5</a> is now available on Unity Gateway. You can access this model using <a href="/aws/en/machine-learning/foundation-model-apis">Foundation Model APIs</a>.</p>
+<p>Customers are responsible for ensuring their compliance with <a href="/aws/en/machine-learning/model-serving/acceptable-use-models">applicable terms</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Unity Gateway</category>
+        </item>
+<item>
+            <title><![CDATA[Genie Code CLI is in Beta]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#genie-code-cli-is-in-beta</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#genie-code-cli-is-in-beta</guid>
+            <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Genie Code CLI is a coding agent that runs in your terminal, tuned for data and AI work on Databricks. It works with your local files and uses the Databricks CLI to discover data, answer questions, and build and deploy assets such as pipelines, models, and apps. Model access is provided and governed through Unity Gateway. See <a href="/aws/en/genie-code/genie-code-cli">Genie Code CLI</a>.</p>]]></description>
+            <category>Product</category>
+            <category>Genie Code</category>
+        </item>
+<item>
+            <title><![CDATA[DeepSeek V4 Flash (0731) is scheduled for retirement]]></title>
+            <link>https://docs.databricks.com/aws/en/release-notes/product/2026/october#deepseek-v4-flash-0731-is-scheduled-for-retirement</link>
+            <guid>https://docs.databricks.com/aws/en/release-notes/product/2026/october#deepseek-v4-flash-0731-is-scheduled-for-retirement</guid>
+            <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>DeepSeek V4 Flash (0731) will be retired on November 5, 2026. DeepSeek V4.1 Flash is the recommended replacement. See <a href="/aws/en/machine-learning/retired-models-policy#retired">Deprecated and retired models</a> for migration guidance.</p>]]></description>
+            <category>Generative AI</category>
+            <category>Product</category>
+        </item>
+<item>
+            <title><![CDATA[Share and govern Genie One skills with Unity Gateway (Beta)]]></title>
+            <link>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#share-and-govern-genie-one-skills-with-unity-gateway-beta</link>
+            <guid>https://docs.databricks.com/aws/en/ai-bi/release-notes/2026#share-and-govern-genie-one-skills-with-unity-gateway-beta</guid>
+            <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>You can now publish a skill from Genie One and share it with your team, governed by Unity Gateway. Access uses standard Unity Catalog privileges on the catalog and schema that hold the skill. See <a href="/aws/en/genie-one/chat#share-skills">Share a skill with your team</a> and <a href="/aws/en/ai-gateway/govern-skills">Govern skills</a>.</p>]]></description>
+            <category>aibi</category>
+            <category>genie</category>
+        </item>
+    </channel>
+</rss>

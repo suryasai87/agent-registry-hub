@@ -1,0 +1,436 @@
+{
+  "agents_main-drm_transformation-drm_agent": {
+    "http": 200,
+    "body": {
+      "name": "agents_main-drm_transformation-drm_agent",
+      "creator": "admin@example.com",
+      "creation_timestamp": 1783549379000,
+      "last_updated_timestamp": 1783549379000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING",
+        "suspend": "NOT_SUSPENDED",
+        "system_update_failure": false
+      },
+      "config": {
+        "served_entities": [
+          {
+            "name": "main-drm_transformation-drm_agent_1",
+            "entity_name": "main.drm_transformation.drm_agent",
+            "entity_version": "1",
+            "workload_size": "Small",
+            "workload_type": "CPU",
+            "scale_to_zero_enabled": true,
+            "environment_vars": {
+              "ENABLE_LANGCHAIN_STREAMING": "<redacted>",
+              "ENABLE_MLFLOW_TRACING": "<redacted>",
+              "MLFLOW_EXPERIMENT_ID": "<redacted>",
+              "RETURN_REQUEST_ID_IN_RESPONSE": "<redacted>"
+            },
+            "batching_config": {
+              "enabled": false
+            },
+            "type": "UC_MODEL",
+            "state": {
+              "deployment": "DEPLOYMENT_READY",
+              "deployment_state_message": "Scaled to zero"
+            },
+            "creator": "admin@example.com",
+            "creation_timestamp": 1783549380000
+          }
+        ],
+        "served_models": [
+          {
+            "name": "main-drm_transformation-drm_agent_1",
+            "workload_size": "Small",
+            "workload_type": "CPU",
+            "scale_to_zero_enabled": true,
+            "model_name": "main.drm_transformation.drm_agent",
+            "model_version": "1",
+            "environment_vars": {
+              "ENABLE_LANGCHAIN_STREAMING": "true",
+              "ENABLE_MLFLOW_TRACING": "true",
+              "MLFLOW_EXPERIMENT_ID": "3325179909192303",
+              "RETURN_REQUEST_ID_IN_RESPONSE": "true"
+            },
+            "batching_config": {
+              "enabled": false
+            },
+            "type": "UC_MODEL",
+            "state": {
+              "deployment": "DEPLOYMENT_READY",
+              "deployment_state_message": "Scaled to zero"
+            },
+            "creator": "admin@example.com",
+            "creation_timestamp": 1783549380000
+          }
+        ],
+        "traffic_config": {
+          "routes": [
+            {
+              "served_model_name": "main-drm_transformation-drm_agent_1",
+              "traffic_percentage": 100,
+              "served_entity_name": "main-drm_transformation-drm_agent_1"
+            }
+          ]
+        },
+        "config_version": 1
+      },
+      "id": "9a9ecf9effa149c8b38cdcb84485dc9f",
+      "permission_level": "CAN_MANAGE",
+      "tags": [
+        {
+          "key": "MONITOR_EXPERIMENT_ID",
+          "value": "3325179909192303"
+        },
+        {
+          "key": "project",
+          "value": "drm-stack"
+        },
+        {
+          "key": "wave",
+          "value": "4"
+        }
+      ],
+      "task": "agent/v1/responses",
+      "route_optimized": false,
+      "ai_gateway": {
+        "usage_tracking_config": {
+          "enabled": false
+        },
+        "inference_table_config": {
+          "catalog_name": "main",
+          "schema_name": "drm_transformation",
+          "table_name_prefix": "drm_agent",
+          "enabled": true
+        }
+      },
+      "creator_display_name": "Surya Sai Turaga",
+      "creator_kind": "User",
+      "resource_credential_strategy": "EMBEDDED_CREDENTIALS",
+      "description": ""
+    }
+  },
+  "agents_main-drm_transformation-drm_agent__permissions": {
+    "http": 200,
+    "path": "/api/2.0/permissions/serving-endpoints/9a9ecf9effa149c8b38cdcb84485dc9f",
+    "body": {
+      "object_id": "/serving-endpoints/9a9ecf9effa149c8b38cdcb84485dc9f",
+      "object_type": "serving-endpoint",
+      "access_control_list": [
+        {
+          "user_name": "admin@example.com",
+          "display_name": "Surya Sai Turaga",
+          "all_permissions": [
+            {
+              "permission_level": "CAN_MANAGE",
+              "inherited": false
+            }
+          ]
+        },
+        {
+          "group_name": "admins",
+          "all_permissions": [
+            {
+              "permission_level": "CAN_MANAGE",
+              "inherited": true,
+              "inherited_from_object": [
+                "/serving-endpoints"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "acl_total": 2
+  },
+  "agents_main-drm_transformation-drm_agent__permissionLevels": {
+    "http": 200,
+    "body": {
+      "permission_levels": [
+        {
+          "permission_level": "CAN_VIEW",
+          "description": "Can view the metadata related to a model serving endpoint. This includes the registered model names and versions being served on the endpoint, workload config, etc."
+        },
+        {
+          "permission_level": "CAN_QUERY",
+          "description": "Can query a model serving endpoint. This also includes permissions to view the metadata related to the endpoint."
+        },
+        {
+          "permission_level": "CAN_MANAGE",
+          "description": "Can manage permissions of a model serving endpoint, including the ability to view, edit, query and delete the endpoint."
+        }
+      ]
+    }
+  },
+  "member-services-chat": {
+    "http": 200,
+    "body": {
+      "name": "member-services-chat",
+      "creator": "user01@example.com",
+      "creation_timestamp": 1786413850000,
+      "last_updated_timestamp": 1786415694000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {
+        "served_entities": [
+          {
+            "name": "primary-claude",
+            "external_model": {
+              "provider": "databricks-model-serving",
+              "name": "databricks-claude-sonnet-4-5",
+              "task": "llm/v1/chat",
+              "databricks_model_serving_config": {
+                "databricks_api_token": "{{secrets/gateway_demo/external_model_token}}",
+                "databricks_workspace_url": "https://your-workspace.cloud.databricks.com"
+              }
+            },
+            "type": "EXTERNAL_MODEL",
+            "state": {
+              "deployment": "DEPLOYMENT_READY",
+              "deployment_state_message": ""
+            },
+            "creator": "user01@example.com",
+            "creation_timestamp": 1786415694000
+          },
+          {
+            "name": "fallback-1",
+            "external_model": {
+              "provider": "databricks-model-serving",
+              "name": "databricks-gpt-5-mini",
+              "task": "llm/v1/chat",
+              "databricks_model_serving_config": {
+                "databricks_api_token": "{{secrets/gateway_demo/external_model_token}}",
+                "databricks_workspace_url": "https://your-workspace.cloud.databricks.com"
+              }
+            },
+            "type": "EXTERNAL_MODEL",
+            "state": {
+              "deployment": "DEPLOYMENT_READY",
+              "deployment_state_message": ""
+            },
+            "creator": "user01@example.com",
+            "creation_timestamp": 1786415694000
+          },
+          {
+            "name": "fallback-2",
+            "external_model": {
+              "provider": "databricks-model-serving",
+              "name": "databricks-llama-4-maverick",
+              "task": "llm/v1/chat",
+              "databricks_model_serving_config": {
+                "databricks_api_token": "{{secrets/gateway_demo/external_model_token}}",
+                "databricks_workspace_url": "https://your-workspace.cloud.databricks.com"
+              }
+            },
+            "type": "EXTERNAL_MODEL",
+            "state": {
+              "deployment": "DEPLOYMENT_READY",
+              "deployment_state_message": ""
+            },
+            "creator": "user01@example.com",
+            "creation_timestamp": 1786415694000
+          }
+        ],
+        "traffic_config": {
+          "routes": [
+            {
+              "served_model_name": "primary-claude",
+              "traffic_percentage": 100
+            },
+            {
+              "served_model_name": "fallback-1",
+              "traffic_percentage": 0
+            },
+            {
+              "served_model_name": "fallback-2",
+              "traffic_percentage": 0
+            }
+          ]
+        },
+        "config_version": 1
+      },
+      "id": "eb1c6218548a4987a93f1e0beb188bf2",
+      "permission_level": "CAN_MANAGE",
+      "task": "llm/v1/chat",
+      "route_optimized": false,
+      "endpoint_type": "EXTERNAL_MODEL",
+      "ai_gateway": {
+        "usage_tracking_config": {
+          "enabled": true
+        },
+        "inference_table_config": {
+          "catalog_name": "ppareek",
+          "schema_name": "agent_eval_demo",
+          "table_name_prefix": "member_services_chat",
+          "enabled": true
+        },
+        "rate_limits": [
+          {
+            "calls": 60,
+            "key": "endpoint",
+            "renewal_period": "minute"
+          }
+        ],
+        "guardrails": {
+          "input": {
+            "safety": true,
+            "pii_detection": true,
+            "pii": {
+              "behavior": "MASK"
+            }
+          },
+          "output": {
+            "safety": true,
+            "pii_detection": true,
+            "pii": {
+              "behavior": "MASK"
+            }
+          }
+        },
+        "fallback_config": {
+          "enabled": true
+        }
+      },
+      "creator_display_name": "Pulkit Pareek",
+      "creator_kind": "User",
+      "resource_credential_strategy": "EMBEDDED_CREDENTIALS",
+      "description": ""
+    }
+  },
+  "member-services-chat__permissions": {
+    "http": 200,
+    "path": "/api/2.0/permissions/serving-endpoints/eb1c6218548a4987a93f1e0beb188bf2",
+    "body": {
+      "object_id": "/serving-endpoints/eb1c6218548a4987a93f1e0beb188bf2",
+      "object_type": "serving-endpoint",
+      "access_control_list": [
+        {
+          "user_name": "user01@example.com",
+          "display_name": "Pulkit Pareek",
+          "all_permissions": [
+            {
+              "permission_level": "CAN_MANAGE",
+              "inherited": false
+            }
+          ]
+        },
+        {
+          "group_name": "admins",
+          "all_permissions": [
+            {
+              "permission_level": "CAN_MANAGE",
+              "inherited": true,
+              "inherited_from_object": [
+                "/serving-endpoints"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "acl_total": 2
+  },
+  "member-services-chat__permissionLevels": {
+    "http": 200,
+    "body": {
+      "permission_levels": [
+        {
+          "permission_level": "CAN_VIEW",
+          "description": "Can view the metadata related to a model serving endpoint. This includes the registered model names and versions being served on the endpoint, workload config, etc."
+        },
+        {
+          "permission_level": "CAN_QUERY",
+          "description": "Can query a model serving endpoint. This also includes permissions to view the metadata related to the endpoint."
+        },
+        {
+          "permission_level": "CAN_MANAGE",
+          "description": "Can manage permissions of a model serving endpoint, including the ability to view, edit, query and delete the endpoint."
+        }
+      ]
+    }
+  },
+  "mas-0849ad0e-endpoint": {
+    "http": 200,
+    "body": {
+      "name": "mas-0849ad0e-endpoint",
+      "creator": "user02@example.com",
+      "creation_timestamp": 1773412408000,
+      "last_updated_timestamp": 1773412408000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {
+        "served_entities": [
+          {
+            "type": "FOUNDATION_MODEL",
+            "foundation_model": {
+              "name": "mas-base-model-178f2777"
+            },
+            "state": {
+              "deployment": "DEPLOYMENT_READY",
+              "deployment_state_message": ""
+            }
+          }
+        ]
+      },
+      "id": "05c608a8e8b944c5b6282e6f282ef144",
+      "permission_level": "CAN_MANAGE",
+      "task": "agent/v1/responses",
+      "route_optimized": false,
+      "creator_display_name": "Anna C. Smith",
+      "creator_kind": "User",
+      "resource_credential_strategy": "EMBEDDED_CREDENTIALS",
+      "tile_endpoint_metadata": {
+        "tile_id": "0849ad0e-fe02-4fdc-94f0-6569632d2d59",
+        "tile_model_name": "mas-base-model-178f2777",
+        "problem_type": "MULTI_AGENT_SUPERVISOR"
+      },
+      "description": ""
+    }
+  },
+  "ka-0445f231-endpoint": {
+    "http": 200,
+    "body": {
+      "name": "ka-0445f231-endpoint",
+      "creator": "user03@example.com",
+      "creation_timestamp": 1766119622000,
+      "last_updated_timestamp": 1766119622000,
+      "state": {
+        "ready": "READY",
+        "config_update": "NOT_UPDATING"
+      },
+      "config": {
+        "served_entities": [
+          {
+            "type": "FOUNDATION_MODEL",
+            "foundation_model": {
+              "name": "ka-base-model-2423db5a"
+            },
+            "state": {
+              "deployment": "DEPLOYMENT_READY",
+              "deployment_state_message": ""
+            }
+          }
+        ]
+      },
+      "id": "03d6990659de4764a05e25689fdca3cd",
+      "permission_level": "CAN_MANAGE",
+      "task": "agent/v1/responses",
+      "route_optimized": false,
+      "creator_display_name": "Christopher Messer",
+      "creator_kind": "User",
+      "resource_credential_strategy": "EMBEDDED_CREDENTIALS",
+      "tile_endpoint_metadata": {
+        "tile_id": "0445f231-aa3c-4107-a2cd-3e67e3db55c6",
+        "tile_model_name": "ka-base-model-2423db5a",
+        "problem_type": "KNOWLEDGE_ASSISTANT"
+      },
+      "description": ""
+    }
+  },
+  "openapi_http": 200
+}

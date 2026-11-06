@@ -1,0 +1,242 @@
+{
+  "agent_bricks_paths": {
+    "/api/2.0/tiles": {
+      "http": 200,
+      "result": "keys=_truncated_keys,_preview"
+    },
+    "/api/2.0/tiles?page_size=5": {
+      "http": 200,
+      "result": "keys=_truncated_keys,_preview"
+    },
+    "/api/2.0/knowledge-assistants": {
+      "http": 404,
+      "result": "ENDPOINT_NOT_FOUND: No API found for 'GET /knowledge-assistants'"
+    },
+    "/api/2.0/multi-agent-supervisors": {
+      "http": 404,
+      "result": "ENDPOINT_NOT_FOUND: No API found for 'GET /multi-agent-supervisors'"
+    },
+    "/api/2.0/agent-bricks": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/agent-bricks/tiles": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/agent-bricks/knowledge-assistants": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/agent-bricks/multi-agent-supervisors": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/agentbricks/tiles": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/genie/agents": {
+      "http": 404,
+      "result": "NOT_FOUND: The Genie Agent API is not available in this workspace."
+    },
+    "/api/2.0/supervisor-agents": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/agents": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/knowledge-assistants/tiles": {
+      "http": 404,
+      "result": "NOT_FOUND: Agent with id tiles does not exist."
+    },
+    "/api/2.0/tiles/0445f231-aa3c-4107-a2cd-3e67e3db55c6": {
+      "http": 200,
+      "result": "keys=tile_id,name,tile_type,mlflow_experiment_id,creation_timestamp_ms,last_updated_timestamp_ms,serving_endpoint_name,creator"
+    },
+    "/api/2.0/knowledge-assistants/0445f231-aa3c-4107-a2cd-3e67e3db55c6": {
+      "http": 200,
+      "result": "keys=knowledge_assistant"
+    },
+    "/api/2.0/multi-agent-supervisors/0849ad0e-fe02-4fdc-94f0-6569632d2d59": {
+      "http": 200,
+      "result": "keys=multi_agent_supervisor"
+    },
+    "/api/2.0/tiles/0849ad0e-fe02-4fdc-94f0-6569632d2d59": {
+      "http": 200,
+      "result": "keys=tile_id,name,tile_type,mlflow_experiment_id,creation_timestamp_ms,last_updated_timestamp_ms,serving_endpoint_name,creator"
+    },
+    "/api/2.0/knowledge-assistants/0445f231-aa3c-4107-a2cd-3e67e3db55c6/knowledge-sources": {
+      "http": 404,
+      "result": "ENDPOINT_NOT_FOUND: No API found for 'GET /knowledge-assistants/0445f231-aa3c-4107-a2cd-3e67e3db55c6/knowledge-sources'"
+    },
+    "/api/2.0/tiles/0445f231-aa3c-4107-a2cd-3e67e3db55c6/knowledge-sources": {
+      "http": 404,
+      "result": "ENDPOINT_NOT_FOUND: No API found for 'GET /tiles/0445f231-aa3c-4107-a2cd-3e67e3db55c6/knowledge-sources'"
+    }
+  },
+  "extra_paths_v21_skills_mcp": {
+    "/api/2.1/supervisor-agents": {
+      "http": 200,
+      "result": "keys=_preview"
+    },
+    "/api/2.0/supervisor-agents": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/3.0/supervisor-agents": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/agent-bricks/supervisor-agents": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/agentbricks/supervisor-agents": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/genie/supervisor-agents": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.1/supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526": {
+      "http": 200,
+      "result": "keys=name,display_name,description,instructions,supervisor_agent_id,creator,create_time,endpoint_name"
+    },
+    "/api/2.1/supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526/tools": {
+      "http": 200,
+      "result": "keys=tools"
+    },
+    "/api/2.0/ai-gateway/skills": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.1/ai-gateway/skills": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/skills": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.1/unity-catalog/skills": {
+      "http": 400,
+      "result": "INVALID_PARAMETER_VALUE: parent is required"
+    },
+    "/api/2.0/ai-gateway/mcp-servers": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.1/unity-catalog/mcp-servers": {
+      "http": 404,
+      "result": "ENDPOINT_NOT_FOUND: No API found for 'GET /unity-catalog/mcp-servers'"
+    },
+    "/api/2.0/mcp-servers": {
+      "http": 404,
+      "result": "ENDPOINT_NOT_FOUND: No API found for 'GET /mcp-servers'"
+    },
+    "/api/2.0/ai-gateway/endpoints": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/ai-gateway/v2/endpoints": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.0/mcp/servers": {
+      "http": 404,
+      "result": "ENDPOINT_NOT_FOUND: No API found for 'GET /mcp/servers'"
+    },
+    "/api/2.1/unity-catalog/skills?parent=main.vital_skills": {
+      "http": 400,
+      "result": "INVALID_PARAMETER_VALUE: parent must include a collection prefix, e.g. 'agent-services/cat.schema.name', got: main.vital_skills"
+    },
+    "/api/2.1/unity-catalog/skills?parent=catalogs/main/schemas/vital_skills": {
+      "http": 400,
+      "result": "INVALID_PARAMETER_VALUE: parent must start with 'schemas/', got: catalogs/main/schemas/vital_skills"
+    },
+    "/api/2.1/unity-catalog/skills/main.vital_skills.rwe-cohortstudy": {
+      "http": 200,
+      "result": "keys=name,bundle_name,description,etag,create_time,update_time,finalize_time,created_by"
+    },
+    "/api/2.1/unity-catalog/skills?parent=main": {
+      "http": 400,
+      "result": "INVALID_PARAMETER_VALUE: parent must include a collection prefix, e.g. 'agent-services/cat.schema.name', got: main"
+    },
+    "/api/2.1/knowledge-assistants": {
+      "http": 200,
+      "result": "keys=_preview"
+    },
+    "/api/2.1/knowledge-assistants/a176dc0c-1d6f-4f86-849a-a38eac9ca22c": {
+      "http": 200,
+      "result": "keys=name,state,id,display_name,description,instructions,creator,create_time"
+    },
+    "/api/2.1/unity-catalog/external-mcp-servers": {
+      "http": 404,
+      "result": "ENDPOINT_NOT_FOUND: No API found for 'GET /unity-catalog/external-mcp-servers'"
+    },
+    "/api/2.1/unity-catalog/mcp_servers": {
+      "http": 404,
+      "result": "ENDPOINT_NOT_FOUND: No API found for 'GET /unity-catalog/mcp_servers'"
+    },
+    "/api/2.1/mcp-servers": {
+      "http": 404,
+      "result": "(empty body)"
+    },
+    "/api/2.1/unity-catalog/functions/tony_farias.slurm_hpc.slurm_ops": {
+      "http": 404,
+      "result": "RESOURCE_DOES_NOT_EXIST: Routine or Model 'tony_farias.slurm_hpc.slurm_ops' does not exist."
+    },
+    "/api/2.1/unity-catalog/connections/slurm_ops": {
+      "http": 404,
+      "result": "RESOURCE_DOES_NOT_EXIST: Connection 'slurm_ops' does not exist."
+    },
+    "/api/2.1/unity-catalog/tables/tony_farias.slurm_hpc.slurm_ops": {
+      "http": 404,
+      "result": "TABLE_DOES_NOT_EXIST: Table 'tony_farias.slurm_hpc.slurm_ops' does not exist."
+    },
+    "/api/2.1/unity-catalog/skills?parent=schemas/main.vital_skills": {
+      "http": 200,
+      "result": "keys=_preview"
+    },
+    "/api/2.1/unity-catalog/agent-services?parent=schemas/tony_farias.slurm_hpc": {
+      "http": 200,
+      "result": "keys="
+    },
+    "/api/2.1/unity-catalog/agent-services/tony_farias.slurm_hpc.slurm_ops": {
+      "http": 404,
+      "result": "NOT_FOUND: AgentService not found: tony_farias.slurm_hpc.slurm_ops"
+    },
+    "/api/2.1/unity-catalog/agent-services": {
+      "http": 200,
+      "result": "keys="
+    },
+    "/api/2.1/unity-catalog/skills?parent=agent-services/tony_farias.slurm_hpc.slurm_ops": {
+      "http": 400,
+      "result": "INVALID_PARAMETER_VALUE: parent must start with 'schemas/', got: agent-services/tony_farias.slurm_hpc.slurm_ops"
+    },
+    "/api/2.1/unity-catalog/agent-services?parent=schemas/main.lilly_heor_rwe_demo": {
+      "http": 200,
+      "result": "keys="
+    },
+    "/api/2.1/knowledge-assistants/a176dc0c-1d6f-4f86-849a-a38eac9ca22c/knowledge-sources": {
+      "http": 200,
+      "result": "keys=knowledge_sources"
+    },
+    "/api/2.1/supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526/examples": {
+      "http": 200,
+      "result": "keys=examples"
+    },
+    "/api/2.1/knowledge-assistants/a176dc0c-1d6f-4f86-849a-a38eac9ca22c/examples": {
+      "http": 200,
+      "result": "keys="
+    }
+  }
+}

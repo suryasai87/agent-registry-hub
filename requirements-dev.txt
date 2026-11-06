@@ -1,0 +1,5 @@
+# Local development + tests: the app's pinned runtime plus the test tools.
+-r app/requirements.txt
+pytest==9.1.1
+httpx==0.28.1   # starlette.testclient
+httpx2==2.9.1

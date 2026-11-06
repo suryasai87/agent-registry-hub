@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Every AI agent. One governed registry. — Whitepaper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @page { size: Letter; margin: 0; }
+  :root { --navy:#0B2026; --navy2:#1B3139; --lava:#FF3621; --lava2:#FF5F46; --oat:#F9F7F4; --oat2:#EEEDE9; --ink:#1B3139; --muted:#5A6F77; --line:#DCE0E2; --teal:#00A972; --amber:#FFAB00; --sky:#2272B4; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "DM Sans", system-ui, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; font-size: 10.3pt; line-height: 1.5; }
+  .page { width: 8.5in; height: 11in; position: relative; overflow: hidden; page-break-after: always; background: #fff; padding: .62in .72in .78in; }
+  .page:last-child { page-break-after: auto; }
+  .oat { background: var(--oat); }
+  .navy { background: radial-gradient(1200px 700px at 85% 10%, #22414d 0%, var(--navy) 55%); color: #fff; }
+  .bar { position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, var(--lava), var(--lava2) 40%, var(--amber)); }
+  .kicker { font: 600 8.3pt "DM Sans"; letter-spacing: .14em; text-transform: uppercase; color: var(--lava); }
+  h1 { font-weight: 800; font-size: 44pt; line-height: 1.03; letter-spacing: -.02em; margin: 16px 0 14px; }
+  h2 { font-weight: 800; font-size: 21pt; line-height: 1.1; letter-spacing: -.015em; margin: 6px 0 10px; }
+  h2 .no { color: var(--lava); margin-right: 8px; }
+  h3 { font-weight: 700; font-size: 11.3pt; margin: 0 0 4px; }
+  p { margin: 0 0 8px; }
+  .lede { font-size: 11.6pt; color: var(--muted); }
+  .muted { color: var(--muted); }
+  .mono { font-family: "DM Mono", monospace; font-size: 8.4pt; }
+  .foot { position: absolute; left: .72in; right: .72in; bottom: .38in; display: flex; justify-content: space-between; align-items: center; font-size: 7.4pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 7px; }
+  .navy .foot { color: #9fb2b9; border-color: #2c4a55; }
+  .foot img { height: 13px; }
+  .cover .lede { color: #c9d6db; font-size: 13pt; max-width: 6.5in; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+  .pchip { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 7px 12px 7px 7px; font-weight: 600; font-size: 9.3pt; }
+  .pchip .ic { width: 28px; height: 28px; border-radius: 8px; background: #fff; display: grid; place-items: center; }
+  .pchip .ic img { width: 20px; height: 20px; object-fit: contain; }
+  .author { margin-top: 20px; display: flex; gap: 14px; align-items: center; }
+  .author .av { width: 40px; height: 40px; border-radius: 50%; background: var(--lava); display: grid; place-items: center; font-weight: 800; color: #fff; }
+  .author b { display: block; font-size: 11pt; } .author span { font-size: 9pt; color: #b8c8ce; }
+  .prepared { margin-top: 14px; display: inline-block; border-left: 3px solid var(--lava); padding: 4px 0 4px 12px; color: #dce6ea; font-size: 9.6pt; }
+  .quote { background: var(--navy); color: #fff; border-radius: 16px; padding: 20px 24px; font-size: 15pt; font-weight: 700; line-height: 1.3; position: relative; }
+  .quote:before { content: "“"; position: absolute; top: -14px; left: 16px; font-size: 64pt; color: var(--lava); line-height: 1; }
+  .quote small { display: block; margin-top: 10px; font-size: 8.6pt; font-weight: 600; color: #9fb2b9; letter-spacing: .08em; }
+  .item { display: grid; grid-template-columns: 34px 1fr; gap: 12px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 11px 14px; }
+  .num { width: 30px; height: 30px; border-radius: 50%; background: var(--lava); color: #fff; font-weight: 800; display: grid; place-items: center; font-size: 12pt; }
+  .say { font-weight: 700; font-size: 11.3pt; margin-bottom: 2px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; } .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; } .grid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+  .stat { background: var(--oat); border-radius: 12px; padding: 11px 13px; } .oat .stat { background: #fff; }
+  .stat b { display: block; font-size: 20pt; font-weight: 800; color: var(--navy); letter-spacing: -.02em; line-height: 1.05; }
+  .stat span { font-size: 8.3pt; color: var(--muted); }
+  .tile { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; background: #fff; }
+  .tile .ti { display: flex; gap: 10px; align-items: center; margin-bottom: 5px; } .tile .ti img { width: 28px; height: 28px; object-fit: contain; }
+  .tile p, .tile li { font-size: 9.1pt; color: #3d5560; }
+  .tag { display: inline-block; font-size: 6.9pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; background: #FFE4DF; color: #C42A12; margin: 0 4px 2px 0; }
+  .tag.ok { background: #DDF5EC; color: #00754F; } .tag.next { background: #E3EEF8; color: #1B5E96; } .tag.ga { background: #DDF5EC; color: #00754F; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.9pt; }
+  th { text-align: left; font-size: 7.6pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--navy); padding: 6px 8px; }
+  td { border-bottom: 1px solid var(--line); padding: 6.5px 8px; vertical-align: top; } td b { color: var(--navy); }
+  .oat table { background: #fff; }
+  .shot { border-radius: 10px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(11,32,38,.12); background: #0b1620; } .shot img { width: 100%; display: block; }
+  .cap { font-size: 8pt; color: var(--muted); margin-top: 5px; }
+  .callout { border-left: 4px solid var(--lava); background: #FFF5F2; padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 9.3pt; }
+  .callout.navyc { background: var(--navy); color: #e6eef1; border-left-color: var(--amber); }
+  .pill { display: inline-block; background: var(--oat2); border-radius: 999px; padding: 3px 9px; font-size: 8pt; font-weight: 600; margin: 0 4px 4px 0; color: var(--navy2); }
+  ul.tight { margin: 4px 0 0; padding-left: 16px; } ul.tight li { margin-bottom: 4px; font-size: 9.2pt; }
+  .steps { counter-reset: s; padding: 0; margin: 6px 0 0; } .steps li { list-style: none; position: relative; padding-left: 26px; margin-bottom: 7px; font-size: 9.2pt; }
+  .steps li:before { counter-increment: s; content: counter(s); position: absolute; left: 0; top: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 8pt; font-weight: 700; display: grid; place-items: center; }
+  .toc { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 6px; }
+  .toc div { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--line); padding: 6px 0; font-size: 10pt; }
+  .toc div b { color: var(--lava); min-width: 26px; margin-right: 4px; display: inline-block; white-space: nowrap; } .toc div span:last-child { color: var(--muted); font-family: "DM Mono"; font-size: 8.8pt; }
+  .principle { display: grid; grid-template-columns: 46px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .principle .pn { font-size: 22pt; font-weight: 800; color: var(--lava); line-height: 1; }
+  .principle h3 { font-size: 11.6pt; } .principle p { font-size: 9.4pt; color: #3d5560; margin: 0; }
+  .flow { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin: 10px 0 4px; }
+  .flow .st { position: relative; text-align: center; padding: 10px 6px 8px; background: #fff; border: 1px solid var(--line); border-radius: 12px; margin: 0 7px; font-size: 8.3pt; }
+  .flow .st b { display: block; font-size: 9.4pt; color: var(--navy); margin: 4px 0 2px; }
+  .flow .st .ix { width: 22px; height: 22px; border-radius: 50%; background: var(--lava); color: #fff; font-weight: 800; font-size: 8.5pt; display: inline-grid; place-items: center; }
+  .flow .st:not(:last-child):after { content: ""; position: absolute; right: -11px; top: 26px; border-left: 8px solid var(--lava); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+  .arch { position: relative; height: 4.6in; margin-top: 6px; }
+  .box { position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; font-size: 8.3pt; box-shadow: 0 3px 10px rgba(11,32,38,.06); }
+  .box h4 { margin: 0 0 3px; font-size: 9.1pt; } .box.dark { background: var(--navy); color: #fff; border-color: var(--navy); } .box.dark .muted { color: #9fb2b9; }
+  .box .row { display: flex; gap: 7px; align-items: center; margin-top: 6px; } .box .row img, .box .row svg { height: 19px; width: auto; }
+  .arrow { position: absolute; height: 2px; background: repeating-linear-gradient(90deg, var(--lava) 0 7px, transparent 7px 12px); }
+  .arrow:after { content: ""; position: absolute; right: -2px; top: -4px; border-left: 8px solid var(--lava); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+  .varrow { position: absolute; width: 2px; background: repeating-linear-gradient(180deg, var(--lava) 0 7px, transparent 7px 12px); }
+  .varrow:after { content: ""; position: absolute; bottom: -2px; left: -4px; border-top: 8px solid var(--lava); border-left: 5px solid transparent; border-right: 5px solid transparent; }
+  .wall { display: grid; grid-template-columns: repeat(4,1fr); gap: 9px; }
+  .wcard { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px; text-align: center; }
+  .wcard .lg { height: 40px; display: grid; place-items: center; margin-bottom: 5px; } .wcard .lg img { max-height: 38px; max-width: 110px; object-fit: contain; }
+  .wcard b { display: block; font-size: 9pt; } .wcard span { font-size: 7.8pt; color: var(--muted); }
+  .wcard.dark { background: var(--navy); color: #fff; border-color: var(--navy); } .wcard.dark span { color: #9fb2b9; }
+  .phase { border-radius: 12px; padding: 11px 13px; background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--lava); }
+  .phase:nth-child(2) { border-top-color: var(--amber); } .phase:nth-child(3) { border-top-color: var(--teal); }
+  dl.gl { display: grid; grid-template-columns: 1.35in 1fr; gap: 5px 12px; font-size: 8.9pt; margin: 6px 0 0; }
+  dl.gl dt { font-weight: 700; color: var(--navy); } dl.gl dd { margin: 0; color: #3d5560; }
+  .roles td:nth-child(n+2) { text-align: center; font-weight: 700; }
+  .shot.crop { height: 2.15in; } .shot.crop img { height: 100%; object-fit: cover; object-position: top left; }
+  .wcard .tag { font-size: 6.3pt; padding: 2px 6px; margin: 4px 2px 0; color: #C42A12; } .wcard .tag.ga { color: #00754F; }
+  .navy .tile p, .navy .tile li { color: #dce6ea; }
+  ul.lb li { font-size: 8.2pt; margin-bottom: 2px; }
+  .interop .tile p { font-size: 8.7pt; } .interop .tile h3 { font-size: 10.4pt; }
+  .yes { color: var(--teal); } .own { color: var(--sky); } .ro { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- 1 · COVER -->
+<section class="page navy cover">
+  <div class="bar"></div>
+  <svg style="position:absolute; right:-110px; top:600px" width="330" height="330" viewBox="0 0 330 330"><circle cx="165" cy="165" r="150" fill="none" stroke="#FF3621" stroke-width="2" opacity=".55"/><circle cx="165" cy="165" r="96" fill="#FF3621" opacity=".9"/></svg>
+  <div class="kicker" style="margin-top:.42in">Whitepaper · Databricks Data Intelligence Platform</div>
+  <h1>Every AI agent.<br>One governed registry.</h1>
+  <p class="lede">A reference architecture for governing AI agents, MCP servers, tools and skills, <strong style="color:#fff">wherever they are built</strong>. It shows who owns each asset, who uses it, what it costs and what it may touch, and it lets every change ship without surprising the people who depend on it.</p>
+  <div class="chip-row">
+    <div class="pchip"><span class="ic"><img src="img/agent-bricks.png"></span>Agent Bricks</div>
+    <div class="pchip"><span class="ic"><img src="img/unity-catalog.png"></span>Unity Catalog</div>
+    <div class="pchip"><span class="ic"><img src="img/unity-catalog.png"></span>Unity Gateway</div>
+    <div class="pchip"><span class="ic"><img src="img/genie.png"></span>Genie</div>
+    <div class="pchip"><span class="ic"><img src="img/lakebase.png"></span>Lakebase</div>
+    <div class="pchip"><span class="ic"><img src="img/mlflow-icon.svg"></span>MLflow</div>
+    <div class="pchip"><span class="ic"><img src="img/dbsql.png"></span>Databricks SQL</div>
+  </div>
+  <div style="margin-top:16px"><img src="img/apps-lockup-white.png" style="height:30px; margin-right:16px; vertical-align:middle"><img src="img/uc-lockup-white.png" style="height:25px; margin-right:16px; vertical-align:middle"><img src="img/aibi-lockup-white.png" style="height:27px; vertical-align:middle"></div>
+  <div class="author"><div class="av">ST</div><div><b>Suryasai Turaga</b><span>Databricks · October 2026</span></div></div>
+  <!--PREPARED_FOR-->
+  <div class="shot" style="position:absolute; left:.72in; bottom:.82in; width:5.5in; transform: rotate(-1.2deg); border-color:#2c4a55"><img src="img/04-agent-overview.png"></div>
+  <div class="foot"><span><span style="background:#fff;border-radius:6px;padding:3px 6px;display:inline-block"><img src="img/databricks-logo.png"></span></span><span>Agent Registry Hub · a deploy-ready solution accelerator on Databricks Apps</span></div>
+</section>
+
+<!-- 2 · WHAT THIS IS FOR AI LEADERS -->
+<section class="page">
+  <div class="bar"></div>
+  <div class="kicker">The message</div>
+  <h2>What this is for AI leaders</h2>
+  <div class="quote">We will know every AI agent we run: who owns it, who uses it, what it costs and what it is allowed to touch. And we will change agents without surprising the people who depend on them.
+    <small>— SURYASAI TURAGA, DATABRICKS</small></div>
+  <div style="display:grid; gap:9px; margin-top:13px">
+    <div class="item"><div class="num">1</div><div><div class="say">One inventory, no shadow agents.</div>Every agent, MCP server, tool and skill is registered with an <b>owner, a purpose, a price and its guardrails</b>, whether it was built on Databricks or elsewhere. Databricks-native assets are discovered automatically; external ones come in through the same front door.</div></div>
+    <div class="item"><div class="num">2</div><div><div class="say">Access and change are governed, not ticketed.</div>People request access in the registry, owners approve, and <b>Unity Catalog enforces the grant with an expiry</b>. Every change ships with an <b>impact report</b> naming the subscribers, downstream agents and unregistered users it affects, and they acknowledge it.</div></div>
+    <div class="item"><div class="num">3</div><div><div class="say">It keeps itself current, safely.</div>The registry reads Databricks and MLflow release notes, checks which new APIs are live in your workspace, and <b>tests every update on a copy of production (a Lakebase branch)</b> before an administrator accepts or delays it.</div></div>
+  </div>
+  <div class="grid4" style="margin-top:14px">
+    <div class="stat"><b>1,249</b><span>AI assets indexed in a live Databricks field workspace: 324 agents, 352 MCP servers, 564 tools, 9 skills</span></div>
+    <div class="stat"><b>800 / 449</b><span>approved on discovery (Databricks-governed) / queued for steward review (external or custom)</span></div>
+    <div class="stat"><b>13,601</b><span>production rows copied to a Lakebase branch for one update's regression; the branch was deleted afterwards</span></div>
+    <div class="stat"><b>149</b><span>tests passed on that branch; 329 automated tests now gate every release</span></div>
+  </div>
+  <p class="muted" style="font-size:7.6pt; margin:5px 0 0">Inventory figures as of 28 October 2026; the registry re-syncs hourly. Branch regression run of 26 October 2026.</p>
+  <div class="grid2" style="margin-top:14px">
+    <div><h3>What it is</h3><p class="muted" style="font-size:9.3pt">A Databricks App backed by Lakebase. It indexes what Unity Catalog, Unity Gateway and Agent Bricks already know, and adds what they don't: ownership, access workflows, email-registered consumers, change impact and a tamper-evident audit trail.</p></div>
+    <div><h3>What it is not</h3><p class="muted" style="font-size:9.3pt">Not another agent framework, and not a replacement for Unity Catalog: platform permissions stay the source of truth. It is a solution accelerator that runs in your workspace, not a generally available Databricks product.</p></div>
+  </div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 2</span></div>
+</section>
+
+<!-- 3 · ABSTRACT + CONTENTS -->
+<section class="page oat">
+  <div class="bar"></div>
+  <div class="kicker">Abstract</div>
+  <h2>Executive summary</h2>
+  <p style="font-size:10.6pt">Enterprises are moving from a handful of AI pilots to hundreds of agents that call thousands of tools through the Model Context Protocol (MCP). The agents live on many platforms: Databricks Agent Bricks and Genie, model-serving endpoints, productivity-suite copilots, cloud agent services, SaaS applications and in-house frameworks. Each platform governs its own slice. No one can answer the questions that matter at the portfolio level: <i>what do we run, who owns it, who depends on it, what does it cost, and what happens when it changes?</i></p>
+  <p style="font-size:10.6pt">This paper describes a reference architecture that answers those questions on the Databricks Data Intelligence Platform. The approach indexes what the platform already governs (Unity Catalog securables, Unity Gateway traffic, Agent Bricks agents, MLflow traces, billing and audit system tables) into a Lakebase-backed registry. It then adds the controls no single platform provides: accountable ownership, field-level provenance, time-bound access approvals, email-registered consumers, lineage-based change impact and a hash-chained audit trail. It also writes back: lineage to Unity Catalog, cross-registry IDs from Microsoft Agent 365, and the tool selection of MCP services. A built-in Platform Watch keeps the registry current with the platform, testing each update on a copy-on-write Lakebase branch before an administrator accepts it.</p>
+  <p style="font-size:10.6pt">The architecture is implemented as <b>Agent Registry Hub</b>, a deploy-ready Databricks App, and was verified against a live Databricks field workspace.</p>
+  <div class="grid2" style="margin-top:12px; align-items:start">
+    <div class="tile">
+      <h3>Contents</h3>
+      <div class="toc">
+        <div><span><b>1</b>The governance gap in agentic AI</span><span>4</span></div>
+        <div><span><b>2</b>Six design principles</span><span>5</span></div>
+        <div><span><b>3</b>Reference architecture</span><span>6</span></div>
+        <div><span><b>4</b>Capabilities</span><span>7</span></div>
+        <div><span><b>5</b>Agents built anywhere · interoperability</span><span>8–9</span></div>
+        <div><span><b>6</b>Operating model</span><span>10</span></div>
+        <div><span><b>7</b>Trust controls</span><span>11</span></div>
+        <div><span><b>8</b>Keeping pace with the platform</span><span>12</span></div>
+        <div><span><b>9</b>The experience</span><span>13</span></div>
+        <div><span><b>10</b>Measuring value and adopting</span><span>14</span></div>
+        <div><span><b>A–B</b>Capabilities used · Glossary</span><span>15</span></div>
+      </div>
+    </div>
+    <div class="tile">
+      <h3>Key takeaways</h3>
+      <ul class="tight">
+        <li><b>Index, don't duplicate.</b> Unity Catalog and Unity Gateway stay the source of truth for access and traffic. The registry adds ownership, workflow and impact.</li>
+        <li><b>Identity is the join key.</b> Stable asset IDs and consumer emails make agents from any platform comparable and their changes traceable.</li>
+        <li><b>Approve by default what is already governed.</b> Databricks-native assets enter approved; external and custom ones wait for a steward.</li>
+        <li><b>Change is a contract.</b> Breaking changes need notice, an impact report and acknowledgements.</li>
+        <li><b>Test before you trust.</b> Platform-driven updates are regression-tested on a Lakebase branch of real data, then accepted or delayed by a person.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 3</span></div>
+</section>
+
+<!-- 4 · §1 GOVERNANCE GAP -->
+<section class="page">
+  <div class="bar"></div>
+  <div class="kicker">Section 1</div>
+  <h2><span class="no">1</span>The governance gap in agentic AI</h2>
+  <p class="lede" style="font-size:10.8pt">Agents differ from earlier software in three ways that strain traditional governance. They are built quickly by many teams on many platforms. They act through tools (increasingly MCP servers) that reach into mail, files, CRM, ITSM and data. And they change often: a new prompt, model or tool can change behaviour overnight.</p>
+  <div class="grid2" style="margin-top:8px">
+    <div class="tile"><h3>Built on Databricks</h3><div style="margin-top:6px"><span class="pill">Agent Bricks Supervisor &amp; Knowledge Assistant</span><span class="pill">Code-first agents on Agent Runtime</span><span class="pill">Genie agents</span><span class="pill">Model Serving endpoints</span><span class="pill">Managed MCP (UC functions, Genie)</span><span class="pill">Databricks-provided MCP (Microsoft 365, GitHub, Slack, Atlassian…)</span><span class="pill">UC skills</span></div></div>
+    <div class="tile"><h3>Built elsewhere</h3><div style="margin-top:6px"><span class="pill">Productivity-suite copilots</span><span class="pill">Cloud agent services</span><span class="pill">SaaS agents (CRM, ITSM, HR)</span><span class="pill">In-house LangGraph &amp; custom agents</span><span class="pill">Vendor &amp; in-house MCP servers</span><span class="pill">Skills packaged as SKILL.md</span></div></div>
+  </div>
+  <h3 style="margin-top:14px">Five risks, and the control each one needs</h3>
+  <table>
+    <tr><th style="width:22%">Risk</th><th style="width:38%">What goes wrong</th><th>Control the registry provides</th></tr>
+    <tr><td><b>Shadow agents</b></td><td class="muted">Agents and MCP servers no one owns or knows about</td><td>Automatic discovery of Databricks-native assets, a front door for external ones, an ownerless queue, and steward curation</td></tr>
+    <tr><td><b>Standing access</b></td><td class="muted">Grants issued by ticket, never reviewed, never expiring</td><td>Request → owner approval → Unity Catalog / endpoint grant <b>with expiry</b>, day-3 reminders, day-7 request expiry, automatic revocation</td></tr>
+    <tr><td><b>Invisible cost</b></td><td class="muted">Spend scattered across endpoints, apps and vendors</td><td>Unit economics per asset ($/1k requests, $/user) from Unity Gateway usage and billing system tables; budgets and anomaly flags</td></tr>
+    <tr><td><b>Unguarded tools</b></td><td class="muted">Write-capable tools without guardrails or rate limits</td><td>Policy chips per asset, required controls per risk tier, coverage gaps and violations over 7 days</td></tr>
+    <tr><td><b>Surprise changes</b></td><td class="muted">A change breaks downstream agents and users</td><td>Declared and observed lineage, an impact preview before publish, frozen impact lists, acknowledgements, before/after metrics</td></tr>
+  </table>
+  <div class="callout" style="margin-top:12px">Each platform governs its own slice well. The gap is the <b>portfolio view</b>: one place where every agent has an owner, every consumer has an email, and every change has an impact list.</div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 4</span></div>
+</section>
+
+<!-- 5 · §2 PRINCIPLES -->
+<section class="page oat">
+  <div class="bar"></div>
+  <div class="kicker">Section 2</div>
+  <h2><span class="no">2</span>Six design principles</h2>
+  <p class="lede" style="font-size:10.8pt">The architecture follows six principles. Each is a deliberate trade-off that keeps the registry trustworthy without becoming a second, competing control plane.</p>
+  <div style="background:#fff; border-radius:14px; padding:4px 18px; border:1px solid var(--line)">
+    <div class="principle"><div class="pn">01</div><div><h3>Index, don't duplicate</h3><p>Unity Catalog, workspace ACLs and Unity Gateway remain the source of truth for who may use what and for what actually ran. The registry reads them, records its own decisions, and applies grants <i>through</i> the platform, never around it.</p></div></div>
+    <div class="principle"><div class="pn">02</div><div><h3>Platform-neutral identity</h3><p>Every asset gets a stable URN (for example <span class="mono">agent:endpoint:…</span>, <span class="mono">mcp:connection:…</span>, <span class="mono">skill:uc:…</span>), and every consumer is identified by email. That is what lets an agent built elsewhere be compared, governed and impact-assessed like a Databricks agent.</p></div></div>
+    <div class="principle"><div class="pn">03</div><div><h3>Governed, but editable</h3><p>Metadata pulled from source systems is shown as <i>auto-pulled</i>. Owners document what the platform can't know. Stewards override synced fields only with a reason and a lock mode, and drift is flagged when the source changes underneath.</p></div></div>
+    <div class="principle"><div class="pn">04</div><div><h3>Least privilege, time-bound</h3><p>Access is requested with a justification and a duration, approved by the people accountable, and provisioned with an expiry. The registry's own service principal can insert into the audit trail but never edit it.</p></div></div>
+    <div class="principle"><div class="pn">05</div><div><h3>Change is a contract</h3><p>Publishing a change freezes the list of people and assets it affects, notifies them, and tracks acknowledgements (not impacted, will migrate by a date, or need help). Breaking changes require notice and release notes.</p></div></div>
+    <div class="principle" style="border-bottom:0"><div class="pn">06</div><div><h3>Test before you trust</h3><p>Platform features and new versions of the registry are adopted deliberately. Each one is regression-tested on a copy-on-write Lakebase branch of production data, then accepted, delayed or rejected by an administrator. Only non-breaking updates may auto-apply.</p></div></div>
+  </div>
+  <div class="callout navyc" style="margin-top:14px"><b style="color:#fff">Why these trade-offs matter.</b> A registry that duplicates platform permissions drifts out of date, and people route around it. A registry that only reads them cannot answer who depends on what. These six principles keep the platform as the system of record, and make the registry the place where ownership, consent and change are recorded.</div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 5</span></div>
+</section>
+
+<!-- 6 · §3 ARCHITECTURE -->
+<section class="page">
+  <div class="bar"></div>
+  <div class="kicker">Section 3</div>
+  <h2><span class="no">3</span>Reference architecture</h2>
+  <p class="lede" style="font-size:10.4pt">Read-only collectors run as a serverless job and land everything in Lakebase. The app reads Lakebase, so pages load in milliseconds and never wait on a warehouse. Every governed write commits together with its audit record.</p>
+  <div class="arch">
+    <div class="box" style="left:0; top:0; width:2.15in; height:4.5in">
+      <h4>Sources (read-only)</h4><div class="muted" style="font-size:7.9pt">What the platform already knows</div>
+      <div class="row"><img src="img/agent-bricks.png">Agent Bricks agents</div>
+      <div class="row"><img src="img/genie.png">Genie agents</div>
+      <div class="row"><svg viewBox="0 0 20 20"><rect x="1" y="2" width="18" height="5" rx="2" fill="#FF3621"/><rect x="1" y="8" width="18" height="5" rx="2" fill="#FFB3A6"/><rect x="1" y="14" width="18" height="5" rx="2" fill="#FF3621"/></svg>Model Serving endpoints</div>
+      <div class="row"><img src="img/unity-catalog.png">UC connections, MCP services, functions, skills</div>
+      <div class="row"><img src="img/unity-catalog.png">Unity Gateway usage &amp; policies</div>
+      <div class="row"><img src="img/dbsql.png">Billing, audit, lineage system tables</div>
+      <div class="row"><img src="img/mlflow-icon.svg">MLflow traces &amp; evals</div>
+      <div class="row"><svg viewBox="0 0 20 20"><rect x="1" y="1" width="8" height="8" rx="1.5" fill="#FFB3A6"/><rect x="11" y="1" width="8" height="8" rx="1.5" fill="#FF3621"/><rect x="1" y="11" width="8" height="8" rx="1.5" fill="#FF3621"/><rect x="11" y="11" width="8" height="8" rx="1.5" fill="#FFB3A6"/></svg>Databricks Apps &amp; Agent Runtime</div>
+      <div style="margin-top:9px"><span class="pill" style="margin:0">+ external agents via API</span></div>
+    </div>
+    <div class="arrow" style="left:2.2in; top:1.05in; width:.42in"></div>
+    <div class="box" style="left:2.68in; top:.5in; width:1.55in"><h4>Collectors</h4><div class="muted" style="font-size:7.9pt">11 collectors, hourly, serverless job running as the deployer</div></div>
+    <div class="box" style="left:2.68in; top:1.7in; width:1.55in"><h4>Platform Watch</h4><div class="muted" style="font-size:7.9pt">Release feeds → API probes → branch regression</div><div class="row"><img src="img/lakebase.png"><img src="img/mlflow-icon.svg"></div></div>
+    <div class="arrow" style="left:4.28in; top:1.05in; width:.42in"></div>
+    <div class="box dark" style="left:4.76in; top:.2in; width:2.25in; height:2.62in">
+      <h4 style="display:flex;align-items:center;gap:8px"><img src="img/lakebase.png" style="height:22px;background:#fff;border-radius:5px;padding:2px">Lakebase registry</h4>
+      <div class="muted" style="font-size:7.9pt">Managed Postgres: fast reads, transactional writes, branches</div>
+      <ul class="tight lb" style="color:#dce6ea; margin-top:6px"><li>Assets, owners, fields with provenance</li><li>Subscriptions &amp; usage, keyed by email</li><li>Access requests &amp; grants with expiry</li><li>Lineage, changes &amp; impact</li><li>Hash-chained, append-only audit log</li></ul>
+    </div>
+    <div class="varrow" style="left:5.88in; top:2.86in; height:.4in"></div>
+    <div class="box" style="left:4.76in; top:3.32in; width:2.25in; height:1.18in">
+      <h4 style="display:flex;align-items:center;gap:8px"><span style="background:var(--navy);border-radius:6px;padding:3px 6px"><img src="img/apps-lockup-white.png" style="height:15px;display:block"></span>Agent Registry Hub</h4>
+      <div class="muted" style="font-size:7.9pt">React + FastAPI on Databricks Apps · SSO · roles. Grants and lineage are written back through Unity Catalog</div>
+    </div>
+    <div class="box" style="left:2.68in; top:3.12in; width:1.55in; height:1.38in"><h4>Everyone</h4><div class="muted" style="font-size:7.9pt">Consumers, owners, stewards, admins, auditors, plus MCP clients via <span class="mono">/v0.1/servers</span></div></div>
+    <div class="arrow" style="left:4.28in; top:3.88in; width:.42in; transform: rotate(180deg)"></div>
+  </div>
+  <table style="margin-top:6px">
+    <tr><th style="width:24%">Layer</th><th style="width:28%">Databricks capability</th><th>Role in the architecture</th></tr>
+    <tr><td><b>System of record</b></td><td>Unity Catalog · workspace ACLs</td><td>Authoritative permissions; the registry applies grants through UC and endpoint/Genie ACL APIs</td></tr>
+    <tr><td><b>Traffic &amp; policy</b></td><td>Unity Gateway</td><td>Per-request usage, rate limits and guardrails for models and MCP; read from system tables</td></tr>
+    <tr><td><b>Registry store</b></td><td>Lakebase</td><td>Low-latency reads, transactional governance writes, branches for safe update testing</td></tr>
+    <tr><td><b>Runtime</b></td><td>Databricks Apps · serverless jobs</td><td>SSO-protected app; hourly collectors and Platform Watch as serverless jobs, deployed as one bundle</td></tr>
+  </table>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 6</span></div>
+</section>
+
+<!-- 7 · §4 CAPABILITIES -->
+<section class="page oat">
+  <div class="bar"></div>
+  <div class="kicker">Section 4</div>
+  <h2><span class="no">4</span>Capabilities</h2>
+  <div class="grid2" style="gap:10px; margin-top:6px">
+    <div class="tile"><div class="ti"><img src="img/unity-catalog.png"><h3>One catalog for agents, MCPs, tools, skills</h3></div><p>Faceted search with owners, lifecycle, certification, sensitivity, risk tier, usage sparkline and policy shield. Each asset has an entity page with up to 11 tabs; only the tabs that apply are shown.</p></div>
+    <div class="tile"><div class="ti"><img src="img/agent-bricks.png"><h3>Description widget with provenance</h3></div><p>Owners document purpose, inputs, outputs, SLA, support and limits. External MCP metadata is <b>auto-pulled</b>, and stewards override specific fields with a reason. Every field shows where it came from.</p></div>
+    <div class="tile"><div class="ti"><img src="img/unity-catalog.png"><h3>Request access; owners grant from the UI</h3></div><p>Justification, duration and terms are captured. Approvers are resolved automatically and held to an SLA. Approval provisions the UC privilege or endpoint/Genie ACL <b>with an expiry</b>. A denial needs a reason.</p></div>
+    <div class="tile"><div class="ti"><img src="img/dbsql.png"><h3>Usage and cost, as Unity Gateway exposes them</h3></div><p>Requests, tokens, users, errors and latency come from <span class="mono">system.ai_gateway.usage</span> and serving usage; cost comes from billing × list prices. Unit economics, budgets and anomalies, all marked as estimates.</p></div>
+    <div class="tile"><div class="ti"><img src="img/mlflow-icon.svg"><h3>Traces and evals for Databricks-built agents</h3></div><p>Owners see MLflow traces (latency, tokens, state, assessments) and evaluation scorers with trends. Consumers see only their own traces.</p></div>
+    <div class="tile"><div class="ti"><img src="img/unity-catalog.png"><h3>Policies and guardrails with coverage</h3></div><p>Unity Gateway guardrails, rate limits, payload logging and UC permission gates appear as chips. Coverage is scored against the controls required per risk tier, with gaps and violations listed.</p></div>
+    <div class="tile"><div class="ti"><img src="img/genie-agent.png"><h3>Lineage and change impact, by email</h3></div><p>Declared and observed lineage connects people to agents, MCP servers, tools and tables. Publishing a change freezes an impact list, notifies everyone on it, and tracks acknowledgements.</p></div>
+    <div class="tile"><div class="ti"><img src="img/lakebase.png"><h3>Platform Watch</h3></div><p>Release-note and MLflow feeds are scored and new APIs probed. Updates are regression-tested on a <b>Lakebase branch</b>, then an admin accepts, delays or rejects them. Non-breaking updates may auto-apply.</p></div>
+  </div>
+  <div class="callout" style="margin-top:11px"><b>Also included:</b> an MCP Registry-compatible endpoint (<span class="mono">/v0.1/servers</span>) that publishes approved MCP servers to developer tools; a usage-registration API; SKILL.md registration; the never-crash reads (a labelled demo tier if the database is unreachable); and an admin "view as role" preview.</div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 7</span></div>
+</section>
+
+<!-- 8 · §5 AGENTS BUILT ANYWHERE -->
+<section class="page">
+  <div class="bar"></div>
+  <div class="kicker">Section 5</div>
+  <h2><span class="no">5</span>Agents built anywhere, governed here</h2>
+  <p class="lede" style="font-size:10.4pt">Where an agent is built is a team's choice; how it is governed is not. Every path below leads to the same record, with an owner, access workflow, cost view, lineage and impact list.</p>
+  <table style="margin-top:6px">
+    <tr><th style="width:26%">Onboarding path</th><th style="width:55%">How it works</th><th>Status</th></tr>
+    <tr><td><b>Register the agent</b></td><td>Owners register any agent, MCP server or skill in the UI or by API (<span class="mono">POST /api/assets</span>). It enters as <i>pending approval</i>; once a steward approves, it joins the catalog with owners, description, access workflow and subscribers.</td><td><span class="tag ok">Available</span></td></tr>
+    <tr><td><b>Bring its MCP servers through Unity Catalog</b></td><td>Register a vendor or in-house MCP server as a UC HTTP connection or a Unity Gateway MCP service. The registry <b>discovers it</b>, lists its tools, governs access with UC privileges, and calls are audited.</td><td><span class="tag ok">Available</span></td></tr>
+    <tr><td><b>Route model calls through Unity Gateway</b></td><td>External agents that call models through Unity Gateway appear in usage, cost and guardrail views like any Databricks workload.</td><td><span class="tag ok">Available</span></td></tr>
+    <tr><td><b>Report usage with an email</b></td><td>One call (<span class="mono">POST /api/v1/usage</span> with <span class="mono">consumer_email</span>) records who used what, through which agent. That feeds lineage and the impact list.</td><td><span class="tag ok">Available</span></td></tr>
+    <tr><td><b>Package skills as SKILL.md</b></td><td>Paste or upload a SKILL.md (the open Agent Skills format). The registry validates the frontmatter and registers the skill for approval; UC skills are indexed automatically.</td><td><span class="tag ok">Available</span><span class="tag">UC skills Beta</span></td></tr>
+    <tr><td><b>Publish approved MCP servers</b></td><td>An MCP Registry-compatible endpoint (<span class="mono">/v0.1/servers</span>) lets IDEs and copilots that accept an enterprise registry URL see only approved servers.</td><td><span class="tag ok">Available</span></td></tr>
+    <tr><td><b>Link Microsoft Agent 365</b></td><td>Agent 365 records (Microsoft Graph or an admin-center export) are matched to registry assets and shown as "Also registered in"; uncertain matches wait for a steward.</td><td><span class="tag ok">Available</span></td></tr>
+    <tr><td><b>Import standard descriptors</b></td><td>Onboard from an A2A Agent Card or an MCP Registry <span class="mono">server.json</span>, and index UC agent services.</td><td><span class="tag next">Next</span></td></tr>
+  </table>
+  <h3 style="margin-top:13px">Built on open standards</h3>
+  <div class="grid4">
+    <div class="tile"><h3 style="font-size:9.6pt">MCP Registry</h3><p>The <span class="mono">server.json</span> schema and the <span class="mono">/v0.1/servers</span> read API, so the registry can serve as a subregistry for developer tools.</p></div>
+    <div class="tile"><h3 style="font-size:9.6pt">Agent Skills</h3><p>SKILL.md frontmatter (<span class="mono">name</span>, <span class="mono">description</span>, <span class="mono">allowed-tools</span>) for portable skills.</p></div>
+    <div class="tile"><h3 style="font-size:9.6pt">A2A Agent Card</h3><p>The Agent2Agent descriptor for externally hosted agents (import on the roadmap).</p></div>
+    <div class="tile"><h3 style="font-size:9.6pt">MLflow &amp; OTel</h3><p>MLflow 3 traces and assessments; OpenTelemetry GenAI conventions for agent and tool spans.</p></div>
+  </div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 8</span></div>
+</section>
+
+<!-- 8b · §5 INTEROPERABILITY -->
+<section class="page oat">
+  <div class="bar"></div>
+  <div class="kicker">Section 5 · continued</div>
+  <h2>Interoperability: the registry writes back</h2>
+  <p class="lede" style="font-size:10.4pt">Governance only helps if it shows up where people already work. Three integrations push what the registry knows into Unity Catalog, Microsoft 365 and the MCP gateway. Each one previews its effect first and leaves an audit record.</p>
+  <div class="grid3 interop" style="margin-top:6px">
+    <div class="tile"><div class="ti"><img src="img/unity-catalog.png"><h3>Lineage in Catalog Explorer</h3></div><p>Agents, MCP servers, tools and skills become Unity Catalog external metadata, linked to the tables they use. An admin reviews the full plan before publishing; the registry only changes objects it created.</p><span class="tag ok">Available</span><span class="tag ga">Ext. lineage GA</span></div>
+    <div class="tile"><div class="ti"><img src="img/genie-agent.png"><h3>One agent, two registries</h3></div><p>Microsoft Agent 365 can list Databricks Genie agents next to Microsoft 365 copilots. The registry imports those records (Microsoft Graph or an admin-center export) and shows the Microsoft ID as "Also registered in".</p><span class="tag ok">Available</span></div>
+    <div class="tile"><div class="ti"><img src="img/agent-bricks.png"><h3>Choose the MCP tools agents see</h3></div><p>Owners choose which of an MCP service's tools agents can call, with a live preview. Hiding a tool is a breaking change: it needs a reason and notifies everyone on the impact report.</p><span class="tag ok">Available</span><span class="tag ga">MCP services GA</span></div>
+  </div>
+  <div style="margin-top:12px"><div class="shot"><img src="img/26c-tool-selection.png"></div><div class="cap"><b>Tool selection</b>: selectors, a live preview of exposed and hidden tools, a required reason, and the impact preview before applying (fictional demo fleet)</div></div>
+  <div style="display:grid; grid-template-columns: 1.3in 1fr; gap:14px; margin-top:10px; align-items:stretch">
+    <div class="shot"><img src="img/25c-also-registered-card.png"></div>
+    <div class="callout navyc" style="display:flex; flex-direction:column; justify-content:center; font-size:8.9pt"><div><b style="color:#fff">"Also registered in"</b> shows the Microsoft Agent 365 ID next to the registry's own record, how it was matched and when it was last pulled.</div><div style="margin-top:8px"><b style="color:#fff">Safe by default.</b> Publishing to Unity Catalog, and the optional hourly publish step, stay off until an admin turns them on. Microsoft credentials live in a Unity Catalog connection, never in the app. Every write-back is audited, and anything the registry can't match with confidence goes to a steward instead.</div></div>
+  </div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 9</span></div>
+</section>
+
+<!-- 9 · §6 OPERATING MODEL -->
+<section class="page oat">
+  <div class="bar"></div>
+  <div class="kicker">Section 6</div>
+  <h2><span class="no">6</span>Operating model</h2>
+  <p class="lede" style="font-size:10.4pt">An asset moves through one lifecycle, and each role has a clear part in it. Databricks-native assets enter <b>approved</b> because the platform already governs them; external and custom assets enter <b>discovered</b> and wait for a steward.</p>
+  <div class="flow">
+    <div class="st"><span class="ix">1</span><b>Discover</b>Collectors or registration</div>
+    <div class="st"><span class="ix">2</span><b>Curate</b>Steward approves, rejects or merges</div>
+    <div class="st"><span class="ix">3</span><b>Describe</b>Owner documents; provenance kept</div>
+    <div class="st"><span class="ix">4</span><b>Use</b>Request, grant with expiry, subscribe</div>
+    <div class="st"><span class="ix">5</span><b>Change</b>Preview, publish, acknowledge</div>
+    <div class="st"><span class="ix">6</span><b>Retire</b>Deprecate with notice, then retire</div>
+  </div>
+  <table class="roles" style="margin-top:12px">
+    <tr><th style="width:40%">Capability</th><th>Viewer</th><th>Consumer</th><th>Owner</th><th>Steward</th><th>Admin</th><th>Auditor</th></tr>
+    <tr><td>Browse the catalog and lineage</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+    <tr><td>Request access · subscribe with email</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+    <tr><td>See usage, cost and traces</td><td class="ro">–</td><td class="own">own</td><td class="own">owned</td><td class="yes">✓</td><td class="yes">✓</td><td class="ro">read</td></tr>
+    <tr><td>Edit descriptions</td><td class="ro">–</td><td class="ro">–</td><td class="own">owned</td><td class="yes">✓</td><td class="yes">✓</td><td class="ro">–</td></tr>
+    <tr><td>Approve access · revoke grants</td><td class="ro">–</td><td class="ro">–</td><td class="own">owned</td><td class="yes">✓</td><td class="yes">✓</td><td class="ro">–</td></tr>
+    <tr><td>Publish changes · pause · deprecate</td><td class="ro">–</td><td class="ro">–</td><td class="own">owned</td><td class="yes">✓</td><td class="yes">✓</td><td class="ro">–</td></tr>
+    <tr><td>Override synced fields · certify · curate</td><td class="ro">–</td><td class="ro">–</td><td class="ro">–</td><td class="yes">✓</td><td class="yes">✓</td><td class="ro">–</td></tr>
+    <tr><td>Accept or delay platform updates · manage roles</td><td class="ro">–</td><td class="ro">–</td><td class="ro">–</td><td class="ro">read</td><td class="yes">✓</td><td class="ro">read</td></tr>
+    <tr><td>Verify and export the audit trail</td><td class="ro">–</td><td class="ro">–</td><td class="ro">–</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+  </table>
+  <div class="grid2" style="margin-top:12px">
+    <div class="callout"><b>Roles are derived where they can be.</b> Consumers and owners follow from what people use and own; stewards, admins and auditors are assigned. Auditors read everything and change nothing.</div>
+    <div class="callout"><b>The platform still decides runtime access.</b> The app's roles decide what the UI lets you do; Unity Catalog and workspace ACLs decide what an agent or person may actually call.</div>
+  </div>
+  <div class="grid2" style="margin-top:10px; align-items:center">
+    <div class="shot crop" style="height:1.72in"><img src="img/09-subscribe-dialog.png" style="object-position: center 30%"></div>
+    <div><h3>Email is the key to downstream impact</h3><p style="font-size:9.3pt; color:#3d5560">Everyone who subscribes to an agent or MCP server, requests access, or reports usage from code gives an email address (an individual or a team list), plus optionally the downstream agent or process that depends on it. That one field turns usage into lineage, and lineage into a named impact list when the asset changes.</p></div>
+  </div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 10</span></div>
+</section>
+
+<!-- 10 · §7 TRUST CONTROLS -->
+<section class="page">
+  <div class="bar"></div>
+  <div class="kicker">Section 7</div>
+  <h2><span class="no">7</span>Trust controls an architect can defend</h2>
+  <div class="grid2" style="margin-top:6px">
+    <div class="tile"><h3>Access lifecycle</h3>
+      <ol class="steps"><li>The requester states a justification and duration, and accepts the owner's terms</li><li>Approvers resolve automatically: named approvers, then owners, then the domain steward, then admins</li><li>Approve with a provisioning choice (grant directly, add to group, record only); a denial needs a reason</li><li>The Unity Catalog or endpoint grant is applied, as the approver when user authorization is enabled</li><li>Reminder at day 3 and expiry at day 7 for open requests; expired grants are revoked</li></ol></div>
+    <div class="tile"><h3>Change management</h3>
+      <ol class="steps"><li>The owner drafts a change; breaking changes need 14 days' notice and release notes</li><li>The impact preview lists subscribers, downstream agents and their owners, and unregistered users</li><li>Publish freezes the impact list and notifies everyone on it</li><li>People acknowledge: not impacted · will migrate by a date · need help</li><li>Before/after metrics (cost, errors, latency, evals) are captured</li></ol></div>
+    <div class="tile"><h3>Evidence and audit</h3><ul class="tight"><li>Every grant, decision, edit, override, publish and role change writes an <b>append-only, hash-chained</b> audit record in the same transaction</li><li>One-click chain verification; CSV/JSON export for auditors</li><li>Field-level provenance records what came from the platform and what people changed, and why</li></ul></div>
+    <div class="tile"><h3>Guardrails and coverage</h3><ul class="tight"><li>Each risk tier defines required controls (owner, documented purpose, usage tracking, rate limit, input/output guardrails, payload logging, budget, human approval for write tools)</li><li>Coverage is scored per asset and across the fleet; gaps are listed with examples</li><li>Violations from Unity Gateway policy decisions over 7 days</li></ul></div>
+  </div>
+  <div class="callout navyc" style="margin-top:12px"><b style="color:#fff">Security posture in brief.</b> Read-only collectors run as the deployer, because system tables are admin-restricted. The app's service principal holds a Lakebase OAuth role with read/write on registry tables and insert-only on the audit log. Secrets and environment variables of serving endpoints are never read, and trace payloads (request and response text) are never stored.</div>
+  <div class="shot crop" style="margin-top:10px; height:1.62in"><img src="img/15-policies.png"></div>
+  <div class="cap"><b>Policies &amp; guardrails</b>: required controls per risk tier, coverage across the fleet, and the gaps to close (fictional demo fleet)</div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 11</span></div>
+</section>
+
+<!-- 11 · §8 PLATFORM WATCH -->
+<section class="page oat">
+  <div class="bar"></div>
+  <div class="kicker">Section 8</div>
+  <h2><span class="no">8</span>Keeping pace with the platform</h2>
+  <p class="lede" style="font-size:10.4pt">The Databricks and MLflow platforms ship new capabilities every week. Platform Watch turns that stream into a governed upgrade path, so the registry adopts what is relevant deliberately and safely.</p>
+  <div class="flow">
+    <div class="st"><span class="ix">1</span><b>Subscribe</b>Release-note, MLflow, SDK and CLI feeds</div>
+    <div class="st"><span class="ix">2</span><b>Score</b>Relevance against the capability catalog</div>
+    <div class="st"><span class="ix">3</span><b>Probe</b>Is the API live in <i>this</i> workspace?</div>
+    <div class="st"><span class="ix">4</span><b>Branch</b>Copy-on-write Lakebase branch of production</div>
+    <div class="st"><span class="ix">5</span><b>Regress</b>Migrations, data, smoke checks, tests</div>
+    <div class="st"><span class="ix">6</span><b>Decide</b>Accept, delay or reject; then apply</div>
+  </div>
+  <div class="grid2" style="margin-top:12px; align-items:start">
+    <div class="shot"><img src="img/23-platform-updates-light.png"></div>
+    <div>
+      <h3>Evidence from a live deployment</h3>
+      <ul class="tight">
+        <li>A copy-on-write <b>Lakebase branch</b> of the production registry was created in 6.6 seconds, holding 13,601 rows in 35 tables</li>
+        <li>On the branch: pending migrations applied, data preservation checked, collectors run, and read-path smoke checks over the full catalog (1,208 assets at the time)</li>
+        <li>The regression suite ran on the branch: <b>149 passed, 5 skipped</b></li>
+        <li>The branch was deleted afterwards. Production changed only through an explicit deploy or an accepted update</li>
+      </ul>
+      <div class="callout" style="margin-top:10px">Breaking changes are called out before anyone clicks <b>Accept</b>, and a breaking update needs a written note. Delayed updates resurface automatically when the delay ends.</div>
+    </div>
+  </div>
+  <table style="margin-top:12px">
+    <tr><th style="width:24%">Candidate type</th><th>Raised when</th><th style="width:28%">On acceptance</th></tr>
+    <tr><td><b>App release</b></td><td>A newer version of the registry is staged, with its migrations analysed for breaking DDL/DML</td><td>Migrate production, deploy the staged app</td></tr>
+    <tr><td><b>Capability</b></td><td>A probed API becomes available and an adapter ships disabled</td><td>Enable the adapter</td></tr>
+    <tr><td><b>Advisory</b></td><td>Release notes mention a capability the registry depends on (GA, preview, deprecation)</td><td>Acknowledge; plan follow-up</td></tr>
+  </table>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 12</span></div>
+</section>
+
+<!-- 12 · §9 EXPERIENCE -->
+<section class="page">
+  <div class="bar"></div>
+  <div class="kicker">Section 9</div>
+  <h2><span class="no">9</span>The experience</h2>
+  <p class="muted" style="font-size:8.8pt">Illustrative screens with a fictional demo fleet</p>
+  <div class="grid2" style="margin-top:4px">
+    <div><div class="shot"><img src="img/03-catalog.png"></div><div class="cap"><b>Catalog</b>: typed facets, trust badges, owners, relationship and KPIs</div></div>
+    <div><div class="shot"><img src="img/04-agent-overview.png"></div><div class="cap"><b>Agent page</b>: owner description with provenance, KPIs, coverage</div></div>
+    <div><div class="shot"><img src="img/12-lineage-explorer.png"></div><div class="cap"><b>Lineage</b>: declared, observed and data edges; an undeclared dependency flagged</div></div>
+    <div><div class="shot"><img src="img/11-impact-report.png"></div><div class="cap"><b>Impact report</b>: who a change affects, and their acknowledgements</div></div>
+    <div><div class="shot"><img src="img/10-request-access-dialog.png"></div><div class="cap"><b>Request access</b>: justification, duration and "subscribe me" by email</div></div>
+    <div><div class="shot"><img src="img/06-agent-usage-cost.png"></div><div class="cap"><b>Usage &amp; cost</b>: unit economics, top consumers, budget</div></div>
+  </div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 13</span></div>
+</section>
+
+<!-- 13 · §10 VALUE + ROADMAP -->
+<section class="page oat">
+  <div class="bar"></div>
+  <div class="kicker">Section 10</div>
+  <h2><span class="no">10</span>Measuring value and adopting</h2>
+  <table style="margin-top:6px">
+    <tr><th style="width:22%">Outcome</th><th style="width:44%">What changes</th><th>Measure it with</th></tr>
+    <tr><td><b>Lower risk</b></td><td>No unowned or unknown agents. Access is time-bound and reviewed. Guardrail gaps are visible before an incident</td><td>% assets with an owner · % grants with expiry · guardrail coverage by risk tier</td></tr>
+    <tr><td><b>Cost transparency</b></td><td>Every agent and MCP server has unit economics and an accountable owner</td><td>$/1k requests and $/active user per asset · budget variance · anomalies resolved</td></tr>
+    <tr><td><b>Faster reuse</b></td><td>Teams find an existing agent or MCP server and request access in minutes</td><td>Median request-to-grant time · assets reused by more than one team</td></tr>
+    <tr><td><b>Safe change</b></td><td>Owners see their dependents before shipping; consumers hear in time</td><td>% changes with an impact report · acknowledgement rate · incidents caused by agent changes</td></tr>
+    <tr><td><b>Audit readiness</b></td><td>A tamper-evident trail of who approved what, and why</td><td>Chain-verification status · time to produce access evidence</td></tr>
+    <tr><td><b>Keeping pace</b></td><td>New platform capabilities are adopted deliberately, tested on a branch</td><td>Time from release note to accepted update · regressions caught before production</td></tr>
+  </table>
+  <h3 style="margin-top:14px">A pragmatic adoption path</h3>
+  <div class="grid3" style="margin-top:6px">
+    <div class="phase"><h3>First 30 days</h3><ul class="tight"><li>Deploy the bundle in one workspace</li><li>Run the read-only sync: the first inventory, with owners and gaps</li><li>Name stewards; set risk tiers and required controls</li></ul></div>
+    <div class="phase"><h3>By day 60</h3><ul class="tight"><li>Turn on access requests with expiry for priority agents and MCP servers</li><li>Onboard the first externally built agents and their MCP servers</li><li>Subscribers register by email; first impact reports</li></ul></div>
+    <div class="phase"><h3>By day 90</h3><ul class="tight"><li>Budgets and coverage targets per domain</li><li>Agree the Platform Watch policy (auto-apply non-breaking)</li><li>Publish approved MCP servers to developer tools</li><li>Publish lineage to Unity Catalog; link Agent 365 records</li></ul></div>
+  </div>
+  <div class="quote" style="margin-top:14px; font-size:12.5pt">Where an agent is built is a team's choice. How it is governed is not.</div>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 14</span></div>
+</section>
+
+<!-- 14 · APPENDICES -->
+<section class="page">
+  <div class="bar"></div>
+  <div class="kicker">Appendix A</div>
+  <h2>Databricks capabilities used</h2>
+  <div class="wall">
+    <div class="wcard"><div class="lg"><img src="img/agent-bricks.png"></div><b>Agent Bricks</b><span>Supervisor, Knowledge Assistant and code-first agents, discovered automatically</span></div>
+    <div class="wcard"><div class="lg"><img src="img/unity-catalog.png"></div><b>Unity Catalog</b><span>Connections, functions, MCP services, skills, grants and external lineage</span><div><span class="tag ga">MCP services GA</span><span class="tag">Skills Beta</span></div></div>
+    <div class="wcard"><div class="lg"><img src="img/unity-catalog.png"></div><b>Unity Gateway</b><span>Model and MCP traffic, usage, rate limits and guardrails</span><div><span class="tag ga">GA</span><span class="tag">Service policies Beta</span></div></div>
+    <div class="wcard"><div class="lg"><img src="img/lakebase.png"></div><b>Lakebase</b><span>Managed Postgres registry and branches for safe update testing</span></div>
+    <div class="wcard"><div class="lg"><img src="img/genie.png"></div><b>Genie</b><span>Genie agents with their tables and permissions</span></div>
+    <div class="wcard"><div class="lg"><img src="img/mlflow-icon.svg"></div><b>MLflow</b><span>Traces, assessments and evaluation results</span></div>
+    <div class="wcard"><div class="lg"><img src="img/dbsql.png"></div><b>Databricks SQL · system tables</b><span>Billing, Unity Gateway usage, audit and lineage</span></div>
+    <div class="wcard dark"><div class="lg"><img src="img/apps-lockup-white.png"></div><b>Databricks Apps</b><span>The registry's runtime, with SSO and optional on-behalf-of-user authorization</span></div>
+  </div>
+  <div style="display:flex; gap:10px; align-items:center; margin-top:10px">
+    <img src="img/pill-genie-one.png" style="height:24px"><img src="img/pill-genie-agents.png" style="height:24px"><img src="img/pill-genie-code.png" style="height:24px"><img src="img/delta-lake.png" style="height:18px; margin-left:8px"><img src="img/platform.png" style="height:28px; margin-left:auto">
+  </div>
+  <p class="muted" style="font-size:7.8pt; margin-top:6px">Status labels follow docs.databricks.com as of October 2026. Beta features may change; the registry labels them in the UI.</p>
+  <div class="kicker" style="margin-top:12px">Appendix B</div>
+  <h2 style="font-size:17pt">Glossary</h2>
+  <dl class="gl">
+    <dt>MCP</dt><dd>Model Context Protocol: an open protocol through which agents discover and call tools exposed by an MCP server.</dd>
+    <dt>MCP service</dt><dd>An MCP server registered in Unity Catalog and governed by Unity Gateway (privileges, rate limits, policies).</dd>
+    <dt>Skill</dt><dd>A packaged capability described by SKILL.md frontmatter; registrable as a UC securable.</dd>
+    <dt>Asset URN</dt><dd>The registry's stable identifier for an agent, MCP server, tool or skill, independent of the platform it runs on.</dd>
+    <dt>Provenance</dt><dd>For each descriptive field, whether its value was auto-pulled from the source, written by the owner, or overridden by a steward (with a reason).</dd>
+    <dt>Impact list</dt><dd>The frozen set of subscribers, downstream assets and owners, and observed users a published change affects.</dd>
+    <dt>Lakebase branch</dt><dd>A copy-on-write copy of a Lakebase database, used to test an update against real data without touching production.</dd>
+    <dt>External lineage</dt><dd>Unity Catalog objects and relationships for systems outside Unity Catalog; the registry publishes its agents and their table dependencies this way.</dd>
+    <dt>Tool selection</dt><dd>The list of MCP tools (exact names or prefixes) an MCP service exposes through Unity Gateway; unselected tools can't be listed or called.</dd>
+    <dt>Coverage</dt><dd>The share of controls required by an asset's risk tier that are actually in place.</dd>
+  </dl>
+  <div class="foot"><span><img src="img/databricks-logo.png"></span><span>Every AI agent. One governed registry. · 15</span></div>
+</section>
+
+<!-- 15 · BACK -->
+<section class="page navy">
+  <div class="bar"></div>
+  <div class="kicker" style="margin-top:.5in">About this paper</div>
+  <h2 style="font-size:28pt; margin-top:10px">Start with an inventory.<br>Earn trust with every change.</h2>
+  <p class="lede" style="color:#c9d6db; font-size:11.5pt; max-width:6.2in">The fastest way to see the value is to run the read-only sync in one workspace. Within an hour, you have an inventory of every agent, MCP server, tool and skill, with owners, usage, cost, coverage gaps and the lineage between them.</p>
+  <div class="grid2" style="margin-top:20px">
+    <div class="tile" style="background:rgba(255,255,255,.06); border-color:#2c4a55; color:#e6eef1"><h3 style="color:#fff">Proposed next step</h3><ul class="tight" style="color:#dce6ea"><li>A 60-minute architecture session: walk through the live registry and agree the first workspace</li><li>Pick 3–5 priority agents, including one built outside Databricks, to onboard in the first 30 days</li><li>Agree risk tiers, required controls and the upgrade policy</li></ul></div>
+    <div class="tile" style="background:rgba(255,255,255,.06); border-color:#2c4a55; color:#e6eef1"><h3 style="color:#fff">About the author</h3><p style="color:#dce6ea">Suryasai Turaga works at Databricks, helping enterprises put data and AI into production on the Databricks Data Intelligence Platform, and designed and built Agent Registry Hub.</p></div>
+  </div>
+  <h3 style="color:#fff; margin-top:22px">What ships in the bundle</h3>
+  <div class="grid4" style="margin-top:6px">
+    <div class="tile" style="background:rgba(255,255,255,.06); border-color:#2c4a55"><h3 style="color:#fff; font-size:10pt">One deploy</h3><p>The app, its Lakebase project and three serverless jobs (setup, hourly sync, Platform Watch), deployed with one script.</p></div>
+    <div class="tile" style="background:rgba(255,255,255,.06); border-color:#2c4a55"><h3 style="color:#fff; font-size:10pt">Read-only discovery</h3><p>Collectors never write to the systems they index; grants and write-backs happen only when an approver or admin says so.</p></div>
+    <div class="tile" style="background:rgba(255,255,255,.06); border-color:#2c4a55"><h3 style="color:#fff; font-size:10pt">329 automated tests</h3><p>Backend and frontend suites; the backend suite also runs on every Lakebase branch regression.</p></div>
+    <div class="tile" style="background:rgba(255,255,255,.06); border-color:#2c4a55"><h3 style="color:#fff; font-size:10pt">Portable</h3><p>Deploys to any workspace with a CLI profile and a SQL warehouse; no external services required.</p></div>
+  </div>
+  <div class="author" style="margin-top:22px"><div class="av">ST</div><div><b>Suryasai Turaga</b><span>Databricks</span></div></div>
+  <p style="position:absolute; left:.72in; right:.72in; bottom:.9in; font-size:7.6pt; color:#9fb2b9">Agent Registry Hub is a solution accelerator, not a generally available Databricks product. Capability statuses reflect public Databricks documentation as of October 2026 and may change. Figures come from a Databricks field demonstration workspace; screens show a fictional demo fleet. Databricks, Unity Catalog, Lakebase, Agent Bricks, Genie and MLflow are trademarks of Databricks, Inc. or the Linux Foundation.</p>
+  <div class="foot"><span><span style="background:#fff;border-radius:6px;padding:3px 6px;display:inline-block"><img src="img/databricks-logo.png"></span></span><span>Every AI agent. One governed registry. · 16</span></div>
+</section>
+
+</body>
+</html>

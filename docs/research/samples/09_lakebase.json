@@ -1,0 +1,393 @@
+{
+  "cli": "databricks postgres list-projects --profile DEFAULT -o json",
+  "exit": 0,
+  "project_count": 54,
+  "project_field_presence": {
+    "create_time": 54,
+    "name": 54,
+    "project_id": 54,
+    "status": 54,
+    "uid": 54,
+    "update_time": 54
+  },
+  "project_status_field_presence": {
+    "compute_last_active_time": 54,
+    "default_endpoint_settings": 54,
+    "display_name": 54,
+    "enable_pg_native_login": 54,
+    "history_retention_duration": 54,
+    "owner": 54,
+    "pg_version": 54,
+    "project_id": 54,
+    "budget_policy_id": 2
+  },
+  "project_spec_field_presence": {},
+  "owner_counts_top15": [
+    [
+      "admin@example.com",
+      17
+    ],
+    [
+      "user01@example.com",
+      5
+    ],
+    [
+      "user03@example.com",
+      3
+    ],
+    [
+      "user71@example.com",
+      3
+    ],
+    [
+      "user73@example.com",
+      2
+    ],
+    [
+      "user34@example.com",
+      2
+    ],
+    [
+      "user74@example.com",
+      2
+    ],
+    [
+      "user10@example.com",
+      1
+    ],
+    [
+      "user75@example.com",
+      1
+    ],
+    [
+      "6fdfda38-3ea2-4e48-8c7e-27a96ffaf1d8",
+      1
+    ],
+    [
+      "ef56b00c-e62f-4144-8035-40bd2db6e6b6",
+      1
+    ],
+    [
+      "user09@example.com",
+      1
+    ],
+    [
+      "user76@example.com",
+      1
+    ],
+    [
+      "user77@example.com",
+      1
+    ],
+    [
+      "user11@example.com",
+      1
+    ]
+  ],
+  "projects_owned_by_current_user": [
+    "finance-selfserve",
+    "care-digital-twin",
+    "cdp",
+    "surya-office-fleet",
+    "ontobricks-registry",
+    "visual-designer-lakebase",
+    "ce-portal-lakebase",
+    "portal-migration-demo",
+    "lakebasepoc",
+    "prelaunch-digital-twin-demo",
+    "showcase-lakebase",
+    "clinical-data-hub",
+    "va-health-itemmaster-inv-mgmt",
+    "test",
+    "external-space-invaders",
+    "lakebase-fabcon-mar2026",
+    "83eb266d-27f8-4467-a7df-2b048eff09d7"
+  ],
+  "project_names": [
+    "nsclc-heor-rwe",
+    "pa-fastlane",
+    "finance-selfserve",
+    "ostrelle-ledger",
+    "brickwell-mfg-ai-mem",
+    "care-digital-twin",
+    "databricks-internal-custom-agents",
+    "cdp",
+    "vi-ws-1234567890123456-lakebase",
+    "meridian-policy-lens",
+    "surya-office-fleet",
+    "healthplan-appeals",
+    "ontobricks-registry",
+    "deck-hub",
+    "cedar-health",
+    "mmt-rwe-ads-lakebase",
+    "visual-designer-lakebase",
+    "ce-portal-lakebase",
+    "portal-migration-demo",
+    "te-audit-lakebase",
+    "site-feasibility-lakebase",
+    "rwe-studio-db",
+    "rebecca-lakebase-db",
+    "payment-integrity-claims-db",
+    "medical-affairs-chatbot-jakebase-jwlt",
+    "otel-demo",
+    "lakebasepoc",
+    "hls-clinical-team3",
+    "cohort-builder-db",
+    "hls-patient-clinical-report-db",
+    "prelaunch-digital-twin-demo",
+    "lakebase-demo-prod",
+    "showcase-lakebase",
+    "cw-memory",
+    "doc-translation",
+    "clinical-data-hub",
+    "dataforge",
+    "aichemy-demo",
+    "yen-lakebase",
+    "va-health-itemmaster-inv-mgmt",
+    "lb-test",
+    "test",
+    "demo-catalog-db",
+    "builder-app",
+    "external-space-invaders",
+    "art-org-charts",
+    "lakebase-fabcon-mar2026",
+    "fraud-case-mgmt",
+    "takeda-operations",
+    "d66adf7f-1c33-4f94-9e8f-48c7f09075ce",
+    "batch-release",
+    "56c41d29-2858-44a4-987c-6df8bcfdb1b7",
+    "83eb266d-27f8-4467-a7df-2b048eff09d7",
+    "sriram-lakebase"
+  ],
+  "examples": [
+    {
+      "create_time": "2026-10-25T18:21:30Z",
+      "name": "projects/nsclc-heor-rwe",
+      "project_id": "nsclc-heor-rwe",
+      "status": {
+        "compute_last_active_time": "2026-10-26T00:25:30Z",
+        "default_endpoint_settings": {
+          "autoscaling_limit_max_cu": 2,
+          "autoscaling_limit_min_cu": 0.5,
+          "suspend_timeout_duration": "300s"
+        },
+        "display_name": "NSCLC HEOR RWE serving",
+        "enable_pg_native_login": false,
+        "history_retention_duration": "604800s",
+        "owner": "user10@example.com",
+        "pg_version": 17,
+        "project_id": "nsclc-heor-rwe"
+      },
+      "uid": "5a72b276-5275-4b98-bd4f-227af2a30618",
+      "update_time": "2026-10-26T00:25:34Z"
+    },
+    {
+      "create_time": "2026-10-22T20:31:32Z",
+      "name": "projects/pa-fastlane",
+      "project_id": "pa-fastlane",
+      "status": {
+        "compute_last_active_time": "2026-10-23T14:21:33Z",
+        "default_endpoint_settings": {
+          "autoscaling_limit_max_cu": 2,
+          "autoscaling_limit_min_cu": 0.5,
+          "suspend_timeout_duration": "300s"
+        },
+        "display_name": "Prior-auth fast lane",
+        "enable_pg_native_login": false,
+        "history_retention_duration": "604800s",
+        "owner": "user75@example.com",
+        "pg_version": 17,
+        "project_id": "pa-fastlane"
+      },
+      "uid": "a52ae575-f0d7-49d4-87a0-59f1261cb328",
+      "update_time": "2026-10-23T14:21:34Z"
+    },
+    {
+      "create_time": "2026-10-22T12:17:32Z",
+      "name": "projects/finance-selfserve",
+      "project_id": "finance-selfserve",
+      "status": {
+        "compute_last_active_time": "2026-10-25T09:56:09Z",
+        "default_endpoint_settings": {
+          "autoscaling_limit_max_cu": 1,
+          "autoscaling_limit_min_cu": 1,
+          "suspend_timeout_duration": "86400s"
+        },
+        "display_name": "Finance Self-Serve Studio (BSAR workflow store)",
+        "enable_pg_native_login": false,
+        "history_retention_duration": "604800s",
+        "owner": "admin@example.com",
+        "pg_version": 17,
+        "project_id": "finance-selfserve"
+      },
+      "uid": "fdf44f11-99f1-41e6-81fe-805ed916b1b9",
+      "update_time": "2026-10-25T09:56:19Z"
+    }
+  ],
+  "rest_equivalent": {
+    "path": "GET /api/2.0/postgres/projects?page_size=5",
+    "http": 200,
+    "top_level_keys": [
+      "projects",
+      "next_page_token"
+    ]
+  },
+  "quota_paths": {
+    "/api/2.0/postgres/quotas": {
+      "http": 404,
+      "body": {
+        "error_code": "ENDPOINT_NOT_FOUND",
+        "message": "No API found for 'GET /postgres/quotas'",
+        "details": [
+          {
+            "@type": "type.googleapis.com/google.rpc.RequestInfo",
+            "request_id": "cf24341c-f5e2-4bd5-b1d7-759e37ccdc51",
+            "serving_data": ""
+          }
+        ]
+      }
+    },
+    "/api/2.0/postgres/projects:quota": {
+      "http": 404,
+      "body": {
+        "error_code": "ENDPOINT_NOT_FOUND",
+        "message": "No API found for 'GET /postgres/projects:quota'",
+        "details": [
+          {
+            "@type": "type.googleapis.com/google.rpc.RequestInfo",
+            "request_id": "e1c56a81-462f-4ce7-81ff-8b2210179beb",
+            "serving_data": ""
+          }
+        ]
+      }
+    }
+  },
+  "provisioned_instances": {
+    "cli": "databricks database list-database-instances --profile DEFAULT -o json",
+    "exit": 0,
+    "count": 10,
+    "field_presence": {
+      "capacity": 10,
+      "creation_time": 10,
+      "creator": 10,
+      "effective_capacity": 10,
+      "effective_enable_pg_native_login": 10,
+      "effective_enable_readable_secondaries": 10,
+      "effective_node_count": 10,
+      "effective_retention_window_in_days": 10,
+      "effective_stopped": 10,
+      "name": 10,
+      "pg_version": 10,
+      "read_only_dns": 10,
+      "read_write_dns": 10,
+      "state": 10,
+      "uid": 10,
+      "effective_usage_policy_id": 1
+    },
+    "state_counts": {
+      "AVAILABLE": 10
+    },
+    "capacity_counts": {
+      "CU_2": 3,
+      "CU_1": 7
+    },
+    "examples": [
+      {
+        "capacity": "CU_2",
+        "creation_time": "2026-02-26T18:12:38Z",
+        "creator": "user34@example.com",
+        "effective_capacity": "CU_2",
+        "effective_enable_pg_native_login": false,
+        "effective_enable_readable_secondaries": false,
+        "effective_node_count": 1,
+        "effective_retention_window_in_days": 7,
+        "effective_stopped": false,
+        "name": "site-feasibility-lakebase",
+        "pg_version": "PG_VERSION_16",
+        "read_only_dns": "instance-ro-9212a036-8edd-4600-9445-6104ef0e8a0a.database.cloud.databricks.com",
+        "read_write_dns": "instance-9212a036-8edd-4600-9445-6104ef0e8a0a.database.cloud.databricks.com",
+        "state": "AVAILABLE",
+        "uid": "9212a036-8edd-4600-9445-6104ef0e8a0a"
+      },
+      {
+        "capacity": "CU_1",
+        "creation_time": "2025-12-18T20:00:23Z",
+        "creator": "user01@example.com",
+        "effective_capacity": "CU_1",
+        "effective_enable_pg_native_login": true,
+        "effective_enable_readable_secondaries": false,
+        "effective_node_count": 1,
+        "effective_retention_window_in_days": 7,
+        "effective_stopped": false,
+        "name": "rwe-studio-db",
+        "pg_version": "PG_VERSION_16",
+        "read_only_dns": "instance-ro-be9f8407-17c5-438b-9ed9-a2be9cc8f4e4.database.cloud.databricks.com",
+        "read_write_dns": "instance-be9f8407-17c5-438b-9ed9-a2be9cc8f4e4.database.cloud.databricks.com",
+        "state": "AVAILABLE",
+        "uid": "be9f8407-17c5-438b-9ed9-a2be9cc8f4e4"
+      }
+    ]
+  },
+  "state_lookup_example": {
+    "branches": {
+      "path": "GET /api/2.0/postgres/projects/surya-office-fleet/branches",
+      "http": 200,
+      "body": {
+        "branches": [
+          {
+            "name": "projects/surya-office-fleet/branches/production",
+            "uid": "br-flat-mountain-d2f2sx4j",
+            "parent": "projects/surya-office-fleet",
+            "create_time": "2026-09-25T03:52:13Z",
+            "update_time": "2026-10-14T12:38:34Z",
+            "status": {
+              "default": true,
+              "is_protected": false,
+              "current_state": "READY",
+              "state_change_time": "2026-09-25T03:52:15Z",
+              "logical_size_bytes": 33923072,
+              "branch_id": "production"
+            },
+            "branch_id": "production"
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "path": "GET /api/2.0/postgres/projects/surya-office-fleet/branches/production/endpoints",
+      "http": 200,
+      "body": {
+        "endpoints": [
+          {
+            "name": "projects/surya-office-fleet/branches/production/endpoints/primary",
+            "uid": "ep-little-base-d2jebc4a",
+            "parent": "projects/surya-office-fleet/branches/production",
+            "create_time": "2026-09-25T03:52:13Z",
+            "update_time": "2026-10-26T02:22:19Z",
+            "status": {
+              "endpoint_type": "ENDPOINT_TYPE_READ_WRITE",
+              "hosts": {
+                "host": "ep-little-base-d2jebc4a.database.us-east-1.cloud.databricks.com",
+                "read_write_pooled_host": "ep-little-base-d2jebc4a-pooler.database.us-east-1.cloud.databricks.com"
+              },
+              "last_active_time": "2026-10-26T02:22:12Z",
+              "autoscaling_limit_min_cu": 0.5,
+              "autoscaling_limit_max_cu": 16.0,
+              "current_state": "ACTIVE",
+              "disabled": false,
+              "suspend_timeout_duration": "7200s",
+              "settings": {},
+              "group": {
+                "min": 1,
+                "max": 1,
+                "enable_readable_secondaries": false
+              },
+              "endpoint_id": "primary"
+            },
+            "endpoint_id": "primary"
+          }
+        ]
+      }
+    }
+  }
+}

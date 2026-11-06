@@ -1,0 +1,7 @@
+Name,Status,Channel,Date created,Last modified,Publisher,Publisher type,Version,Owner,Description,Platform,Agent ID,Source URL
+Claims Analytics,Active,Copilot,2026-09-02,2026-10-20,Example Health Data,External partner-built agents,,lee.chen@example.com,Natural-language analytics over governed claims tables.,Databricks Genie,T_6f1c2a90-0d4e-4c55-9a8e-1b2c3d4e5f60,https://dbc-a1b2c3d4-e5f6.cloud.databricks.com/genie/rooms/demo-claims
+Care Ops Supervisor,Active,Copilot,2026-09-10,2026-10-21,Example Health Data,Published by your org,,ana.ruiz@example.com,Routes care-operations questions.,Databricks,T_0a6b8c2d-4e1f-4a7b-8c9d-0e1f2a3b4c5d,
+Policy Docs Assistant,Active,Copilot,2026-09-12,2026-10-21,Example Health Data,External partner-built agents,,ana.ruiz@example.com,Answers policy questions with citations.,Databricks Genie,T_9d8c7b6a-5f4e-4d3c-2b1a-0f9e8d7c6b5a,
+Member Intake Agnt,Active,Copilot,2026-09-15,2026-10-22,Example Health Data,Published by your org,,,Drafts member-intake summaries.,Databricks,T_1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e,
+Supply Forecast Genie,Active,Copilot,2026-10-01,2026-10-22,Example Health Data,External partner-built agents,,,Forecasts supply needs.,Databricks Genie,T_7e6d5c4b-3a2f-4e1d-0c9b-8a7f6e5d4c3b,https://dbc-a1b2c3d4-e5f6.cloud.databricks.com/genie/rooms/01f0aa11bb22cc33dd44ee55ff667788
+HR Helper,Active,Teams,2026-08-01,2026-10-02,Example Corp,Shared by creator,1.2.0,pat.lee@example.com,Answers HR questions.,Copilot Studio,P_5c4b3a29-1807-4f6e-9d5c-4b3a29180700,

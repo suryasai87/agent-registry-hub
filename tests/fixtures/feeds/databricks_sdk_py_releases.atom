@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:https://github.com/databricks/databricks-sdk-py/releases</id>
+  <link type="text/html" rel="alternate" href="https://github.com/databricks/databricks-sdk-py/releases"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/databricks/databricks-sdk-py/releases.atom"/>
+  <title>Release notes from databricks-sdk-py</title>
+  <updated>2026-10-24T09:22:39Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Repository/505863149/v0.157.0</id>
+    <updated>2026-10-24T09:30:37Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/databricks/databricks-sdk-py/releases/tag/v0.157.0"/>
+    <title>v0.157.0</title>
+    <content type="html">&lt;p&gt;## Release v0.157.0 (2026-10-24)&lt;/p&gt;
+
+&lt;p&gt;### API Changes
+&lt;br /&gt;* Add `get_memory_store_permission()`, `get_session_store_permission()`, `grant_memory_store_permission()`, `grant_session_store_permission()`, `list_memory_store_permissions()`, `list_session_store_permissions()`, `revoke_memory_store_permission()` and `revoke_session_store_permission()` methods for [w.agent_kit](&lt;a href=&quot;https://databricks-sdk-py.readthedocs.io/en/latest/workspace/agentkit/agent_kit.html&quot;&gt;https://databricks-sdk-py.readthedocs.io/en/latest/workspace/agentkit/agent_kit.html&lt;/a&gt;) workspace-level service.
+&lt;br /&gt;* Add `create_materialization_set()`, `delete_materialization_set()`, `get_materialization_set()` and `update_materialization_set()` methods for [w.feature_engineering](&lt;a href=&quot;https://databricks-sdk-py.readthedocs.io/en/latest/workspace/ml/feature_engineering.html&quot;&gt;https://databricks-sdk-py.readthedocs.io/en/latest/workspace/ml/feature_engineering.html&lt;/a&gt;) workspace-level service.
+&lt;br /&gt;* Add `notification_settings` field for `databricks.sdk.service.dataquality.AnomalyDetectionConfig`.
+&lt;br /&gt;* Add `destination_ids` and `destination_user_ids` fields for `databricks.sdk.service.dataquality.NotificationDestination`.
+&lt;br /&gt;* Add `on_unhealthy_table` field for `databricks.sdk.service.dataquality.NotificationSettings`.
+&lt;br /&gt;* Add `file_output` field for `databricks.sdk.service.jobs.SqlOutput`.
+&lt;br /&gt;* Add `materialization_set_id` field for `databricks.sdk.service.ml.MaterializedFeature`.
+&lt;br /&gt;* Add `delete_rows` field for `databricks.sdk.service.ml.PurgeFeatureEntitiesRequest`.
+&lt;br /&gt;* Add `full_refresh_selection_by_path` and `refresh_selection_by_path` fields for `databricks.sdk.service.pipelines.StartUpdate`.
+&lt;br /&gt;* Add `full_refresh_selection_by_path` and `refresh_selection_by_path` fields for `databricks.sdk.service.pipelines.UpdateInfo`.
+&lt;br /&gt;* Add `metadata` field for `databricks.sdk.service.sandbox.Sandbox`.&lt;/p&gt;
+
+&lt;p&gt;### Security
+&lt;br /&gt;* Require certifi 2026.10.19 or newer to use an updated CA trust bundle.&lt;/p&gt;</content>
+    <author>
+      <name>cross-repo-secure-release-app[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/4998052?s=60&amp;v=4"/>
+  </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/505863149/v0.156.0</id>
+    <updated>2026-10-22T04:33:52Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/databricks/databricks-sdk-py/releases/tag/v0.156.0"/>
+    <title>v0.156.0</title>
+    <content type="html">&lt;p&gt;## Release v0.156.0 (2026-10-22)&lt;/p&gt;
+
+&lt;p&gt;### API Changes
+&lt;br /&gt;* Add `start_endpoint()` and `stop_endpoint()` methods for [w.vector_search_endpoints](&lt;a href=&quot;https://databricks-sdk-py.readthedocs.io/en/latest/workspace/vectorsearch/vector_search_endpoints.html&quot;&gt;https://databricks-sdk-py.readthedocs.io/en/latest/workspace/vectorsearch/vector_search_endpoints.html&lt;/a&gt;) workspace-level service.
+&lt;br /&gt;* Add `include_external_spend` field for `databricks.sdk.service.billing.BudgetConfiguration`.
+&lt;br /&gt;* Add `include_external_spend` field for `databricks.sdk.service.billing.CreateBudgetConfigurationBudget`.
+&lt;br /&gt;* Add `include_external_spend` field for `databricks.sdk.service.billing.UpdateBudgetConfigurationBudget`.
+&lt;br /&gt;* Add `regex` field for `databricks.sdk.service.iamv2.IdentityVisibilityFilter`.
+&lt;br /&gt;* Add `relative_error` field for `databricks.sdk.service.ml.ApproxCountDistinctFunction`.
+&lt;br /&gt;* Add `relative_error` field for `databricks.sdk.service.ml.ApproxPercentileFunction`.
+&lt;br /&gt;* Add `condition`, `min_time_between_triggers` and `wait_after_last_change` fields for `databricks.sdk.service.ml.TableTrigger`.
+&lt;br /&gt;* Add `onedrive_options` field for `databricks.sdk.service.pipelines.ConnectorOptions`.
+&lt;br /&gt;* Add `stopping`, `stopped` and `starting` enum values for `databricks.sdk.service.aisearch.EndpointStatusState`.
+&lt;br /&gt;* Add `operation_action_type_unbind` enum value for `databricks.sdk.service.bundledeployments.OperationActionType`.
+&lt;br /&gt;* Add `onedrive` enum value for `databricks.sdk.service.pipelines.IngestionSourceType`.
+&lt;br /&gt;* Add `stopping`, `stopped` and `starting` enum values for `databricks.sdk.service.vectorsearch.EndpointStatusState`.&lt;/p&gt;</content>
+    <author>
+      <name>cross-repo-secure-release-app[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/4998052?s=60&amp;v=4"/>
+  </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/505863149/v0.155.0</id>
+    <updated>2026-10-21T04:35:12Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/databricks/databricks-sdk-py/releases/tag/v0.155.0"/>
+    <title>v0.155.0</title>
+    <content type="html">&lt;p&gt;## Release v0.155.0 (2026-10-21)&lt;/p&gt;
+
+&lt;p&gt;### API Changes
+&lt;br /&gt;* Add `sdp_source` field for `databricks.sdk.service.ml.DataSource`.
+&lt;br /&gt;* Add `customer_version_label`, `max_dbu` and `reyden_cluster_size_multiplier` fields for `databricks.sdk.service.sql.CreateWarehouseRequest`.
+&lt;br /&gt;* Add `customer_version_label`, `max_dbu` and `reyden_cluster_size_multiplier` fields for `databricks.sdk.service.sql.EditWarehouseRequest`.
+&lt;br /&gt;* Add `customer_version_label`, `max_dbu` and `reyden_cluster_size_multiplier` fields for `databricks.sdk.service.sql.EndpointInfo`.
+&lt;br /&gt;* Add `customer_version_label`, `max_dbu` and `reyden_cluster_size_multiplier` fields for `databricks.sdk.service.sql.GetWarehouseResponse`.
+&lt;br /&gt;* [Breaking] Remove `replication_config` field for `databricks.sdk.service.sharing.CreateShare`.
+&lt;br /&gt;* [Breaking] Remove `replication_config` field for `databricks.sdk.service.sharing.ShareInfo`.&lt;/p&gt;</content>
+    <author>
+      <name>cross-repo-secure-release-app[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/4998052?s=60&amp;v=4"/>
+  </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/505863149/v0.154.0</id>
+    <updated>2026-10-19T04:37:05Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/databricks/databricks-sdk-py/releases/tag/v0.154.0"/>
+    <title>v0.154.0</title>
+    <content type="html">&lt;p&gt;## Release v0.154.0 (2026-10-19)&lt;/p&gt;
+
+&lt;p&gt;### API Changes
+&lt;br /&gt;* Add `create_directory()`, `delete_path()`, `get_metadata()`, `list_directory_contents()` and `rename_path()` methods for [w.sandbox](&lt;a href=&quot;https://databricks-sdk-py.readthedocs.io/en/latest/workspace/sandbox/sandbox.html&quot;&gt;https://databricks-sdk-py.readthedocs.io/en/latest/workspace/sandbox/sandbox.html&lt;/a&gt;) workspace-level service.
+&lt;br /&gt;* Add `secrets` field for `databricks.sdk.service.catalog.ConnectionInfo`.
+&lt;br /&gt;* Add `secrets` field for `databricks.sdk.service.catalog.CreateConnection`.
+&lt;br /&gt;* Add `governed_tags` field for `databricks.sdk.service.catalog.PolicyInfo`.
+&lt;br /&gt;* Add `secrets` field for `databricks.sdk.service.catalog.UpdateConnection`.
+&lt;br /&gt;* Add `has_replication_point_blocking_errors` and `initial_replication_progress` fields for `databricks.sdk.service.disasterrecovery.FailoverGroup`.
+&lt;br /&gt;* Add `duration_target` field for `databricks.sdk.service.jobs.BaseRun`.
+&lt;br /&gt;* Add `duration_target` field for `databricks.sdk.service.jobs.CreateJob`.
+&lt;br /&gt;* Add `duration_target` field for `databricks.sdk.service.jobs.JobSettings`.
+&lt;br /&gt;* Add `duration_target` field for `databricks.sdk.service.jobs.RepairRun`.
+&lt;br /&gt;* Add `duration_target` field for `databricks.sdk.service.jobs.Run`.
+&lt;br /&gt;* Add `duration_target` field for `databricks.sdk.service.jobs.RunNow`.
+&lt;br /&gt;* Add `duration_target` field for `databricks.sdk.service.jobs.SubmitRun`.&lt;/p&gt;</content>
+    <author>
+      <name>cross-repo-secure-release-app[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/4998052?s=60&amp;v=4"/>
+  </entry>
+</feed>

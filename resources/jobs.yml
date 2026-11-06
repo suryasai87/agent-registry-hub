@@ -1,0 +1,108 @@
+# Serverless jobs. Both run as the deployer (the bundle owner): it can read the system tables
+# (system.ai_gateway.usage is restricted) and list every agent/MCP/skill. The app's service principal only
+# needs Lakebase DML. Serverless tasks take no env vars, so configuration arrives as parameters.
+resources:
+  jobs:
+    registry_setup:
+      name: agent-registry-hub-setup-${var.app_name}
+      description: Migrations + the app SP's Lakebase OAuth role and least-privilege grants (idempotent).
+      max_concurrent_runs: 1
+      environments:
+        - environment_key: registry
+          spec:
+            environment_version: "3"
+            dependencies:
+              - psycopg[binary]==3.3.6
+              - psycopg-pool==3.3.3
+              - databricks-sdk==0.157.0
+      tasks:
+        - task_key: migrate_and_grant
+          environment_key: registry
+          max_retries: 2
+          min_retry_interval_millis: 30000
+          spark_python_task:
+            python_file: ../pipeline/setup_registry.py
+            parameters: ["--root", "${workspace.file_path}", "--app-name", "${var.app_name}",
+                         "--endpoint", "projects/${var.lakebase_project}/branches/production/endpoints/primary",
+                         "--pg-schema", "${var.lakebase_schema}"]
+
+    registry_sync:
+      name: agent-registry-hub-sync-${var.app_name}
+      description: Collect agents, MCP servers, tools, skills, permissions, guardrails, usage, cost, traces/evals and lineage into Lakebase.
+      max_concurrent_runs: 1
+      schedule:
+        quartz_cron_expression: ${var.sync_cron}
+        timezone_id: UTC
+        pause_status: UNPAUSED
+      parameters:
+        - name: collectors
+          default: all
+        - name: days
+          default: "30"
+      environments:
+        - environment_key: registry
+          spec:
+            environment_version: "3"
+            dependencies:
+              - psycopg[binary]==3.3.6
+              - psycopg-pool==3.3.3
+              - databricks-sdk==0.157.0
+      tasks:
+        - task_key: sync
+          environment_key: registry
+          timeout_seconds: 3600
+          max_retries: 2                 # psycopg-binary's native import can abort intermittently on serverless
+          min_retry_interval_millis: 30000
+          spark_python_task:
+            python_file: ../pipeline/run_sync.py
+            parameters: ["--root", "${workspace.file_path}",
+                         "--endpoint", "projects/${var.lakebase_project}/branches/production/endpoints/primary",
+                         "--pg-schema", "${var.lakebase_schema}", "--warehouse", "${var.warehouse_id}",
+                         "--skill-schemas", "${var.skill_schemas}", "--agent365-connection", "${var.agent365_connection}",
+                         "--kg-target", "${var.kg_target}",
+                         "--collectors", "{{job.parameters.collectors}}", "--days", "{{job.parameters.days}}"]
+
+    # Platform Watch: release feeds + capability probes → update candidates → regression on a Lakebase branch
+    # → admin accept/delay in the app (or auto-apply per policy). The app triggers mode=check/apply with a candidate.
+    registry_updates:
+      name: agent-registry-hub-updates-${var.app_name}
+      description: Watch Databricks/MLflow release feeds, probe new APIs, regression-test updates on a Lakebase branch, apply on acceptance.
+      max_concurrent_runs: 1
+      schedule:
+        quartz_cron_expression: ${var.watch_cron}
+        timezone_id: UTC
+        pause_status: UNPAUSED
+      parameters:
+        - name: mode
+          default: watch
+        - name: candidate
+          default: ""
+        - name: triggered_by
+          default: schedule
+      environments:
+        - environment_key: registry_tests
+          spec:
+            environment_version: "3"
+            dependencies:
+              - psycopg[binary]==3.3.6
+              - psycopg-pool==3.3.3
+              - databricks-sdk==0.157.0
+              - fastapi==0.159.1
+              - pydantic==2.14.1
+              - pytest==9.1.1
+              - httpx==0.28.1        # starlette.testclient requires httpx
+      tasks:
+        - task_key: platform_updates
+          environment_key: registry_tests
+          timeout_seconds: 5400
+          max_retries: 1
+          min_retry_interval_millis: 30000
+          spark_python_task:
+            python_file: ../jobs/platform_updates.py
+            parameters: ["--root", "${workspace.file_path}", "--mode", "{{job.parameters.mode}}",
+                         "--candidate", "{{job.parameters.candidate}}",
+                         "--endpoint", "projects/${var.lakebase_project}/branches/production/endpoints/primary",
+                         "--pg-schema", "${var.lakebase_schema}", "--warehouse", "${var.warehouse_id}",
+                         "--app-name", "${var.app_name}", "--registry-admins", "${var.registry_admins}",
+                         "--notify-webhook-url", "${var.notify_webhook_url}",
+                         "--agent365-connection", "${var.agent365_connection}", "--kg-target", "${var.kg_target}"]

@@ -1,0 +1,204 @@
+{
+  "probe": "GET /api/2.0/apps (page_size=100, paginated)",
+  "http": 200,
+  "top_level_keys": [
+    "apps"
+  ],
+  "pages": 1,
+  "app_count": 100,
+  "field_presence": {
+    "name": 100,
+    "description": 100,
+    "compute_status": 100,
+    "url": 100,
+    "active_deployment": 76,
+    "create_time": 100,
+    "creator": 100,
+    "update_time": 100,
+    "updater": 100,
+    "resources": 56,
+    "service_principal_id": 100,
+    "service_principal_name": 100,
+    "default_source_code_path": 97,
+    "service_principal_client_id": 100,
+    "id": 100,
+    "oauth2_app_integration_id": 100,
+    "oauth2_app_client_id": 100,
+    "compute_size": 100,
+    "thumbnail_url": 100,
+    "last_deployment_id": 68,
+    "effective_platform_version": 100,
+    "default_git_source": 1,
+    "git_repository": 1,
+    "compute_min_instances": 1,
+    "compute_max_instances": 1,
+    "effective_compatibility_flags": 1,
+    "space": 1,
+    "space_id": 1,
+    "effective_budget_policy_id": 3,
+    "effective_usage_policy_id": 3
+  },
+  "compute_status_state": {
+    "ACTIVE": 77,
+    "STOPPED": 19,
+    "ERROR": 4
+  },
+  "app_status_state": {
+    "null": 100
+  },
+  "resource_type_shapes": {
+    "postgres:branch,database,permission": 12,
+    "experiment:experiment_id,permission": 7,
+    "serving_endpoint:name,permission": 25,
+    "sql_warehouse:id,permission": 45,
+    "uc_securable:permission,securable_full_name,securable_kind,securable_type": 3,
+    "genie_space:name,permission,space_id": 10,
+    "uc_securable:permission,securable_full_name,securable_type": 12,
+    "secret:key,permission,scope": 17,
+    "database:database_name,instance_name,permission": 11,
+    "job:id,permission": 15,
+    "app:name,permission": 1
+  },
+  "agent_registry_hub_taken": false,
+  "get_agent_registry_hub": {
+    "http": 404,
+    "body": {
+      "error_code": "NOT_FOUND",
+      "message": "App with name agent-registry-hub does not exist or is deleted.",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.rpc.RequestInfo",
+          "request_id": "c30e9185-717b-4cd5-a232-26f90e228934",
+          "serving_data": ""
+        }
+      ]
+    }
+  },
+  "similar_names": [],
+  "apps_created_by_current_user": 26,
+  "examples": [
+    {
+      "name": "340b-fraud-investigator",
+      "description": "",
+      "compute_status": {
+        "state": "ACTIVE",
+        "message": "App compute is running."
+      },
+      "url": "https://340b-fraud-investigator-1234567890123456.aws.databricksapps.com",
+      "active_deployment": {
+        "deployment_id": "01f17099d6971d969c6c7a936d0508a4",
+        "source_code_path": "/Workspace/Users/user02@example.com/fraud-investigator",
+        "mode": "SNAPSHOT",
+        "deployment_artifacts": {
+          "source_code_path": "/Workspace/Users/cb8abf0d-f894-47b0-8dc1-4ad7454c9a50/src/01f17099d6971d969c6c7a936d0508a4"
+        },
+        "status": {
+          "state": "SUCCEEDED",
+          "message": "App started successfully"
+        },
+        "create_time": "2026-06-25T13:29:05Z",
+        "creator": "user02@example.com",
+        "update_time": "2026-06-25T13:35:11Z",
+        "scan_status": "APP_DEPLOYMENT_SCAN_STATUS_UNSPECIFIED",
+        "scan_omitted_findings_count": 0,
+        "scan_omitted_count_is_lower_bound": false
+      },
+      "create_time": "2026-06-24T16:31:08Z",
+      "creator": "user02@example.com",
+      "update_time": "2026-10-25T09:26:18Z",
+      "updater": "user02@example.com",
+      "resources": [
+        {
+          "name": "lakebase-db",
+          "postgres": {
+            "branch": "projects/fraud-case-mgmt/branches/production",
+            "database": "projects/fraud-case-mgmt/branches/production/databases/db-vl5f-kofkzy9fim",
+            "permission": "CAN_CONNECT_AND_CREATE"
+          }
+        }
+      ],
+      "service_principal_id": 75767323029051,
+      "service_principal_name": "app-46a7gs 340b-fraud-investigator",
+      "default_source_code_path": "/Workspace/Users/user02@example.com/fraud-investigator",
+      "service_principal_client_id": "cb8abf0d-f894-47b0-8dc1-4ad7454c9a50",
+      "id": "cb8abf0d-f894-47b0-8dc1-4ad7454c9a50",
+      "oauth2_app_integration_id": "e7bd4e04-4db9-4f7f-9ee8-ad4fb9b28f88",
+      "oauth2_app_client_id": "e7bd4e04-4db9-4f7f-9ee8-ad4fb9b28f88",
+      "compute_size": "MEDIUM",
+      "thumbnail_url": "",
+      "last_deployment_id": "01f17099d6971d969c6c7a936d0508a4",
+      "effective_platform_version": "PLATFORM_VERSION_V0"
+    },
+    {
+      "name": "agent-bricks-meridian-ab-demo",
+      "description": "",
+      "compute_status": {
+        "state": "STOPPED",
+        "message": "Start the app compute to deploy the app."
+      },
+      "url": "https://agent-bricks-meridian-ab-demo-1234567890123456.aws.databricksapps.com",
+      "create_time": "2026-10-19T17:37:34Z",
+      "creator": "user01@example.com",
+      "update_time": "2026-10-22T13:49:45Z",
+      "updater": "user01@example.com",
+      "resources": [
+        {
+          "name": "agentbricks-trace-experiment",
+          "experiment": {
+            "experiment_id": "2765968149342867",
+            "permission": "CAN_EDIT"
+          }
+        }
+      ],
+      "service_principal_id": 76178300070257,
+      "service_principal_name": "app-46a7gs agent-bricks-meridian-ab-demo",
+      "default_source_code_path": "/Workspace/Users/user01@example.com/agentbricks_deployments/agent-bricks-meridian-ab-demo",
+      "service_principal_client_id": "3f0cc5a3-732a-4e9a-b829-a17ee1eed303",
+      "id": "3f0cc5a3-732a-4e9a-b829-a17ee1eed303",
+      "oauth2_app_integration_id": "426d0de0-e9ae-4ed9-b1b5-c50a057d7aa8",
+      "oauth2_app_client_id": "426d0de0-e9ae-4ed9-b1b5-c50a057d7aa8",
+      "compute_size": "MEDIUM",
+      "thumbnail_url": "",
+      "last_deployment_id": "01f1cbf03a92111787d618d3b1f26f73",
+      "effective_platform_version": "PLATFORM_VERSION_V0"
+    }
+  ],
+  "permissions_example": {
+    "path": "GET /api/2.0/permissions/apps/340b-fraud-investigator",
+    "http": 200,
+    "body": {
+      "object_id": "/apps/cb8abf0d-f894-47b0-8dc1-4ad7454c9a50",
+      "object_type": "apps",
+      "access_control_list": [
+        {
+          "group_name": "users",
+          "all_permissions": [
+            {
+              "permission_level": "CAN_USE",
+              "inherited": false
+            }
+          ]
+        },
+        {
+          "group_name": "admins",
+          "all_permissions": [
+            {
+              "permission_level": "CAN_MANAGE",
+              "inherited": true,
+              "inherited_from_object": [
+                "/apps"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "pagination_check": {
+    "page_size_30_pages": 4,
+    "page_size_30_total": 100,
+    "unique": 100,
+    "no_params_count": 100,
+    "no_params_next_token": false
+  }
+}

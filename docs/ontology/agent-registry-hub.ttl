@@ -1,0 +1,444 @@
+# Agent Registry Hub ontology: GENERATED from app/registry/knowledge_graph.py, do not edit by hand.
+#   cd app && python -m registry.knowledge_graph ttl > ../docs/ontology/agent-registry-hub.ttl
+# Import it into OntoBricks as the domain ontology (Ontology > Import); the hub's Delta export
+# (registry/kg_delta.py) writes instances as <namespace><Class>/<percent-encoded URN>.
+
+@prefix arh: <https://agent-registry-hub.example/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://agent-registry-hub.example/ontology> a owl:Ontology ;
+    rdfs:label "Agent Registry Hub" ;
+    rdfs:comment "Agents, MCP servers, tools and skills registered in the Agent Registry Hub, their lineage to data, policies and models, and their records in the Microsoft 365 agent registry." ;
+    owl:versionInfo "1" .
+
+# ---------------------------------------------------------------- classes
+arh:Entity a owl:Class ;
+    rdfs:label "Registry graph node" ;
+    rdfs:comment "Anything the Agent Registry Hub graph describes: registered assets, the data and platform resources they use, policies, and records of the same agents in other registries." .
+
+arh:Asset a owl:Class ;
+    rdfs:subClassOf arh:Entity ;
+    rdfs:label "Registered asset" ;
+    rdfs:comment "An agent, MCP server, tool or skill registered in the Agent Registry Hub. Instance IRIs are <namespace><Class>/<percent-encoded asset URN>; assetId holds the URN itself." .
+
+arh:Agent a owl:Class ;
+    rdfs:subClassOf arh:Asset ;
+    rdfs:label "Agent" ;
+    rdfs:comment "An AI agent: a Genie agent, an Agent Bricks agent, a custom serving endpoint agent or an app agent." .
+
+arh:GenieAgent a owl:Class ;
+    rdfs:subClassOf arh:Agent ;
+    rdfs:label "Genie agent" ;
+    rdfs:comment "A Databricks Genie space (AI/BI Genie agent)." .
+
+arh:SupervisorAgent a owl:Class ;
+    rdfs:subClassOf arh:Agent ;
+    rdfs:label "Agent Bricks supervisor" ;
+    rdfs:comment "An Agent Bricks multi-agent supervisor." .
+
+arh:KnowledgeAssistant a owl:Class ;
+    rdfs:subClassOf arh:Agent ;
+    rdfs:label "Agent Bricks knowledge assistant" ;
+    rdfs:comment "An Agent Bricks knowledge assistant (document Q&A)." .
+
+arh:InformationExtractionAgent a owl:Class ;
+    rdfs:subClassOf arh:Agent ;
+    rdfs:label "Agent Bricks information extraction" ;
+    rdfs:comment "An Agent Bricks information extraction agent." .
+
+arh:ModelSpecializationAgent a owl:Class ;
+    rdfs:subClassOf arh:Agent ;
+    rdfs:label "Agent Bricks model specialization" ;
+    rdfs:comment "An Agent Bricks model specialization agent." .
+
+arh:CustomAgent a owl:Class ;
+    rdfs:subClassOf arh:Agent ;
+    rdfs:label "Custom serving agent" ;
+    rdfs:comment "A custom agent deployed on a Model Serving endpoint." .
+
+arh:AppAgent a owl:Class ;
+    rdfs:subClassOf arh:Agent ;
+    rdfs:label "Databricks Apps agent" ;
+    rdfs:comment "An agent that runs as a Databricks App." .
+
+arh:McpServer a owl:Class ;
+    rdfs:subClassOf arh:Asset ;
+    rdfs:label "MCP server" ;
+    rdfs:comment "A Model Context Protocol server that exposes tools." .
+
+arh:ExternalMcpServer a owl:Class ;
+    rdfs:subClassOf arh:McpServer ;
+    rdfs:label "External MCP server" ;
+    rdfs:comment "An external MCP server reached through a Unity Catalog HTTP connection." .
+
+arh:ManagedMcpServer a owl:Class ;
+    rdfs:subClassOf arh:McpServer ;
+    rdfs:label "Databricks managed MCP server" ;
+    rdfs:comment "A Databricks managed MCP server (UC functions, Genie, Vector Search, DBSQL)." .
+
+arh:SystemMcpServer a owl:Class ;
+    rdfs:subClassOf arh:McpServer ;
+    rdfs:label "Databricks system MCP server" ;
+    rdfs:comment "A Databricks-provided system.ai MCP server." .
+
+arh:CustomMcpServer a owl:Class ;
+    rdfs:subClassOf arh:McpServer ;
+    rdfs:label "Custom MCP server (app)" ;
+    rdfs:comment "A custom MCP server hosted as a Databricks App." .
+
+arh:GatewayMcpService a owl:Class ;
+    rdfs:subClassOf arh:McpServer ;
+    rdfs:label "Unity Gateway MCP service" ;
+    rdfs:comment "An MCP service governed by Unity Gateway (a Unity Catalog securable)." .
+
+arh:Tool a owl:Class ;
+    rdfs:subClassOf arh:Asset ;
+    rdfs:label "Tool" ;
+    rdfs:comment "A tool an agent can call: a Unity Catalog function or an MCP tool." .
+
+arh:UcFunctionTool a owl:Class ;
+    rdfs:subClassOf arh:Tool ;
+    rdfs:label "Unity Catalog function" ;
+    rdfs:comment "A Unity Catalog function used as a tool." .
+
+arh:McpTool a owl:Class ;
+    rdfs:subClassOf arh:Tool ;
+    rdfs:label "MCP tool" ;
+    rdfs:comment "A tool exposed by an MCP server." .
+
+arh:Skill a owl:Class ;
+    rdfs:subClassOf arh:Asset ;
+    rdfs:label "Skill" ;
+    rdfs:comment "An agent skill (instructions and resources an agent loads on demand)." .
+
+arh:UcSkill a owl:Class ;
+    rdfs:subClassOf arh:Skill ;
+    rdfs:label "Unity Catalog skill" ;
+    rdfs:comment "A skill stored in Unity Catalog." .
+
+arh:DataResource a owl:Class ;
+    rdfs:subClassOf arh:Entity ;
+    rdfs:label "Data resource" ;
+    rdfs:comment "Data an asset reads or writes in Unity Catalog." .
+
+arh:Table a owl:Class ;
+    rdfs:subClassOf arh:DataResource ;
+    rdfs:label "Unity Catalog table" ;
+    rdfs:comment "A Unity Catalog table or view, keyed by its catalog.schema.table name." .
+
+arh:Volume a owl:Class ;
+    rdfs:subClassOf arh:DataResource ;
+    rdfs:label "Unity Catalog volume" ;
+    rdfs:comment "A Unity Catalog volume, keyed by its catalog.schema.volume name." .
+
+arh:VectorSearchIndex a owl:Class ;
+    rdfs:subClassOf arh:DataResource ;
+    rdfs:label "Vector search index" ;
+    rdfs:comment "A Mosaic AI Vector Search index, keyed by its full name." .
+
+arh:Model a owl:Class ;
+    rdfs:subClassOf arh:Entity ;
+    rdfs:label "Model" ;
+    rdfs:comment "A registered or served model an agent uses." .
+
+arh:DatabricksApp a owl:Class ;
+    rdfs:subClassOf arh:Entity ;
+    rdfs:label "Databricks app" ;
+    rdfs:comment "A Databricks App that hosts or calls registered assets." .
+
+arh:ExternalResource a owl:Class ;
+    rdfs:subClassOf arh:Entity ;
+    rdfs:label "External resource" ;
+    rdfs:comment "Something outside the workspace an asset uses (a web tool, an external endpoint)." .
+
+arh:Policy a owl:Class ;
+    rdfs:subClassOf arh:Entity ;
+    rdfs:label "Policy or guardrail" ;
+    rdfs:comment "A guardrail, rate limit, budget, access or data policy bound to assets." .
+
+arh:Agent365Package a owl:Class ;
+    rdfs:subClassOf arh:Entity ;
+    rdfs:label "Microsoft Agent 365 registry record" ;
+    rdfs:comment "One record in the Microsoft 365 agent registry (Agent 365 Connected platforms / Microsoft Graph copilotPackage) that mirrors a Databricks agent. registeredAs links it to the hub asset it is; candidateMatch to a suggestion a steward has not confirmed." .
+
+# ---------------------------------------------------------------- object properties (relationships)
+arh:usesMcp a owl:ObjectProperty ;
+    rdfs:domain arh:Agent ;
+    rdfs:range arh:McpServer ;
+    rdfs:label "uses MCP server" ;
+    rdfs:comment "The agent calls tools of this MCP server (lineage relation uses_mcp)." .
+
+arh:usesTool a owl:ObjectProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range arh:Entity ;
+    rdfs:label "uses tool" ;
+    rdfs:comment "The asset calls this tool (lineage relation uses_tool)." .
+
+arh:callsAgent a owl:ObjectProperty ;
+    rdfs:domain arh:Agent ;
+    rdfs:range arh:Agent ;
+    rdfs:label "calls agent" ;
+    rdfs:comment "The agent delegates to this agent, e.g. a supervisor's sub-agent (lineage relation calls_agent)." .
+
+arh:usesSkill a owl:ObjectProperty ;
+    rdfs:domain arh:Agent ;
+    rdfs:range arh:Skill ;
+    rdfs:label "uses skill" ;
+    rdfs:comment "The agent loads this skill (lineage relation uses_skill)." .
+
+arh:usesModel a owl:ObjectProperty ;
+    rdfs:domain arh:Agent ;
+    rdfs:range arh:Model ;
+    rdfs:label "uses model" ;
+    rdfs:comment "The agent is served by or calls this model (lineage relation uses_model)." .
+
+arh:exposesTool a owl:ObjectProperty ;
+    rdfs:domain arh:McpServer ;
+    rdfs:range arh:Tool ;
+    rdfs:label "exposes tool" ;
+    rdfs:comment "The MCP server exposes this tool (lineage relation exposes_tool)." .
+
+arh:consumes a owl:ObjectProperty ;
+    rdfs:domain arh:Entity ;
+    rdfs:range arh:Asset ;
+    rdfs:label "consumes" ;
+    rdfs:comment "Observed use of the asset by an app or another asset (lineage relation consumes). People and service principals are never exported: see observedConsumers." .
+
+arh:subscribes a owl:ObjectProperty ;
+    rdfs:domain arh:Entity ;
+    rdfs:range arh:Asset ;
+    rdfs:label "subscribes to" ;
+    rdfs:comment "A declared subscription edge in the lineage (lineage relation subscribes). Subscriptions by people are never exported: see activeSubscriptions." .
+
+arh:hosts a owl:ObjectProperty ;
+    rdfs:domain arh:DatabricksApp ;
+    rdfs:range arh:Asset ;
+    rdfs:label "hosts" ;
+    rdfs:comment "The app hosts this asset, e.g. a custom MCP server (lineage relation hosts)." .
+
+arh:routesTo a owl:ObjectProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range arh:Entity ;
+    rdfs:label "routes to" ;
+    rdfs:comment "The asset routes requests to this target (lineage relation routes_to)." .
+
+arh:readsData a owl:ObjectProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range arh:DataResource ;
+    rdfs:label "reads data" ;
+    rdfs:comment "The asset reads this table, volume or index (lineage relation reads_data)." .
+
+arh:writesData a owl:ObjectProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range arh:DataResource ;
+    rdfs:label "writes data" ;
+    rdfs:comment "The asset writes this table or volume (lineage relation writes_data)." .
+
+arh:registeredConsumerOf a owl:ObjectProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range arh:Asset ;
+    rdfs:label "registered consumer of" ;
+    rdfs:comment "The downstream asset is registered as a consumer of this asset through an active hub subscription (the subscriber's identity is never exported)." .
+
+arh:governedBy a owl:ObjectProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range arh:Policy ;
+    rdfs:label "governed by" ;
+    rdfs:comment "An active policy or guardrail binding." .
+
+arh:proposedPolicy a owl:ObjectProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range arh:Policy ;
+    rdfs:label "proposed policy" ;
+    rdfs:comment "A proposed (not yet active) policy binding." .
+
+arh:registeredAs a owl:ObjectProperty ;
+    rdfs:domain arh:Agent365Package ;
+    rdfs:range arh:Asset ;
+    rdfs:label "registered as" ;
+    rdfs:comment "This Microsoft Agent 365 record is the registration of this hub asset in the Microsoft 365 agent registry: linked by a steward, or matched automatically with confidence of at least 0.85. Deliberately not owl:sameAs, so reasoners do not merge the Microsoft record's facts into the hub asset." .
+
+arh:alsoRegisteredIn a owl:ObjectProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range arh:Agent365Package ;
+    owl:inverseOf arh:registeredAs ;
+    rdfs:label "also registered in" ;
+    rdfs:comment "The hub asset's record in another registry (the inverse of registeredAs; not materialised, a reasoner can infer it)." .
+
+arh:candidateMatch a owl:ObjectProperty ;
+    rdfs:domain arh:Agent365Package ;
+    rdfs:range arh:Asset ;
+    rdfs:label "candidate match" ;
+    rdfs:comment "A suggested match a steward has not confirmed yet; matchConfidence on the record holds its confidence." .
+
+# ---------------------------------------------------------------- datatype properties (attributes)
+arh:assetId a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "asset URN" ;
+    rdfs:comment "The asset's URN in the hub (the key of its REST API and UI pages)." .
+
+arh:name a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "source name" ;
+    rdfs:comment "The name in the source system (endpoint, connection, function or skill name)." .
+
+arh:subtype a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "subtype" ;
+    rdfs:comment "The hub's asset subtype, e.g. genie_space or uc_function." .
+
+arh:lifecycleStatus a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "lifecycle status" ;
+    rdfs:comment "discovered, draft, pending_approval, approved, rejected, deprecated or retired." .
+
+arh:certification a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "certification" ;
+    rdfs:comment "certified, verified_publisher, unreviewed or deprecated." .
+
+arh:source a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "source" ;
+    rdfs:comment "databricks (native), external or custom." .
+
+arh:platform a owl:DatatypeProperty ;
+    rdfs:domain arh:Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "platform" ;
+    rdfs:comment "Where it runs or is registered, e.g. genie, agent_bricks, unity_catalog, Databricks Genie." .
+
+arh:publisher a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "publisher" ;
+    rdfs:comment "The publisher of the asset (an organisation)." .
+
+arh:riskTier a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "risk tier" ;
+    rdfs:comment "low, medium, high or critical." .
+
+arh:workspace a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "workspace" ;
+    rdfs:comment "The Databricks workspace host the asset lives in (from its deep link)." .
+
+arh:owner a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:label "owner" ;
+    rdfs:comment "An owner or co-owner email (owners are visible to every hub user)." .
+
+arh:deepLink a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "deep link" ;
+    rdfs:comment "The asset's page in the Databricks workspace." .
+
+arh:hubPage a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "hub page" ;
+    rdfs:comment "The asset's page in the Agent Registry Hub." .
+
+arh:createdAt a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "created at" ;
+    rdfs:comment "When the asset was created in its source system (else first seen by the hub), UTC." .
+
+arh:updatedAt a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "updated at" ;
+    rdfs:comment "When the asset last changed in its source system (else in the hub), UTC." .
+
+arh:requests30d a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:integer ;
+    rdfs:label "requests (30 days)" ;
+    rdfs:comment "Requests in the last 30 complete UTC days." .
+
+arh:distinctRequesters30d a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:integer ;
+    rdfs:label "distinct requesters (30 days)" ;
+    rdfs:comment "How many distinct people and service principals called it in the last 30 complete UTC days (a count: identities are never exported)." .
+
+arh:costUsd30d a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "estimated cost USD (30 days)" ;
+    rdfs:comment "Estimated cost in USD over the last 30 complete UTC days (system billing tables)." .
+
+arh:activeSubscriptions a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:integer ;
+    rdfs:label "active subscriptions" ;
+    rdfs:comment "How many active hub subscriptions the asset has (a count: subscriber emails are never exported)." .
+
+arh:observedConsumers a owl:DatatypeProperty ;
+    rdfs:domain arh:Asset ;
+    rdfs:range xsd:integer ;
+    rdfs:label "observed people and SP consumers" ;
+    rdfs:comment "How many distinct people and service principals were observed using the asset (a count from the lineage: identities are never exported)." .
+
+arh:policyKind a owl:DatatypeProperty ;
+    rdfs:domain arh:Policy ;
+    rdfs:range xsd:string ;
+    rdfs:label "policy kind" ;
+    rdfs:comment "guardrail, rate_limit, budget, access, tool_allowlist, data_policy, …" .
+
+arh:policyProvider a owl:DatatypeProperty ;
+    rdfs:domain arh:Policy ;
+    rdfs:range xsd:string ;
+    rdfs:label "policy provider" ;
+    rdfs:comment "unity_gateway, serving_ai_gateway, unity_catalog or registry." .
+
+arh:policyAction a owl:DatatypeProperty ;
+    rdfs:domain arh:Policy ;
+    rdfs:range xsd:string ;
+    rdfs:label "policy action" ;
+    rdfs:comment "block, mask, flag, alert, limit, log, …" .
+
+arh:policyPhase a owl:DatatypeProperty ;
+    rdfs:domain arh:Policy ;
+    rdfs:range xsd:string ;
+    rdfs:label "policy phase" ;
+    rdfs:comment "input, output, both or n/a." .
+
+arh:m365Id a owl:DatatypeProperty ;
+    rdfs:domain arh:Agent365Package ;
+    rdfs:range xsd:string ;
+    rdfs:label "Microsoft 365 id" ;
+    rdfs:comment "The record's id in the Microsoft 365 agent registry." .
+
+arh:matchStatus a owl:DatatypeProperty ;
+    rdfs:domain arh:Agent365Package ;
+    rdfs:range xsd:string ;
+    rdfs:label "match status" ;
+    rdfs:comment "matched, linked, suggested, unmatched or dismissed (the hub's Agent 365 review status)." .
+
+arh:matchMethod a owl:DatatypeProperty ;
+    rdfs:domain arh:Agent365Package ;
+    rdfs:range xsd:string ;
+    rdfs:label "match method" ;
+    rdfs:comment "genie_space_id, endpoint_name, app_name, name or steward." .
+
+arh:matchConfidence a owl:DatatypeProperty ;
+    rdfs:domain arh:Agent365Package ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "match confidence" ;
+    rdfs:comment "Confidence of the match, 0 to 1." .

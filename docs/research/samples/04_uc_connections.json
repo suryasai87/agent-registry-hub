@@ -1,0 +1,876 @@
+{
+  "probe": "GET /api/2.1/unity-catalog/connections (max_results=100, paginated)",
+  "http": 200,
+  "pages": 31,
+  "connection_count": 3100,
+  "field_presence": {
+    "name": 3100,
+    "connection_type": 3100,
+    "options": 399,
+    "owner": 3100,
+    "read_only": 3100,
+    "full_name": 3100,
+    "url": 3100,
+    "credential_type": 3100,
+    "connection_id": 3100,
+    "metastore_id": 3100,
+    "created_at": 3100,
+    "created_by": 3100,
+    "updated_at": 3100,
+    "updated_by": 3100,
+    "securable_type": 3100,
+    "securable_kind": 3100,
+    "provisioning_info": 407,
+    "etag": 3100,
+    "comment": 2849,
+    "environment_settings": 8,
+    "properties": 2
+  },
+  "count_by_connection_type": {
+    "MANAGED_POSTGRESQL": 2693,
+    "HTTP": 144,
+    "POSTGRESQL": 76,
+    "SQLSERVER": 28,
+    "GOOGLE_DRIVE": 20,
+    "BIGQUERY": 18,
+    "SALESFORCE": 13,
+    "GLUE": 13,
+    "DATABRICKS": 11,
+    "GENERIC_LAKEFLOW_CONNECT": 10,
+    "SNOWFLAKE": 9,
+    "JDBC": 8,
+    "REDSHIFT": 8,
+    "MYSQL": 7,
+    "COMMUNITY": 7,
+    "ORACLE": 6,
+    "SERVICENOW": 5,
+    "SHAREPOINT": 5,
+    "HIVE_METASTORE": 3,
+    "DATABRICKS_DR": 2,
+    "SLACK": 2,
+    "OKTA_SYSTEM_LOGS": 1,
+    "SQLDW": 1,
+    "JIRA": 1,
+    "AWS_SECRETS_MANAGER": 1,
+    "POWER_BI": 1,
+    "CONFLUENCE": 1,
+    "API_SOURCE": 1,
+    "KAFKA": 1,
+    "GA4_RAW_DATA": 1,
+    "GOOGLE_ADS": 1,
+    "TERADATA": 1,
+    "HUBSPOT": 1
+  },
+  "http_connections": 144,
+  "http_is_mcp_connection_values": {
+    "true": 95,
+    "None": 43,
+    "false": 6
+  },
+  "http_securable_kind": {
+    "CONNECTION_HTTP_OAUTH_M2M": 34,
+    "CONNECTION_HTTP_BEARER": 87,
+    "CONNECTION_HTTP_OAUTH_U2M_MAPPING": 22,
+    "CONNECTION_HTTP_OAUTH_U2M": 1
+  },
+  "http_credential_type": {
+    "OAUTH_M2M": 34,
+    "BEARER_TOKEN": 87,
+    "OAUTH_U2M_MAPPING": 22,
+    "OAUTH_U2M": 1
+  },
+  "mcp_connection_count": 95,
+  "mcp_host_kind": {
+    "databricks_app": 21,
+    "databricks_workspace": 2,
+    "third_party": 72
+  },
+  "mcp_examples_trimmed": [
+    {
+      "name": "aa_sil_np_mcp",
+      "connection_type": "HTTP",
+      "options": {
+        "base_path": "/mcp",
+        "is_mcp_connection": "true",
+        "host": "https://aa-sil-np-mcp-7474644717717567.aws.databricksapps.com",
+        "port": "443",
+        "oauth_scope": "all-apis"
+      },
+      "owner": "user04@example.com",
+      "read_only": true,
+      "comment": "aa-sil-np custom MCP server (Databricks App) governed via Unity AI Gateway",
+      "full_name": "aa_sil_np_mcp",
+      "url": "https://aa-sil-np-mcp-7474644717717567.aws.databricksapps.com:443/mcp",
+      "credential_type": "OAUTH_M2M",
+      "connection_id": "3e11c6f4-dbca-4caf-b8e6-59f138abd594",
+      "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+      "created_at": 1788252514350,
+      "created_by": "user04@example.com",
+      "updated_at": 1792659729604,
+      "updated_by": "user04@example.com",
+      "securable_type": "CONNECTION",
+      "securable_kind": "CONNECTION_HTTP_OAUTH_M2M",
+      "provisioning_info": {
+        "state": "ACTIVE"
+      },
+      "etag": "CAESCAAAAaFi2KzE",
+      "options_keys_present_but_omitted": [
+        "access_token_expiration",
+        "client_id",
+        "token_endpoint"
+      ]
+    },
+    {
+      "name": "agentkit_deepwiki",
+      "connection_type": "HTTP",
+      "options": {
+        "base_path": "/mcp",
+        "is_mcp_connection": "true",
+        "auth_scheme": "bearer",
+        "host": "https://mcp.deepwiki.com",
+        "port": "443"
+      },
+      "owner": "user05@example.com",
+      "read_only": true,
+      "full_name": "agentkit_deepwiki",
+      "url": "https://mcp.deepwiki.com:443/mcp",
+      "credential_type": "BEARER_TOKEN",
+      "connection_id": "9510a57a-ceef-4e9a-b479-8d28d13bdd42",
+      "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+      "created_at": 1781696955952,
+      "created_by": "user05@example.com",
+      "updated_at": 1781696955952,
+      "updated_by": "user05@example.com",
+      "securable_type": "CONNECTION",
+      "securable_kind": "CONNECTION_HTTP_BEARER",
+      "provisioning_info": {
+        "state": "ACTIVE"
+      },
+      "etag": "CAESCAAAAZ7VagYw",
+      "options_keys_present_but_omitted": []
+    },
+    {
+      "name": "ah_demo_confluence_mcp",
+      "connection_type": "HTTP",
+      "options": {
+        "base_path": "/v1/mcp/authv2",
+        "is_mcp_connection": "true",
+        "host": "https://mcp.atlassian.com",
+        "port": "443",
+        "oauth_scope": "read:jira-work read:page:confluence read:space:confluence read:hierarchical-content:confluence search:confluence offline_access"
+      },
+      "owner": "user06@example.com",
+      "read_only": true,
+      "comment": "Confluence external MCP (OBO) for AH GenAI Gateway demo",
+      "full_name": "ah_demo_confluence_mcp",
+      "url": "https://mcp.atlassian.com:443/v1/mcp/authv2",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "connection_id": "3e3b1535-deec-4cda-a832-bc0dc9cfdf60",
+      "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+      "created_at": 1785159937753,
+      "created_by": "user06@example.com",
+      "updated_at": 1785159937753,
+      "updated_by": "user06@example.com",
+      "securable_type": "CONNECTION",
+      "securable_kind": "CONNECTION_HTTP_OAUTH_U2M_MAPPING",
+      "provisioning_info": {
+        "state": "ACTIVE"
+      },
+      "etag": "CAESCAAAAZ+j0u7Z",
+      "options_keys_present_but_omitted": [
+        "authorization_endpoint",
+        "client_id",
+        "oauth_provider",
+        "token_endpoint"
+      ]
+    }
+  ],
+  "mcp_name_owner_list": [
+    {
+      "name": "aa_sil_np_mcp",
+      "owner": "user04@example.com",
+      "created_by": "user04@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "aa-sil-np custom MCP server (Databricks App) governed via Unity AI Gateway"
+    },
+    {
+      "name": "aan-test-genie-one",
+      "owner": "user12@example.com",
+      "created_by": "user12@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "acorn_mcp",
+      "owner": "user13@example.com",
+      "created_by": "user13@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": ""
+    },
+    {
+      "name": "acx_job_mcp_conn_customer_apps_3mo_meta",
+      "owner": "user14@example.com",
+      "created_by": "user14@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "OAuth M2M metastore-level connection to ACX workbook MCP Databricks App"
+    },
+    {
+      "name": "acx_job_mcp_conn_meta",
+      "owner": "user15@example.com",
+      "created_by": "user15@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "OAuth M2M metastore-level connection to ACX workbook MCP Databricks App"
+    },
+    {
+      "name": "acx_job_mcp_conn_test_meta",
+      "owner": "user15@example.com",
+      "created_by": "user15@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "OAuth M2M metastore-level connection to ACX workbook MCP Databricks App"
+    },
+    {
+      "name": "agentkit_deepwiki",
+      "owner": "user05@example.com",
+      "created_by": "user05@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "ah_demo_confluence_mcp",
+      "owner": "user06@example.com",
+      "created_by": "user06@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": "Confluence external MCP (OBO) for AH GenAI Gateway demo"
+    },
+    {
+      "name": "aigov_logistics_mcp",
+      "owner": "user16@example.com",
+      "created_by": "user16@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "aigov-demo: logistics-partner MCP (governed via Unity AI Gateway)"
+    },
+    {
+      "name": "airport_digital_twin_mcp",
+      "owner": "79ea25c2-52d3-462e-b03c-357c14daaa00",
+      "created_by": "79ea25c2-52d3-462e-b03c-357c14daaa00",
+      "credential_type": "OAUTH_M2M",
+      "comment": ""
+    },
+    {
+      "name": "airtable-mcp",
+      "owner": "user17@example.com",
+      "created_by": "user17@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "airtable_rw",
+      "owner": "user18@example.com",
+      "created_by": "user18@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "airtable_u2m",
+      "owner": "user18@example.com",
+      "created_by": "user18@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "ajb-tavily-mcp",
+      "owner": "user19@example.com",
+      "created_by": "user19@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "alex_github_mcp",
+      "owner": "user20@example.com",
+      "created_by": "user20@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": "Alex demo: GitHub external MCP via managed OAuth U2M per-user"
+    },
+    {
+      "name": "analytics_app_mcp",
+      "owner": "user21@example.com",
+      "created_by": "user21@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "analytics-app-mcp custom MCP (Databricks App) - M2M; use user_email arg for per-"
+    },
+    {
+      "name": "ankit-web-search",
+      "owner": "user22@example.com",
+      "created_by": "user22@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "approval_gateway_mcp",
+      "owner": "user23@example.com",
+      "created_by": "user23@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "ariefh-tavily",
+      "owner": "user24@example.com",
+      "created_by": "user24@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for Tavily MCP Server"
+    },
+    {
+      "name": "ariefh-web-search",
+      "owner": "user24@example.com",
+      "created_by": "user24@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "asana_bohao_mcp",
+      "owner": "user25@example.com",
+      "created_by": "user25@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "asana_mcp",
+      "owner": "user26@example.com",
+      "created_by": "user26@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "Asana MCP (via self-hosted proxy app, OAuth M2M)"
+    },
+    {
+      "name": "asana_mcp_proxy",
+      "owner": "user26@example.com",
+      "created_by": "user26@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "Asana MCP proxy \u2014 schema sanitization workaround (M2M auth)"
+    },
+    {
+      "name": "atit-websearch-youdotcom",
+      "owner": "user27@example.com",
+      "created_by": "user27@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "bdr-agent-tavily",
+      "owner": "user28@example.com",
+      "created_by": "user28@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for Tavily MCP Server"
+    },
+    {
+      "name": "bess_scada_mcp",
+      "owner": "user26@example.com",
+      "created_by": "user26@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "bess-scada-mcp (mock per-system MCP)"
+    },
+    {
+      "name": "bioportalmcp",
+      "owner": "user29@example.com",
+      "created_by": "user29@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for BioPortal MCP - Biomedical Ontology & Terminology"
+    },
+    {
+      "name": "bioportalmcp_2",
+      "owner": "user29@example.com",
+      "created_by": "user29@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for BioPortal MCP - Biomedical Ontology & Terminology"
+    },
+    {
+      "name": "brickmart_order_ops_mcp",
+      "owner": "user30@example.com",
+      "created_by": "user30@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "MCP connection to BrickMart Order Ops app (DAIS India MAS demo)"
+    },
+    {
+      "name": "canyoucom",
+      "owner": "user31@example.com",
+      "created_by": "user31@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "ccc_tavily_mcp_praneeth",
+      "owner": "user32@example.com",
+      "created_by": "user32@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "Commodity Command Center Tavily MCP connection"
+    },
+    {
+      "name": "climb-clinicaltrials-mcp",
+      "owner": "user33@example.com",
+      "created_by": "user33@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for ClinicalTrials.gov MCP - Clinical Trial Intelligence"
+    },
+    {
+      "name": "climb-cmscoverage-mcp",
+      "owner": "user33@example.com",
+      "created_by": "user33@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for CMS Coverage MCP - Medicare Coverage Determinations & Policy "
+    },
+    {
+      "name": "climb-openfda-mcp",
+      "owner": "user33@example.com",
+      "created_by": "user33@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for OpenFDA MCP - FDA Drug Safety, Labels & Enforcement Intellige"
+    },
+    {
+      "name": "climb-pubmed-mcp",
+      "owner": "user33@example.com",
+      "created_by": "user33@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for PubMed MCP - Biomedical Literature Search & Evidence Retrieva"
+    },
+    {
+      "name": "climb_chembl",
+      "owner": "user34@example.com",
+      "created_by": "user34@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for ChEMBL MCP - Bioactive Compound & Drug Discovery Intelligence"
+    },
+    {
+      "name": "climb_clintrials_v2",
+      "owner": "user34@example.com",
+      "created_by": "user34@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for ClinicalTrials.gov MCP Server - Clinical Trial Intelligence"
+    },
+    {
+      "name": "climb_cms_coverage",
+      "owner": "user34@example.com",
+      "created_by": "user34@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for CMS Coverage MCP - Medicare Coverage Determinations & Policy "
+    },
+    {
+      "name": "climb_openfda",
+      "owner": "user34@example.com",
+      "created_by": "user34@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for OpenFDA MCP - FDA Drug Safety, Labels & Enforcement Intellige"
+    },
+    {
+      "name": "climb_pubmed",
+      "owner": "user34@example.com",
+      "created_by": "user34@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for PubMed MCP - Biomedical Literature Search & Evidence Retrieva"
+    },
+    {
+      "name": "clinicaltrials_gov_mcp",
+      "owner": "user35@example.com",
+      "created_by": "user35@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for ClinicalTrials.gov MCP - Clinical Trial Intelligence"
+    },
+    {
+      "name": "clintrialclimb",
+      "owner": "user34@example.com",
+      "created_by": "user34@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for ClinicalTrials.gov MCP Server - Clinical Trial Intelligence"
+    },
+    {
+      "name": "clintrials",
+      "owner": "user34@example.com",
+      "created_by": "user34@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for ClinicalTrials.gov MCP Server - Clinical Trial Intelligence"
+    },
+    {
+      "name": "confluence-xavierspersonalworkspace-37909838",
+      "owner": "user36@example.com",
+      "created_by": "user36@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "conn_aichemy_pubmed",
+      "owner": "user09@example.com",
+      "created_by": "user09@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "Create connection with external PubMed MCP server openpharma on glama.ai"
+    },
+    {
+      "name": "conn_clinicaltrials",
+      "owner": "user09@example.com",
+      "created_by": "user09@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "ClinicalTrials.gov MCP server (auth.mode=none; placeholder token)"
+    },
+    {
+      "name": "conn_hls_mcp",
+      "owner": "user37@example.com",
+      "created_by": "user37@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "Create connection with test HLS MCP server"
+    },
+    {
+      "name": "conn_medicare_mcp",
+      "owner": "user07@example.com",
+      "created_by": "user07@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "Create connection with external Medicare Part D MCP server"
+    },
+    {
+      "name": "cpgaig_cpg_ai_governance_actions_mcp_connection",
+      "owner": "user38@example.com",
+      "created_by": "user38@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": ""
+    },
+    {
+      "name": "cross-mcp",
+      "owner": "user39@example.com",
+      "created_by": "user39@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "danone-bright",
+      "owner": "user40@example.com",
+      "created_by": "user40@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for The web MCP"
+    },
+    {
+      "name": "databricks-you-call",
+      "owner": "user41@example.com",
+      "created_by": "user41@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "dd_slack_mcp_conn",
+      "owner": "user42@example.com",
+      "created_by": "user42@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "deepwiki",
+      "owner": "user43@example.com",
+      "created_by": "user43@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "diis_atlassian_mcp",
+      "owner": "user44@example.com",
+      "created_by": "user44@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": "DIIS Auto-Analyst: Atlassian Rovo MCP with write scopes (per-user OAuth)"
+    },
+    {
+      "name": "dynamics_mcp",
+      "owner": "user26@example.com",
+      "created_by": "user26@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "dynamics-mcp (mock per-system MCP)"
+    },
+    {
+      "name": "ebouabboud_tevily_mcp",
+      "owner": "user45@example.com",
+      "created_by": "user45@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "etrm_mcp",
+      "owner": "user26@example.com",
+      "created_by": "user26@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "etrm-mcp (mock per-system MCP)"
+    },
+    {
+      "name": "exa-mcp-demo",
+      "owner": "user46@example.com",
+      "created_by": "user46@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for Exa MCP Server"
+    },
+    {
+      "name": "exa_web_search",
+      "owner": "user47@example.com",
+      "created_by": "user47@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "Exa MCP server for web search in Genie Code"
+    },
+    {
+      "name": "ext_mcp_you_dot_com",
+      "owner": "user48@example.com",
+      "created_by": "user48@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com: #1 AI Financial Research API"
+    },
+    {
+      "name": "external_search",
+      "owner": "user49@example.com",
+      "created_by": "user49@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "fabrica_audiencias_mcp",
+      "owner": "user50@example.com",
+      "created_by": "user50@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": ""
+    },
+    {
+      "name": "fin-aml-websearch",
+      "owner": "user51@example.com",
+      "created_by": "user51@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "fins-alpha-vantage-mcp",
+      "owner": "user52@example.com",
+      "created_by": "user52@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for Alpha Vantage market data - Atlas Wealth Intelligence"
+    },
+    {
+      "name": "fins-aml-you-com",
+      "owner": "user51@example.com",
+      "created_by": "user51@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "flight_search_aws_mcp",
+      "owner": "user24@example.com",
+      "created_by": "user24@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "fra-tavily",
+      "owner": "user53@example.com",
+      "created_by": "user53@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for Tavily MCP Server"
+    },
+    {
+      "name": "fsgtm_moodys",
+      "owner": "user54@example.com",
+      "created_by": "user54@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "fsgtm_nimble",
+      "owner": "user54@example.com",
+      "created_by": "user54@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "Websearch through NIMBLE"
+    },
+    {
+      "name": "fsgtm_youcom",
+      "owner": "user54@example.com",
+      "created_by": "user54@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "Websearch through you.com"
+    },
+    {
+      "name": "genie_code_skills_mcp",
+      "owner": "user01@example.com",
+      "created_by": "user01@example.com",
+      "credential_type": "OAUTH_U2M",
+      "comment": ""
+    },
+    {
+      "name": "genie_web_search_mcp",
+      "owner": "user55@example.com",
+      "created_by": "user55@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "germaine-web-search",
+      "owner": "user56@example.com",
+      "created_by": "user56@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "gh_mcp_bearer",
+      "owner": "user57@example.com",
+      "created_by": "user57@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "git_pzanela",
+      "owner": "user58@example.com",
+      "created_by": "user58@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "git_pzanela2",
+      "owner": "user58@example.com",
+      "created_by": "user58@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "github",
+      "owner": "user59@example.com",
+      "created_by": "user59@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "github-andreaskopp",
+      "owner": "user59@example.com",
+      "created_by": "user59@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "github-erni",
+      "owner": "user60@example.com",
+      "created_by": "user60@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "github_mcp",
+      "owner": "user61@example.com",
+      "created_by": "user61@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "github_mcp_pat",
+      "owner": "user59@example.com",
+      "created_by": "user59@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "github_rahire",
+      "owner": "user62@example.com",
+      "created_by": "user62@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "granola_aws_mcp",
+      "owner": "user24@example.com",
+      "created_by": "user24@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "grid_operator_mcp",
+      "owner": "user26@example.com",
+      "created_by": "user26@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "grid-operator-mcp (mock per-system MCP)"
+    },
+    {
+      "name": "grp_systems_mcp",
+      "owner": "user26@example.com",
+      "created_by": "user26@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": "Mock GRP back-office MCP (parts/grid/crew/bess/trading)"
+    },
+    {
+      "name": "gtm_productivity_hub_glean",
+      "owner": "user63@example.com",
+      "created_by": "user63@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": "Per-user (OBO) Glean MCP for GTM Productivity Hub live-search + promote-to-tip ("
+    },
+    {
+      "name": "haaa-glean-mcp",
+      "owner": "user64@example.com",
+      "created_by": "user64@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": ""
+    },
+    {
+      "name": "haaa_glean",
+      "owner": "user64@example.com",
+      "created_by": "user64@example.com",
+      "credential_type": "OAUTH_U2M_MAPPING",
+      "comment": "haaa app: Glean MCP via Databricks Okta U2M Per User"
+    },
+    {
+      "name": "hasika-youcom",
+      "owner": "user65@example.com",
+      "created_by": "user65@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "MCP connection for You.com MCP: The #1 AI Web Search API"
+    },
+    {
+      "name": "houda_tavily_mcp",
+      "owner": "user66@example.com",
+      "created_by": "user66@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "houda_you_mcp",
+      "owner": "user66@example.com",
+      "created_by": "user66@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": ""
+    },
+    {
+      "name": "ict_mcp",
+      "owner": "user67@example.com",
+      "created_by": "user67@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": ""
+    },
+    {
+      "name": "impulse_agent_mcp",
+      "owner": "user68@example.com",
+      "created_by": "user68@example.com",
+      "credential_type": "OAUTH_M2M",
+      "comment": ""
+    },
+    {
+      "name": "incred_deepwiki_mcp",
+      "owner": "user69@example.com",
+      "created_by": "user69@example.com",
+      "credential_type": "BEARER_TOKEN",
+      "comment": "Public DeepWiki MCP (no auth) \u2014 external knowledge search for InCred demo."
+    }
+  ],
+  "managed_postgresql_example": [
+    {
+      "name": "internal-0006963d-254e-4b6b-92aa-9e8c0bf4cea3",
+      "connection_type": "MANAGED_POSTGRESQL",
+      "owner": "System user",
+      "read_only": true,
+      "comment": "Auto created",
+      "full_name": "internal-0006963d-254e-4b6b-92aa-9e8c0bf4cea3",
+      "url": "https://internal/",
+      "credential_type": "USERNAME_PASSWORD",
+      "connection_id": "f0b2bb06-b732-40e8-a79f-7870c072becb",
+      "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+      "created_at": 1789258063734,
+      "created_by": "System user",
+      "updated_at": 1792583100105,
+      "updated_by": "2921dfbf-a40a-4794-983c-c9fed9217232",
+      "securable_type": "CONNECTION",
+      "securable_kind": "CONNECTION_MANAGED_POSTGRESQL",
+      "etag": "CAESCAAAAaFeR2bJ"
+    }
+  ]
+}

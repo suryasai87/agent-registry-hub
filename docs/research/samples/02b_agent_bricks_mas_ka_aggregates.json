@@ -1,0 +1,206 @@
+{
+  "mas_agent_type_counts": {
+    "knowledge-assistant": 25,
+    "genie-space": 47,
+    "unity-catalog-function": 23,
+    "web-search": 3,
+    "external-mcp-server": 4,
+    "uc-table": 1
+  },
+  "mas_agent_fields": {
+    "knowledge-assistant": {
+      "name": 25,
+      "description": 25,
+      "agent_type": 25,
+      "serving_endpoint": 25,
+      "serving_endpoint.name": 25
+    },
+    "genie-space": {
+      "name": 47,
+      "description": 47,
+      "agent_type": 47,
+      "genie_space": 47,
+      "genie_space.id": 47
+    },
+    "unity-catalog-function": {
+      "name": 23,
+      "description": 23,
+      "agent_type": 23,
+      "unity_catalog_function": 23,
+      "unity_catalog_function.uc_path": 23
+    },
+    "web-search": {
+      "name": 3,
+      "description": 3,
+      "agent_type": 3,
+      "web_search": 3
+    },
+    "external-mcp-server": {
+      "name": 4,
+      "description": 4,
+      "agent_type": 4,
+      "external_mcp_server": 4,
+      "external_mcp_server.connection_name": 4
+    },
+    "uc-table": {
+      "name": 1,
+      "description": 1,
+      "agent_type": 1,
+      "uc_table": 1,
+      "uc_table.name": 1
+    }
+  },
+  "mas_agent_examples": {
+    "knowledge-assistant": {
+      "name": "document_expert",
+      "description": "Unstructured manufacturing documents via Knowledge Assistant: machine manual alarm remedies, work instruction steps, mai",
+      "agent_type": "knowledge-assistant",
+      "serving_endpoint": {
+        "name": "ka-a176dc0c-endpoint"
+      }
+    },
+    "genie-space": {
+      "name": "manufacturing_analytics",
+      "description": "Structured manufacturing lakehouse analytics via Genie: KPIs (yield, scrap rate, OEE proxy, downtime, MTTR), active alar",
+      "agent_type": "genie-space",
+      "genie_space": {
+        "id": "01f1cd7bb5441dfbad0bfcb2641eacdb"
+      }
+    },
+    "unity-catalog-function": {
+      "name": "ucf-system-ai-python_exec",
+      "description": "Executes Python code in a stateless sandboxed environment and returns its stdout. The runtime cannot access files or rea",
+      "agent_type": "unity-catalog-function",
+      "unity_catalog_function": {
+        "uc_path": {
+          "catalog": "system",
+          "schema": "ai",
+          "name": "python_exec"
+        }
+      }
+    },
+    "web-search": {
+      "name": "web_search",
+      "description": "",
+      "agent_type": "web-search",
+      "web_search": {}
+    },
+    "external-mcp-server": {
+      "name": "conn-researchbook_mcp",
+      "description": "",
+      "agent_type": "external-mcp-server",
+      "external_mcp_server": {
+        "connection_name": "researchbook_mcp"
+      }
+    },
+    "uc-table": {
+      "name": "uct-main-core-dim_division",
+      "description": "Level 4 \u2014 Division (leaf, many per Area). Carries the attribute payload.",
+      "agent_type": "uc-table",
+      "uc_table": {
+        "name": "main.core.dim_division"
+      }
+    }
+  },
+  "mas_status_counts": {
+    "{\"endpoint_status\": \"NOT_APPLICABLE\", \"examples_storage_type\": \"VOLUME_FILE\"}": 23,
+    "{\"endpoint_status\": \"ONLINE\"}": 13,
+    "{\"endpoint_status\": \"ONLINE\", \"examples_storage_type\": \"VECTOR_SEARCH\"}": 5
+  },
+  "mas_errors": {},
+  "ka_source_type_counts": {
+    "('files_source',)": 25,
+    "('index_source',)": 8
+  },
+  "ka_source_states": {
+    "KNOWLEDGE_SOURCE_STATE_UPDATED": 33
+  },
+  "ka_status_counts": {
+    "{\"endpoint_status\": \"ONLINE\"}": 33
+  },
+  "ka_errors": {},
+  "ka_source_examples": {
+    "files_source": {
+      "files_source": {
+        "name": "source_brickwell-mfg-ai-docs",
+        "type": "files",
+        "description": "",
+        "files": {
+          "path": "/Volumes/main/brickwell_mfg_ai/source_docs/pdf"
+        }
+      },
+      "state": "KNOWLEDGE_SOURCE_STATE_UPDATED",
+      "last_successful_update_timestamp_ms": 1792606226282,
+      "latest_update_timestamp_ms": 1792606226282,
+      "knowledge_source_id": "7932e48d-0e60-4f77-8708-ac6ef710921c",
+      "indexed_row_count": 56,
+      "file_source_index_info": {
+        "summary": {
+          "total_files": 36,
+          "success_files": 36,
+          "skipped_files": 0,
+          "failed_files": 0
+        },
+        "files_by_type": {
+          "pdf": 36
+        },
+        "version": 2,
+        "should_migrate": false,
+        "migration_outcome": "UNDEFINED",
+        "job_start_time_ms": 1792606266943,
+        "embedding_model": "databricks-agent-bricks-embedding-v1",
+        "self_managed_embeddings": true,
+        "vector_count": 56
+      },
+      "creation_timestamp_ms": 1792606226282,
+      "ingestion_info": {
+        "file_state_counts": {
+          "total_files": 36,
+          "success_files": 36,
+          "skipped_files": 0,
+          "failed_files": 0
+        }
+      }
+    },
+    "index_source": {
+      "index_source": {
+        "name": "research_docs_vs_index",
+        "type": "index",
+        "description": "FDA/EMA regulatory guidance and RWE best-practice documents: external control arms, propensity methods, missing data, registry-based studies, target trial emulation.",
+        "index": {
+          "name": "ppareek.t2dm_study.research_docs_vs_index",
+          "text_col": "content",
+          "doc_uri_col": "doc_id"
+        }
+      },
+      "state": "KNOWLEDGE_SOURCE_STATE_UPDATED",
+      "last_successful_update_timestamp_ms": 1781716846432,
+      "latest_update_timestamp_ms": 1781716846432,
+      "knowledge_source_id": "ba309c00-7478-45d9-b30c-621bacc09127",
+      "creation_timestamp_ms": 1781716846432
+    }
+  },
+  "mcp_tool_results": {
+    "mcp__databricks__manage_ka(action=get, tile_id=0445f231-...)": {
+      "result": "ERROR",
+      "message": "Error calling tool 'manage_ka': 'WorkspaceClient' object has no attribute 'knowledge_assistants'",
+      "note": "Tool exposes only create_or_update/get/find_by_name/delete - there is NO list action. get is broken in the installed ai-dev-kit (SDK lacks w.knowledge_assistants)."
+    },
+    "mcp__databricks__manage_mas(action=get, tile_id=0849ad0e-...)": {
+      "result": "OK",
+      "returned_fields": [
+        "tile_id",
+        "name",
+        "description",
+        "endpoint_status",
+        "agents[].name",
+        "agents[].description",
+        "agents[].agent_type",
+        "agents[].serving_endpoint.name | agents[].genie_space.id",
+        "examples_count",
+        "instructions"
+      ],
+      "note": "No list action; wraps GET /api/2.0/multi-agent-supervisors/{tile_id}."
+    }
+  }
+}

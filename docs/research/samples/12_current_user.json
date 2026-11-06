@@ -1,0 +1,17 @@
+{
+  "http": 200,
+  "userName": "admin@example.com",
+  "is_admin": true,
+  "group_count": 5,
+  "fields": [
+    "emails",
+    "displayName",
+    "schemas",
+    "name",
+    "externalId",
+    "active",
+    "groups",
+    "id",
+    "userName"
+  ]
+}

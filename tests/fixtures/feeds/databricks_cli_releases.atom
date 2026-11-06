@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:https://github.com/databricks/cli/releases</id>
+  <link type="text/html" rel="alternate" href="https://github.com/databricks/cli/releases"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/databricks/cli/releases.atom"/>
+  <title>Release notes from cli</title>
+  <updated>2026-10-22T13:18:44Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Repository/491883713/v1.22.1</id>
+    <updated>2026-10-22T13:49:26Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/databricks/cli/releases/tag/v1.22.1"/>
+    <title>v1.22.1</title>
+    <content type="html">&lt;h3&gt;CLI&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix GitHub API rate limit errors in &lt;code&gt;aitools list&lt;/code&gt; and plugin installs by pinning skills to &lt;code&gt;0.2.32&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7159&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7159/hovercard&quot;&gt;#7159&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>oss-cli[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/4998052?s=60&amp;v=4"/>
+  </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/491883713/v1.22.0</id>
+    <updated>2026-10-22T09:19:27Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/databricks/cli/releases/tag/v1.22.0"/>
+    <title>v1.22.0</title>
+    <content type="html">&lt;h3&gt;CLI&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix &lt;code&gt;databricks aitools install&lt;/code&gt; overwriting newer raw skills with an older pinned release. CLI 1.22.0 and newer now install the latest published skills and prevent automatic downgrades. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7069&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7069/hovercard&quot;&gt;#7069&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;auth login --timeout&lt;/code&gt; not applying to the browser login, which waited for the OAuth redirect indefinitely. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7103&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7103/hovercard&quot;&gt;#7103&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Remove the 50-workspace limit in &lt;code&gt;auth login&lt;/code&gt; and support searching workspaces by name or ID. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7071&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7071/hovercard&quot;&gt;#7071&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;databricks ssh connect&lt;/code&gt; now fails right away with the workspace&#39;s reason when port forwarding to serverless compute is disabled, instead of waiting out the server start timeout. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7057&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7057/hovercard&quot;&gt;#7057&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;AI Runtime&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;air run&lt;/code&gt; now spends less time before submitting: it fetches only the user name from SCIM. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7153&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7153/hovercard&quot;&gt;#7153&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Align multi-image container name validation with backend services: allow hyphens and up to 32 characters, and reject uppercase letters and underscores. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7154&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7154/hovercard&quot;&gt;#7154&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Bundles&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;compute_id&lt;/code&gt; deprecation warning for a target now shows the full path (&lt;code&gt;targets.&amp;lt;name&amp;gt;.compute_id&lt;/code&gt;). (&lt;a href=&quot;https://github.com/databricks/cli/pull/7048&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7048/hovercard&quot;&gt;#7048&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;DATABRICKS_BUNDLE_STRICT_PROFILE_MATCH&lt;/code&gt;, which requires a target&#39;s host and workspace ID to match exactly one profile in the config file before authenticating. Targets without a host or workspace ID are not affected. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7109&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7109/hovercard&quot;&gt;#7109&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Zero-value overrides of &lt;code&gt;presets&lt;/code&gt;, &lt;code&gt;lifecycle.prevent_destroy&lt;/code&gt; and &lt;code&gt;deployment&lt;/code&gt; settings in includes now replace non-zero base values, and &lt;code&gt;bundle validate -o json&lt;/code&gt; shows explicit zero presets. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7117&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7117/hovercard&quot;&gt;#7117&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bundle deployment bind&lt;/code&gt; and &lt;code&gt;unbind&lt;/code&gt; now accept a resource as &lt;code&gt;type.key&lt;/code&gt;, e.g. &lt;code&gt;jobs.foo&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7128&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7128/hovercard&quot;&gt;#7128&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Retry more transient server errors during &lt;code&gt;bundle deploy&lt;/code&gt; and &lt;code&gt;bundle destroy&lt;/code&gt;, including when releasing the deploy lock and reading state. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7129&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7129/hovercard&quot;&gt;#7129&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix migration from Terraform failing when a deployed resource references a resource that was never deployed. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7157&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7157/hovercard&quot;&gt;#7157&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;app-appkit&lt;/code&gt; to bundle templates to simplify starting a Databricks Apps project. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7004&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7004/hovercard&quot;&gt;#7004&lt;/a&gt;, &lt;a href=&quot;https://github.com/databricks/cli/pull/7007&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7007/hovercard&quot;&gt;#7007&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add support for the &lt;code&gt;features&lt;/code&gt; resource type. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6952&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6952/hovercard&quot;&gt;#6952&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;bundle validate&lt;/code&gt; warning that &lt;code&gt;sync.include&lt;/code&gt; and &lt;code&gt;sync.exclude&lt;/code&gt; patterns do not match any files when &lt;code&gt;sync.paths&lt;/code&gt; includes a directory outside the bundle root. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7122&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7122/hovercard&quot;&gt;#7122&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Dependency Updates&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Bump dependencies with known vulnerabilities. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7083&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7083/hovercard&quot;&gt;#7083&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Bump Go to 1.27.2. Release binaries now require macOS 13 Ventura or later. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7052&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7052/hovercard&quot;&gt;#7052&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Update the Go SDK to &lt;a href=&quot;https://github.com/databricks/databricks-sdk-go/releases/tag/v0.189.0&quot;&gt;v0.189.0&lt;/a&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7138&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7138/hovercard&quot;&gt;#7138&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Bump Go toolchain to 1.27.3. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7116&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7116/hovercard&quot;&gt;#7116&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>oss-cli[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/4998052?s=60&amp;v=4"/>
+  </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/491883713/v1.21.0</id>
+    <updated>2026-10-14T18:25:37Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/databricks/cli/releases/tag/v1.21.0"/>
+    <title>v1.21.0</title>
+    <content type="html">&lt;h2&gt;Release v1.21.0 (2026-10-14)&lt;/h2&gt;
+&lt;h3&gt;CLI&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Support pipeline IDs in &lt;code&gt;pipelines history&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6995&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6995/hovercard&quot;&gt;#6995&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Show a hint for previewing more rows in &lt;code&gt;pipelines show&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6995&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6995/hovercard&quot;&gt;#6995&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;databricks environments setup-local&lt;/code&gt; now uses the environment in &lt;code&gt;UV_PROJECT_ENVIRONMENT&lt;/code&gt; when it is set, as &lt;code&gt;uv sync&lt;/code&gt; does. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7026&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7026/hovercard&quot;&gt;#7026&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;databricks environments setup-local&lt;/code&gt; now supports uv workspace members: it uses the shared &lt;code&gt;.venv&lt;/code&gt; at the workspace root and writes the dependency constraints to the root &lt;code&gt;pyproject.toml&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7018&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7018/hovercard&quot;&gt;#7018&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;AI Runtime&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Limit &lt;code&gt;databricks air run&lt;/code&gt; submission preflight validation to one five-second attempt before continuing when the service is unavailable. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6994&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6994/hovercard&quot;&gt;#6994&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Bundles&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Bundle file uploads now use the multipart &lt;code&gt;POST /api/2.0/workspace/import&lt;/code&gt; endpoint instead of the deprecated &lt;code&gt;POST /api/2.0/workspace-files/import-file&lt;/code&gt;, raising the per-workspace upload rate limit and improving deploy throughput under concurrency. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6149&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6149/hovercard&quot;&gt;#6149&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Diagnostic paths now quote map keys that are not identifiers, e.g. &lt;code&gt;resources.jobs[&#39;${var.env}_job&#39;]&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6980&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6980/hovercard&quot;&gt;#6980&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;No longer include &lt;code&gt;CLAUDE.md&lt;/code&gt; in the bundle templates, now that Claude supports &lt;code&gt;AGENTS.md&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7000&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7000/hovercard&quot;&gt;#7000&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;bundle deployment bind&lt;/code&gt; silently binding over a deployment state it could not read, which could take over a resource that was already managed by the bundle. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6331&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6331/hovercard&quot;&gt;#6331&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;databricks bundle deploy&lt;/code&gt;, &lt;code&gt;databricks bundle sync&lt;/code&gt; and &lt;code&gt;databricks sync&lt;/code&gt; now retry file, library, state and metadata uploads that fail with a transient server error (5xx or 408), instead of failing. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7014&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7014/hovercard&quot;&gt;#7014&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;databricks bundle deploy&lt;/code&gt;, &lt;code&gt;databricks bundle sync&lt;/code&gt; and &lt;code&gt;databricks sync&lt;/code&gt; now retry the workspace path check (&lt;code&gt;workspace/get-status&lt;/code&gt;) when it fails with a transient server error (5xx or 408) or an HTTP/2 &lt;code&gt;REFUSED_STREAM&lt;/code&gt;, instead of failing. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7044&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7044/hovercard&quot;&gt;#7044&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fixed &lt;code&gt;experimental.immutable_folder&lt;/code&gt; failing validation for targets with &lt;code&gt;mode: development&lt;/code&gt; (&quot;file_path must start with &#39;~/&#39; or contain the current username&quot;). (&lt;a href=&quot;https://github.com/databricks/cli/pull/7027&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7027/hovercard&quot;&gt;#7027&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fixed &lt;code&gt;experimental.immutable_folder&lt;/code&gt; failing with &lt;code&gt;experimental.deployment_history&lt;/code&gt; (&quot;workspace_info.file_path must be an absolute workspace path&quot;) and failing &lt;code&gt;bundle validate&lt;/code&gt; when top-level &lt;code&gt;permissions&lt;/code&gt; are set. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7001&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7001/hovercard&quot;&gt;#7001&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Translate relative &lt;code&gt;.env&lt;/code&gt; file paths in a job&#39;s &lt;code&gt;environment_variables[].spec.files&lt;/code&gt; to their deployed workspace locations. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6985&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6985/hovercard&quot;&gt;#6985&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Resolve job &lt;code&gt;project_environment&lt;/code&gt; paths relative to the YAML file that defines them. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6983&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6983/hovercard&quot;&gt;#6983&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Dependency Updates&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Bump Go toolchain to 1.26.9. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6996&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6996/hovercard&quot;&gt;#6996&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Update Go SDK to 0.188.0. (&lt;a href=&quot;https://github.com/databricks/cli/pull/7038&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/7038/hovercard&quot;&gt;#7038&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>oss-cli[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/4998052?s=60&amp;v=4"/>
+  </entry>
+<entry>
+    <id>tag:github.com,2008:Repository/491883713/v1.20.0</id>
+    <updated>2026-10-07T12:17:43Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/databricks/cli/releases/tag/v1.20.0"/>
+    <title>v1.20.0</title>
+    <content type="html">&lt;h2&gt;Release v1.20.0&lt;/h2&gt;
+&lt;h3&gt;Notable Changes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Remove the Terraform deployment engine. &lt;code&gt;bundle.engine: terraform&lt;/code&gt; and &lt;code&gt;DATABRICKS_BUNDLE_ENGINE=terraform&lt;/code&gt; now error, and a failed migration of existing Terraform state is reported as an error instead of falling back to Terraform. To keep deploying with Terraform, use Databricks CLI v1.19.x. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6888&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6888/hovercard&quot;&gt;#6888&lt;/a&gt;, &lt;a href=&quot;https://github.com/databricks/cli/pull/6889&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6889/hovercard&quot;&gt;#6889&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;CLI&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;databricks aitools install&lt;/code&gt; now supports Kiro, installing Databricks agent skills into its skills directory. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6908&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6908/hovercard&quot;&gt;#6908&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fixed &lt;code&gt;databricks api&lt;/code&gt; corrupting integers larger than 2^53 (such as job and pipeline ids) — request bodies and responses now preserve them exactly. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6884&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6884/hovercard&quot;&gt;#6884&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Added &lt;code&gt;--auth-mode&lt;/code&gt; and &lt;code&gt;--set &amp;lt;plugin&amp;gt;.&amp;lt;resourceKey&amp;gt;.authMode=obo|sp|both&lt;/code&gt; to &lt;code&gt;databricks apps init&lt;/code&gt; so AppKit resources can be accessed on behalf of the user, by the service principal, or both. The default stays service principal. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6886&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6886/hovercard&quot;&gt;#6886&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;databricks apps init&lt;/code&gt; now requires a value for every field a service principal resource binding references, prompting for missing values in an interactive terminal and otherwise failing with the &lt;code&gt;--set&lt;/code&gt; key to use, instead of creating a project with unset variables. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6903&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6903/hovercard&quot;&gt;#6903&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;databricks apps init --package-manager &amp;lt;npm|pnpm&amp;gt;&lt;/code&gt; to select the package manager for Node.js templates. Infer the default quietly from template lockfiles and AppKit version, check prerequisites before creating files, and preserve template formatting and pnpm version pins. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6902&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6902/hovercard&quot;&gt;#6902&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Select npm or pnpm from &lt;code&gt;packageManager&lt;/code&gt; declarations and lockfiles for &lt;code&gt;apps validate&lt;/code&gt; and project validation during &lt;code&gt;apps deploy&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6892&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6892/hovercard&quot;&gt;#6892&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;auth docker host&lt;/code&gt; reporting the credential helper as configured when its executable is missing from &lt;code&gt;PATH&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6880&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6880/hovercard&quot;&gt;#6880&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Warn when the CLI binary was built more than 6 months ago and recommend updating. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6898&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6898/hovercard&quot;&gt;#6898&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;AI Runtime&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add an experimental rank-partitioned container images to AI Runtime jobs. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6841&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6841/hovercard&quot;&gt;#6841&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Support snapshot fields directly under &lt;code&gt;code_source&lt;/code&gt; without requiring &lt;code&gt;type&lt;/code&gt; or a nested &lt;code&gt;snapshot&lt;/code&gt; block. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6927&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6927/hovercard&quot;&gt;#6927&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Map AIR priority and Unity Catalog image fields when converting run configurations to bundles. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6905&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6905/hovercard&quot;&gt;#6905&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add workspace backend validation to &lt;code&gt;air run --dry-run&lt;/code&gt;. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6934&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6934/hovercard&quot;&gt;#6934&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Bundles&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Warn that &lt;code&gt;bundle.terraform&lt;/code&gt; is deprecated and has no effect since the Terraform deployment engine was removed. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6940&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6940/hovercard&quot;&gt;#6940&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Direct engine now detects and applies an explicitly configured zero-value boolean or float (e.g. &lt;code&gt;gcp_attributes.use_preemptible_executors: false&lt;/code&gt;, &lt;code&gt;azure_attributes.spot_bid_max_price: 0&lt;/code&gt;) added to a resource first deployed without the field, matching the existing handling of an explicit integer zero. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6882&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6882/hovercard&quot;&gt;#6882&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;bundle deployment migrate&lt;/code&gt; failing with &quot;no such file or directory&quot; when the Terraform state has no resources or the configuration no longer declares any of them. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6958&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6958/hovercard&quot;&gt;#6958&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bundle run&lt;/code&gt; and &lt;code&gt;pipelines run&lt;/code&gt; now send the per-update &lt;code&gt;development&lt;/code&gt; parameter for pipelines in development mode targets. Setting &lt;code&gt;development&lt;/code&gt; on a pipeline is deprecated and now emits a warning; use &lt;code&gt;mode: development&lt;/code&gt; instead. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6863&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6863/hovercard&quot;&gt;#6863&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Remove the hidden &lt;code&gt;bundle debug terraform&lt;/code&gt; command. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6933&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6933/hovercard&quot;&gt;#6933&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add support for &lt;code&gt;run_as.group_name&lt;/code&gt; at the bundle and target levels for jobs and pipelines. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6676&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6676/hovercard&quot;&gt;#6676&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix recreating a secret scope that was deleted outside of the bundle with the direct deployment engine. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6970&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6970/hovercard&quot;&gt;#6970&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Accept title-case booleans (&lt;code&gt;True&lt;/code&gt;/&lt;code&gt;False&lt;/code&gt;, as rendered by Azure Pipelines) for boolean variables, and accept the same boolean strings (&lt;code&gt;yes&lt;/code&gt;/&lt;code&gt;no&lt;/code&gt;, &lt;code&gt;on&lt;/code&gt;/&lt;code&gt;off&lt;/code&gt;, ...) in Python bundles as in YAML. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6942&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6942/hovercard&quot;&gt;#6942&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Dependency Updates&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Bump &lt;code&gt;github.com/databricks/databricks-sdk-go&lt;/code&gt; from v0.182.0 to v0.185.0. (&lt;a href=&quot;https://github.com/databricks/cli/pull/6928&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/databricks/cli/pull/6928/hovercard&quot;&gt;#6928&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>oss-cli[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/4998052?s=60&amp;v=4"/>
+  </entry>
+</feed>

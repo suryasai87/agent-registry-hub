@@ -1,0 +1,657 @@
+{
+  "search_recent": {
+    "path": "POST /api/2.0/mlflow/experiments/search",
+    "body_sent": {
+      "max_results": 20,
+      "order_by": [
+        "last_update_time DESC"
+      ]
+    },
+    "http": 200,
+    "top_level_keys": [
+      "experiments",
+      "next_page_token"
+    ],
+    "count": 20,
+    "field_presence": {
+      "experiment_id": 20,
+      "name": 20,
+      "artifact_location": 20,
+      "lifecycle_stage": 20,
+      "last_update_time": 20,
+      "creation_time": 20,
+      "tags": 20
+    },
+    "tag_key_presence": {
+      "mlflow.experiment.sourceName": 20,
+      "mlflow.ownerId": 20,
+      "mlflow.ownerEmail": 20,
+      "mlflow.experimentType": 20,
+      "mlflow.experiment.sourceId": 5,
+      "mlflow.experiment.sourceType": 5,
+      "mlflow.databricks.genai.datasetMode": 1,
+      "mlflow.experimentKind": 2
+    },
+    "examples": [
+      {
+        "experiment_id": "1635280482777971",
+        "name": "/Users/user10@example.com/nsclc_heor_rwe_extraction_eval",
+        "artifact_location": "dbfs:/databricks/mlflow-tracking/1635280482777971",
+        "lifecycle_stage": "active",
+        "last_update_time": 1792953616114,
+        "creation_time": 1792948342136,
+        "tags": [
+          {
+            "key": "mlflow.experiment.sourceName",
+            "value": "/Users/user10@example.com/nsclc_heor_rwe_extraction_eval"
+          },
+          {
+            "key": "mlflow.ownerId",
+            "value": "72755091898500"
+          },
+          {
+            "key": "mlflow.ownerEmail",
+            "value": "user10@example.com"
+          },
+          {
+            "key": "mlflow.experimentType",
+            "value": "MLFLOW_EXPERIMENT"
+          }
+        ]
+      },
+      {
+        "experiment_id": "3553776605293746",
+        "name": "/Users/user73@example.com/agent-memory-tutorial/support_agent_sessions_and_memory",
+        "artifact_location": "dbfs:/databricks/mlflow-tracking/3553776605293746",
+        "lifecycle_stage": "active",
+        "last_update_time": 1792783949398,
+        "creation_time": 1792783949398,
+        "tags": [
+          {
+            "key": "mlflow.experiment.sourceName",
+            "value": "/Users/user73@example.com/agent-memory-tutorial/support_agent_sessions_and_memory"
+          },
+          {
+            "key": "mlflow.ownerId",
+            "value": "1407247460306323"
+          },
+          {
+            "key": "mlflow.ownerEmail",
+            "value": "user73@example.com"
+          },
+          {
+            "key": "mlflow.experiment.sourceId",
+            "value": "3553776605293746"
+          },
+          {
+            "key": "mlflow.experiment.sourceType",
+            "value": "NOTEBOOK_EXPERIMENT"
+          },
+          {
+            "key": "mlflow.experimentType",
+            "value": "NOTEBOOK"
+          }
+        ]
+      }
+    ]
+  },
+  "search_filter::tags.`mlflow.experimentKind` = 'genai_development'": {
+    "http": 200,
+    "count_page1": 20,
+    "has_next": true,
+    "names": [
+      "/Users/user03@example.com/mas-2e8a4ac6-dev-experiment",
+      "/Users/user03@example.com/ka-a176dc0c-dev-experiment",
+      "/Shared/agentbricks_traces/meridian-agent-iizwsm",
+      "/Users/user10@example.com/ai_extract-c7a7853e-experiment",
+      "/Users/user08@example.com/merck_genie_eval_poc",
+      "/Users/user07@example.com/mas-a32b49f7-dev-experiment"
+    ],
+    "error": null
+  },
+  "search_filter::tags.mlflow.experimentKind = 'genai_development'": {
+    "http": 200,
+    "count_page1": 20,
+    "has_next": true,
+    "names": [
+      "/Users/user03@example.com/mas-2e8a4ac6-dev-experiment",
+      "/Users/user03@example.com/ka-a176dc0c-dev-experiment",
+      "/Shared/agentbricks_traces/meridian-agent-iizwsm",
+      "/Users/user10@example.com/ai_extract-c7a7853e-experiment",
+      "/Users/user08@example.com/merck_genie_eval_poc",
+      "/Users/user07@example.com/mas-a32b49f7-dev-experiment"
+    ],
+    "error": null
+  },
+  "search_filter::name LIKE '%agent%'": {
+    "http": 200,
+    "count_page1": 20,
+    "has_next": true,
+    "names": [
+      "/Users/user73@example.com/agent-memory-tutorial/support_agent_sessions_and_memory",
+      "/Shared/finance-selfserve-studio/close-agent",
+      "/Shared/agentbricks_traces/ostrelle-demo",
+      "/Shared/agentbricks_traces/meridian-agent-iizwsm",
+      "/Shared/rdp-platform/agent-traces",
+      "/Shared/agentbricks_traces/meridian-ab-demo-shrxfv"
+    ],
+    "error": null
+  },
+  "v3_trace_search_attempts": [
+    {
+      "experiment_id": "3325179909192303",
+      "http": 200,
+      "n": 3,
+      "error": null
+    },
+    {
+      "experiment_id": "2347446610473193",
+      "http": 200,
+      "n": 3,
+      "error": null
+    },
+    {
+      "experiment_id": "2347446610473193",
+      "http": 200,
+      "n": 3,
+      "error": null
+    },
+    {
+      "experiment_id": "2347446610473179",
+      "http": 200,
+      "n": 3,
+      "error": null
+    },
+    {
+      "experiment_id": "2765968149342867",
+      "http": 200,
+      "n": 3,
+      "error": null
+    },
+    {
+      "experiment_id": "1440282085689162",
+      "http": 200,
+      "n": 2,
+      "error": null
+    }
+  ],
+  "trace_search_v3": {
+    "path": "POST /api/3.0/mlflow/traces/search",
+    "body_sent": {
+      "locations": [
+        {
+          "type": "MLFLOW_EXPERIMENT",
+          "mlflow_experiment": {
+            "experiment_id": "3325179909192303"
+          }
+        }
+      ],
+      "max_results": 3
+    },
+    "http": 200,
+    "top_level_keys": [
+      "traces",
+      "next_page_token"
+    ],
+    "traces_scanned_across_10_experiments": 162,
+    "trace_field_presence": {
+      "trace_id": 162,
+      "client_request_id": 160,
+      "trace_location": 162,
+      "request": 162,
+      "response": 158,
+      "request_preview": 162,
+      "response_preview": 158,
+      "request_time": 162,
+      "execution_duration": 162,
+      "state": 162,
+      "trace_metadata": 162,
+      "tags": 162,
+      "assessments": 58
+    },
+    "trace_metadata_key_presence": {
+      "mlflow.trace.sizeBytes": 160,
+      "mlflow.modelId": 42,
+      "mlflow.databricks.modelServingEndpointName": 42,
+      "mlflow.trace_schema.version": 160,
+      "mlflow.trace.sizeStats": 160,
+      "mlflow.trace.tokenUsage": 28,
+      "mlflow.source.type": 118,
+      "mlflow.source.name": 118,
+      "mlflow.user": 118,
+      "mlflow.traceOutputs": 118,
+      "mlflow.traceInputs": 118,
+      "mlflow.source.git.repoURL": 28,
+      "mlflow.source.git.branch": 28,
+      "mlflow.trace.session": 3,
+      "mlflow.source.git.commit": 28,
+      "run_id": 1,
+      "mlflow.SourceRunID": 1,
+      "mlflow.sourceRun": 41,
+      "mlflow.databricks.notebook.commandID": 40,
+      "mlflow.databricks.notebookPath": 40,
+      "mlflow.databricks.notebookID": 40,
+      "mlflow.databricks.workspaceURL": 40,
+      "mlflow.databricks.workspaceID": 40,
+      "mlflow.databricks.webappURL": 40
+    },
+    "tag_key_presence": {
+      "mlflow.artifactLocation": 162,
+      "mlflow.user": 162,
+      "mlflow.traceName": 118,
+      "mlflow.traceError": 2,
+      "mlflow.isGroundingPredictionsTrace": 1,
+      "mlflow.SourceRunID": 2,
+      "mlflow.dataType": 1,
+      "mlflow.isCreationTrace": 1,
+      "mlflow.eval.requestId": 41,
+      "message_id": 23
+    },
+    "state_counts": {
+      "OK": 158,
+      "ERROR": 4
+    },
+    "example_trace_drm_agent": {
+      "trace_id": "tr-29c2a7575a6400617082329457bfd476",
+      "client_request_id": "eb6afe78-b0ac-4882-bc58-932d6690a38d",
+      "trace_location": {
+        "type": "MLFLOW_EXPERIMENT",
+        "mlflow_experiment": {
+          "experiment_id": "3325179909192303"
+        }
+      },
+      "request": "<redacted len=172>",
+      "response": "<redacted len=12>",
+      "request_preview": "<redacted len=172>",
+      "response_preview": "<redacted len=12>",
+      "request_time": "2026-09-18T21:51:15.444Z",
+      "execution_duration": "0.307s",
+      "state": "OK",
+      "trace_metadata": {
+        "mlflow.trace.sizeBytes": "2528",
+        "mlflow.modelId": "m-10b4595c658b4f4d82eb66ff8d85daa5",
+        "mlflow.databricks.modelServingEndpointName": "",
+        "mlflow.trace_schema.version": "3",
+        "mlflow.trace.sizeStats": "{\"total_size_bytes\": 2528, \"num_spans\": 1, \"max\": 1790, \"p25\": 1790, \"p50\": 1790, \"p75\": 1790}"
+      },
+      "tags": {
+        "mlflow.artifactLocation": "dbfs:/databricks/mlflow-tracking/3325179909192303/tr-29c2a7575a6400617082329457bfd476/artifacts",
+        "mlflow.user": "5e0a1a65-0983-4ae6-afb1-bfb4b98102c3"
+      }
+    },
+    "example_trace_with_token_usage": {
+      "trace_id": "tr-cde8bd0970714b610e35fafb7dd8c4aa",
+      "client_request_id": "tr-cde8bd0970714b610e35fafb7dd8c4aa",
+      "trace_location": {
+        "type": "MLFLOW_EXPERIMENT",
+        "mlflow_experiment": {
+          "experiment_id": "2347446610473193"
+        }
+      },
+      "request": "<redacted len=48>",
+      "response": "<redacted len=1000>",
+      "request_preview": "<redacted len=48>",
+      "response_preview": "<redacted len=1000>",
+      "request_time": "2026-10-21T20:18:26.878Z",
+      "execution_duration": "18.031s",
+      "state": "OK",
+      "trace_metadata": {
+        "mlflow.trace.sizeBytes": "300524",
+        "mlflow.trace.tokenUsage": "{\"input_tokens\": 10142, \"output_tokens\": 414, \"total_tokens\": 10556}",
+        "mlflow.trace_schema.version": "3",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.trace.sizeStats": "{\"total_size_bytes\": 300524, \"num_spans\": 11, \"max\": 279041, \"p25\": 703, \"p50\": 727, \"p75\": 3244}",
+        "mlflow.source.name": "/databricks/mas.runfiles/_main/agentbricks/mas/python/main.py",
+        "mlflow.user": "root",
+        "mlflow.traceOutputs": "<redacted len=250>",
+        "mlflow.traceInputs": "<redacted len=250>"
+      },
+      "tags": {
+        "mlflow.artifactLocation": "dbfs:/databricks/mlflow-tracking/2347446610473193/tr-cde8bd0970714b610e35fafb7dd8c4aa/artifacts",
+        "mlflow.user": "15854ef5-560b-4320-bdba-7a00bb02a19e",
+        "mlflow.traceName": "predict_stream"
+      }
+    },
+    "example_trace_with_assessments": {
+      "trace_id": "tr-f7ea1932752c9ef0f32e97f5ee34c065",
+      "client_request_id": "tr-f7ea1932752c9ef0f32e97f5ee34c065",
+      "trace_location": {
+        "type": "MLFLOW_EXPERIMENT",
+        "mlflow_experiment": {
+          "experiment_id": "637703900577447"
+        }
+      },
+      "request": "<redacted len=141>",
+      "response": "<redacted len=2220>",
+      "request_preview": "<redacted len=141>",
+      "response_preview": "<redacted len=2220>",
+      "request_time": "2026-10-08T20:20:26.584Z",
+      "execution_duration": "19.268s",
+      "state": "OK",
+      "trace_metadata": {
+        "mlflow.trace.sizeBytes": "9823",
+        "mlflow.source.git.repoURL": "",
+        "mlflow.source.git.branch": "",
+        "mlflow.sourceRun": "4615ecc104dd428ba528fbf381caf419",
+        "mlflow.trace_schema.version": "3",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.trace.sizeStats": "{\"total_size_bytes\": 9823, \"num_spans\": 2, \"max\": 3061, \"p25\": 3013, \"p50\": 3029, \"p75\": 3045}",
+        "mlflow.source.name": "06_custom_harness.py",
+        "mlflow.user": "guanyu.chen",
+        "mlflow.traceOutputs": "<redacted len=250>",
+        "mlflow.traceInputs": "<redacted len=141>",
+        "mlflow.source.git.commit": ""
+      },
+      "assessments": [
+        {
+          "assessment_id": "a-bd10c8a0462442e9b104c89728de4dbe",
+          "assessment_name": "gt_sql",
+          "trace_id": "tr-f7ea1932752c9ef0f32e97f5ee34c065",
+          "span_id": "179ce7c518a715c7",
+          "source": {
+            "source_type": "HUMAN",
+            "source_id": "guanyu.chen"
+          },
+          "create_time": "2026-10-08T20:20:51.522Z",
+          "last_update_time": "2026-10-08T20:20:51.522Z",
+          "expectation": {
+            "value": "SELECT r.rep_name, ROUND(AVG(x.trx), 1) AS avg_weekly_trx FROM main.merck_genie_eval_poc...<trimmed>"
+          },
+          "metadata": {
+            "mlflow.assessment.sourceRunId": "4615ecc104dd428ba528fbf381caf419"
+          }
+        },
+        {
+          "assessment_id": "a-c16a2f1405504b17b5af618e5ad63f29",
+          "assessment_name": "gt_rows",
+          "trace_id": "tr-f7ea1932752c9ef0f32e97f5ee34c065",
+          "span_id": "179ce7c518a715c7",
+          "source": {
+            "source_type": "HUMAN",
+            "source_id": "guanyu.chen"
+          },
+          "create_time": "2026-10-08T20:20:51.970Z",
+          "last_update_time": "2026-10-08T20:20:51.970Z",
+          "expectation": {
+            "serialized_value": {
+              "serialization_format": "JSON_FORMAT",
+              "value": "[[\"Elena\", \"596.0\"], [\"Grace\", \"582.6\"], [\"Olivia\", \"581.9\"], [\"Leo\", \"578.8\"], [\"Maya\", \"578.4\"], [...<trimmed>"
+            }
+          },
+          "metadata": {
+            "mlflow.assessment.sourceRunId": "4615ecc104dd428ba528fbf381caf419"
+          }
+        },
+        {
+          "assessment_id": "a-b93ec4ed66a6407495e2c8a28cc4dbcb",
+          "assessment_name": "result_match",
+          "trace_id": "tr-f7ea1932752c9ef0f32e97f5ee34c065",
+          "span_id": "179ce7c518a715c7",
+          "source": {
+            "source_type": "CODE",
+            "source_id": "default"
+          },
+          "create_time": "2026-10-08T20:20:50.375Z",
+          "last_update_time": "2026-10-08T20:20:50.375Z",
+          "feedback": {
+            "value": "match"
+          },
+          "rationale": "gt_rows=20 genie_rows=20",
+          "metadata": {
+            "mlflow.assessment.sourceRunId": "4615ecc104dd428ba528fbf381caf419"
+          },
+          "valid": true
+        },
+        {
+          "assessment_id": "a-9f45b4626d7a48fc8dcb12cadd335464",
+          "assessment_name": "failure_category",
+          "trace_id": "tr-f7ea1932752c9ef0f32e97f5ee34c065",
+          "span_id": "179ce7c518a715c7",
+          "source": {
+            "source_type": "CODE",
+            "source_id": "default"
+          },
+          "create_time": "2026-10-08T20:20:49.852Z",
+          "last_update_time": "2026-10-08T20:20:49.852Z",
+          "feedback": {
+            "value": "none"
+          },
+          "metadata": {
+            "mlflow.assessment.sourceRunId": "4615ecc104dd428ba528fbf381caf419"
+          },
+          "valid": true
+        },
+        {
+          "assessment_id": "a-02d65fe8c0f54fd895bfbe998ad1feb9",
+          "assessment_name": "recommended_fix",
+          "trace_id": "tr-f7ea1932752c9ef0f32e97f5ee34c065",
+          "span_id": "179ce7c518a715c7",
+          "source": {
+            "source_type": "CODE",
+            "source_id": "default"
+          },
+          "create_time": "2026-10-08T20:20:49.367Z",
+          "last_update_time": "2026-10-08T20:20:49.367Z",
+          "feedback": {
+            "value": "none"
+          },
+          "metadata": {
+            "mlflow.assessment.sourceRunId": "4615ecc104dd428ba528fbf381caf419"
+          },
+          "valid": true
+        },
+        {
+          "assessment_id": "a-f62bd4c241fd4267b4904f856733bc95",
+          "assessment_name": "passed",
+          "trace_id": "tr-f7ea1932752c9ef0f32e97f5ee34c065",
+          "span_id": "179ce7c518a715c7",
+          "source": {
+            "source_type": "CODE",
+            "source_id": "default"
+          },
+          "create_time": "2026-10-08T20:20:50.984Z",
+          "last_update_time": "2026-10-08T20:20:50.984Z",
+          "feedback": {
+            "value": true
+          },
+          "metadata": {
+            "mlflow.assessment.sourceRunId": "4615ecc104dd428ba528fbf381caf419"
+          },
+          "valid": true
+        }
+      ],
+      "tags": {
+        "mlflow.traceName": "predict_fn",
+        "mlflow.artifactLocation": "dbfs:/databricks/mlflow-tracking/637703900577447/tr-f7ea1932752c9ef0f32e97f5ee34c065/artifacts",
+        "mlflow.eval.requestId": "ad441443-fccb-4474-b3ab-68ce268518f9",
+        "mlflow.user": "user08@example.com"
+      }
+    }
+  },
+  "trace_list_v2": {
+    "path": "GET /api/2.0/mlflow/traces?experiment_ids=3325179909192303&max_results=3",
+    "http": 200,
+    "trace_field_presence": {
+      "request_id": 3,
+      "experiment_id": 3,
+      "timestamp_ms": 3,
+      "execution_time_ms": 3,
+      "status": 3,
+      "request_metadata": 3,
+      "tags": 3
+    },
+    "example": {
+      "request_id": "tr-29c2a7575a6400617082329457bfd476",
+      "experiment_id": "3325179909192303",
+      "timestamp_ms": 1789768275444,
+      "execution_time_ms": 307,
+      "status": "OK",
+      "request_metadata": [
+        {
+          "key": "mlflow.modelId",
+          "value": "m-10b4595c658b4f4d82eb66ff8d85daa5"
+        },
+        {
+          "key": "mlflow.trace.clientRequestId",
+          "value": "eb6afe78-b0ac-4882-bc58-932d6690a38d"
+        },
+        {
+          "key": "mlflow.trace.request",
+          "value": "<redacted>"
+        },
+        {
+          "key": "mlflow.trace.response",
+          "value": "<redacted>"
+        },
+        {
+          "key": "mlflow.trace.sizeBytes",
+          "value": "2528"
+        },
+        {
+          "key": "mlflow.trace.sizeStats",
+          "value": "{\"total_size_bytes\": 2528, \"num_spans\": 1, \"max\": 1790, \"p25\": 1790, \"p50\": 1790, \"p75\": 1790}"
+        }
+      ],
+      "tags": [
+        {
+          "key": "mlflow.user",
+          "value": "5e0a1a65-0983-4ae6-afb1-bfb4b98102c3"
+        },
+        {
+          "key": "mlflow.artifactLocation",
+          "value": "dbfs:/databricks/mlflow-tracking/3325179909192303/tr-29c2a7575a6400617082329457bfd476/artifacts"
+        }
+      ]
+    }
+  },
+  "trace_get_v3": {
+    "path": "GET /api/3.0/mlflow/traces/tr-cde8bd0970714b610e35fafb7dd8c4aa",
+    "http": 200,
+    "top_level_keys": [
+      "trace"
+    ],
+    "trace_info_keys": [
+      "trace_id",
+      "client_request_id",
+      "trace_location",
+      "request",
+      "response",
+      "request_preview"
+    ]
+  },
+  "trace_get_v3_info": {
+    "path": "GET /api/3.0/mlflow/traces/tr-cde8bd0970714b610e35fafb7dd8c4aa/info",
+    "http": 404,
+    "body_keys": [
+      "error_code",
+      "message",
+      "details"
+    ],
+    "error": {
+      "error_code": "ENDPOINT_NOT_FOUND",
+      "message": "No API found for 'GET /mlflow/traces/tr-cde8bd0970714b610e35fafb7dd8c4aa/info'",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.rpc.RequestInfo",
+          "request_id": "59bceeab-1eac-4d73-802a-017f5083a0b2",
+          "serving_data": ""
+        }
+      ]
+    }
+  },
+  "logged_models_search_post": {
+    "path": "POST /api/2.0/mlflow/logged-models/search",
+    "body_sent": {
+      "experiment_ids": [
+        "3325179909192303"
+      ],
+      "max_results": 5
+    },
+    "http": 200,
+    "body": {
+      "models": [
+        {
+          "info": {
+            "model_id": "m-10b4595c658b4f4d82eb66ff8d85daa5",
+            "experiment_id": "3325179909192303",
+            "name": "agent",
+            "creation_timestamp_ms": 1783549359077,
+            "last_updated_timestamp_ms": 1783549374854,
+            "artifact_uri": "dbfs:/databricks/mlflow-tracking/3325179909192303/logged_models/m-10b4595c658b4f4d82eb66ff8d85daa5/artifacts",
+            "status": "LOGGED_MODEL_READY",
+            "creator_id": 3212553797283658,
+            "source_run_id": "b6744b794f8e441aba118b0978983b4d",
+            "tags": [
+              {
+                "key": "mlflow.databricks.cluster.id",
+                "value": "0708-222148-b844t0dg-v2n"
+              },
+              {
+                "key": "mlflow.databricks.jobID",
+                "value": "812981299290857"
+              },
+              {
+                "key": "mlflow.databricks.jobRunID",
+                "value": "275054879359049"
+              },
+              {
+                "key": "mlflow.databricks.jobType",
+                "value": "notebook"
+              },
+              {
+                "key": "mlflow.databricks.notebook.commandID",
+                "value": "1001783548581580_7769474119337152749_org-1234567890123456-job-812981299290857-run-275054879359049-ac...<trimmed>"
+              },
+              {
+                "key": "mlflow.databricks.notebookID",
+                "value": "3325179909192303"
+              }
+            ]
+          },
+          "data": {}
+        }
+      ]
+    }
+  },
+  "logged_models_search_get": {
+    "path": "GET /api/2.0/mlflow/logged-models/search",
+    "http": 400,
+    "body": {
+      "error_code": "INVALID_PARAMETER_VALUE",
+      "message": "Invalid model id: search, a model id must start with 'm-'.",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.rpc.RequestInfo",
+          "request_id": "d290ae39-e5a8-4580-8a63-94b4c2815001",
+          "serving_data": ""
+        }
+      ]
+    }
+  },
+  "logged_model_get": {
+    "path": "GET /api/2.0/mlflow/logged-models/m-10b4595c658b4f4d82eb66ff8d85daa5",
+    "http": 200,
+    "shape": {
+      "model": {
+        "info": {
+          "model_id": "str",
+          "experiment_id": "str",
+          "name": "str",
+          "creation_timestamp_ms": "int",
+          "last_updated_timestamp_ms": "int",
+          "artifact_uri": "str",
+          "status": "str",
+          "creator_id": "int",
+          "source_run_id": "str",
+          "tags": [
+            {
+              "key": "str",
+              "value": "str"
+            }
+          ]
+        },
+        "data": {}
+      }
+    }
+  }
+}

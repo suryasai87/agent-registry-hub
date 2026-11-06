@@ -1,0 +1,1 @@
+import{X as e,Y as t,Z as n,at as r,nt as i}from"./ui-Bth6ksN4.js";var a=r(i(),1);function o(){!e.current&&t();let[r]=(0,a.useState)(n.current);return r}export{o as t};

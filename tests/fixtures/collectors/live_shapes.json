@@ -1,0 +1,1951 @@
+{
+ "serving_endpoints_extra": [
+  {
+   "name": "ka-a176dc0c-endpoint",
+   "creator": "user03@example.com",
+   "creation_timestamp": 1792606267000,
+   "last_updated_timestamp": 1792606267000,
+   "state": {
+    "ready": "READY",
+    "config_update": "NOT_UPDATING"
+   },
+   "config": {},
+   "id": "2ade3456ac1c404094277a987cf29bd0",
+   "route_optimized": false,
+   "task": "agent/v1/responses",
+   "permission_level": "CAN_MANAGE",
+   "creator_display_name": "Christopher Messer",
+   "creator_kind": "User",
+   "tile_endpoint_metadata": {
+    "tile_id": "a176dc0c-1d6f-4f86-849a-a38eac9ca22c",
+    "tile_model_name": "ka-base-model-c3eb1bf1",
+    "problem_type": "KNOWLEDGE_ASSISTANT"
+   },
+   "description": ""
+  },
+  {
+   "name": "mas-2e8a4ac6-endpoint",
+   "creator": "user03@example.com",
+   "creation_timestamp": 1792607694000,
+   "last_updated_timestamp": 1792607694000,
+   "state": {
+    "ready": "READY",
+    "config_update": "NOT_UPDATING"
+   },
+   "config": {},
+   "id": "4cf50a18f44241a2a0e75265e1705bc2",
+   "route_optimized": false,
+   "task": "agent/v1/responses",
+   "permission_level": "CAN_MANAGE",
+   "creator_display_name": "Christopher Messer",
+   "creator_kind": "User",
+   "tile_endpoint_metadata": {
+    "tile_id": "2e8a4ac6-17ca-492f-b00d-73df59a52526",
+    "tile_model_name": "mas-base-model-0b1f6b29",
+    "problem_type": "MULTI_AGENT_SUPERVISOR"
+   },
+   "description": ""
+  }
+ ],
+ "endpoint_acls": {
+  "ka-a176dc0c-endpoint": {
+   "object_id": "/serving-endpoints/2ade3456ac1c404094277a987cf29bd0",
+   "object_type": "serving-endpoint",
+   "access_control_list": [
+    {
+     "service_principal_name": "15854ef5-560b-4320-bdba-7a00bb02a19e",
+     "display_name": "app-46a7gs brickwell-mfg-ai",
+     "all_permissions": [
+      {
+       "permission_level": "CAN_QUERY",
+       "inherited": false
+      }
+     ]
+    },
+    {
+     "group_name": "admins",
+     "all_permissions": [
+      {
+       "permission_level": "CAN_MANAGE",
+       "inherited": false
+      },
+      {
+       "permission_level": "CAN_MANAGE",
+       "inherited": true,
+       "inherited_from_object": [
+        "/serving-endpoints"
+       ]
+      }
+     ]
+    },
+    {
+     "user_name": "user03@example.com",
+     "display_name": "Christopher Messer",
+     "all_permissions": [
+      {
+       "permission_level": "CAN_MANAGE",
+       "inherited": false
+      }
+     ]
+    }
+   ]
+  },
+  "mas-2e8a4ac6-endpoint": {
+   "object_id": "/serving-endpoints/4cf50a18f44241a2a0e75265e1705bc2",
+   "object_type": "serving-endpoint",
+   "access_control_list": [
+    {
+     "service_principal_name": "15854ef5-560b-4320-bdba-7a00bb02a19e",
+     "display_name": "app-46a7gs brickwell-mfg-ai",
+     "all_permissions": [
+      {
+       "permission_level": "CAN_QUERY",
+       "inherited": false
+      }
+     ]
+    },
+    {
+     "group_name": "admins",
+     "all_permissions": [
+      {
+       "permission_level": "CAN_MANAGE",
+       "inherited": false
+      },
+      {
+       "permission_level": "CAN_MANAGE",
+       "inherited": true,
+       "inherited_from_object": [
+        "/serving-endpoints"
+       ]
+      }
+     ]
+    },
+    {
+     "user_name": "user03@example.com",
+     "display_name": "Christopher Messer",
+     "all_permissions": [
+      {
+       "permission_level": "CAN_MANAGE",
+       "inherited": false
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "genie_space_detail": {
+  "space_id": "01f1cd7bb5441dfbad0bfcb2641eacdb",
+  "title": "[hlsws] Brickwell Medical Mfg \u2014 Manufacturing Agent",
+  "description": "Brickwell Medical manufacturing agent \u2014 KPI analytics and troubleshooting on one lakehouse.\n\n**Operational gold (alarms, quality history, parts):**\n- `gold_alarm_playbook` \u2014 fault events with alarm_message, possible_cause, remedy_summary, manual citation\n- `gold_active_alarms` \u2014 currently active faults only; demo anchor EVT-DEMO-001\n- `gold_ncmr_symptom_history` \u2014 closed NCMRs ranked by recency_rank per station + symptom_tag\n- `gold_spare_part_availability` \u2014 spare parts with quantity_on_hand and applicable machine_ids\n\n**Metric views (KPI analytics):**\n- `mv_quality_yield` \u2014 first pass yield %, scrap rate %, scrappage units by station/day\n- `mv_station_fault_rates` \u2014 unplanned stops, downtime minutes, availability %, OEE proxy %\n- `mv_machine_mttr_proxy` \u2014 fault count and MTTR by machine and error code\n- `mv_symptom_scrappage` \u2014 scrappage units and NCMR count by symptom tag\n\n**Maintenance + ML:**\n- `cmms_work_orders` \u2014 technician-attended stops with minutes_to_restore (true MTTR from the CMMS)\n- `gold_fault_risk_scores` \u2014 long-stop risk per fault event: long_stop_probability = P(restore > 45 min) from the long_stop_risk model, risk_band High/Medium/Low\n\n**Do not use** `gold_station_daily_summary` or `gold_symptom_scrappage_daily` \u2014 the MVs above are the governed source.\n\nPlants: **Eastport** (CNC Bender) and **Riverton** (forming, feed, weld lines).",
+  "warehouse_id": "bda22e07d7130a32",
+  "parent_path": "/Users/user03@example.com",
+  "serialized_space": "{\"version\": 2, \"config\": {\"sample_questions\": [{\"id\": \"01f1cd7bb5681bd39d8e4e1545475621\", \"question\": [\"What was first pass yield percent at each station yesterday?\"]}, {\"id\": \"01f1cd7bb56919de9d037d4daaf8a55b\", \"question\": [\"What is the OEE proxy by plant for the last 7 days?\"]}, {\"id\": \"01f1cd7bb5691e3584c9d2a22d7c8b9c\", \"question\": [\"What active alarms are on the CNC Bender right now?\"]}]}, \"data_sources\": {\"tables\": [{\"identifier\": \"main.brickwell_mfg_ai.cmms_work_orders\"}, {\"identifier\": \"main.brickwell_mfg_ai.gold_active_alarms\"}, {\"identifier\": \"main.brickwell_mfg_ai.gold_alarm_playbook\"}, {\"identifier\": \"main.brickwell_mfg_ai.gold_fault_risk_scores\"}, {\"identifier\": \"main.brickwell_mfg_ai.gold_ncmr_symptom_history\"}, {\"identifier\": \"main.brickwell_mfg_ai.gold_spare_part_availability\"}, {\"identifier\": \"main.brickwell_mfg_ai.mv_machine_mttr_proxy\"}, {\"identifier\": \"main.brickwell_mfg_ai.mv_quality_yield\"}, {\"identifier\": \"main.brickwell_mfg_ai.mv_station_fault_rates\"}, {\"identifier\": \"main.brickwell_mfg_ai.mv_symptom_scrappage\"}]}, \"instructions\": {\"text_instructions\": [{\"id\": \"01f1cd7bb57e1a22a0e17afc134cce55\", \"content\": [\"**KPI / analytics questions** \\u2192 metric views with MEASURE():\\n- Yield, scrap rate, scrappage units \\u2192 mv_quality_yield\\n- OEE proxy, downtime, availability, unplan\"]}], \"example_question_sqls\": [{\"id\": \"01f1cd7bb5b819518ed1b72f880b5e76\", \"question\": [\"Yesterday yield by station\"], \"sql\": [\"SELECT\\n  `Station`,\\n  `Plant`,\\n  MEASURE(`First Pass Yield Pct`) AS first_pass_yield_pct,\\n  MEASURE(`Scrap Rate Pct`) AS scrap_rate_pct,\\n  MEASURE(`Scrappage Un\"]}]}}",
+  "etag": "aafca9e540fdfa74ee4c450fef4ce18dd81558bca0c6d120c487049732a7d7f1",
+  "create_time": "2026-10-21T18:17:43.105Z",
+  "update_time": "2026-10-21T18:17:50.125Z"
+ },
+ "genie_space_list_item": {
+  "space_id": "01f1cd7bb5441dfbad0bfcb2641eacdb",
+  "title": "[hlsws] Brickwell Medical Mfg \u2014 Manufacturing Agent",
+  "description": "Brickwell Medical manufacturing agent \u2014 KPI analytics and troubleshooting on one lakehouse.\n\n**Operational gold (alarms, quality history, parts):**\n- `gold_alarm_playbook` \u2014 fault events with alarm_message, possible_cause, remedy_summary, manual citation\n- `gold_active_alarms` \u2014 currently active faults only; demo anchor EVT-DEMO-001\n- `gold_ncmr_symptom_history` \u2014 closed NCMRs ranked by recency_rank per station + symptom_tag\n- `gold_spare_part_availability` \u2014 spare parts with quantity_on_hand and applicable machine_ids\n\n**Metric views (KPI analytics):**\n- `mv_quality_yield` \u2014 first pass yield %, scrap rate %, scrappage units by station/day\n- `mv_station_fault_rates` \u2014 unplanned stops, downtime minutes, availability %, OEE proxy %\n- `mv_machine_mttr_proxy` \u2014 fault count and MTTR by machine and error code\n- `mv_symptom_scrappage` \u2014 scrappage units and NCMR count by symptom tag\n\n**Maintenance + ML:**\n- `cmms_work_orders` \u2014 technician-attended stops with minutes_to_restore (true MTTR from the CMMS)\n- `gold_fault_risk_scores` \u2014 long-stop risk per fault event: long_stop_probability = P(restore > 45 min) from the long_stop_risk model, risk_band High/Medium/Low\n\n**Do not use** `gold_station_daily_summary` or `gold_symptom_scrappage_daily` \u2014 the MVs above are the governed source.\n\nPlants: **Eastport** (CNC Bender) and **Riverton** (forming, feed, weld lines).",
+  "warehouse_id": "bda22e07d7130a32",
+  "create_time": "2026-10-21T18:17:43.105Z",
+  "update_time": "2026-10-21T18:17:50.125Z"
+ },
+ "genie_space_acl": {
+  "object_id": "/genie/2347446610473181",
+  "object_type": "genie",
+  "access_control_list": [
+   {
+    "service_principal_name": "15854ef5-560b-4320-bdba-7a00bb02a19e",
+    "display_name": "app-46a7gs brickwell-mfg-ai",
+    "all_permissions": [
+     {
+      "permission_level": "CAN_RUN",
+      "inherited": false
+     }
+    ]
+   },
+   {
+    "user_name": "user03@example.com",
+    "display_name": "Christopher Messer",
+    "all_permissions": [
+     {
+      "permission_level": "CAN_MANAGE",
+      "inherited": true,
+      "inherited_from_object": [
+       "/directories/112277483139578"
+      ]
+     }
+    ]
+   },
+   {
+    "group_name": "admins",
+    "all_permissions": [
+     {
+      "permission_level": "CAN_MANAGE",
+      "inherited": true,
+      "inherited_from_object": [
+       "/directories/"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "connection_you_dot_com": {
+  "name": "ext_mcp_you_dot_com",
+  "connection_type": "HTTP",
+  "options": {
+   "base_path": "/mcp/finance",
+   "is_mcp_connection": "true",
+   "auth_scheme": "bearer",
+   "host": "https://api.you.com",
+   "port": "443"
+  },
+  "owner": "user48@example.com",
+  "read_only": true,
+  "comment": "MCP connection for You.com: #1 AI Financial Research API",
+  "full_name": "ext_mcp_you_dot_com",
+  "url": "https://api.you.com:443/mcp/finance",
+  "credential_type": "BEARER_TOKEN",
+  "connection_id": "3e61e40b-c30a-4bf5-974c-deb99b145a64",
+  "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+  "created_at": 1784098852182,
+  "created_by": "user48@example.com",
+  "updated_at": 1784098852182,
+  "updated_by": "user48@example.com",
+  "securable_type": "CONNECTION",
+  "securable_kind": "CONNECTION_HTTP_BEARER",
+  "provisioning_info": {
+   "state": "ACTIVE"
+  },
+  "etag": "CAESCAAAAZ9klA1W"
+ },
+ "connection_effective_permissions": {
+  "ext_mcp_you_dot_com": {
+   "privilege_assignments": [
+    {
+     "principal": "11669070-377d-422d-b9f7-1db8e2f4f34c",
+     "privileges": [
+      {
+       "privilege": "USE_CONNECTION"
+      }
+     ]
+    },
+    {
+     "principal": "account users",
+     "privileges": [
+      {
+       "privilege": "USE_CONNECTION"
+      },
+      {
+       "privilege": "READ_METADATA",
+       "inherited_from_type": "METASTORE",
+       "inherited_from_name": "metastore_aws_us_east_1"
+      }
+     ]
+    },
+    {
+     "principal": "user70@example.com",
+     "privileges": [
+      {
+       "privilege": "READ_METADATA",
+       "inherited_from_type": "METASTORE",
+       "inherited_from_name": "metastore_aws_us_east_1"
+      }
+     ]
+    }
+   ]
+  },
+  "agentkit_deepwiki": {
+   "privilege_assignments": [
+    {
+     "principal": "account users",
+     "privileges": [
+      {
+       "privilege": "READ_METADATA",
+       "inherited_from_type": "METASTORE",
+       "inherited_from_name": "metastore_aws_us_east_1"
+      }
+     ]
+    },
+    {
+     "principal": "user70@example.com",
+     "privileges": [
+      {
+       "privilege": "READ_METADATA",
+       "inherited_from_type": "METASTORE",
+       "inherited_from_name": "metastore_aws_us_east_1"
+      }
+     ]
+    }
+   ]
+  },
+  "aa_sil_np_mcp": {
+   "privilege_assignments": [
+    {
+     "principal": "account users",
+     "privileges": [
+      {
+       "privilege": "READ_METADATA",
+       "inherited_from_type": "METASTORE",
+       "inherited_from_name": "metastore_aws_us_east_1"
+      }
+     ]
+    },
+    {
+     "principal": "user70@example.com",
+     "privileges": [
+      {
+       "privilege": "READ_METADATA",
+       "inherited_from_type": "METASTORE",
+       "inherited_from_name": "metastore_aws_us_east_1"
+      }
+     ]
+    }
+   ]
+  },
+  "ah_demo_confluence_mcp": {
+   "privilege_assignments": [
+    {
+     "principal": "account users",
+     "privileges": [
+      {
+       "privilege": "READ_METADATA",
+       "inherited_from_type": "METASTORE",
+       "inherited_from_name": "metastore_aws_us_east_1"
+      }
+     ]
+    },
+    {
+     "principal": "user70@example.com",
+     "privileges": [
+      {
+       "privilege": "READ_METADATA",
+       "inherited_from_type": "METASTORE",
+       "inherited_from_name": "metastore_aws_us_east_1"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "routines_rows": [
+  {
+   "routine_catalog": "system",
+   "routine_schema": "ai",
+   "routine_name": "ai_classify",
+   "specific_name": "ai_classify",
+   "routine_owner": "System user",
+   "data_type": "VARIANT",
+   "full_data_type": "VARIANT",
+   "routine_body": "EXTERNAL",
+   "external_language": "Python",
+   "security_type": "DEFINER",
+   "sql_data_access": "NO_SQL",
+   "is_deterministic": "false",
+   "comment": "Classifies text or documents into one of a user-provided set of labels.\n\nSee the [official documentation](https://docs.databricks.com/en/sql/language-manual/functions/ai_classify) for syntax, arguments, options, and response schema.",
+   "routine_definition": null,
+   "definition_sha": "0023cb96e3dfe4bf6397ebc4cf6b195b299a6f4b4c6b4f8e98877ce33b815046",
+   "created": "2026-07-08T21:57:21.930Z",
+   "created_by": "System user",
+   "last_altered": "2026-07-08T21:57:21.930Z",
+   "schema_owner": "System user",
+   "schema_comment": null
+  },
+  {
+   "routine_catalog": "main",
+   "routine_schema": "supply_agentic_demo",
+   "routine_name": "ecr_impact",
+   "specific_name": "ecr_impact",
+   "routine_owner": "admin@example.com",
+   "data_type": "TABLE_TYPE",
+   "full_data_type": "(ecr_id STRING, title STRING, status STRING, risk_class STRING, affected_part_id STRING, part_name STRING, criticality STRING, min_days_of_supply DOUBLE, supplier_risk STRING)",
+   "routine_body": "SQL",
+   "external_language": null,
+   "security_type": "DEFINER",
+   "sql_data_access": "READS_SQL_DATA",
+   "is_deterministic": "true",
+   "comment": "For an Engineering Change Request, expands every affected part and returns its criticality, inventory days-of-supply and supplier risk to support change decision making.",
+   "routine_definition": "SELECT e.ecr_id, e.title, e.status, e.risk_class, e.affected_part_id, p.part_name, p.criticality,\n         MIN(i.days_of_supply) AS min_days_of_supply, s.risk_rating AS supplier_risk\n  FROM (SELECT ecr_id, title, status, risk_class, explode(affected_parts) AS affected_part_id\n        FROM ecr WHERE ecr_id = in_ecr_id) e\n  JOIN parts_master p ON e.affected_part_id = p.part_id\n  LEFT JOIN inventory i ON e.affected_part_id = i.part_id\n  LEFT JOIN suppliers s ON p.supplier_id = s.supplier_id\n  GROUP BY e.ecr_id, e.title, e.status, e.risk_class, e.affected_part_id, p.part_name, p.criticality, s.risk_rating",
+   "definition_sha": "46f258f4831d67a8fc137af482bc638bfc8e14e497d3639d12af02c17f156691",
+   "created": "2026-09-02T13:14:09.272Z",
+   "created_by": "admin@example.com",
+   "last_altered": "2026-09-02T13:14:09.272Z",
+   "schema_owner": "admin@example.com",
+   "schema_comment": "Acme MedTech (Acme MedTech) Agentic AI + Unity AI Gateway workshop. SYNTHETIC data only."
+  },
+  {
+   "routine_catalog": "main",
+   "routine_schema": "supply_agentic_demo",
+   "routine_name": "ebom_mbom_gaps",
+   "specific_name": "ebom_mbom_gaps",
+   "routine_owner": "admin@example.com",
+   "data_type": "TABLE_TYPE",
+   "full_data_type": "(part_id STRING, part_name STRING, subsystem STRING, criticality STRING, revision STRING)",
+   "routine_body": "SQL",
+   "external_language": null,
+   "security_type": "DEFINER",
+   "sql_data_access": "READS_SQL_DATA",
+   "is_deterministic": "true",
+   "comment": "Parts present in the Engineering BOM but missing from the Manufacturing BOM (EBOM to MBOM reconciliation gaps that speed up change decisions).",
+   "routine_definition": "SELECT e.part_id, p.part_name, p.subsystem, p.criticality, e.revision\n  FROM ebom e JOIN parts_master p ON e.part_id = p.part_id\n  LEFT JOIN mbom m ON e.part_id = m.part_id\n  WHERE m.part_id IS NULL",
+   "definition_sha": "2004bb8fc6cb47a8c529360ac047ba25d13fd26a6681893bab6cafa8d6d0f230",
+   "created": "2026-09-02T13:13:41.073Z",
+   "created_by": "admin@example.com",
+   "last_altered": "2026-09-02T13:13:41.073Z",
+   "schema_owner": "admin@example.com",
+   "schema_comment": "Acme MedTech (Acme MedTech) Agentic AI + Unity AI Gateway workshop. SYNTHETIC data only."
+  },
+  {
+   "routine_catalog": "main",
+   "routine_schema": "supply_agentic_demo",
+   "routine_name": "part_inventory_risk",
+   "specific_name": "part_inventory_risk",
+   "routine_owner": "admin@example.com",
+   "data_type": "TABLE_TYPE",
+   "full_data_type": "(part_id STRING, part_name STRING, criticality STRING, total_on_hand INT, min_days_of_supply DOUBLE, supplier_name STRING, supplier_risk STRING, lead_time_days INT, risk_flag STRING)",
+   "routine_body": "SQL",
+   "external_language": null,
+   "security_type": "DEFINER",
+   "sql_data_access": "READS_SQL_DATA",
+   "is_deterministic": "true",
+   "comment": "Material impact and planning risk for a part: inventory position, supplier risk, lead time and an overall AT RISK / WATCH / OK flag.",
+   "routine_definition": "SELECT p.part_id, p.part_name, p.criticality, CAST(SUM(i.on_hand_qty) AS INT), MIN(i.days_of_supply),\n         s.supplier_name, s.risk_rating, p.lead_time_days,\n         CASE WHEN MIN(i.days_of_supply) < 10 OR s.risk_rating = 'High' THEN 'AT RISK'\n              WHEN MIN(i.days_of_supply) < 25 THEN 'WATCH' ELSE 'OK' END\n  FROM parts_master p\n  LEFT JOIN inventory i ON p.part_id = i.part_id\n  LEFT JOIN suppliers s ON p.supplier_id = s.supplier_id\n  WHERE p.part_id = in_part_id\n  GROUP BY p.part_id, p.part_name, p.criticality, s.supplier_name, s.risk_rating, p.lead_time_days",
+   "definition_sha": "f9149ddacc3324049dcf30b945e1de8fec31d830ab274d14fdae556abbbcbee7",
+   "created": "2026-09-02T13:13:45.579Z",
+   "created_by": "admin@example.com",
+   "last_altered": "2026-09-02T13:13:45.579Z",
+   "schema_owner": "admin@example.com",
+   "schema_comment": "Acme MedTech (Acme MedTech) Agentic AI + Unity AI Gateway workshop. SYNTHETIC data only."
+  },
+  {
+   "routine_catalog": "system",
+   "routine_schema": "ai",
+   "routine_name": "python_exec",
+   "specific_name": "python_exec",
+   "routine_owner": "System user",
+   "data_type": "STRING",
+   "full_data_type": "STRING",
+   "routine_body": "EXTERNAL",
+   "external_language": "Python",
+   "security_type": "DEFINER",
+   "sql_data_access": "NO_SQL",
+   "is_deterministic": "false",
+   "comment": "Executes Python code in a stateless sandboxed environment and returns its stdout. The runtime cannot access files or read previous executions' output. All operations must be self-contained, using only standard Python libraries. Calls to other tools are prohibited.",
+   "routine_definition": null,
+   "definition_sha": "c41f8300fce5262899e90e524974b3dae885beea35f0991f8a30356aff22d039",
+   "created": "2025-06-17T16:46:59.332Z",
+   "created_by": "System user",
+   "last_altered": "2026-10-23T14:48:54.782Z",
+   "schema_owner": "System user",
+   "schema_comment": null
+  }
+ ],
+ "parameters_rows": [
+  {
+   "specific_catalog": "main",
+   "specific_schema": "supply_agentic_demo",
+   "specific_name": "ecr_impact",
+   "parameter_name": "in_ecr_id",
+   "data_type": "STRING",
+   "parameter_default": null,
+   "ordinal_position": 0,
+   "comment": "ECR id, e.g. ECR-5003"
+  },
+  {
+   "specific_catalog": "system",
+   "specific_schema": "ai",
+   "specific_name": "python_exec",
+   "parameter_name": "code",
+   "data_type": "STRING",
+   "parameter_default": null,
+   "ordinal_position": 0,
+   "comment": "Python code to execute. Ensure that all variables are initialized within the code, and import any necessary standard libraries. The code must print the final result to stdout. Do not attempt to access files or external systems."
+  },
+  {
+   "specific_catalog": "main",
+   "specific_schema": "supply_agentic_demo",
+   "specific_name": "part_inventory_risk",
+   "parameter_name": "in_part_id",
+   "data_type": "STRING",
+   "parameter_default": null,
+   "ordinal_position": 0,
+   "comment": "Part id, e.g. P-20001"
+  }
+ ],
+ "mcp_services_system_ai": [
+  {
+   "name": "mcp-services/system.ai.dbsql",
+   "effective_owner": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "id": "17d09eb2-87f0-43f3-aaa4-7fa86c046bc0",
+   "securable_type": "MCP_SERVICE",
+   "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+   "create_time": "2026-08-25T18:37:25.156Z",
+   "created_by": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "update_time": "2026-10-15T18:46:43.784Z",
+   "updated_by": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "comment": "Run SQL queries on a Databricks SQL warehouse using your Unity Catalog and warehouse permissions.",
+   "config": {
+    "internal": {}
+   },
+   "etag": "CAESCAAAAaFA41lI"
+  },
+  {
+   "name": "mcp-services/system.ai.genie_one_mcp",
+   "effective_owner": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "id": "b6b0204f-f9f5-4d9f-85ac-70d7ec814e54",
+   "securable_type": "MCP_SERVICE",
+   "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+   "create_time": "2026-09-21T18:12:16.191Z",
+   "created_by": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "update_time": "2026-10-15T18:46:44.136Z",
+   "updated_by": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "comment": "Retrieve structured and unstructured data from Databricks with Genie One, grounded in governed business context from Genie Ontology.",
+   "config": {
+    "internal": {}
+   },
+   "etag": "CAESCAAAAaFA41qo"
+  },
+  {
+   "name": "mcp-services/system.ai.slack",
+   "effective_owner": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "id": "4085b722-1fb9-4781-b714-343838238c69",
+   "securable_type": "MCP_SERVICE",
+   "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+   "create_time": "2026-06-30T20:53:54.352Z",
+   "created_by": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "update_time": "2026-10-20T02:09:05.487Z",
+   "updated_by": "user80@example.com",
+   "comment": "Connects to the third-party Slack MCP server. Verify that the provider's service and your intended use meet your organization's compliance requirements. [Documentation](https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services#external-services)",
+   "config": {
+    "source_connection": {
+     "name": "connections/system.ai.slack",
+     "status": "ACTIVE",
+     "is_deleted": false,
+     "url": "https://mcp.slack.com:443/mcp",
+     "connection_type": "HTTP",
+     "securable_kind": "CONNECTION_HTTP_OAUTH_U2M_MAPPING"
+    },
+    "service_policies": [
+     {
+      "name": "slack-mask-pii",
+      "policy_type": "POLICY_TYPE_BUILTIN",
+      "handler": "system.ai.detect_sensitive_data",
+      "rank": 1,
+      "options": {
+       "phases": "post_call",
+       "dry_run": "false",
+       "action": "transform",
+       "categories": "class.email_address"
+      },
+      "is_deleted": false
+     }
+    ]
+   },
+   "etag": "CAESCAAAAaFXEcfP"
+  },
+  {
+   "name": "mcp-services/system.ai.microsoft_365",
+   "effective_owner": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "id": "395af22e-e1fc-454d-a720-94143a83bd3a",
+   "securable_type": "MCP_SERVICE",
+   "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+   "create_time": "2026-07-17T19:24:21.074Z",
+   "created_by": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "update_time": "2026-10-19T19:02:16.037Z",
+   "updated_by": "9b1dee82-5151-4a9a-9ea5-acc8bcc227ec",
+   "comment": "Connects to SharePoint, Outlook, and Teams through the third-party Microsoft Graph API. Verify that the provider's service and your intended use meet your organization's compliance requirements. [Documentation](https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services#external-services)",
+   "config": {
+    "source_connection": {
+     "name": "connections/system.ai.microsoft_365",
+     "status": "ACTIVE",
+     "is_deleted": false,
+     "url": "https://graph.microsoft.com:443/",
+     "connection_type": "HTTP",
+     "securable_kind": "CONNECTION_HTTP_OAUTH_U2M_MAPPING"
+    }
+   },
+   "etag": "CAESCAAAAaFViwLl"
+  }
+ ],
+ "mcp_services_lilly": [
+  {
+   "name": "mcp-services/main.lilly_heor_rwe_demo.nsclc_mcp",
+   "effective_owner": "user76@example.com",
+   "id": "fb0b1c1e-1a72-47f8-a32c-d03b703efdd7",
+   "securable_type": "MCP_SERVICE",
+   "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+   "create_time": "2026-09-08T21:49:51.120Z",
+   "created_by": "user76@example.com",
+   "update_time": "2026-09-08T21:49:51.120Z",
+   "updated_by": "user76@example.com",
+   "config": {
+    "source_connection": {
+     "name": "connections/main.lilly_heor_rwe_demo.nsclc_mcp_connection",
+     "status": "FAILED",
+     "is_deleted": false,
+     "url": "https://agent-rwd-qa-1234567890123456.aws.databricksapps.com:443/mcp",
+     "connection_type": "HTTP",
+     "securable_kind": "CONNECTION_HTTP_OAUTH_M2M"
+    },
+    "include_tool_selectors": [
+     "*"
+    ]
+   },
+   "etag": "CAESCAAAAaCC/7SQ"
+  }
+ ],
+ "mcp_service_effective_permissions_slack": {
+  "privilege_assignments": [
+   {
+    "principal": "user70@example.com",
+    "privileges": [
+     {
+      "privilege": "READ_METADATA",
+      "inherited_from_type": "METASTORE",
+      "inherited_from_name": "metastore_aws_us_east_1"
+     }
+    ]
+   },
+   {
+    "principal": "user81@example.com",
+    "privileges": [
+     {
+      "privilege": "EXECUTE",
+      "inherited_from_type": "CATALOG",
+      "inherited_from_name": "system"
+     },
+     {
+      "privilege": "APPLY_TAG",
+      "inherited_from_type": "CATALOG",
+      "inherited_from_name": "system"
+     },
+     {
+      "privilege": "MANAGE",
+      "inherited_from_type": "CATALOG",
+      "inherited_from_name": "system"
+     }
+    ]
+   },
+   {
+    "principal": "DB - RESERVED - Databricks support",
+    "privileges": [
+     {
+      "privilege": "EXECUTE",
+      "inherited_from_type": "SCHEMA",
+      "inherited_from_name": "system.ai"
+     }
+    ]
+   },
+   {
+    "principal": "metastore_admins",
+    "privileges": [
+     {
+      "privilege": "APPLY_TAG",
+      "inherited_from_type": "CATALOG",
+      "inherited_from_name": "system"
+     },
+     {
+      "privilege": "EXECUTE",
+      "inherited_from_type": "CATALOG",
+      "inherited_from_name": "system"
+     },
+     {
+      "privilege": "MANAGE",
+      "inherited_from_type": "CATALOG",
+      "inherited_from_name": "system"
+     }
+    ]
+   }
+  ]
+ },
+ "app_acl_agent_bricks_meridian": {
+  "object_id": "/apps/3f0cc5a3-732a-4e9a-b829-a17ee1eed303",
+  "object_type": "apps",
+  "access_control_list": [
+   {
+    "user_name": "user01@example.com",
+    "display_name": "Pulkit Pareek",
+    "all_permissions": [
+     {
+      "permission_level": "CAN_MANAGE",
+      "inherited": false
+     }
+    ]
+   },
+   {
+    "group_name": "admins",
+    "all_permissions": [
+     {
+      "permission_level": "CAN_MANAGE",
+      "inherited": true,
+      "inherited_from_object": [
+       "/apps"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "gateway_usage_rows": [
+  {
+   "day": "2026-10-15",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.genie_one_mcp",
+   "endpoint_name": null,
+   "tool_name": "genie_poll_response",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 299,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 3443
+  },
+  {
+   "day": "2026-10-23",
+   "service_type": "MCP_SERVICE",
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "a***@databricks.com",
+   "requester_type": "USER",
+   "requests": 112,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 375
+  },
+  {
+   "day": "2026-10-16",
+   "service_type": "MODEL_SERVICE",
+   "service_name": "system.ai.gpt-5-6-sol",
+   "endpoint_name": "system.ai.gpt-5-6-sol",
+   "tool_name": "",
+   "requester": "m***@databricks.com",
+   "requester_type": "USER",
+   "requests": 111,
+   "errors": 0,
+   "input_tokens": 7501308,
+   "output_tokens": 40210,
+   "p95_latency_ms": 9064
+  },
+  {
+   "day": "2026-10-15",
+   "service_type": "MODEL_SERVICE",
+   "service_name": "system.ai.gpt-5-6-sol",
+   "endpoint_name": "system.ai.gpt-5-6-sol",
+   "tool_name": "",
+   "requester": "m***@databricks.com",
+   "requester_type": "USER",
+   "requests": 97,
+   "errors": 0,
+   "input_tokens": 4882679,
+   "output_tokens": 19803,
+   "p95_latency_ms": 9567
+  },
+  {
+   "day": "2026-10-23",
+   "service_type": "MODEL_SERVICE",
+   "service_name": "system.ai.claude-sonnet-5-5",
+   "endpoint_name": "system.ai.claude-sonnet-5-5",
+   "tool_name": "",
+   "requester": "a***@databricks.com",
+   "requester_type": "USER",
+   "requests": 67,
+   "errors": 1,
+   "input_tokens": 62456,
+   "output_tokens": 10326,
+   "p95_latency_ms": 2524
+  },
+  {
+   "day": "2026-10-22",
+   "service_type": "MODEL_SERVICE",
+   "service_name": "system.ai.gpt-5-4-mini",
+   "endpoint_name": "system.ai.gpt-5-4-mini",
+   "tool_name": "",
+   "requester": "abf2919d-70db-4149-a5d9-752ffb3af0ae",
+   "requester_type": "SERVICE_PRINCIPAL",
+   "requests": 57,
+   "errors": 0,
+   "input_tokens": 217545,
+   "output_tokens": 10831,
+   "p95_latency_ms": 3091
+  },
+  {
+   "day": "2026-10-22",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.genie_one_mcp",
+   "endpoint_name": null,
+   "tool_name": "genie_poll_response",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 54,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 404021
+  },
+  {
+   "day": "2026-10-20",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.google_drive",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 47,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 244
+  },
+  {
+   "day": "2026-10-20",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.slack",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 47,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 873
+  },
+  {
+   "day": "2026-10-20",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.gmail",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 47,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 232
+  },
+  {
+   "day": "2026-10-20",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.google_calendar",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 45,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 255
+  },
+  {
+   "day": "2026-10-20",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.atlassian",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 45,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 946
+  },
+  {
+   "day": "2026-10-20",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.microsoft_365",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 45,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 257
+  },
+  {
+   "day": "2026-10-08",
+   "service_type": "MODEL_SERVICE",
+   "service_name": "system.ai.claude-sonnet-4-6",
+   "endpoint_name": "system.ai.claude-sonnet-4-6",
+   "tool_name": "",
+   "requester": "g***@databricks.com",
+   "requester_type": "USER",
+   "requests": 43,
+   "errors": 9,
+   "input_tokens": 13064,
+   "output_tokens": 3163,
+   "p95_latency_ms": null
+  },
+  {
+   "day": "2026-10-22",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.genie_one_mcp",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 40,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 63244
+  },
+  {
+   "day": "2026-10-23",
+   "service_type": "MODEL_SERVICE",
+   "service_name": "system.ai.gpt-5-4-mini",
+   "endpoint_name": "system.ai.gpt-5-4-mini",
+   "tool_name": "",
+   "requester": "abf2919d-70db-4149-a5d9-752ffb3af0ae",
+   "requester_type": "SERVICE_PRINCIPAL",
+   "requests": 38,
+   "errors": 0,
+   "input_tokens": 175088,
+   "output_tokens": 8838,
+   "p95_latency_ms": 2977
+  },
+  {
+   "day": "2026-10-22",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.google_drive",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 36,
+   "errors": 1,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 278588
+  },
+  {
+   "day": "2026-10-22",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.google_calendar",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 34,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 1053
+  },
+  {
+   "day": "2026-10-13",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.atlassian",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 34,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 1348
+  },
+  {
+   "day": "2026-10-22",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.microsoft_365",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 34,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 247031
+  },
+  {
+   "day": "2026-10-15",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.genie_one_mcp",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 34,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 382
+  },
+  {
+   "day": "2026-10-13",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.microsoft_365",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 33,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 248
+  },
+  {
+   "day": "2026-10-13",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.gmail",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 33,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 242
+  },
+  {
+   "day": "2026-10-22",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.atlassian",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 33,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 502528
+  },
+  {
+   "day": "2026-10-13",
+   "service_type": "MCP_SERVICE",
+   "service_name": "system.ai.slack",
+   "endpoint_name": null,
+   "tool_name": "",
+   "requester": "p***@databricks.com",
+   "requester_type": "USER",
+   "requests": 33,
+   "errors": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "p95_latency_ms": 828
+  }
+ ],
+ "policy_config_rows": [
+  {
+   "target": "system.ai.claude-sonnet-5",
+   "service_type": "MODEL_SERVICE",
+   "label": "claude-sonnet-5-unsafe-content",
+   "phases": "[\"pre_call\",\"post_call\"]",
+   "type": "BUILTIN",
+   "handler": "system.ai.block_unsafe_content",
+   "rank": 1,
+   "last_seen": "2026-10-24T17:56:17.000Z"
+  }
+ ],
+ "mcp_system_usage_rows": [
+  {
+   "service_name": "system.ai.slack",
+   "server_type": "SYSTEM",
+   "tool_name": "",
+   "calls": 586,
+   "first_seen": "2026-08-31T14:11:25.000Z",
+   "last_seen": "2026-10-23T16:46:06.000Z"
+  },
+  {
+   "service_name": "system.ai.google_drive",
+   "server_type": "SYSTEM",
+   "tool_name": "",
+   "calls": 617,
+   "first_seen": "2026-08-31T14:11:25.000Z",
+   "last_seen": "2026-10-23T16:46:06.000Z"
+  },
+  {
+   "service_name": "system.ai.github",
+   "server_type": "SYSTEM",
+   "tool_name": "",
+   "calls": 112,
+   "first_seen": "2026-08-31T14:11:25.000Z",
+   "last_seen": "2026-10-21T18:57:03.000Z"
+  },
+  {
+   "service_name": "system.ai.google_calendar",
+   "server_type": "SYSTEM",
+   "tool_name": "",
+   "calls": 589,
+   "first_seen": "2026-08-31T14:11:25.000Z",
+   "last_seen": "2026-10-23T16:46:06.000Z"
+  },
+  {
+   "service_name": "system.ai.gmail",
+   "server_type": "SYSTEM",
+   "tool_name": "",
+   "calls": 593,
+   "first_seen": "2026-08-31T14:11:25.000Z",
+   "last_seen": "2026-10-23T16:46:06.000Z"
+  },
+  {
+   "service_name": "system.ai.microsoft_365",
+   "server_type": "SYSTEM",
+   "tool_name": "",
+   "calls": 556,
+   "first_seen": "2026-09-08T21:12:59.000Z",
+   "last_seen": "2026-10-23T16:46:06.000Z"
+  },
+  {
+   "service_name": "system.ai.atlassian",
+   "server_type": "SYSTEM",
+   "tool_name": "",
+   "calls": 564,
+   "first_seen": "2026-09-08T21:19:21.000Z",
+   "last_seen": "2026-10-23T16:46:06.000Z"
+  },
+  {
+   "service_name": "main.lilly_heor_rwe_demo.nsclc_mcp",
+   "server_type": "EXTERNAL",
+   "tool_name": "",
+   "calls": 4,
+   "first_seen": "2026-09-08T21:49:51.000Z",
+   "last_seen": "2026-10-06T14:49:57.000Z"
+  },
+  {
+   "service_name": "system.ai.genie_one_mcp",
+   "server_type": "SYSTEM",
+   "tool_name": "",
+   "calls": 99,
+   "first_seen": "2026-10-14T20:30:19.000Z",
+   "last_seen": "2026-10-25T23:02:08.000Z"
+  },
+  {
+   "service_name": "system.ai.google_calendar",
+   "server_type": "EXTERNAL",
+   "tool_name": "",
+   "calls": 6,
+   "first_seen": "2026-08-14T14:24:40.000Z",
+   "last_seen": "2026-08-14T19:53:24.000Z"
+  },
+  {
+   "service_name": "system.ai.genie_one_mcp",
+   "server_type": "SYSTEM",
+   "tool_name": "genie_poll_response",
+   "calls": 448,
+   "first_seen": "2026-10-14T20:30:47.000Z",
+   "last_seen": "2026-10-25T23:03:02.000Z"
+  },
+  {
+   "service_name": "system.ai.github",
+   "server_type": "EXTERNAL",
+   "tool_name": "",
+   "calls": 6,
+   "first_seen": "2026-08-14T14:24:40.000Z",
+   "last_seen": "2026-08-14T19:53:25.000Z"
+  },
+  {
+   "service_name": "system.ai.slack",
+   "server_type": "EXTERNAL",
+   "tool_name": "",
+   "calls": 6,
+   "first_seen": "2026-08-14T14:24:40.000Z",
+   "last_seen": "2026-08-14T19:53:24.000Z"
+  },
+  {
+   "service_name": "system.ai.gmail",
+   "server_type": "EXTERNAL",
+   "tool_name": "",
+   "calls": 6,
+   "first_seen": "2026-08-14T14:24:40.000Z",
+   "last_seen": "2026-08-14T19:53:24.000Z"
+  },
+  {
+   "service_name": "system.ai.genie_one_mcp",
+   "server_type": "SYSTEM",
+   "tool_name": "genie_ask",
+   "calls": 44,
+   "first_seen": "2026-10-14T20:30:41.000Z",
+   "last_seen": "2026-10-25T23:02:08.000Z"
+  },
+  {
+   "service_name": "system.ai.google_drive",
+   "server_type": "EXTERNAL",
+   "tool_name": "",
+   "calls": 6,
+   "first_seen": "2026-08-14T14:24:40.000Z",
+   "last_seen": "2026-08-14T19:53:23.000Z"
+  },
+  {
+   "service_name": "system.ai.gmail",
+   "server_type": "SYSTEM",
+   "tool_name": "gmail_search",
+   "calls": 1,
+   "first_seen": "2026-10-20T17:35:21.000Z",
+   "last_seen": "2026-10-20T17:35:21.000Z"
+  },
+  {
+   "service_name": "system.ai.slack",
+   "server_type": "SYSTEM",
+   "tool_name": "slack_search_public_and_private",
+   "calls": 1,
+   "first_seen": "2026-10-20T17:35:21.000Z",
+   "last_seen": "2026-10-20T17:35:21.000Z"
+  },
+  {
+   "service_name": "system.ai.google_drive",
+   "server_type": "SYSTEM",
+   "tool_name": "google_drive_search",
+   "calls": 1,
+   "first_seen": "2026-10-20T17:35:21.000Z",
+   "last_seen": "2026-10-20T17:35:21.000Z"
+  },
+  {
+   "service_name": "system.ai.atlassian",
+   "server_type": "SYSTEM",
+   "tool_name": "getJiraIssue",
+   "calls": 3,
+   "first_seen": "2026-10-13T00:25:33.000Z",
+   "last_seen": "2026-10-13T00:41:54.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_readonly",
+   "server_type": "EXTERNAL",
+   "tool_name": "list_partitions",
+   "calls": 2,
+   "first_seen": "2026-10-23T01:15:12.000Z",
+   "last_seen": "2026-10-23T15:21:58.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "server_type": "EXTERNAL",
+   "tool_name": "list_jobs",
+   "calls": 7,
+   "first_seen": "2026-10-23T01:15:02.000Z",
+   "last_seen": "2026-10-23T15:23:16.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "server_type": "EXTERNAL",
+   "tool_name": "submit_job",
+   "calls": 2,
+   "first_seen": "2026-10-23T01:14:52.000Z",
+   "last_seen": "2026-10-23T15:21:39.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "server_type": "EXTERNAL",
+   "tool_name": "",
+   "calls": 112,
+   "first_seen": "2026-10-23T00:52:50.000Z",
+   "last_seen": "2026-10-23T15:28:47.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "server_type": "EXTERNAL",
+   "tool_name": "get_cluster_status",
+   "calls": 3,
+   "first_seen": "2026-10-23T01:04:56.000Z",
+   "last_seen": "2026-10-23T15:21:33.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "server_type": "EXTERNAL",
+   "tool_name": "cancel_job",
+   "calls": 2,
+   "first_seen": "2026-10-23T01:16:16.000Z",
+   "last_seen": "2026-10-23T15:23:16.000Z"
+  },
+  {
+   "service_name": "system.ai.web_search",
+   "server_type": "SYSTEM",
+   "tool_name": "",
+   "calls": 3,
+   "first_seen": "2026-10-23T17:01:30.000Z",
+   "last_seen": "2026-10-23T17:04:21.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "server_type": "EXTERNAL",
+   "tool_name": "list_partitions",
+   "calls": 7,
+   "first_seen": "2026-10-23T01:14:39.000Z",
+   "last_seen": "2026-10-23T15:23:05.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_readonly",
+   "server_type": "EXTERNAL",
+   "tool_name": "",
+   "calls": 28,
+   "first_seen": "2026-10-23T00:52:50.000Z",
+   "last_seen": "2026-10-23T15:22:02.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_readonly",
+   "server_type": "EXTERNAL",
+   "tool_name": "list_jobs",
+   "calls": 2,
+   "first_seen": "2026-10-23T01:15:14.000Z",
+   "last_seen": "2026-10-23T15:22:00.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "server_type": "EXTERNAL",
+   "tool_name": "get_job_history",
+   "calls": 2,
+   "first_seen": "2026-10-23T01:16:01.000Z",
+   "last_seen": "2026-10-23T15:22:58.000Z"
+  },
+  {
+   "service_name": "system.ai.web_search",
+   "server_type": "SYSTEM",
+   "tool_name": "web_search",
+   "calls": 8,
+   "first_seen": "2026-10-23T16:59:59.000Z",
+   "last_seen": "2026-10-23T17:05:11.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_readonly",
+   "server_type": "EXTERNAL",
+   "tool_name": "get_cluster_status",
+   "calls": 1,
+   "first_seen": "2026-10-23T15:22:01.000Z",
+   "last_seen": "2026-10-23T15:22:01.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "server_type": "EXTERNAL",
+   "tool_name": "list_nodes",
+   "calls": 1,
+   "first_seen": "2026-10-23T01:14:59.000Z",
+   "last_seen": "2026-10-23T01:14:59.000Z"
+  },
+  {
+   "service_name": "tony_farias.slurm_hpc.slurm_ops",
+   "server_type": "EXTERNAL",
+   "tool_name": "get_job",
+   "calls": 5,
+   "first_seen": "2026-10-23T01:14:55.000Z",
+   "last_seen": "2026-10-23T15:21:45.000Z"
+  }
+ ],
+ "audit_mcp_call_rows": [
+  {
+   "day": "2026-10-23",
+   "connection_name": "tony_farias.slurm_hpc.slurm_mcp",
+   "tool_name": "get_job_history",
+   "requester": "a***@databricks.com",
+   "requests": 2,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-23",
+   "connection_name": "tony_farias.slurm_hpc.slurm_mcp",
+   "tool_name": "cancel_job",
+   "requester": "a***@databricks.com",
+   "requests": 2,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-23",
+   "connection_name": "tony_farias.slurm_hpc.slurm_mcp",
+   "tool_name": "list_partitions",
+   "requester": "a***@databricks.com",
+   "requests": 9,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-23",
+   "connection_name": "tony_farias.slurm_hpc.slurm_mcp",
+   "tool_name": "get_cluster_status",
+   "requester": "a***@databricks.com",
+   "requests": 4,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-23",
+   "connection_name": "tony_farias.slurm_hpc.slurm_mcp",
+   "tool_name": "list_jobs",
+   "requester": "a***@databricks.com",
+   "requests": 9,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-23",
+   "connection_name": "tony_farias.slurm_hpc.slurm_mcp",
+   "tool_name": "",
+   "requester": "a***@databricks.com",
+   "requests": 140,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-23",
+   "connection_name": "tony_farias.slurm_hpc.slurm_mcp",
+   "tool_name": "submit_job",
+   "requester": "a***@databricks.com",
+   "requests": 2,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-23",
+   "connection_name": "tony_farias.slurm_hpc.slurm_mcp",
+   "tool_name": "get_job",
+   "requester": "a***@databricks.com",
+   "requests": 5,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-06",
+   "connection_name": "main.lilly_heor_rwe_demo.nsclc_mcp_connection",
+   "tool_name": "",
+   "requester": "j***@databricks.com",
+   "requests": 2,
+   "errors": 2
+  },
+  {
+   "day": "2026-10-23",
+   "connection_name": "tony_farias.slurm_hpc.slurm_mcp",
+   "tool_name": "list_nodes",
+   "requester": "a***@databricks.com",
+   "requests": 1,
+   "errors": 0
+  }
+ ],
+ "audit_managed_mcp_rows": [
+  {
+   "day": "2026-10-26",
+   "server_type": "UC_FUNCTIONS",
+   "genie_space_id": null,
+   "catalog_name": "system",
+   "schema_name": "ai",
+   "index_name": null,
+   "tool_name": "",
+   "requester": "s***@databricks.com",
+   "requests": 3,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-26",
+   "server_type": "UC_FUNCTIONS",
+   "genie_space_id": null,
+   "catalog_name": "main",
+   "schema_name": "supply_agentic_demo",
+   "index_name": null,
+   "tool_name": "",
+   "requester": "s***@databricks.com",
+   "requests": 1,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-26",
+   "server_type": "GENIE",
+   "genie_space_id": "01f1d0c52c5212a0a957f1117779ad81",
+   "catalog_name": null,
+   "schema_name": null,
+   "index_name": null,
+   "tool_name": "",
+   "requester": "s***@databricks.com",
+   "requests": 1,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-23",
+   "server_type": "UC_FUNCTIONS",
+   "genie_space_id": null,
+   "catalog_name": "tony_farias",
+   "schema_name": "slurm_hpc",
+   "index_name": null,
+   "tool_name": "",
+   "requester": "a***@databricks.com",
+   "requests": 8,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-22",
+   "server_type": "GENIE",
+   "genie_space_id": "01f14e3e04ae113eacbc229a53e4df0d",
+   "catalog_name": null,
+   "schema_name": null,
+   "index_name": null,
+   "tool_name": "",
+   "requester": "0c3cbc72-931e-4ad3-8cfc-12a0c049a4e3",
+   "requests": 5,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-22",
+   "server_type": "AI_SEARCH",
+   "genie_space_id": null,
+   "catalog_name": "main",
+   "schema_name": "oligo_search",
+   "index_name": "eln_text_index",
+   "tool_name": "main__oligo_search__eln_text_index",
+   "requester": "0c3cbc72-931e-4ad3-8cfc-12a0c049a4e3",
+   "requests": 1,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-22",
+   "server_type": "AI_SEARCH",
+   "genie_space_id": null,
+   "catalog_name": "main",
+   "schema_name": "oligo_search",
+   "index_name": "eln_text_index",
+   "tool_name": "",
+   "requester": "0c3cbc72-931e-4ad3-8cfc-12a0c049a4e3",
+   "requests": 5,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-22",
+   "server_type": "GENIE",
+   "genie_space_id": "01f14e3e04ae113eacbc229a53e4df0d",
+   "catalog_name": null,
+   "schema_name": null,
+   "index_name": null,
+   "tool_name": "query_space_01f14e3e04ae113eacbc229a53e4df0d",
+   "requester": "0c3cbc72-931e-4ad3-8cfc-12a0c049a4e3",
+   "requests": 1,
+   "errors": 0
+  },
+  {
+   "day": "2026-10-22",
+   "server_type": "GENIE",
+   "genie_space_id": "01f14e3e04ae113eacbc229a53e4df0d",
+   "catalog_name": null,
+   "schema_name": null,
+   "index_name": null,
+   "tool_name": "poll_response_01f14e3e04ae113eacbc229a53e4df0d",
+   "requester": "0c3cbc72-931e-4ad3-8cfc-12a0c049a4e3",
+   "requests": 1,
+   "errors": 0
+  }
+ ],
+ "skill_load_rows": [
+  {
+   "day": "2026-10-21",
+   "fqn": "main.vital_skills.rwe-cohortstudy",
+   "email": "y***@databricks.com",
+   "loads": 1,
+   "errors": 0
+  }
+ ],
+ "cost_rows": [
+  {
+   "day": "2026-10-13",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-05",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-20",
+   "product": "APPS",
+   "endpoint_name": null,
+   "app_name": "agent-bricks-meridian-ab-demo",
+   "sku": "ENTERPRISE_ALL_PURPOSE_SERVERLESS_COMPUTE_US_EAST_N_VIRGINIA",
+   "dbus": "12.000000000000000000",
+   "usd": "11.400000"
+  },
+  {
+   "day": "2026-10-09",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-03",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-22",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "ka-a176dc0c-vs-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-11",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-04",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-21",
+   "product": "SUPERVISOR_AGENT",
+   "endpoint_name": "mas-2e8a4ac6-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "44.823927788000000000",
+   "usd": "3.137675"
+  },
+  {
+   "day": "2026-10-14",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-22",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-21",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-06",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-25",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-16",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-09-27",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-23",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "ka-a176dc0c-vs-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-22",
+   "product": "APPS",
+   "endpoint_name": null,
+   "app_name": "agent-bricks-meridian-ab-demo",
+   "sku": "ENTERPRISE_ALL_PURPOSE_SERVERLESS_COMPUTE_US_EAST_N_VIRGINIA",
+   "dbus": "6.913759444444444445",
+   "usd": "6.568071"
+  },
+  {
+   "day": "2026-10-20",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-08",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-21",
+   "product": "AGENT_BRICKS",
+   "endpoint_name": "ka-a176dc0c-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "90.006000000000000000",
+   "usd": "6.300420"
+  },
+  {
+   "day": "2026-10-15",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-09-29",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-26",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "20.000000000000000000",
+   "usd": "1.400000"
+  },
+  {
+   "day": "2026-10-24",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-02",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-09-30",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-24",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "ka-a176dc0c-vs-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-07",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-12",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-18",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-21",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "ka-a176dc0c-vs-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "21.165065555555555556",
+   "usd": "1.481555"
+  },
+  {
+   "day": "2026-10-21",
+   "product": "APPS",
+   "endpoint_name": null,
+   "app_name": "agent-bricks-meridian-ab-demo",
+   "sku": "ENTERPRISE_ALL_PURPOSE_SERVERLESS_COMPUTE_US_EAST_N_VIRGINIA",
+   "dbus": "12.000000000000000000",
+   "usd": "11.400000"
+  },
+  {
+   "day": "2026-10-01",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-09-26",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-19",
+   "product": "APPS",
+   "endpoint_name": null,
+   "app_name": "agent-bricks-meridian-ab-demo",
+   "sku": "ENTERPRISE_ALL_PURPOSE_SERVERLESS_COMPUTE_US_EAST_N_VIRGINIA",
+   "dbus": "3.167638888888888889",
+   "usd": "3.009257"
+  },
+  {
+   "day": "2026-09-28",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-25",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "ka-a176dc0c-vs-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-17",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "mas-0849ad0e-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "96.000000000000000000",
+   "usd": "6.720000"
+  },
+  {
+   "day": "2026-10-26",
+   "product": "VECTOR_SEARCH",
+   "endpoint_name": "ka-a176dc0c-vs-endpoint",
+   "app_name": null,
+   "sku": "ENTERPRISE_SERVERLESS_REAL_TIME_INFERENCE_US_EAST_N_VIRGINIA",
+   "dbus": "20.000000000000000000",
+   "usd": "1.400000"
+  }
+ ],
+ "offline_eval_rows": [
+  {
+   "experiment_id": "1635280482777971",
+   "run_id": "4997371132464a5f8eb797e8887ae76c",
+   "metric_name": "abstention/mean",
+   "value": 0.9988372093023256,
+   "run_name": "extraction_judge_perfield",
+   "run_at": "2026-10-25T17:59:28.931Z"
+  },
+  {
+   "experiment_id": "1635280482777971",
+   "run_id": "a5ff8dafd89c4cf79996f913380783bd",
+   "metric_name": "groundedness/mean",
+   "value": 0.9189511323003575,
+   "run_name": "extraction_judge_perfield",
+   "run_at": "2026-10-25T17:51:38.730Z"
+  },
+  {
+   "experiment_id": "1635280482777971",
+   "run_id": "a5ff8dafd89c4cf79996f913380783bd",
+   "metric_name": "abstention/mean",
+   "value": 0.929510155316607,
+   "run_name": "extraction_judge_perfield",
+   "run_at": "2026-10-25T17:51:38.730Z"
+  },
+  {
+   "experiment_id": "1635280482777971",
+   "run_id": "4997371132464a5f8eb797e8887ae76c",
+   "metric_name": "correctness/mean",
+   "value": 0.6504065040650406,
+   "run_name": "extraction_judge_perfield",
+   "run_at": "2026-10-25T17:59:28.931Z"
+  },
+  {
+   "experiment_id": "1635280482777971",
+   "run_id": "52d8e781454341ef84baf32f2fd4e950",
+   "metric_name": "abstention/mean",
+   "value": 0.8216019417475728,
+   "run_name": "extraction_judge_perfield",
+   "run_at": "2026-10-25T17:16:40.794Z"
+  },
+  {
+   "experiment_id": "1635280482777971",
+   "run_id": "5ce8db6ad4854fcfbf1ee49d565f1177",
+   "metric_name": "abstention/mean",
+   "value": 0.9988385598141696,
+   "run_name": "extraction_judge_perfield",
+   "run_at": "2026-10-25T18:43:59.536Z"
+  }
+ ]
+}

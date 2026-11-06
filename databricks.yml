@@ -1,0 +1,139 @@
+# Agent Registry Hub: Declarative Automation Bundle (CLI ≥ 1.20).
+#
+# One command per workspace (see scripts/deploy.sh, which also builds the frontend and verifies the app):
+#   ./scripts/deploy.sh demo                     # the default workspace below
+#   ./scripts/deploy.sh new_workspace <PROFILE> --var warehouse_id=<id>
+#
+# Resources:
+#   apps.registry_app             the FastAPI + React monolith (source ./app), Lakebase for reads/writes/audit
+#   postgres_projects.registry_db Lakebase autoscale project (prevent_destroy: it holds the audit trail)
+#   jobs.registry_setup           migrations + the app SP's Lakebase OAuth role + least-privilege grants
+#   jobs.registry_sync            hourly collectors: Databricks APIs + system tables → Lakebase (runs as the deployer)
+#   jobs.registry_updates         Platform Watch: release feeds → API probes → branch regression → accept/delay/auto-apply
+bundle:
+  name: agent-registry-hub
+
+include:
+  - resources/*.yml
+
+sync:
+  exclude:
+    - frontend/**
+    - docs/**
+    - "**/__pycache__/**"
+    - .venv/**
+
+variables:
+  app_name:
+    description: Databricks App name (lowercase, unique in the workspace)
+    default: agent-registry-hub
+  warehouse_id:
+    description: SQL warehouse the sync job uses for system tables (serverless recommended)
+  lakebase_project:
+    description: Lakebase autoscale project id
+    default: agent-registry-hub
+  lakebase_schema:
+    description: Postgres schema for the registry tables
+    default: registry
+  registry_admins:
+    description: Comma-separated bootstrap registry admins (default = the deployer)
+    default: ${workspace.current_user.userName}
+  skill_schemas:
+    description: Extra UC schemas (catalog.schema, comma-separated) to scan for UC skills, besides those found in audit logs
+    default: none
+  notify_webhook_url:
+    description: Optional HTTP relay for email notifications (Power Automate / Logic Apps / Slack workflow); "none" = in-app only
+    default: none
+  agent365_connection:
+    description: UC HTTP connection to Microsoft Graph (an Entra app with CopilotPackages.Read.All) for Agent 365 registrations; "none" = off (admins can still import an export file)
+    default: none
+  kg_target:
+    description: Unity Catalog catalog.schema for the knowledge graph export (RDF triples in the OntoBricks Delta layout, for Genie and OntoBricks); "none" = not configured (admins can still set it in Governance)
+    default: none
+  sync_cron:
+    description: Quartz cron for the collectors job
+    default: "0 15 * * * ?"
+  watch_cron:
+    description: Quartz cron for Platform Watch (release feeds, API probes, regression of update candidates)
+    default: "0 40 */6 * * ?"
+  app_compute_size:
+    description: Databricks Apps compute size (MEDIUM 2 vCPU / 6 GB, LARGE 4 / 12)
+    default: MEDIUM
+
+targets:
+  # The live install: your-workspace. Creates the Lakebase project on first deploy.
+  demo:
+    default: true
+    workspace:
+      host: https://your-workspace.cloud.databricks.com
+    variables:
+      warehouse_id: bda22e07d7130a32
+      kg_target: main.agent_registry_hub_kg
+    resources:
+      apps:
+        registry_app: &registry_app
+          name: ${var.app_name}
+          description: "Agent Registry Hub: agents, MCP servers, tools and skills; usage, cost, access, guardrails, lineage, change impact (Lakebase ${var.lakebase_project})"
+          source_code_path: ./app
+          compute_size: ${var.app_compute_size}
+          config:
+            command: ["python", "app.py"]
+            env:
+              - name: LAKEBASE_ENDPOINT
+                value: projects/${var.lakebase_project}/branches/production/endpoints/primary
+              - name: LAKEBASE_DATABASE
+                value: databricks_postgres
+              - name: LAKEBASE_SCHEMA
+                value: ${var.lakebase_schema}
+              - name: WAREHOUSE_ID
+                value_from: sql-warehouse
+              - name: SYNC_JOB_ID
+                value_from: sync-job
+              - name: WATCH_JOB_ID
+                value_from: updates-job
+              - name: REGISTRY_ADMINS
+                value: ${var.registry_admins}
+              - name: NOTIFY_WEBHOOK_URL
+                value: ${var.notify_webhook_url}
+              - name: AGENT365_CONNECTION
+                value: ${var.agent365_connection}
+              - name: KG_TARGET
+                value: ${var.kg_target}
+              - name: ALLOW_MUTATIONS
+                value: "true"
+              - name: WEB_CONCURRENCY
+                value: "2"
+              - name: APP_NAME
+                value: ${var.app_name}
+          resources:
+            - name: sql-warehouse
+              sql_warehouse:
+                id: ${var.warehouse_id}
+                permission: CAN_USE
+            - name: sync-job
+              job:
+                id: ${resources.jobs.registry_sync.id}
+                permission: CAN_MANAGE_RUN
+            - name: updates-job
+              job:
+                id: ${resources.jobs.registry_updates.id}
+                permission: CAN_MANAGE_RUN
+      postgres_projects:
+        registry_db: &registry_db
+          project_id: ${var.lakebase_project}
+          display_name: ${var.lakebase_project}
+          pg_version: 17
+          default_endpoint_settings:
+            autoscaling_limit_min_cu: 0.5
+            autoscaling_limit_max_cu: 4
+            suspend_timeout_duration: 3600s
+          lifecycle:
+            prevent_destroy: true   # holds subscriptions, access decisions and the hash-chained audit trail
+
+  # Any other workspace: ./scripts/deploy.sh new_workspace <PROFILE> --var warehouse_id=<id>
+  new_workspace:
+    resources:
+      apps:
+        registry_app: *registry_app
+      postgres_projects:
+        registry_db: *registry_db

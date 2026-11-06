@@ -1,0 +1,202 @@
+{
+  "list": {
+    "path": "GET /api/2.1/unity-catalog/skills?parent=schemas/main.vital_skills",
+    "http": 200,
+    "top_level_keys": [
+      "skills"
+    ],
+    "count": 9,
+    "field_presence": {
+      "name": 9,
+      "bundle_name": 9,
+      "description": 9,
+      "etag": 9,
+      "create_time": 9,
+      "update_time": 9,
+      "finalize_time": 9,
+      "created_by": 9,
+      "updated_by": 9,
+      "id": 9,
+      "effective_owner": 9,
+      "securable_type": 9,
+      "metastore_id": 9
+    },
+    "names": [
+      "skills/main.vital_skills.cohort-builder",
+      "skills/main.vital_skills.payer-provider-measure-catalog",
+      "skills/main.vital_skills.pathway-enrichment-analysis",
+      "skills/main.vital_skills.oss-models",
+      "skills/main.vital_skills.sc-rnaseq",
+      "skills/main.vital_skills.rwe-cohortstudy",
+      "skills/main.vital_skills.phi-deidentifier",
+      "skills/main.vital_skills.bulk-rnaseq",
+      "skills/main.vital_skills.skill-eval"
+    ],
+    "examples": [
+      {
+        "name": "skills/main.vital_skills.cohort-builder",
+        "bundle_name": "cohort-builder",
+        "description": "Cohort builder for structured coded clinical data (OMOP/FHIR-flattened conditions, labs, meds, procedures) AND free-text clinical notes. Turns a natural-language patient-population description \u2014 e.g. ...<trimmed>",
+        "etag": "CAESCAAAAaDvOvOe",
+        "create_time": "2026-09-23T18:23:46.308504247Z",
+        "update_time": "2026-09-29T22:13:33.163672046Z",
+        "finalize_time": "2026-09-29T22:13:33.163672046Z",
+        "created_by": "user07@example.com",
+        "updated_by": "user07@example.com",
+        "id": "2a781970-a95b-4ec4-bb43-a19a9ee64542",
+        "effective_owner": "user07@example.com",
+        "securable_type": "SKILL",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d"
+      },
+      {
+        "name": "skills/main.vital_skills.payer-provider-measure-catalog",
+        "bundle_name": "payer-provider-measure-catalog",
+        "description": "Healthcare payer + provider measure catalog and semantic-layer generator. Canonical, source-agnostic definitions across six domains (care delivery, access/throughput, capacity, claims revenue-cycle + ...<trimmed>",
+        "etag": "CAESCAAAAaDvOyre",
+        "create_time": "2026-09-23T18:24:00.839344836Z",
+        "update_time": "2026-09-29T22:13:47.314472344Z",
+        "finalize_time": "2026-09-29T22:13:47.314472344Z",
+        "created_by": "user07@example.com",
+        "updated_by": "user07@example.com",
+        "id": "ebcbf209-d17c-4109-93a4-54dfc039c862",
+        "effective_owner": "user07@example.com",
+        "securable_type": "SKILL",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d"
+      }
+    ]
+  },
+  "get": {
+    "path": "GET /api/2.1/unity-catalog/skills/main.vital_skills.rwe-cohortstudy",
+    "http": 200,
+    "body": {
+      "name": "skills/main.vital_skills.rwe-cohortstudy",
+      "bundle_name": "rwe-cohortstudy",
+      "description": "Conduct real-world evidence (RWE) comparative effectiveness studies in Python. Covers propensity score matching, inverse probability weighting, overlap weighting, doubly robust estimation, balance dia...<trimmed>",
+      "etag": "CAESCAAAAaDvOz1+",
+      "create_time": "2026-09-28T18:57:19.004010128Z",
+      "update_time": "2026-09-29T22:13:52.086530155Z",
+      "finalize_time": "2026-09-29T22:13:52.086530155Z",
+      "created_by": "user07@example.com",
+      "updated_by": "user07@example.com",
+      "id": "e1dc4183-62d7-4a01-8b53-479760c7c7b5",
+      "effective_owner": "user07@example.com",
+      "securable_type": "SKILL",
+      "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d"
+    }
+  },
+  "permissions": {
+    "path": "GET /api/2.1/unity-catalog/permissions/skill/{fqn}",
+    "http": 200,
+    "body": {}
+  },
+  "effective_permissions": {
+    "path": "GET /api/2.1/unity-catalog/effective-permissions/skill/{fqn}",
+    "http": 200,
+    "body": {
+      "privilege_assignments": [
+        {
+          "principal": "admin@example.com",
+          "privileges": [
+            {
+              "privilege": "ALL_PRIVILEGES",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            },
+            {
+              "privilege": "MANAGE",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            }
+          ]
+        },
+        {
+          "principal": "user76@example.com",
+          "privileges": [
+            {
+              "privilege": "ALL_PRIVILEGES",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            },
+            {
+              "privilege": "MANAGE",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            }
+          ]
+        },
+        {
+          "principal": "user02@example.com",
+          "privileges": [
+            {
+              "privilege": "APPLY_TAG",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            },
+            {
+              "privilege": "MANAGE",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            },
+            {
+              "privilege": "ALL_PRIVILEGES",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            }
+          ]
+        },
+        {
+          "principal": "user70@example.com",
+          "privileges": [
+            {
+              "privilege": "READ_METADATA",
+              "inherited_from_type": "METASTORE",
+              "inherited_from_name": "metastore_aws_us_east_1"
+            }
+          ]
+        },
+        {
+          "principal": "user79@example.com",
+          "privileges": [
+            {
+              "privilege": "ALL_PRIVILEGES",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            },
+            {
+              "privilege": "MANAGE",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            }
+          ]
+        },
+        {
+          "principal": "user77@example.com",
+          "privileges": [
+            {
+              "privilege": "ALL_PRIVILEGES",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            },
+            {
+              "privilege": "MANAGE",
+              "inherited_from_type": "CATALOG",
+              "inherited_from_name": "main"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "parent_format_errors": {
+    "no parent": "400 INVALID_PARAMETER_VALUE: parent is required",
+    "parent=main.vital_skills": "400 INVALID_PARAMETER_VALUE: parent must include a collection prefix, e.g. 'agent-services/cat.schema.name', got: main.vital_skills",
+    "parent=catalogs/main/schemas/vital_skills": "400 INVALID_PARAMETER_VALUE: parent must start with 'schemas/'",
+    "parent=agent-services/tony_farias.slurm_hpc.slurm_ops": "400 INVALID_PARAMETER_VALUE: parent must start with 'schemas/'"
+  },
+  "agent_services": {
+    "GET /api/2.1/unity-catalog/agent-services": "200 {}",
+    "GET /api/2.1/unity-catalog/agent-services?parent=schemas/tony_farias.slurm_hpc": "200 {}",
+    "GET /api/2.1/unity-catalog/agent-services/tony_farias.slurm_hpc.slurm_ops": "404 NOT_FOUND: AgentService not found: tony_farias.slurm_hpc.slurm_ops"
+  },
+  "discovery_hint": "audit service_name='aiGatewaySkills' action_name='skillLoad' request_params.uc_location gives the schemas that host skills"
+}

@@ -1,0 +1,238 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Agent Registry Hub design tokens: HSL triplets ("H S% L%") consumed as hsl(var(--token)) or through the
+ * Tailwind colors mapped in @theme below (bg-background, text-muted-foreground, border-border, bg-primary, ...).
+ * Re-brand by changing --brand-h / --brand-s. Dark (deep navy + Databricks lava) is the default; .light overrides.
+ */
+:root,
+.dark {
+  color-scheme: dark;
+  --radius: 0.625rem;
+
+  --brand-h: 8;
+  --brand-s: 100%;
+
+  --background: 215 45% 7%;
+  --foreground: 210 33% 96%;
+  --card: 215 40% 10%;
+  --card-foreground: 210 33% 96%;
+  --popover: 215 40% 11%;
+  --popover-foreground: 210 33% 96%;
+  --primary: var(--brand-h) var(--brand-s) 54%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 215 30% 16%;
+  --secondary-foreground: 210 30% 92%;
+  --muted: 215 30% 14%;
+  --muted-foreground: 215 20% 72%;
+  --accent: 215 32% 17%;
+  --accent-foreground: 210 33% 96%;
+  --border: 215 26% 20%;
+  --input: 215 26% 24%;
+  --ring: var(--brand-h) var(--brand-s) 62%;
+
+  --success: 142 64% 46%;
+  --warning: 40 96% 56%;
+  --destructive: 0 78% 62%;
+  --info: 212 92% 64%;
+
+  --sidebar: 215 50% 5.5%;
+  --sidebar-foreground: 210 25% 86%;
+  --sidebar-muted: 215 18% 62%;
+  --sidebar-border: 215 28% 15%;
+  --sidebar-accent: 215 34% 13%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-primary: var(--primary);
+  --sidebar-ring: var(--ring);
+
+  /* Databricks brand accents */
+  --db-lava: 6 100% 57%;
+  --db-orange: 20 100% 60%;
+  --db-teal: 174 100% 39%;
+
+  /* Registry entity types */
+  --type-agent: 262 83% 70%;
+  --type-mcp: 174 100% 42%;
+  --type-tool: 212 92% 64%;
+  --type-skill: 36 96% 58%;
+
+  --glass-fill: 215 40% 14% / 0.55;
+  --glass-border: 0 0% 100% / 0.1;
+  --scrollbar: 213 46% 25%;
+}
+
+.light {
+  color-scheme: light;
+  --background: 216 33% 97%;
+  --foreground: 215 45% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 215 45% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 45% 11%;
+  --primary: var(--brand-h) var(--brand-s) 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 216 25% 92%;
+  --secondary-foreground: 215 40% 16%;
+  --muted: 216 25% 93%;
+  --muted-foreground: 215 16% 36%;
+  --accent: 216 30% 91%;
+  --accent-foreground: 215 45% 11%;
+  --border: 216 20% 85%;
+  --input: 216 18% 78%;
+  --ring: var(--brand-h) var(--brand-s) 45%;
+
+  --success: 142 70% 30%;
+  --warning: 32 95% 38%;
+  --destructive: 0 72% 46%;
+  --info: 214 84% 42%;
+
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 215 40% 18%;
+  --sidebar-muted: 215 14% 42%;
+  --sidebar-border: 216 20% 88%;
+  --sidebar-accent: 216 30% 94%;
+  --sidebar-accent-foreground: 215 45% 11%;
+
+  --type-agent: 262 60% 48%;
+  --type-mcp: 174 100% 26%;
+  --type-tool: 214 84% 42%;
+  --type-skill: 30 92% 36%;
+
+  --glass-fill: 0 0% 100% / 0.72;
+  --glass-border: 215 30% 20% / 0.12;
+  --scrollbar: 216 16% 76%;
+}
+
+/*
+ * Progressive type scale. Base values apply below 1280px; every token (and the root font size) steps up
+ * together at 1280 / 1600 / 1920 / 2560px so the UI stays proportional from a laptop to a 4K/5K display.
+ * Use text-ui-* utilities instead of hard-coded pixel sizes.
+ */
+:root {
+  --font-size: 13px;
+  --text-ui-xs: 11px;
+  --text-ui-sm: 12px;
+  --text-ui-base: 13px;
+  --text-ui-md: 14px;
+  --text-ui-lg: 16px;
+  --text-ui-xl: 20px;
+  --text-ui-2xl: 26px;
+}
+@media (min-width: 1280px) {
+  :root { --font-size: 13.5px; --text-ui-xs: 11.5px; --text-ui-sm: 12.5px; --text-ui-base: 13.5px; --text-ui-md: 14.5px; --text-ui-lg: 17px; --text-ui-xl: 21px; --text-ui-2xl: 28px; }
+}
+@media (min-width: 1600px) {
+  :root { --font-size: 14px; --text-ui-xs: 12px; --text-ui-sm: 13px; --text-ui-base: 14px; --text-ui-md: 15px; --text-ui-lg: 18px; --text-ui-xl: 22px; --text-ui-2xl: 30px; }
+}
+@media (min-width: 1920px) {
+  :root { --font-size: 15px; --text-ui-xs: 13px; --text-ui-sm: 14px; --text-ui-base: 15px; --text-ui-md: 16px; --text-ui-lg: 19px; --text-ui-xl: 24px; --text-ui-2xl: 32px; }
+}
+@media (min-width: 2560px) {
+  :root { --font-size: 17px; --text-ui-xs: 14px; --text-ui-sm: 15.5px; --text-ui-base: 17px; --text-ui-md: 18px; --text-ui-lg: 22px; --text-ui-xl: 28px; --text-ui-2xl: 38px; }
+}
+
+@theme inline {
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-success: hsl(var(--success));
+  --color-warning: hsl(var(--warning));
+  --color-destructive: hsl(var(--destructive));
+  --color-info: hsl(var(--info));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-muted: hsl(var(--sidebar-muted));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+  --color-db-lava: hsl(var(--db-lava));
+  --color-db-orange: hsl(var(--db-orange));
+  --color-db-teal: hsl(var(--db-teal));
+  --color-type-agent: hsl(var(--type-agent));
+  --color-type-mcp: hsl(var(--type-mcp));
+  --color-type-tool: hsl(var(--type-tool));
+  --color-type-skill: hsl(var(--type-skill));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --text-ui-xs: var(--text-ui-xs);
+  --text-ui-sm: var(--text-ui-sm);
+  --text-ui-base: var(--text-ui-base);
+  --text-ui-md: var(--text-ui-md);
+  --text-ui-lg: var(--text-ui-lg);
+  --text-ui-xl: var(--text-ui-xl);
+  --text-ui-2xl: var(--text-ui-2xl);
+}
+
+@layer base {
+  *, ::before, ::after { box-sizing: border-box; border-color: hsl(var(--border)); }
+  html, body, #root { margin: 0; height: 100%; }
+  html { font-size: var(--font-size); }
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    font-size: var(--text-ui-base);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden; /* one scroll container: the shell's <main> */
+  }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]) { cursor: pointer; }
+  code, kbd, pre, samp { font-family: var(--font-mono); }
+  :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
+  ::selection { background: hsl(var(--primary) / 0.35); }
+}
+
+/* Glassmorphic surface used by FlowDiagram nodes, overlays and hero panels. */
+@utility glass {
+  background: hsl(var(--glass-fill));
+  border: 1px solid hsl(var(--glass-border));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* FlowDiagram: the animated dashed stroke riding each lane. */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -1000; }
+}
+
+/* Custom scrollbars: thin thumb on a transparent track. */
+* { scrollbar-width: thin; scrollbar-color: hsl(var(--scrollbar)) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--scrollbar)); border-radius: 999px; border: 3px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.6); border: 3px solid transparent; background-clip: content-box; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,573 @@
+{
+  "system_ai": {
+    "path": "POST /api/2.0/mcp/functions/system/ai",
+    "http": 200,
+    "tool_count": 16,
+    "tool_field_presence": {
+      "name": 16,
+      "description": 16,
+      "inputSchema": 16,
+      "outputSchema": 16,
+      "annotations": 16
+    },
+    "annotation_field_presence": {
+      "catalog": 16,
+      "routine_body": 16,
+      "schema": 16,
+      "language": 16,
+      "openWorldHint": 16,
+      "destructiveHint": 16
+    },
+    "tool_names": [
+      "system__ai__ai_analyze_sentiment",
+      "system__ai__ai_classify",
+      "system__ai__ai_decide",
+      "system__ai__ai_enrich",
+      "system__ai__ai_extract",
+      "system__ai__ai_fix_grammar",
+      "system__ai__ai_gen",
+      "system__ai__ai_mask",
+      "system__ai__ai_parse_document",
+      "system__ai__ai_prep_search",
+      "system__ai__ai_search",
+      "system__ai__ai_similarity",
+      "system__ai__ai_summarize",
+      "system__ai__ai_transcribe",
+      "system__ai__ai_translate",
+      "system__ai__python_exec"
+    ],
+    "example_tools": [
+      {
+        "name": "system__ai__ai_analyze_sentiment",
+        "description": "Performs sentiment analysis on input text using a state-of-the-art AI model.\n\nSee the [official documentation](https://docs.databricks.com/en/sql/language-manual/functions/ai_analyze_sentiment) for syntax, arguments, options, and response schema.",
+        "inputSchema": {
+          "type": "object",
+          "required": [],
+          "properties": {}
+        },
+        "outputSchema": {
+          "type": "object",
+          "required": [
+            "is_truncated"
+          ],
+          "properties": {
+            "is_truncated": {
+              "type": "boolean"
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {}
+              }
+            }
+          }
+        },
+        "annotations": {
+          "catalog": "system",
+          "routine_body": "EXTERNAL",
+          "schema": "ai",
+          "language": "Python",
+          "openWorldHint": true,
+          "destructiveHint": true
+        }
+      },
+      {
+        "name": "system__ai__ai_classify",
+        "description": "Classifies text or documents into one of a user-provided set of labels.\n\nSee the [official documentation](https://docs.databricks.com/en/sql/language-manual/functions/ai_classify) for syntax, arguments, options, and response schema.",
+        "inputSchema": {
+          "type": "object",
+          "required": [],
+          "properties": {}
+        },
+        "outputSchema": {
+          "type": "object",
+          "required": [
+            "is_truncated"
+          ],
+          "properties": {
+            "is_truncated": {
+              "type": "boolean"
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {}
+              }
+            }
+          }
+        },
+        "annotations": {
+          "catalog": "system",
+          "routine_body": "EXTERNAL",
+          "schema": "ai",
+          "language": "Python",
+          "openWorldHint": true,
+          "destructiveHint": true
+        }
+      }
+    ],
+    "top_level_keys": [
+      "jsonrpc",
+      "id",
+      "result"
+    ]
+  },
+  "uc_schema_functions": {
+    "path": "POST /api/2.0/mcp/functions/main/supply_agentic_demo",
+    "http": 200,
+    "tool_count": 3,
+    "example_tools": [
+      {
+        "name": "main__supply_agentic_demo__ebom_mbom_gaps",
+        "description": "Parts present in the Engineering BOM but missing from the Manufacturing BOM (EBOM to MBOM reconciliation gaps that speed up change decisions).",
+        "inputSchema": {
+          "type": "object",
+          "required": [],
+          "properties": {}
+        },
+        "outputSchema": {
+          "type": "object",
+          "required": [
+            "is_truncated"
+          ],
+          "properties": {
+            "is_truncated": {
+              "type": "boolean"
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {}
+              }
+            }
+          }
+        },
+        "annotations": {
+          "catalog": "main",
+          "routine_body": "SQL",
+          "schema": "supply_agentic_demo",
+          "language": "SQL",
+          "openWorldHint": true,
+          "destructiveHint": true
+        }
+      },
+      {
+        "name": "main__supply_agentic_demo__ecr_impact",
+        "description": "For an Engineering Change Request, expands every affected part and returns its criticality, inventory days-of-supply and supplier risk to support change decision making.",
+        "inputSchema": {
+          "type": "object",
+          "required": [
+            "in_ecr_id"
+          ],
+          "properties": {
+            "in_ecr_id": {
+              "type": "string",
+              "description": "ECR id, e.g. ECR-5003"
+            }
+          }
+        },
+        "outputSchema": {
+          "type": "object",
+          "required": [
+            "is_truncated"
+          ],
+          "properties": {
+            "is_truncated": {
+              "type": "boolean"
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {}
+              }
+            }
+          }
+        },
+        "annotations": {
+          "catalog": "main",
+          "routine_body": "SQL",
+          "schema": "supply_agentic_demo",
+          "language": "SQL",
+          "openWorldHint": true,
+          "destructiveHint": true
+        }
+      }
+    ],
+    "error": null
+  },
+  "genie": {
+    "path": "POST /api/2.0/mcp/genie/01f1d0c52c5212a0a957f1117779ad81",
+    "http": 200,
+    "tool_count": 2,
+    "tools": [
+      {
+        "name": "query_space_01f1d0c52c5212a0a957f1117779ad81",
+        "description": "Query the NSCLC RWE \u2014 HEOR Cohort Explorer genie space for data insights.\nYou can ask natural language questions and will receive responses in natural language or as SQL query results.\nYou can ask for a summary of the datasets in the genie space to get an overview of the data available.\nBy default, ",
+        "inputSchema": {
+          "type": "object",
+          "required": [
+            "query"
+          ],
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Query for genie space"
+            },
+            "conversation_id": {
+              "type": "string",
+              "description": "Optional conversation ID to continue an existing conversation"
+            }
+          }
+        },
+        "outputSchema": {
+          "type": "object",
+          "required": [
+            "content",
+            "conversationId",
+            "messageId",
+            "status"
+          ],
+          "properties": {
+            "content": {
+              "type": "object",
+              "properties": {
+                "queryAttachments": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "query": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "statement_response": {}
+                    }
+                  }
+                },
+                "textAttachments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "suggestedQuestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "conversationId": {
+              "type": "string"
+            },
+            "messageId": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          }
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      },
+      {
+        "name": "poll_response_01f1d0c52c5212a0a957f1117779ad81",
+        "description": "Poll for the response of a previously initiated message in the NSCLC RWE \u2014 HEOR Cohort Explorer genie space.\nUse this tool to retrieve results for a message that was started but not yet completed.\nRequires both conversation_id and message_id returned from the initial query_space_01f1d0c52c5212a0a957",
+        "inputSchema": {
+          "type": "object",
+          "required": [
+            "conversation_id",
+            "message_id"
+          ],
+          "properties": {
+            "conversation_id": {
+              "type": "string",
+              "description": "The conversation ID from the genie space"
+            },
+            "message_id": {
+              "type": "string",
+              "description": "The message ID to poll for the response of"
+            }
+          }
+        },
+        "outputSchema": {
+          "type": "object",
+          "required": [
+            "content",
+            "conversationId",
+            "messageId",
+            "status"
+          ],
+          "properties": {
+            "content": {
+              "type": "object",
+              "properties": {
+                "queryAttachments": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "query": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "statement_response": {}
+                    }
+                  }
+                },
+                "textAttachments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "suggestedQuestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "conversationId": {
+              "type": "string"
+            },
+            "messageId": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          }
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      }
+    ],
+    "error": null
+  },
+  "external_agentkit_deepwiki": {
+    "path": "POST /api/2.0/mcp/external/agentkit_deepwiki",
+    "http": 403,
+    "tool_count": 0,
+    "tools": [],
+    "error": {
+      "error_code": "PERMISSION_DENIED",
+      "message": "Failed request to https://mcp.deepwiki.com:443/mcp. Error: User is missing USE CONNECTION on agentkit_deepwiki"
+    }
+  },
+  "external_ext_mcp_you_dot_com": {
+    "path": "POST /api/2.0/mcp/external/ext_mcp_you_dot_com",
+    "http": 200,
+    "tool_count": 1,
+    "tool_field_presence": {
+      "name": 1,
+      "title": 1,
+      "description": 1,
+      "inputSchema": 1,
+      "annotations": 1,
+      "outputSchema": 1
+    },
+    "tools": [
+      {
+        "name": "you-finance",
+        "title": "Finance Research",
+        "description": "Research financial topics \u2014 company financials, SEC filings, earnings, guidance, analyst context, valuation, markets, and macro \u2014 returning a cited answer. Use for finance-specific questions requiring financial-data sources. Configurable effort levels (deep, exhaustive).\n\nThis tool is asynchronous a",
+        "inputSchema": {
+          "type": "object",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "input": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40000,
+              "description": "The finance research question requiring in-depth investigation of financial data, SEC filings, earnings, and company metrics."
+            },
+            "task_id": {
+              "description": "Task ID returned by a previous call. When provided, polls that background finance research task for its status/result instead of starting a new one.",
+              "type": "string"
+            },
+            "research_effort": {
+              "default": "deep",
+              "description": "Controls how much time and effort the Finance Research API spends on your question. deep: thorough (default), exhaustive: most comprehensive.",
+              "type": "string",
+              "enum": [
+                "deep",
+                "exhaustive"
+              ]
+            },
+            "output_schema": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string"
+              },
+              "additionalProperties": {},
+              "description": "Beta. Requests structured JSON output in `output.content` using a supported JSON Schema subset. Supported with every `research_effort` value. The rules and limits match the Research API, so the same schema works on both endpoints. Limits are enforced before model execution; the request fails with `422` if any limit is exceeded (max nesting depth 5, max total properties 100, max total enum values 500, max total schema string budget 25,000). The schema root must be a JSON object."
+            }
+          }
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "outputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "output": {
+              "description": "The research output containing the answer and sources",
+              "type": "object",
+              "properties": {
+                "content": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {}
+                    }
+                  ],
+                  "description": "Comprehensive finance-grade response with inline citations. By default a Markdown string with numbered citations; when `output_schema` was provided, a JSON object conforming to the requested schema."
+                },
+                "content_type": {
+                  "type": "string",
+                  "enum": [
+                    "text",
+                    "object"
+                  ],
+                  "description": "The format of the content field"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "description": "Source webpage URL"
+                      },
+                      "title": {
+                        "description": "Source webpage title",
+                        "type": "string"
+                      },
+                      "snippets": {
+                        "description": "Relevant excerpts from the source page used in generating the answer",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": [
+                      "url"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "List of sources used to generate the answer"
+                }
+              },
+              "required": [
+                "content",
+                "content_type",
+                "sources"
+              ],
+              "additionalProperties": false
+            },
+            "warnings": {
+              "description": "Non-fatal warnings generated during the request, such as a deprecation notice for an `output_schema` that will stop being accepted in a future release. Empty when no warnings occurred.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "task_id": {
+              "description": "Unique identifier for the background finance research task",
+              "type": "string"
+            },
+            "type": {
+              "description": "The task type",
+              "type": "string",
+              "const": "finance_research"
+            },
+            "status": {
+              "description": "The current status of the background finance research task",
+              "type": "string",
+              "enum": [
+                "queued",
+                "running",
+                "completed",
+                "failed",
+                "cancelled"
+              ]
+            },
+            "created_at": {
+              "description": "When the task was created, in RFC 3339 format",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    ],
+    "error": null
+  },
+  "system_ai_initialize": {
+    "http": 200,
+    "body": {
+      "jsonrpc": "2.0",
+      "id": 0,
+      "result": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {
+          "tools": {}
+        },
+        "serverInfo": {
+          "name": "DatabricksMCPServer",
+          "version": "0.1.0"
+        },
+        "instructions": "Execute user defined functions that are defined in Unity Catalog system and Schema ai"
+      }
+    }
+  }
+}

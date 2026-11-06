@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Agent Registry Hub</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230a1626'/><path d='M16 6 25 11v10l-9 5-9-5V11z' fill='none' stroke='%23ff3621' stroke-width='2.4' stroke-linejoin='round'/><circle cx='16' cy='16' r='3.2' fill='%23ff7033'/></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      // Apply the persisted theme before first paint (src/lib/theme.ts owns the key and the toggle).
+      try {
+        var t = localStorage.getItem("arh.theme");
+        if (t === "light" || t === "dark") { document.documentElement.className = t; }
+      } catch (e) { /* storage blocked: keep the dark default */ }
+    </script>
+    <script type="module" crossorigin src="/_app/index-CZ5eZ9UM.js"></script>
+    <link rel="modulepreload" crossorigin href="/_app/ui-Bth6ksN4.js">
+    <link rel="modulepreload" crossorigin href="/_app/chunk-OB3PAWPO-ZmdTxRFb.js">
+    <link rel="modulepreload" crossorigin href="/_app/badge-check-XygUMorY.js">
+    <link rel="modulepreload" crossorigin href="/_app/circle-dashed-vWQMhRsA.js">
+    <link rel="stylesheet" crossorigin href="/_app/index-CHISCUCJ.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

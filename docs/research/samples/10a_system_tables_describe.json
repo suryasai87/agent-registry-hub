@@ -1,0 +1,1556 @@
+{
+  "SHOW SCHEMAS IN system": [
+    "__internal_logging",
+    "access",
+    "ai",
+    "ai_gateway",
+    "alert",
+    "billing",
+    "compute",
+    "data_classification",
+    "data_quality_monitoring",
+    "information_schema",
+    "lakebase",
+    "lakeflow",
+    "lakewatch",
+    "mlflow",
+    "query",
+    "replication",
+    "security_gated",
+    "serving",
+    "sharing",
+    "storage",
+    "tags",
+    "telemetry"
+  ],
+  "SHOW TABLES": {
+    "system.ai_gateway": [
+      "external_model_spend",
+      "usage"
+    ],
+    "system.serving": [
+      "endpoint_usage",
+      "served_entities"
+    ],
+    "system.billing": [
+      "account_prices",
+      "attributed_usage",
+      "cloud_infra_cost",
+      "list_prices",
+      "usage"
+    ],
+    "system.access": [
+      "assistant_events",
+      "audit",
+      "clean_room_events",
+      "column_lineage",
+      "inbound_network",
+      "outbound_network",
+      "table_lineage",
+      "workspaces_latest"
+    ],
+    "system.mlflow": [
+      "experiments_latest",
+      "run_metrics_history",
+      "runs_latest"
+    ],
+    "system.ai": [],
+    "system.query": [
+      "history"
+    ],
+    "system.lakeflow": [
+      "job_run_timeline",
+      "job_task_run_timeline",
+      "job_tasks",
+      "jobs",
+      "pipeline_update_timeline",
+      "pipelines",
+      "zerobus_ingest",
+      "zerobus_stream"
+    ],
+    "system.compute": [
+      "clusters",
+      "instance_events",
+      "instance_pools",
+      "node_timeline",
+      "node_types",
+      "warehouse_events",
+      "warehouses"
+    ],
+    "system.lakebase": [
+      "active_session_history",
+      "compute_counters",
+      "compute_gauges",
+      "database_counters",
+      "database_gauges",
+      "ddl_history",
+      "pg_stat_statements_counters",
+      "plan_history",
+      "postgres_logs",
+      "wait_event_counters"
+    ],
+    "system.tags": [
+      "governed_tags"
+    ],
+    "system.data_classification": [
+      "__catalog_impact_latest",
+      "__class_tag_applications",
+      "__table_statuses",
+      "results"
+    ],
+    "system.telemetry": [
+      "otel_logs",
+      "otel_metrics",
+      "otel_spans"
+    ]
+  },
+  "DESCRIBE": {
+    "system.ai_gateway.usage": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "request_id",
+          "type": "string"
+        },
+        {
+          "name": "schema_version",
+          "type": "int"
+        },
+        {
+          "name": "endpoint_id",
+          "type": "string"
+        },
+        {
+          "name": "endpoint_name",
+          "type": "string"
+        },
+        {
+          "name": "endpoint_tags",
+          "type": "map<string,string>"
+        },
+        {
+          "name": "endpoint_metadata",
+          "type": "struct<creator:string,creation_time:timestamp,last_updated_time:timestamp,destinations:array<struct<name:string,traffic_percent:double,type:string>>,inference_table:string,fallbacks:array<struct<name:string,traffic_percent:double,type:string>>>"
+        },
+        {
+          "name": "event_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "latency_ms",
+          "type": "bigint"
+        },
+        {
+          "name": "time_to_first_byte_ms",
+          "type": "bigint"
+        },
+        {
+          "name": "destination_type",
+          "type": "string"
+        },
+        {
+          "name": "destination_name",
+          "type": "string"
+        },
+        {
+          "name": "destination_id",
+          "type": "string"
+        },
+        {
+          "name": "destination_model",
+          "type": "string"
+        },
+        {
+          "name": "requester",
+          "type": "string"
+        },
+        {
+          "name": "requester_type",
+          "type": "string"
+        },
+        {
+          "name": "ip_address",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "user_agent",
+          "type": "string"
+        },
+        {
+          "name": "api_type",
+          "type": "string"
+        },
+        {
+          "name": "request_tags",
+          "type": "map<string,string>"
+        },
+        {
+          "name": "input_tokens",
+          "type": "bigint"
+        },
+        {
+          "name": "output_tokens",
+          "type": "bigint"
+        },
+        {
+          "name": "total_tokens",
+          "type": "bigint"
+        },
+        {
+          "name": "token_details",
+          "type": "struct<cache_read_input_tokens:bigint,cache_creation_input_tokens:bigint,output_reasoning_tokens:bigint,cache_creation_5m_input_tokens:bigint,cache_creation_1h_input_tokens:bigint,file_search_count:bigint,num_web_search_queries:bigint>"
+        },
+        {
+          "name": "response_content_type",
+          "type": "string"
+        },
+        {
+          "name": "status_code",
+          "type": "int"
+        },
+        {
+          "name": "routing_information",
+          "type": "struct<attempts:array<struct<priority:string,action:string,destination:string,destination_id:string,status_code:int,error_code:string,latency_ms:bigint,start_time:timestamp,end_time:timestamp>>>"
+        },
+        {
+          "name": "invocation_id",
+          "type": "string"
+        },
+        {
+          "name": "invocation_metadata",
+          "type": "struct<source:string,service_tier:string,relayed:boolean>"
+        },
+        {
+          "name": "service_type",
+          "type": "string"
+        },
+        {
+          "name": "service_id",
+          "type": "string"
+        },
+        {
+          "name": "service_name",
+          "type": "string"
+        },
+        {
+          "name": "service_tags",
+          "type": "map<string,string>"
+        },
+        {
+          "name": "mcp_metadata",
+          "type": "struct<tool_name:string,server_type:string,client_name:string,json_rpc_method:string>"
+        },
+        {
+          "name": "session_metadata",
+          "type": "struct<client_session_id:string,client_subagent_id:string,coding_agent:string,agent_version:string,surface:string,reasoning_effort:string,smart_router_name:string>"
+        },
+        {
+          "name": "auth_mode",
+          "type": "string"
+        },
+        {
+          "name": "model_metadata",
+          "type": "struct<config:struct<created_by:string,create_time:timestamp,update_time:timestamp,inference_table:string,routing:struct<destinations:array<struct<name:string,traffic_percent:double,type:string>>,fallbacks:array<struct<name:string,traffic_percent:double,type:string>>>,rate_limits:array<struct<principal_type:string,principal:string,principal_id:string,limit:int,unit:string,interval:string>>,service_policies:array<struct<label:string,phases:array<string>,type:string,handler:string,rank:int>>>,destination_type:string,destination_name:string,destination_model:string,destination_metadata:struct<provider_model:string,provider:string,model_serving_endpoint:string,model_serving_endpoint_id:string,workspace_id:string,model_units:int,model_version:int,model_provider_service:string>,api_type:string,routing_information:struct<attempts:array<struct<priority:string,action:string,destination_name:string,status_code:int,error_code:string,latency_ms:bigint,start_time:timestamp,end_time:timestamp,outcome:string>>>,gateway_feature_results:struct<rate_limit_result:struct<principal_type:string,principal:string,principal_id:string,limit:int,unit:string,interval:string,request_tag_key:string,request_tag_value:string>,service_policies:array<struct<name:string,phase:string,decision:string,reason:string,error_reason:string>>>>"
+        },
+        {
+          "name": "model_provider_metadata",
+          "type": "struct<provider_model:string,provider:string,api_type:string,gateway_feature_results:struct<rate_limit_result:struct<principal_type:string,principal:string,principal_id:string,limit:int,unit:string,interval:string,request_tag_key:string,request_tag_value:string>,service_policies:array<struct<name:string,phase:string,decision:string,reason:string,error_reason:string>>>,config:struct<created_by:string,create_time:timestamp,update_time:timestamp,rate_limits:array<struct<principal_type:string,principal:string,principal_id:string,limit:int,unit:string,interval:string>>,service_policies:array<struct<label:string,phases:array<string>,type:string,handler:string,rank:int>>,inference_table:string>>"
+        }
+      ]
+    },
+    "system.ai_gateway.external_model_spend": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "record_id",
+          "type": "string"
+        },
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "usage_date",
+          "type": "date"
+        },
+        {
+          "name": "usage_start_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "usage_end_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "ingestion_date",
+          "type": "date"
+        },
+        {
+          "name": "usage_metadata",
+          "type": "struct<provider:string,model:string,endpoint_id:string,endpoint_name:string,destination_id:string,destination_name:string>"
+        },
+        {
+          "name": "custom_tags",
+          "type": "struct<endpoint_tags:map<string,string>,request_tags:map<string,string>>"
+        },
+        {
+          "name": "usage_unit",
+          "type": "string"
+        },
+        {
+          "name": "usage_quantity",
+          "type": "decimal(38,18)"
+        },
+        {
+          "name": "pricing_metadata",
+          "type": "struct<service_tier:string,long_context:boolean>"
+        },
+        {
+          "name": "identity_metadata",
+          "type": "struct<run_by:string,run_as:string>"
+        }
+      ]
+    },
+    "system.serving.endpoint_usage": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "client_request_id",
+          "type": "string"
+        },
+        {
+          "name": "databricks_request_id",
+          "type": "string"
+        },
+        {
+          "name": "requester",
+          "type": "string"
+        },
+        {
+          "name": "status_code",
+          "type": "int"
+        },
+        {
+          "name": "request_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "input_token_count",
+          "type": "bigint"
+        },
+        {
+          "name": "output_token_count",
+          "type": "bigint"
+        },
+        {
+          "name": "input_character_count",
+          "type": "bigint"
+        },
+        {
+          "name": "output_character_count",
+          "type": "bigint"
+        },
+        {
+          "name": "usage_context",
+          "type": "map<string,string>"
+        },
+        {
+          "name": "request_streaming",
+          "type": "boolean"
+        },
+        {
+          "name": "served_entity_id",
+          "type": "string"
+        }
+      ]
+    },
+    "system.serving.served_entities": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "served_entity_id",
+          "type": "string"
+        },
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "created_by",
+          "type": "string"
+        },
+        {
+          "name": "endpoint_name",
+          "type": "string"
+        },
+        {
+          "name": "endpoint_id",
+          "type": "string"
+        },
+        {
+          "name": "served_entity_name",
+          "type": "string"
+        },
+        {
+          "name": "entity_type",
+          "type": "string"
+        },
+        {
+          "name": "entity_name",
+          "type": "string"
+        },
+        {
+          "name": "entity_version",
+          "type": "string"
+        },
+        {
+          "name": "endpoint_config_version",
+          "type": "int"
+        },
+        {
+          "name": "task",
+          "type": "string"
+        },
+        {
+          "name": "external_model_config",
+          "type": "struct<provider:string>"
+        },
+        {
+          "name": "foundation_model_config",
+          "type": "struct<min_provisioned_throughput:bigint,max_provisioned_throughput:bigint>"
+        },
+        {
+          "name": "custom_model_config",
+          "type": "struct<min_concurrency:int,max_concurrency:int,compute_type:string>"
+        },
+        {
+          "name": "feature_spec_config",
+          "type": "struct<min_concurrency:int,max_concurrency:int,compute_type:string>"
+        },
+        {
+          "name": "change_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "endpoint_delete_time",
+          "type": "timestamp"
+        }
+      ]
+    },
+    "system.billing.usage": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "record_id",
+          "type": "string"
+        },
+        {
+          "name": "sku_name",
+          "type": "string"
+        },
+        {
+          "name": "cloud",
+          "type": "string"
+        },
+        {
+          "name": "usage_start_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "usage_end_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "usage_date",
+          "type": "date"
+        },
+        {
+          "name": "custom_tags",
+          "type": "map<string,string>"
+        },
+        {
+          "name": "usage_unit",
+          "type": "string"
+        },
+        {
+          "name": "usage_quantity",
+          "type": "decimal(38,18)"
+        },
+        {
+          "name": "usage_metadata",
+          "type": "struct<cluster_id:string,job_id:string,warehouse_id:string,instance_pool_id:string,node_type:string,job_run_id:string,notebook_id:string,dlt_pipeline_id:string,endpoint_name:string,endpoint_id:string,dlt_update_id:string,dlt_maintenance_id:string,run_name:string,job_name:string,notebook_path:string,central_clean_room_id:string,source_region:string,destination_region:string,app_id:string,app_name:string,metastore_id:string,private_endpoint_name:string,storage_api_type:string,budget_policy_id:string,ai_runtime_pool_id:string,ai_runtime_workload_id:string,uc_table_catalog:string,uc_table_schema:string,uc_table_name:string,database_instance_id:string,sharing_materialization_id:string,schema_id:string,usage_policy_id:string,base_environment_id:string,agent_bricks_id:string,index_id:string,catalog_id:string,project_id:string,branch_id:string,table_id:string,supervisor_agent_id:string,networking_client:string,associated_product:string,recipient_id:string,interactive_source:string,snapshot_id:string,ai_gateway:struct<endpoint_name:string,endpoint_id:string,destination_id:string,destination_model:string>,genie:struct<surface:string,channel:string,agent_id:string>,data_source:string,operation:string,serverless_compute_id:string,entity_full_name:string,failover_group_name:string,private_network_gateway_id:string,monitor_type:string>",
+          "note": "full type from system.information_schema.columns (DESCRIBE truncates to '... 30 more fields')"
+        },
+        {
+          "name": "identity_metadata",
+          "type": "struct<run_as:string,created_by:string,owned_by:string,run_by:string>"
+        },
+        {
+          "name": "record_type",
+          "type": "string"
+        },
+        {
+          "name": "ingestion_date",
+          "type": "date"
+        },
+        {
+          "name": "billing_origin_product",
+          "type": "string"
+        },
+        {
+          "name": "product_features",
+          "type": "struct<jobs_tier:string,sql_tier:string,dlt_tier:string,is_serverless:boolean,is_photon:boolean,serving_type:string,networking:struct<connectivity_type:string,connection_method:string>,ai_runtime:struct<compute_type:string>,model_serving:struct<offering_type:string,reservation_term:string>,ai_gateway:struct<feature_type:string>,serverless_gpu:struct<workload_type:string>,agent_bricks:struct<problem_type:string,workload_type:string>,performance_target:string,ai_functions:struct<ai_function:string>,apps:struct<compute_size:string>,lakeflow_connect:struct<task_type:string,zerobus_request_type:string>,lakebase:struct<storage_type:string,compute_type:string>,ai_bi_genie:struct<capability_type:string,offering_type:string>,genie:struct<offering_type:string>>"
+        },
+        {
+          "name": "usage_type",
+          "type": "string"
+        }
+      ]
+    },
+    "system.billing.list_prices": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "price_start_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "price_end_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "sku_name",
+          "type": "string"
+        },
+        {
+          "name": "cloud",
+          "type": "string"
+        },
+        {
+          "name": "currency_code",
+          "type": "string"
+        },
+        {
+          "name": "usage_unit",
+          "type": "string"
+        },
+        {
+          "name": "pricing",
+          "type": "struct<default:decimal(38,18),promotional:struct<default:decimal(38,18)>,effective_list:struct<default:decimal(38,18)>>"
+        }
+      ]
+    },
+    "system.billing.attributed_usage": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "record_id",
+          "type": "string"
+        },
+        {
+          "name": "usage_metadata",
+          "type": "struct<dbsql_statement_id:string,warehouse_id:string,client_application:string>"
+        },
+        {
+          "name": "identity_metadata",
+          "type": "struct<executed_by:string>"
+        },
+        {
+          "name": "start_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "end_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "usage_date",
+          "type": "date"
+        },
+        {
+          "name": "usage_unit",
+          "type": "string"
+        },
+        {
+          "name": "active_usage_quantity",
+          "type": "decimal(38,18)"
+        },
+        {
+          "name": "granular_tags",
+          "type": "struct<query_tags:map<string,string>>"
+        },
+        {
+          "name": "usage_record_ids",
+          "type": "array<string>"
+        },
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "sku_name",
+          "type": "string"
+        },
+        {
+          "name": "cloud",
+          "type": "string"
+        },
+        {
+          "name": "billing_origin_product",
+          "type": "string"
+        },
+        {
+          "name": "custom_tags",
+          "type": "map<string,string>"
+        }
+      ]
+    },
+    "system.access.audit": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "type": "string"
+        },
+        {
+          "name": "event_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "event_date",
+          "type": "date"
+        },
+        {
+          "name": "source_ip_address",
+          "type": "string"
+        },
+        {
+          "name": "user_agent",
+          "type": "string"
+        },
+        {
+          "name": "session_id",
+          "type": "string"
+        },
+        {
+          "name": "user_identity",
+          "type": "struct<email:string,subject_name:string>"
+        },
+        {
+          "name": "service_name",
+          "type": "string"
+        },
+        {
+          "name": "action_name",
+          "type": "string"
+        },
+        {
+          "name": "request_id",
+          "type": "string"
+        },
+        {
+          "name": "request_params",
+          "type": "map<string,string>"
+        },
+        {
+          "name": "response",
+          "type": "struct<status_code:int,error_message:string,result:string>"
+        },
+        {
+          "name": "audit_level",
+          "type": "string"
+        },
+        {
+          "name": "event_id",
+          "type": "string"
+        },
+        {
+          "name": "identity_metadata",
+          "type": "struct<run_by:string,run_as:string,acting_resource:string,run_by_display_name:string,run_as_display_name:string,acting_resource_display_name:string,acting_resource_type:string>"
+        }
+      ]
+    },
+    "system.access.table_lineage": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "metastore_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "entity_type",
+          "type": "string"
+        },
+        {
+          "name": "entity_id",
+          "type": "string"
+        },
+        {
+          "name": "entity_run_id",
+          "type": "string"
+        },
+        {
+          "name": "source_table_full_name",
+          "type": "string"
+        },
+        {
+          "name": "source_table_catalog",
+          "type": "string"
+        },
+        {
+          "name": "source_table_schema",
+          "type": "string"
+        },
+        {
+          "name": "source_table_name",
+          "type": "string"
+        },
+        {
+          "name": "source_path",
+          "type": "string"
+        },
+        {
+          "name": "source_type",
+          "type": "string"
+        },
+        {
+          "name": "target_table_full_name",
+          "type": "string"
+        },
+        {
+          "name": "target_table_catalog",
+          "type": "string"
+        },
+        {
+          "name": "target_table_schema",
+          "type": "string"
+        },
+        {
+          "name": "target_table_name",
+          "type": "string"
+        },
+        {
+          "name": "target_path",
+          "type": "string"
+        },
+        {
+          "name": "target_type",
+          "type": "string"
+        },
+        {
+          "name": "created_by",
+          "type": "string"
+        },
+        {
+          "name": "event_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "event_date",
+          "type": "date"
+        },
+        {
+          "name": "record_id",
+          "type": "string"
+        },
+        {
+          "name": "event_id",
+          "type": "string"
+        },
+        {
+          "name": "statement_id",
+          "type": "string"
+        },
+        {
+          "name": "entity_metadata",
+          "type": "struct<job_info:struct<job_id:string,job_run_id:string>,dashboard_id:string,legacy_dashboard_id:string,notebook_id:string,sql_query_id:string,dlt_pipeline_info:struct<dlt_pipeline_id:string,dlt_update_id:string>,genie_space_id:string,alert_id:string>"
+        },
+        {
+          "name": "direct_access",
+          "type": "boolean"
+        }
+      ]
+    },
+    "system.access.column_lineage": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "metastore_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "entity_type",
+          "type": "string"
+        },
+        {
+          "name": "entity_id",
+          "type": "string"
+        },
+        {
+          "name": "entity_run_id",
+          "type": "string"
+        },
+        {
+          "name": "source_table_full_name",
+          "type": "string"
+        },
+        {
+          "name": "source_table_catalog",
+          "type": "string"
+        },
+        {
+          "name": "source_table_schema",
+          "type": "string"
+        },
+        {
+          "name": "source_table_name",
+          "type": "string"
+        },
+        {
+          "name": "source_path",
+          "type": "string"
+        },
+        {
+          "name": "source_type",
+          "type": "string"
+        },
+        {
+          "name": "source_column_name",
+          "type": "string"
+        },
+        {
+          "name": "target_table_full_name",
+          "type": "string"
+        },
+        {
+          "name": "target_table_catalog",
+          "type": "string"
+        },
+        {
+          "name": "target_table_schema",
+          "type": "string"
+        },
+        {
+          "name": "target_table_name",
+          "type": "string"
+        },
+        {
+          "name": "target_path",
+          "type": "string"
+        },
+        {
+          "name": "target_type",
+          "type": "string"
+        },
+        {
+          "name": "target_column_name",
+          "type": "string"
+        },
+        {
+          "name": "created_by",
+          "type": "string"
+        },
+        {
+          "name": "event_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "event_date",
+          "type": "date"
+        },
+        {
+          "name": "record_id",
+          "type": "string"
+        },
+        {
+          "name": "event_id",
+          "type": "string"
+        },
+        {
+          "name": "statement_id",
+          "type": "string"
+        },
+        {
+          "name": "entity_metadata",
+          "type": "struct<job_info:struct<job_id:string,job_run_id:string>,dashboard_id:string,legacy_dashboard_id:string,notebook_id:string,sql_query_id:string,dlt_pipeline_info:struct<dlt_pipeline_id:string,dlt_update_id:string>,genie_space_id:string,alert_id:string>"
+        },
+        {
+          "name": "direct_access",
+          "type": "boolean"
+        }
+      ]
+    },
+    "system.mlflow.experiments_latest": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "update_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "delete_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "experiment_id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "create_time",
+          "type": "timestamp"
+        }
+      ]
+    },
+    "system.mlflow.runs_latest": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "update_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "delete_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "run_id",
+          "type": "string"
+        },
+        {
+          "name": "experiment_id",
+          "type": "string"
+        },
+        {
+          "name": "created_by",
+          "type": "string"
+        },
+        {
+          "name": "start_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "end_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "run_name",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "params",
+          "type": "map<string,string>"
+        },
+        {
+          "name": "tags",
+          "type": "map<string,string>"
+        },
+        {
+          "name": "aggregated_metrics",
+          "type": "array<struct<metric_name:string,min_value:double,max_value:double,latest_value:double>>"
+        }
+      ]
+    },
+    "system.mlflow.run_metrics_history": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "insert_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "record_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "experiment_id",
+          "type": "string"
+        },
+        {
+          "name": "run_id",
+          "type": "string"
+        },
+        {
+          "name": "metric_name",
+          "type": "string"
+        },
+        {
+          "name": "metric_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "metric_step",
+          "type": "bigint"
+        },
+        {
+          "name": "metric_value",
+          "type": "double"
+        }
+      ]
+    },
+    "system.query.history": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "string"
+        },
+        {
+          "name": "workspace_id",
+          "type": "string"
+        },
+        {
+          "name": "statement_id",
+          "type": "string"
+        },
+        {
+          "name": "executed_by",
+          "type": "string"
+        },
+        {
+          "name": "session_id",
+          "type": "string"
+        },
+        {
+          "name": "execution_status",
+          "type": "string"
+        },
+        {
+          "name": "compute",
+          "type": "struct<type:string,cluster_id:string,warehouse_id:string>"
+        },
+        {
+          "name": "executed_by_user_id",
+          "type": "string"
+        },
+        {
+          "name": "statement_text",
+          "type": "string"
+        },
+        {
+          "name": "statement_type",
+          "type": "string"
+        },
+        {
+          "name": "error_message",
+          "type": "string"
+        },
+        {
+          "name": "client_application",
+          "type": "string"
+        },
+        {
+          "name": "client_driver",
+          "type": "string"
+        },
+        {
+          "name": "total_duration_ms",
+          "type": "bigint"
+        },
+        {
+          "name": "waiting_for_compute_duration_ms",
+          "type": "bigint"
+        },
+        {
+          "name": "waiting_at_capacity_duration_ms",
+          "type": "bigint"
+        },
+        {
+          "name": "execution_duration_ms",
+          "type": "bigint"
+        },
+        {
+          "name": "compilation_duration_ms",
+          "type": "bigint"
+        },
+        {
+          "name": "total_task_duration_ms",
+          "type": "bigint"
+        },
+        {
+          "name": "result_fetch_duration_ms",
+          "type": "bigint"
+        },
+        {
+          "name": "start_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "end_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "update_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "read_partitions",
+          "type": "bigint"
+        },
+        {
+          "name": "pruned_files",
+          "type": "bigint"
+        },
+        {
+          "name": "read_files",
+          "type": "bigint"
+        },
+        {
+          "name": "read_rows",
+          "type": "bigint"
+        },
+        {
+          "name": "produced_rows",
+          "type": "bigint"
+        },
+        {
+          "name": "read_bytes",
+          "type": "bigint"
+        },
+        {
+          "name": "read_io_cache_percent",
+          "type": "tinyint"
+        },
+        {
+          "name": "from_result_cache",
+          "type": "boolean"
+        },
+        {
+          "name": "spilled_local_bytes",
+          "type": "bigint"
+        },
+        {
+          "name": "written_bytes",
+          "type": "bigint"
+        },
+        {
+          "name": "shuffle_read_bytes",
+          "type": "bigint"
+        },
+        {
+          "name": "query_source",
+          "type": "struct<job_info:struct<job_id:string,job_run_id:string,job_task_run_id:string>,legacy_dashboard_id:string,dashboard_id:string,alert_id:string,notebook_id:string,sql_query_id:string,genie_space_id:string,pipeline_info:struct<pipeline_id:string,update_id:string>>"
+        },
+        {
+          "name": "executed_as_user_id",
+          "type": "string"
+        },
+        {
+          "name": "executed_as",
+          "type": "string"
+        },
+        {
+          "name": "written_rows",
+          "type": "bigint"
+        },
+        {
+          "name": "written_files",
+          "type": "bigint"
+        },
+        {
+          "name": "cache_origin_statement_id",
+          "type": "string"
+        },
+        {
+          "name": "query_parameters",
+          "type": "struct<named_parameters:map<string,struct<exprs:array<struct<tag:string,data_type:struct<type_name:string,type_ddl:string,redacted_type_ddl:string>,literal:struct<data_type:struct<type_name:string,type_ddl:string,redacted_type_ddl:string>,int_value:int,long_value:bigint,double_value:double,float_value:float,byte_value:int,short_value:int,string_value:string,boolean_value:boolean,decimal_value:struct<value:string,precision:int,scale:int>,binary_value:binary,timestamp_value:bigint,timestamp_ntz_value:bigint,date_value:bigint,calendar_interval_value:struct<months:int,days:int,microseconds:bigint>,day_time_interval_value:bigint,year_month_interval_value:int>,seq_expression:struct<children:array<bigint>>,function:struct<function_name:string,arguments:array<bigint>>,alias:struct<expr:bigint,name:array<string>,metadata:string>,sort_order:struct<child:bigint,direction:string,null_ordering:string>,lambda_function:struct<function:bigint,arguments:array<struct<name_parts:array<string>>>>,window:struct<window_function:bigint,partition_spec:array<bigint>,order_spec:array<bigint>>,unresolved_extract_value:struct<child:bigint,extraction:bigint>,update_fields:struct<struct_expression:bigint,field_name:string,value_expression:bigint>,unresolved_named_lambda_variable:struct<name_parts:array<string>>,named_argument_expression:struct<key:string,value:bigint>,id:bigint>>>>,pos_parameters:array<struct<exprs:array<struct<tag:string,data_type:struct<type_name:string,type_ddl:string,redacted_type_ddl:string>,literal:struct<data_type:struct<type_name:string,type_ddl:string,redacted_type_ddl:string>,int_value:int,long_value:bigint,double_value:double,float_value:float,byte_value:int,short_value:int,string_value:string,boolean_value:boolean,decimal_value:struct<value:string,precision:int,scale:int>,binary_value:binary,timestamp_value:bigint,timestamp_ntz_value:bigint,date_value:bigint,calendar_interval_value:struct<months:int,days:int,microseconds:bigint>,day_time_interval_value:bigint,year_month_interval_value:int>,seq_expression:struct<children:array<bigint>>,function:struct<function_name:string,arguments:array<bigint>>,alias:struct<expr:bigint,name:array<string>,metadata:string>,sort_order:struct<child:bigint,direction:string,null_ordering:string>,lambda_function:struct<function:bigint,arguments:array<struct<name_parts:array<string>>>>,window:struct<window_function:bigint,partition_spec:array<bigint>,order_spec:array<bigint>>,unresolved_extract_value:struct<child:bigint,extraction:bigint>,update_fields:struct<struct_expression:bigint,field_name:string,value_expression:bigint>,unresolved_named_lambda_variable:struct<name_parts:array<string>>,named_argument_expression:struct<key:string,value:bigint>,id:bigint>>>>,truncated:boolean>"
+        },
+        {
+          "name": "query_tags",
+          "type": "map<string,string>"
+        },
+        {
+          "name": "pruned_files_bytes",
+          "type": "bigint"
+        },
+        {
+          "name": "read_files_bytes",
+          "type": "bigint"
+        }
+      ]
+    },
+    "system.telemetry.otel_spans": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "record_id",
+          "type": "string"
+        },
+        {
+          "name": "time",
+          "type": "timestamp"
+        },
+        {
+          "name": "date",
+          "type": "date"
+        },
+        {
+          "name": "service_name",
+          "type": "string"
+        },
+        {
+          "name": "trace_id",
+          "type": "string"
+        },
+        {
+          "name": "span_id",
+          "type": "string"
+        },
+        {
+          "name": "trace_state",
+          "type": "string"
+        },
+        {
+          "name": "parent_span_id",
+          "type": "string"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "kind",
+          "type": "string"
+        },
+        {
+          "name": "start_time_unix_nano",
+          "type": "bigint"
+        },
+        {
+          "name": "end_time_unix_nano",
+          "type": "bigint"
+        },
+        {
+          "name": "attributes",
+          "type": "variant"
+        },
+        {
+          "name": "dropped_attributes_count",
+          "type": "int"
+        },
+        {
+          "name": "events",
+          "type": "array<struct<time_unix_nano:bigint,name:string,attributes:variant,dropped_attributes_count:int>>"
+        },
+        {
+          "name": "dropped_events_count",
+          "type": "int"
+        },
+        {
+          "name": "links",
+          "type": "array<struct<trace_id:string,span_id:string,trace_state:string,attributes:variant,dropped_attributes_count:int,flags:int>>"
+        },
+        {
+          "name": "dropped_links_count",
+          "type": "int"
+        },
+        {
+          "name": "status",
+          "type": "struct<message:string,code:string>"
+        },
+        {
+          "name": "resource",
+          "type": "struct<attributes:variant,dropped_attributes_count:int>"
+        },
+        {
+          "name": "resource_schema_url",
+          "type": "string"
+        },
+        {
+          "name": "instrumentation_scope",
+          "type": "struct<name:string,version:string,attributes:variant,dropped_attributes_count:int>"
+        },
+        {
+          "name": "span_schema_url",
+          "type": "string"
+        }
+      ]
+    },
+    "system.telemetry.otel_logs": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "record_id",
+          "type": "string"
+        },
+        {
+          "name": "time",
+          "type": "timestamp"
+        },
+        {
+          "name": "date",
+          "type": "date"
+        },
+        {
+          "name": "service_name",
+          "type": "string"
+        },
+        {
+          "name": "event_name",
+          "type": "string"
+        },
+        {
+          "name": "trace_id",
+          "type": "string"
+        },
+        {
+          "name": "span_id",
+          "type": "string"
+        },
+        {
+          "name": "time_unix_nano",
+          "type": "bigint"
+        },
+        {
+          "name": "observed_time_unix_nano",
+          "type": "bigint"
+        },
+        {
+          "name": "severity_number",
+          "type": "string"
+        },
+        {
+          "name": "severity_text",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "variant"
+        },
+        {
+          "name": "attributes",
+          "type": "variant"
+        },
+        {
+          "name": "dropped_attributes_count",
+          "type": "int"
+        },
+        {
+          "name": "flags",
+          "type": "int"
+        },
+        {
+          "name": "resource",
+          "type": "struct<attributes:variant,dropped_attributes_count:int>"
+        },
+        {
+          "name": "resource_schema_url",
+          "type": "string"
+        },
+        {
+          "name": "instrumentation_scope",
+          "type": "struct<name:string,version:string,attributes:variant,dropped_attributes_count:int>"
+        },
+        {
+          "name": "log_schema_url",
+          "type": "string"
+        }
+      ]
+    },
+    "system.telemetry.otel_metrics": {
+      "state": "SUCCEEDED",
+      "error": null,
+      "columns": [
+        {
+          "name": "record_id",
+          "type": "string"
+        },
+        {
+          "name": "time",
+          "type": "timestamp"
+        },
+        {
+          "name": "date",
+          "type": "date"
+        },
+        {
+          "name": "service_name",
+          "type": "string"
+        },
+        {
+          "name": "start_time_unix_nano",
+          "type": "bigint"
+        },
+        {
+          "name": "time_unix_nano",
+          "type": "bigint"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "unit",
+          "type": "string"
+        },
+        {
+          "name": "metric_type",
+          "type": "string"
+        },
+        {
+          "name": "gauge",
+          "type": "struct<value:double,exemplars:array<struct<time_unix_nano:bigint,value:double,span_id:string,trace_id:string,filtered_attributes:variant>>,attributes:variant,flags:int>"
+        },
+        {
+          "name": "sum",
+          "type": "struct<value:double,exemplars:array<struct<time_unix_nano:bigint,value:double,span_id:string,trace_id:string,filtered_attributes:variant>>,attributes:variant,flags:int,aggregation_temporality:string,is_monotonic:boolean>"
+        },
+        {
+          "name": "histogram",
+          "type": "struct<count:bigint,sum:double,bucket_counts:array<bigint>,explicit_bounds:array<double>,exemplars:array<struct<time_unix_nano:bigint,value:double,span_id:string,trace_id:string,filtered_attributes:variant>>,attributes:variant,flags:int,min:double,max:double,aggregation_temporality:string>"
+        },
+        {
+          "name": "exponential_histogram",
+          "type": "struct<attributes:variant,count:bigint,sum:double,scale:int,zero_count:bigint,positive_bucket:struct<offset:int,bucket_counts:array<bigint>>,negative_bucket:struct<offset:int,bucket_counts:array<bigint>>,flags:int,exemplars:array<struct<time_unix_nano:bigint,value:double,span_id:string,trace_id:string,filtered_attributes:variant>>,min:double,max:double,zero_threshold:double,aggregation_temporality:string>"
+        },
+        {
+          "name": "summary",
+          "type": "struct<count:bigint,sum:double,quantile_values:array<struct<quantile:double,value:double>>,attributes:variant,flags:int>"
+        },
+        {
+          "name": "metadata",
+          "type": "variant"
+        },
+        {
+          "name": "resource",
+          "type": "struct<attributes:variant,dropped_attributes_count:int>"
+        },
+        {
+          "name": "resource_schema_url",
+          "type": "string"
+        },
+        {
+          "name": "instrumentation_scope",
+          "type": "struct<name:string,version:string,attributes:variant,dropped_attributes_count:int>"
+        },
+        {
+          "name": "metric_schema_url",
+          "type": "string"
+        }
+      ]
+    }
+  }
+}

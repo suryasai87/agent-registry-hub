@@ -1,0 +1,190 @@
+{
+  "/api/3.0/rfa/destinations/function/main.supply_agentic_demo.ebom_mbom_gaps": {
+    "http": 200,
+    "body": {
+      "destinations": [
+        {
+          "destination_id": "admin@example.com",
+          "destination_type": "EMAIL",
+          "special_destination": "SPECIAL_DESTINATION_FUNCTION_OWNER"
+        }
+      ],
+      "securable": {
+        "type": "FUNCTION",
+        "full_name": "main.supply_agentic_demo.ebom_mbom_gaps"
+      },
+      "are_any_destinations_hidden": false,
+      "destination_source_securable": {
+        "type": "FUNCTION"
+      },
+      "securable_type": "FUNCTION",
+      "full_name": "main.supply_agentic_demo.ebom_mbom_gaps"
+    }
+  },
+  "/api/3.0/rfa/destinations/catalog/main": {
+    "http": 200,
+    "body": {
+      "destinations": [
+        {
+          "destination_id": "admin@example.com",
+          "destination_type": "EMAIL",
+          "special_destination": "SPECIAL_DESTINATION_CATALOG_OWNER"
+        }
+      ],
+      "securable": {
+        "type": "CATALOG",
+        "full_name": "main"
+      },
+      "are_any_destinations_hidden": false,
+      "destination_source_securable": {
+        "type": "CATALOG"
+      },
+      "securable_type": "CATALOG",
+      "full_name": "main"
+    }
+  },
+  "/api/3.0/rfa/destinations/FUNCTION/main.supply_agentic_demo.ebom_mbom_gaps": {
+    "http": 200,
+    "body": {
+      "destinations": [
+        {
+          "destination_id": "admin@example.com",
+          "destination_type": "EMAIL",
+          "special_destination": "SPECIAL_DESTINATION_FUNCTION_OWNER"
+        }
+      ],
+      "securable": {
+        "type": "FUNCTION",
+        "full_name": "main.supply_agentic_demo.ebom_mbom_gaps"
+      },
+      "are_any_destinations_hidden": false,
+      "destination_source_securable": {
+        "type": "FUNCTION"
+      },
+      "securable_type": "FUNCTION",
+      "full_name": "main.supply_agentic_demo.ebom_mbom_gaps"
+    }
+  },
+  "/api/3.0/rfa/destinations/CATALOG/main": {
+    "http": 200,
+    "body": {
+      "destinations": [
+        {
+          "destination_id": "admin@example.com",
+          "destination_type": "EMAIL",
+          "special_destination": "SPECIAL_DESTINATION_CATALOG_OWNER"
+        }
+      ],
+      "securable": {
+        "type": "CATALOG",
+        "full_name": "main"
+      },
+      "are_any_destinations_hidden": false,
+      "destination_source_securable": {
+        "type": "CATALOG"
+      },
+      "securable_type": "CATALOG",
+      "full_name": "main"
+    }
+  },
+  "/api/3.0/rfa/destinations?securable_type=catalog&full_name=main": {
+    "http": 404,
+    "body": {
+      "error_code": "ENDPOINT_NOT_FOUND",
+      "message": "No API found for 'GET /rfa/destinations'",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.rpc.RequestInfo",
+          "request_id": "a3703e91-8602-4bee-9536-e10fda84970f",
+          "serving_data": ""
+        }
+      ]
+    }
+  },
+  "/api/3.0/rfa/destinations:batchGet": {
+    "http": 404,
+    "body": {
+      "error_code": "ENDPOINT_NOT_FOUND",
+      "message": "No API found for 'GET /rfa/destinations:batchGet'",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.rpc.RequestInfo",
+          "request_id": "f2b275df-8514-491a-8547-79fb67b03f20",
+          "serving_data": ""
+        }
+      ]
+    }
+  },
+  "/api/3.0/rfa/destinations/batch": {
+    "http": 404,
+    "body": {
+      "error_code": "ENDPOINT_NOT_FOUND",
+      "message": "No API found for 'GET /rfa/destinations/batch'",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.rpc.RequestInfo",
+          "request_id": "2acf6743-1949-44b7-a41d-f304ddf406f9",
+          "serving_data": ""
+        }
+      ]
+    }
+  },
+  "/api/3.0/rfa/requests": {
+    "http": 404,
+    "body": {
+      "error_code": "ENDPOINT_NOT_FOUND",
+      "message": "No API found for 'GET /rfa/requests'",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.rpc.RequestInfo",
+          "request_id": "b967be91-58f1-4ab2-8166-c724f52fbec6",
+          "serving_data": ""
+        }
+      ]
+    }
+  },
+  "/api/3.0/rfa/destinations/connection/ext_mcp_you_dot_com": {
+    "http": 200,
+    "body": {
+      "destinations": [
+        {
+          "destination_id": "user48@example.com",
+          "destination_type": "EMAIL",
+          "special_destination": "SPECIAL_DESTINATION_CONNECTION_OWNER"
+        }
+      ],
+      "securable": {
+        "type": "CONNECTION",
+        "full_name": "ext_mcp_you_dot_com"
+      },
+      "are_any_destinations_hidden": false,
+      "destination_source_securable": {
+        "type": "CONNECTION"
+      },
+      "securable_type": "CONNECTION",
+      "full_name": "ext_mcp_you_dot_com"
+    }
+  },
+  "/api/3.0/rfa/destinations/table/main.drm_transformation.docs_chunks_idx": {
+    "http": 200,
+    "body": {
+      "destinations": [
+        {
+          "destination_id": "admin@example.com",
+          "destination_type": "EMAIL",
+          "special_destination": "SPECIAL_DESTINATION_TABLE_OWNER"
+        }
+      ],
+      "securable": {
+        "type": "TABLE",
+        "full_name": "main.drm_transformation.docs_chunks_idx"
+      },
+      "are_any_destinations_hidden": false,
+      "destination_source_securable": {
+        "type": "TABLE"
+      },
+      "securable_type": "TABLE",
+      "full_name": "main.drm_transformation.docs_chunks_idx"
+    }
+  }
+}

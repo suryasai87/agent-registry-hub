@@ -1,0 +1,205 @@
+{
+  "list": {
+    "path": "GET /api/2.1/unity-catalog/models?max_results=20",
+    "http": 200,
+    "top_level_keys": [
+      "registered_models",
+      "next_page_token"
+    ],
+    "field_presence": {
+      "name": 9,
+      "catalog_name": 9,
+      "schema_name": 9,
+      "owner": 9,
+      "storage_location": 9,
+      "metastore_id": 9,
+      "full_name": 9,
+      "created_at": 9,
+      "created_by": 9,
+      "updated_at": 9,
+      "updated_by": 9,
+      "securable_type": 9,
+      "securable_kind": 9,
+      "id": 9,
+      "etag": 9
+    },
+    "examples": [
+      {
+        "name": "revenue_forecaster",
+        "catalog_name": "jeff_shmain",
+        "schema_name": "takeda_fpna",
+        "owner": "user71@example.com",
+        "storage_location": "s3://vdm-classic-x8vzh3-ext-s3-049629455384-llhkky/models/41d1b847-d5fc-4246-ae60-f773e8c3e290",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+        "full_name": "jeff_shmain.takeda_fpna.revenue_forecaster",
+        "created_at": 1772544378335,
+        "created_by": "user71@example.com",
+        "updated_at": 1772544404091,
+        "updated_by": "user71@example.com",
+        "securable_type": "FUNCTION",
+        "securable_kind": "FUNCTION_REGISTERED_MODEL",
+        "id": "41d1b847-d5fc-4246-ae60-f773e8c3e290",
+        "etag": "CAESCAAAAZyz4Sp7"
+      },
+      {
+        "name": "review_summarization_agent",
+        "catalog_name": "jeff_shmain",
+        "schema_name": "agents",
+        "owner": "user71@example.com",
+        "storage_location": "s3://vdm-classic-x8vzh3-ext-s3-049629455384-llhkky/models/5cf4a5b3-4f6e-425d-9f08-de7570be19fb",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+        "full_name": "jeff_shmain.agents.review_summarization_agent",
+        "created_at": 1769998023666,
+        "created_by": "user71@example.com",
+        "updated_at": 1769998595861,
+        "updated_by": "user71@example.com",
+        "securable_type": "FUNCTION",
+        "securable_kind": "FUNCTION_REGISTERED_MODEL",
+        "id": "5cf4a5b3-4f6e-425d-9f08-de7570be19fb",
+        "etag": "CAESCAAAAZwcIzcV"
+      },
+      {
+        "name": "revenue_forecaster",
+        "catalog_name": "jeff_shmain",
+        "schema_name": "meridian_fpna_gold",
+        "owner": "user71@example.com",
+        "storage_location": "s3://vdm-classic-x8vzh3-ext-s3-049629455384-llhkky/models/e09528b8-42e8-4de8-9572-2f6d2c2fc48c",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+        "full_name": "jeff_shmain.meridian_fpna_gold.revenue_forecaster",
+        "created_at": 1783605506223,
+        "created_by": "user71@example.com",
+        "updated_at": 1783606205512,
+        "updated_by": "user71@example.com",
+        "securable_type": "FUNCTION",
+        "securable_kind": "FUNCTION_REGISTERED_MODEL",
+        "id": "e09528b8-42e8-4de8-9572-2f6d2c2fc48c",
+        "etag": "CAESCAAAAZ9HNtxI"
+      },
+      {
+        "name": "feedback",
+        "catalog_name": "bx3",
+        "schema_name": "agent_poc",
+        "owner": "user72@example.com",
+        "storage_location": "s3://vdm-classic-et15ka-ext-s3-049629455384-fi4mqm/models/eb3456d3-c5d9-4687-a05e-e7a6fc6376a9",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+        "full_name": "bx3.agent_poc.feedback",
+        "created_at": 1758127249903,
+        "created_by": "user72@example.com",
+        "updated_at": 1758127251314,
+        "updated_by": "user72@example.com",
+        "securable_type": "FUNCTION",
+        "securable_kind": "FUNCTION_REGISTERED_MODEL",
+        "id": "eb3456d3-c5d9-4687-a05e-e7a6fc6376a9",
+        "etag": "CAESCAAAAZlYjN9y"
+      }
+    ]
+  },
+  "list_include_aliases": {
+    "http": 200,
+    "field_presence": {
+      "name": 9,
+      "catalog_name": 9,
+      "schema_name": 9,
+      "owner": 9,
+      "storage_location": 9,
+      "metastore_id": 9,
+      "full_name": 9,
+      "created_at": 9,
+      "created_by": 9,
+      "updated_at": 9,
+      "updated_by": 9,
+      "securable_type": 9,
+      "securable_kind": 9,
+      "id": 9,
+      "etag": 9
+    },
+    "examples_with_aliases": []
+  },
+  "models_counted_first_pages": {
+    "count": 141,
+    "pages": 15,
+    "complete": false
+  },
+  "get_model": {
+    "path": "GET /api/2.1/unity-catalog/models/main.drm_transformation.drm_agent?include_aliases=true",
+    "http": 200,
+    "body": {
+      "name": "drm_agent",
+      "catalog_name": "main",
+      "schema_name": "drm_transformation",
+      "owner": "admin@example.com",
+      "storage_location": "s3://vdm-classic-x8vzh3-ext-s3-049629455384-llhkky/models/acba3ab0-ab39-40d5-a9ba-69c2bde222d1",
+      "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+      "full_name": "main.drm_transformation.drm_agent",
+      "created_at": 1783549365065,
+      "created_by": "admin@example.com",
+      "updated_at": 1783549369670,
+      "updated_by": "admin@example.com",
+      "securable_type": "FUNCTION",
+      "securable_kind": "FUNCTION_REGISTERED_MODEL",
+      "id": "acba3ab0-ab39-40d5-a9ba-69c2bde222d1",
+      "etag": "CAESCAAAAZ9D051G"
+    }
+  },
+  "versions": {
+    "path": "GET /api/2.1/unity-catalog/models/main.drm_transformation.drm_agent/versions?max_results=5",
+    "http": 200,
+    "top_level_keys": [
+      "model_versions",
+      "next_page_token"
+    ],
+    "count_returned": 1,
+    "examples": [
+      {
+        "model_name": "drm_agent",
+        "catalog_name": "main",
+        "schema_name": "drm_transformation",
+        "source": "models:/m-10b4595c658b4f4d82eb66ff8d85daa5",
+        "run_id": "b6744b794f8e441aba118b0978983b4d",
+        "run_workspace_id": 1234567890123456,
+        "status": "READY",
+        "version": 1,
+        "storage_location": "s3://vdm-classic-x8vzh3-ext-s3-049629455384-llhkky/models/acba3ab0-ab39-40d5-a9ba-69c2bde222d1/versions/d8ba1439-202c-46aa-9807-573fd13c4a74",
+        "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+        "created_at": 1783549368440,
+        "created_by": "admin@example.com",
+        "updated_at": 1783549369652,
+        "updated_by": "admin@example.com",
+        "id": "d8ba1439-202c-46aa-9807-573fd13c4a74",
+        "etag": "CAESCAAAAZ9D0500",
+        "model_id": "m-10b4595c658b4f4d82eb66ff8d85daa5"
+      }
+    ]
+  },
+  "version_detail": {
+    "http": 200,
+    "body": {
+      "model_name": "drm_agent",
+      "catalog_name": "main",
+      "schema_name": "drm_transformation",
+      "source": "models:/m-10b4595c658b4f4d82eb66ff8d85daa5",
+      "run_id": "b6744b794f8e441aba118b0978983b4d",
+      "run_workspace_id": 1234567890123456,
+      "model_version_dependencies": {
+        "dependencies": [
+          {
+            "table": {
+              "table_full_name": "main.drm_transformation.docs_chunks_idx"
+            }
+          }
+        ]
+      },
+      "status": "READY",
+      "version": 1,
+      "storage_location": "s3://vdm-classic-x8vzh3-ext-s3-049629455384-llhkky/models/acba3ab0-ab39-40d5-a9ba-69c2bde222d1/versions/d8ba1439-202c-46aa-9807-573fd13c4a74",
+      "metastore_id": "c0da88f1-c020-4992-b8c9-c828e556889d",
+      "created_at": 1783549368440,
+      "created_by": "admin@example.com",
+      "updated_at": 1783549369652,
+      "updated_by": "admin@example.com",
+      "id": "d8ba1439-202c-46aa-9807-573fd13c4a74",
+      "etag": "CAESCAAAAZ9D0500",
+      "model_id": "m-10b4595c658b4f4d82eb66ff8d85daa5"
+    }
+  }
+}

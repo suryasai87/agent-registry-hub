@@ -1,0 +1,7 @@
+{
+  "value": [
+    {"id": "T_7e6d5c4b-3a2f-4e1d-0c9b-8a7f6e5d4c3b", "displayName": "Supply Forecast Genie", "type": "external", "isBlocked": false,
+     "supportedHosts": ["Copilot"], "publisher": "Example Health Data", "platform": "Databricks Genie",
+     "shortDescription": "Forecasts supply needs. https://dbc-a1b2c3d4-e5f6.cloud.databricks.com/genie/rooms/01f0aa11bb22cc33dd44ee55ff667788"}
+  ]
+}

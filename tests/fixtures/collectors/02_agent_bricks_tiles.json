@@ -1,0 +1,307 @@
+{
+  "probe": "GET /api/2.0/tiles (paginated, page_size=100)",
+  "http": 200,
+  "pages": 1,
+  "tile_count": 93,
+  "count_by_tile_type": {
+    "MAS": 41,
+    "KA": 33,
+    "AI_EXTRACT": 8,
+    "KIE": 10,
+    "T2T": 1
+  },
+  "list_top_level_keys": [
+    "tiles"
+  ],
+  "tile_field_presence": {
+    "tile_id": 93,
+    "name": 93,
+    "tile_type": 93,
+    "mlflow_experiment_id": 93,
+    "creation_timestamp_ms": 93,
+    "last_updated_timestamp_ms": 93,
+    "serving_endpoint_name": 85,
+    "creator": 93,
+    "creator_display_name": 93,
+    "description": 74,
+    "instructions": 63,
+    "evaluation_run_exists": 93,
+    "acl_enabled": 93,
+    "task_spec": 19,
+    "tile_type_config": 1
+  },
+  "list_examples": [
+    {
+      "tile_id": "a176dc0c-1d6f-4f86-849a-a38eac9ca22c",
+      "name": "brickwell-mfg-ai-docs",
+      "tile_type": "KA",
+      "mlflow_experiment_id": "2347446610473179",
+      "creation_timestamp_ms": 1792606226282,
+      "last_updated_timestamp_ms": 1792606267933,
+      "serving_endpoint_name": "ka-a176dc0c-endpoint",
+      "creator": "user03@example.com",
+      "creator_display_name": "Christopher Messer",
+      "description": "Manufacturing document assistant for Brickwell Medical pod production.\nIndexes machine manuals, work instructions, maintenance procedures, and NCMR records.",
+      "instructions": "You are a manufacturing troubleshooting assistant for Brickwell Medical pod production.\nAnswer using ONLY the indexed documents (machine manuals, work instructions,\nmaintenance procedures, and NCMR re",
+      "evaluation_run_exists": false,
+      "acl_enabled": true
+    },
+    {
+      "tile_id": "2e8a4ac6-17ca-492f-b00d-73df59a52526",
+      "name": "brickwell-mfg-ai-supervisor",
+      "tile_type": "MAS",
+      "mlflow_experiment_id": "2347446610473193",
+      "creation_timestamp_ms": 1792607680777,
+      "last_updated_timestamp_ms": 1792607696589,
+      "serving_endpoint_name": "mas-2e8a4ac6-endpoint",
+      "creator": "user03@example.com",
+      "creator_display_name": "Christopher Messer",
+      "description": "Routes manufacturing questions to structured lakehouse analytics (Genie) and document Q&A over manuals, work instructions, procedures and NCMRs (Knowledge Assistant).",
+      "instructions": "You are the Brickwell Medical manufacturing supervisor agent for VelaPatch production troubleshooting.\n\nRoute to manufacturing_analytics (Genie) for:\n- Yield, first-pass yield, scrap rate, scrappage u",
+      "evaluation_run_exists": false,
+      "acl_enabled": true
+    },
+    {
+      "tile_id": "c7a7853e-9f9a-4fe8-9946-573b53577a01",
+      "name": "extract-silver_notes_vs_index-2026-10-13-13-47-10",
+      "tile_type": "AI_EXTRACT",
+      "task_spec": {
+        "custom_signature": {
+          "output_json_schema": "{\"cancer_stage\":{\"type\":\"enum\",\"labels\":[\"I\",\"II\",\"III\",\"IV\"],\"description\":\"Overall clinical or pathologic cancer stage at diagnosis. Map 'stage 4' / 'metastatic' to IV. Use the diagnosis stage, not a restaging. Empty if not stated.\"},\"egfr_status\":{\"type\":\"string\",\"description\":\"EGFR mutation status. Return the specific result if stated (e.g. 'exon 19 deletion', 'L858R', 'positive') or 'negative'. Treat 'not detected' / 'wild-type' / 'negative' as negative \u2014 never report negation as positive. Empty if not tested or not mentioned.\"},\"alk_status\":{\"type\":\"string\",\"description\":\"ALK rearrangement/fusion status. Return 'positive' / 'rearrangement detected' or 'negative'. Treat 'not detected' / 'negative' as negative. Empty if not mentioned.\"},\"kras_status\":{\"type\":\"string\",\"description\":\"KRAS mutation status. Return the variant if stated (e.g. 'G12C positive') or 'negative'. Treat negation as negative. Empty if not mentioned (KRAS is rarely charted; empty is correct).\"},\"pdl1_tps_percent\":{\"type\":\"string\",\"description\":\"PD-L1 tumor proportion score as a percent (e.g. '70%', '<1%', '>=50%'). Return the numeric TPS if given. Empty if not tested or not mentioned.\"},\"ecog_performance_status\":{\"type\":\"enum\",\"labels\":[\"0\",\"1\",\"2\",\"3\",\"4\"],\"description\":\"ECOG performance status, an integer 0-4. Return just the number. Empty if not documented.\"},\"smoking_status\":{\"type\":\"enum\",\"labels\":[\"Never\",\"Former\",\"Current\"],\"description\":\"Smoking history. Map 'ex-smoker' / 'quit' / 'prior' / 'pack-year history' to Former; 'active' / 'still smoking' to Current. Empty if not documented.\"}}"
+        },
+        "datasets": [
+          {
+            "name": "text_corpus",
+            "dataset_type": "DOCS",
+            "table": {
+              "name": "main.lilly_heor_rwe_demo.silver_notes_vs_index",
+              "columns": [
+                {
+                  "name": "note_text",
+                  "rename_to": "input"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "mlflow_experiment_id": "1440282085689162",
+      "creation_timestamp_ms": 1791913630783,
+      "last_updated_timestamp_ms": 1791913725656,
+      "creator": "user10@example.com",
+      "creator_display_name": "Parastou Eslami",
+      "evaluation_run_exists": false,
+      "acl_enabled": true
+    },
+    {
+      "tile_id": "cc3ef5ce-d3f7-413b-a2e2-49977ce9da45",
+      "name": "extract-silver_notes_primary-2026-09-09-10-28-33",
+      "tile_type": "AI_EXTRACT",
+      "task_spec": {
+        "instructions": "You are a clinical data abstractor for a non-small-cell lung cancer (NSCLC) real-world\nevidence study. You read free-text oncology notes \u2014 consult notes, progress notes, and\npathology reports written in messy, abbreviated EHR style \u2014 and extract a fixed set of\nstructured facts about the patient at diagnosis.\n\nExtract only what is explicitly documented in the note. Follow these rules:\n\n1. Do not infer, guess, or calculate. If a field is not stated in the note, leave it\n   empty. An empty value is the correct answer when the fact isn't charted \u2014 it is far\n   better than a guess. (Many notes will not mention every biomarker; that is expected.)\n\n2. Handle negation carefully. \"Not detected\", \"negative\", \"wild-type\", \"no mutation\",\n   and \"unremarkable\" mean the marker is NEGATIVE \u2014 never record a negated result as\n   positive. Distinguish a negative test result from the field simply not being mentioned.\n\n3. Extract the value at/for diagnosis. Use the initial diagnostic stage and baseline\n   biomarker/performance-status values, not later restaging or re-assessment, unless the\n   note only reports the later value.\n\n4. One value per field. If a note states a biomarker more than once, prefer the explicit\n   molecular pathology result over a narrative summary.\n\n5. Normalize to the field's allowed values where the schema specifies them (e.g. stage\n   I-IV, ECOG 0-4, smoking Never/Former/Current); otherwise return the result as written.\n\n6. Every extracted value must be supported by specific text in the note. Cite the source\n   sentence for each value.\n\nPrioritize accuracy and honesty over completeness. It is better to leave a field empty\nthan to over-extract.",
+        "custom_signature": {
+          "output_json_schema": "{\"cancer_stage\":{\"type\":\"enum\",\"labels\":[\"I\",\"II\",\"III\",\"IV\"],\"description\":\"Overall clinical or pathologic cancer stage at diagnosis. Map 'stage 4' / 'metastatic' to IV. Use the diagnosis stage, not a restaging. Empty if not stated.\"},\"egfr_status\":{\"type\":\"string\",\"description\":\"EGFR mutation status. Return the specific result if stated (e.g. 'exon 19 deletion', 'L858R', 'positive') or 'negative'. Treat 'not detected' / 'wild-type' / 'negative' as negative \u2014 never report negation as positive. Empty if not tested or not mentioned.\"},\"alk_status\":{\"type\":\"string\",\"description\":\"ALK rearrangement/fusion status. Return 'positive' / 'rearrangement detected' or 'negative'. Treat 'not detected' / 'negative' as negative. Empty if not mentioned.\"},\"kras_status\":{\"type\":\"string\",\"description\":\"KRAS mutation status. Return the variant if stated (e.g. 'G12C positive') or 'negative'. Treat negation as negative. Empty if not mentioned (KRAS is rarely charted; empty is correct).\"},\"pdl1_tps_percent\":{\"type\":\"string\",\"description\":\"PD-L1 tumor proportion score as a percent (e.g. '70%', '<1%', '>=50%'). Return the numeric TPS if given. Empty if not tested or not mentioned.\"},\"ecog_performance_status\":{\"type\":\"enum\",\"labels\":[\"0\",\"1\",\"2\",\"3\",\"4\"],\"description\":\"ECOG performance status, an integer 0-4. Return just the number. Empty if not documented.\"},\"smoking_status\":{\"type\":\"enum\",\"labels\":[\"Never\",\"Former\",\"Current\"],\"description\":\"Smoking history. Map 'ex-smoker' / 'quit' / 'prior' / 'pack-year history' to Former; 'active' / 'still smoking' to Current. Empty if not documented.\"}}"
+        },
+        "datasets": [
+          {
+            "name": "text_corpus",
+            "dataset_type": "DOCS",
+            "table": {
+              "name": "main.lilly_heor_rwe_demo.silver_notes_primary",
+              "columns": [
+                {
+                  "name": "note_text",
+                  "rename_to": "input"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "mlflow_experiment_id": "1262233690137226",
+      "creation_timestamp_ms": 1788964113394,
+      "last_updated_timestamp_ms": 1788967713361,
+      "creator": "user10@example.com",
+      "creator_display_name": "Parastou Eslami",
+      "instructions": "You are a clinical data abstractor for a non-small-cell lung cancer (NSCLC) real-world\nevidence study. You read free-text oncology notes \u2014 consult notes, progress notes, and\npathology reports written ",
+      "evaluation_run_exists": true,
+      "acl_enabled": true
+    }
+  ],
+  "knowledge_assistant_detail": {
+    "path": "/api/2.0/knowledge-assistants/a176dc0c-1d6f-4f86-849a-a38eac9ca22c",
+    "http": 200,
+    "body": {
+      "knowledge_assistant": {
+        "tile": {
+          "tile_id": "a176dc0c-1d6f-4f86-849a-a38eac9ca22c",
+          "name": "brickwell-mfg-ai-docs",
+          "tile_type": "KA",
+          "mlflow_experiment_id": "2347446610473179",
+          "creation_timestamp_ms": 1792606226282,
+          "last_updated_timestamp_ms": 1792606267933,
+          "serving_endpoint_name": "ka-a176dc0c-endpoint",
+          "creator": "user03@example.com",
+          "creator_display_name": "Christopher Messer",
+          "description": "Manufacturing document assistant for Brickwell Medical pod production.\nIndexes machine manuals, work instructions, maintenance procedures, and NCMR records.",
+          "instructions": "You are a manufacturing troubleshooting assistant for Brickwell Medical pod production.\nAnswer using ONLY the indexed documents (machine manuals, work instructions,\nmaintenance procedures, and NCMR records).\n\nWhen answering:\n- Cite the source document and section (manual name, work instruction ID, o...<trimmed>",
+          "evaluation_run_exists": false,
+          "acl_enabled": true
+        },
+        "knowledge_sources": [
+          {
+            "files_source": {
+              "name": "source_brickwell-mfg-ai-docs",
+              "type": "files",
+              "description": "",
+              "files": {
+                "path": "/Volumes/main/brickwell_mfg_ai/source_docs/pdf"
+              }
+            },
+            "state": "KNOWLEDGE_SOURCE_STATE_UPDATED",
+            "last_successful_update_timestamp_ms": 1792606226282,
+            "latest_update_timestamp_ms": 1792606226282,
+            "knowledge_source_id": "7932e48d-0e60-4f77-8708-ac6ef710921c",
+            "indexed_row_count": 56,
+            "file_source_index_info": {
+              "summary": {
+                "total_files": 36,
+                "success_files": 36,
+                "skipped_files": 0,
+                "failed_files": 0
+              },
+              "files_by_type": {
+                "pdf": 36
+              },
+              "version": 2,
+              "should_migrate": false,
+              "migration_outcome": "UNDEFINED",
+              "job_start_time_ms": 1792606266943,
+              "embedding_model": "databricks-agent-bricks-embedding-v1",
+              "self_managed_embeddings": true,
+              "vector_count": 56
+            },
+            "creation_timestamp_ms": 1792606226282,
+            "ingestion_info": {
+              "file_state_counts": {
+                "total_files": 36,
+                "success_files": 36,
+                "skipped_files": 0,
+                "failed_files": 0
+              }
+            }
+          }
+        ],
+        "status": {
+          "endpoint_status": "ONLINE"
+        },
+        "id": "a176dc0c-1d6f-4f86-849a-a38eac9ca22c",
+        "name": "brickwell-mfg-ai-docs",
+        "description": "Manufacturing document assistant for Brickwell Medical pod production.\nIndexes machine manuals, work instructions, maintenance procedures, and NCMR records.",
+        "instructions": "You are a manufacturing troubleshooting assistant for Brickwell Medical pod production.\nAnswer using ONLY the indexed documents (machine manuals, work instructions,\nmaintenance procedures, and NCMR records).\n\nWhen answering:\n- Cite the source document and section (manual name, work instruction ID, o...<trimmed>",
+        "creator": "user03@example.com",
+        "creation_timestamp": 1792606226282,
+        "endpoint_name": "ka-a176dc0c-endpoint",
+        "experiment_id": "2347446610473179"
+      }
+    }
+  },
+  "multi_agent_supervisor_detail": {
+    "path": "/api/2.0/multi-agent-supervisors/2e8a4ac6-17ca-492f-b00d-73df59a52526",
+    "http": 200,
+    "body": {
+      "multi_agent_supervisor": {
+        "tile": {
+          "tile_id": "2e8a4ac6-17ca-492f-b00d-73df59a52526",
+          "name": "brickwell-mfg-ai-supervisor",
+          "tile_type": "MAS",
+          "mlflow_experiment_id": "2347446610473193",
+          "creation_timestamp_ms": 1792607680777,
+          "last_updated_timestamp_ms": 1792607696589,
+          "serving_endpoint_name": "mas-2e8a4ac6-endpoint",
+          "creator": "user03@example.com",
+          "creator_display_name": "Christopher Messer",
+          "description": "Routes manufacturing questions to structured lakehouse analytics (Genie) and document Q&A over manuals, work instructions, procedures and NCMRs (Knowledge Assistant).",
+          "instructions": "You are the Brickwell Medical manufacturing supervisor agent for VelaPatch production troubleshooting.\n\nRoute to manufacturing_analytics (Genie) for:\n- Yield, first-pass yield, scrap rate, scrappage units, OEE proxy, downtime, MTTR\n- Active alarms, alarm playbook lookups, NCMR history by symptom/sta...<trimmed>",
+          "evaluation_run_exists": false,
+          "acl_enabled": true
+        },
+        "agents": [
+          {
+            "name": "document_expert",
+            "description": "Unstructured manufacturing documents via Knowledge Assistant: machine manual alarm remedies, work instruction steps, maintenance procedures, and NCMR narratives with citations.",
+            "agent_type": "knowledge-assistant",
+            "serving_endpoint": {
+              "name": "ka-a176dc0c-endpoint"
+            }
+          },
+          {
+            "name": "manufacturing_analytics",
+            "description": "Structured manufacturing lakehouse analytics via Genie: KPIs (yield, scrap rate, OEE proxy, downtime, MTTR), active alarms, NCMR history rankings, spare part availability, and station/machine summaries from gold tables and metric views.",
+            "agent_type": "genie-space",
+            "genie_space": {
+              "id": "01f1cd7bb5441dfbad0bfcb2641eacdb"
+            }
+          }
+        ],
+        "status": {
+          "endpoint_status": "NOT_APPLICABLE",
+          "examples_storage_type": "VOLUME_FILE"
+        }
+      }
+    }
+  },
+  "other_tile_detail": {
+    "AI_EXTRACT": {
+      "http": 200,
+      "body": {
+        "tile_id": "cc3ef5ce-d3f7-413b-a2e2-49977ce9da45",
+        "name": "extract-silver_notes_primary-2026-09-09-10-28-33",
+        "tile_type": "AI_EXTRACT",
+        "task_spec": {
+          "instructions": "You are a clinical data abstractor for a non-small-cell lung cancer (NSCLC) real-world\nevidence study. You read free-text oncology notes \u2014 consult notes, progress notes, and\npathology reports written in messy, abbreviated EHR style \u2014 and extract a fixed set of\nstructured facts about the patient at d...<trimmed>",
+          "custom_signature": {
+            "output_json_schema": "{\"cancer_stage\":{\"type\":\"enum\",\"labels\":[\"I\",\"II\",\"III\",\"IV\"],\"description\":\"Overall clinical or pathologic cancer stage at diagnosis. Map 'stage 4' / 'metastatic' to IV. Use the diagnosis stage, not a restaging. Empty if not stated.\"},\"egfr_status\":{\"type\":\"string\",\"description\":\"EGFR mutation stat...<trimmed>"
+          },
+          "datasets": [
+            {
+              "name": "text_corpus",
+              "dataset_type": "DOCS",
+              "table": {
+                "name": "main.lilly_heor_rwe_demo.silver_notes_primary",
+                "columns": [
+                  {
+                    "name": "note_text",
+                    "rename_to": "input"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "mlflow_experiment_id": "1262233690137226",
+        "creation_timestamp_ms": 1788964113394,
+        "last_updated_timestamp_ms": 1788967713361,
+        "creator": "user10@example.com",
+        "creator_display_name": "Parastou Eslami",
+        "instructions": "You are a clinical data abstractor for a non-small-cell lung cancer (NSCLC) real-world\nevidence study. You read free-text oncology notes \u2014 consult notes, progress notes, and\npathology reports written in messy, abbreviated EHR style \u2014 and extract a fixed set of\nstructured facts about the patient at d...<trimmed>",
+        "evaluation_run_exists": true,
+        "acl_enabled": true,
+        "active_agent_model_version": {
+          "version": 1,
+          "creation_timestamp_ms": 1788964464203,
+          "model_creation_source": "AGENT_MODEL_CREATION_SOURCE_GROUNDING",
+          "ai_extract_v2_config": {
+            "instructions": "You are a clinical data abstractor for a non-small-cell lung cancer (NSCLC) real-world\nevidence study. You read free-text oncology notes \u2014 consult notes, progress notes, and\npathology reports written in messy, abbreviated EHR style \u2014 and extract a fixed set of\nstructured facts about the patient at d...<trimmed>",
+            "schema": "{\"cancer_stage\":{\"type\":\"enum\",\"labels\":[\"I\",\"II\",\"III\",\"IV\"],\"description\":\"Overall clinical or pathologic cancer stage at diagnosis. Map 'stage 4' / 'metastatic' to IV. Use the diagnosis stage, not a restaging. Empty if not stated.\"},\"egfr_status\":{\"type\":\"string\",\"description\":\"EGFR mutation stat...<trimmed>",
+            "model": {
+              "model_name": "gpt-oss-120b"
+            },
+            "enable_citations": false,
+            "enable_confidence_scores": false
+          }
+        }
+      }
+    }
+  }
+}

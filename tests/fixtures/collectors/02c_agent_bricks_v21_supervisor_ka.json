@@ -1,0 +1,321 @@
+{
+  "supervisor_agents_list": {
+    "path": "GET /api/2.1/supervisor-agents (page_size=100)",
+    "http": 200,
+    "top_level_keys": [
+      "supervisor_agents"
+    ],
+    "pages": 1,
+    "count": 41,
+    "field_presence": {
+      "name": 41,
+      "display_name": 41,
+      "description": 41,
+      "supervisor_agent_id": 41,
+      "creator": 41,
+      "create_time": 41,
+      "endpoint_name": 41,
+      "experiment_id": 41,
+      "instructions": 23
+    },
+    "examples": [
+      {
+        "name": "supervisor-agents/a9fab447-722e-400d-ad3e-14434005ae4c",
+        "display_name": "supervisor-agent-2026-05-13-09-18-59",
+        "description": "A multi-agent system using Databricks resources to provide users with answers.",
+        "supervisor_agent_id": "a9fab447-722e-400d-ad3e-14434005ae4c",
+        "creator": "user11@example.com",
+        "create_time": "2026-05-13T13:19:04.472Z",
+        "endpoint_name": "mas-a9fab447-endpoint",
+        "experiment_id": "3983353100877885"
+      },
+      {
+        "name": "supervisor-agents/8d9e9b71-2c90-4bee-bf33-86c4d6dd6f6e",
+        "display_name": "supervisor-agent-2026-06-26-11-00-48",
+        "description": "A multi-agent system using Databricks resources to provide users with answers.",
+        "supervisor_agent_id": "8d9e9b71-2c90-4bee-bf33-86c4d6dd6f6e",
+        "creator": "user01@example.com",
+        "create_time": "2026-06-26T15:01:30.104Z",
+        "endpoint_name": "mas-8d9e9b71-endpoint",
+        "experiment_id": "3468554627556925"
+      }
+    ]
+  },
+  "supervisor_agent_get": {
+    "path": "GET /api/2.1/supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526",
+    "http": 200,
+    "body": {
+      "name": "supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526",
+      "display_name": "brickwell-mfg-ai-supervisor",
+      "description": "Routes manufacturing questions to structured lakehouse analytics (Genie) and document Q&A over manuals, work instructions, procedures and NCMRs (Knowledge Assistant).",
+      "instructions": "You are the Brickwell Medical manufacturing supervisor agent for VelaPatch production troubleshooting.\n\nRoute to manufacturing_analytics (Genie) for:\n- Yield, first-pass yield, scrap rate, scrappage units, OEE proxy, downtime, MTTR\n- Active...<trimmed>",
+      "supervisor_agent_id": "2e8a4ac6-17ca-492f-b00d-73df59a52526",
+      "creator": "user03@example.com",
+      "create_time": "2026-10-21T18:34:40.777Z",
+      "endpoint_name": "mas-2e8a4ac6-endpoint",
+      "experiment_id": "2347446610473193"
+    }
+  },
+  "supervisor_agent_tools": {
+    "path": "GET /api/2.1/supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526/tools",
+    "http": 200,
+    "body": {
+      "tools": [
+        {
+          "name": "supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526/tools/document_expert",
+          "tool_type": "knowledge_assistant",
+          "knowledge_assistant": {
+            "serving_endpoint_name": "ka-a176dc0c-endpoint",
+            "knowledge_assistant_id": "a176dc0c-1d6f-4f86-849a-a38eac9ca22c"
+          },
+          "description": "Unstructured manufacturing documents via Knowledge Assistant: machine manual alarm remedies, work instruction steps, maintenance procedures, and NCMR narratives with citations.",
+          "tool_id": "document_expert"
+        },
+        {
+          "name": "supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526/tools/manufacturing_analytics",
+          "tool_type": "genie_space",
+          "genie_space": {
+            "id": "01f1cd7bb5441dfbad0bfcb2641eacdb",
+            "space_id": "01f1cd7bb5441dfbad0bfcb2641eacdb"
+          },
+          "description": "Structured manufacturing lakehouse analytics via Genie: KPIs (yield, scrap rate, OEE proxy, downtime, MTTR), active alarms, NCMR history rankings, spare part availability, and station/machine summaries from gold tables and metric views.",
+          "tool_id": "manufacturing_analytics"
+        }
+      ]
+    }
+  },
+  "supervisor_agent_tool_types_across_all": {
+    "genie_space": 47,
+    "uc_function": 23,
+    "knowledge_assistant": 25,
+    "uc_connection": 4,
+    "databricks_web_search": 3,
+    "uc_table": 1
+  },
+  "tool_fields_by_type": {
+    "genie_space": {
+      "name": 47,
+      "tool_type": 47,
+      "genie_space": 47,
+      "genie_space.id": 47,
+      "genie_space.space_id": 47,
+      "description": 47,
+      "tool_id": 47
+    },
+    "uc_function": {
+      "name": 23,
+      "tool_type": 23,
+      "uc_function": 23,
+      "uc_function.name": 23,
+      "description": 23,
+      "tool_id": 23
+    },
+    "knowledge_assistant": {
+      "name": 25,
+      "tool_type": 25,
+      "knowledge_assistant": 25,
+      "knowledge_assistant.serving_endpoint_name": 25,
+      "knowledge_assistant.knowledge_assistant_id": 25,
+      "description": 25,
+      "tool_id": 25
+    },
+    "uc_connection": {
+      "name": 4,
+      "tool_type": 4,
+      "uc_connection": 4,
+      "uc_connection.name": 4,
+      "description": 4,
+      "tool_id": 4
+    },
+    "databricks_web_search": {
+      "name": 3,
+      "tool_type": 3,
+      "web_search": 3,
+      "description": 3,
+      "tool_id": 3
+    },
+    "uc_table": {
+      "name": 1,
+      "tool_type": 1,
+      "uc_table": 1,
+      "uc_table.name": 1,
+      "description": 1,
+      "tool_id": 1
+    }
+  },
+  "tool_examples_by_type": {
+    "genie_space": {
+      "name": "supervisor-agents/a9fab447-722e-400d-ad3e-14434005ae4c/tools/genie-01f133b824491e3390c015bdfa3b4157",
+      "tool_type": "genie_space",
+      "genie_space": {
+        "id": "01f133b824491e3390c015bdfa3b4157",
+        "space_id": "01f133b824491e3390c015bdfa3b4157"
+      },
+      "description": "",
+      "tool_id": "genie-01f133b824491e3390c015bdfa3b4157"
+    },
+    "uc_function": {
+      "name": "supervisor-agents/a9fab447-722e-400d-ad3e-14434005ae4c/tools/ucf-system-ai-python_exec",
+      "tool_type": "uc_function",
+      "uc_function": {
+        "name": "system.ai.python_exec"
+      },
+      "description": "Executes Python code in a stateless sandboxed environment and returns its stdout. The runtime cannot access files or read previous executions' output. All operations must be self-contained, using only standard Python libraries. Calls to oth...<trimmed>",
+      "tool_id": "ucf-system-ai-python_exec"
+    },
+    "knowledge_assistant": {
+      "name": "supervisor-agents/cd815f44-68e4-4bbc-8a1d-4b8573a704d6/tools/sop-knowledge-base",
+      "tool_type": "knowledge_assistant",
+      "knowledge_assistant": {
+        "serving_endpoint_name": "ka-909f4eba-endpoint",
+        "knowledge_assistant_id": "909f4eba-7249-47e2-afd7-1ff926aafbb8"
+      },
+      "description": "Answers questions about manufacturing SOPs, procedures, hold times, PPE requirements, deviation investigation protocols, cleaning validation criteria, and cGMP guidelines. Returns cited answers with SOP numbers and section references.",
+      "tool_id": "sop-knowledge-base"
+    },
+    "uc_connection": {
+      "name": "supervisor-agents/7cf5260d-3518-4779-927b-5b45f95367e6/tools/conn-pubmed_mcp_connection",
+      "tool_type": "uc_connection",
+      "uc_connection": {
+        "name": "pubmed_mcp_connection"
+      },
+      "description": "PubMed MCP via Glama.ai - search_keywords, search_advanced, get_article_metadata, get_article_pdf",
+      "tool_id": "conn-pubmed_mcp_connection"
+    },
+    "databricks_web_search": {
+      "name": "supervisor-agents/6eae1469-b9c9-4ee5-bcea-d45ae616d249/tools/web_search",
+      "tool_type": "databricks_web_search",
+      "web_search": {},
+      "description": "",
+      "tool_id": "web_search"
+    },
+    "uc_table": {
+      "name": "supervisor-agents/ca9b2f2e-1bf3-433a-b1b5-fbb72f8ec642/tools/uct-main-core-dim_division",
+      "tool_type": "uc_table",
+      "uc_table": {
+        "name": "main.core.dim_division"
+      },
+      "description": "Level 4 \u2014 Division (leaf, many per Area). Carries the attribute payload.",
+      "tool_id": "uct-main-core-dim_division"
+    }
+  },
+  "supervisor_agent_examples": {
+    "path": "GET /api/2.1/supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526/examples",
+    "http": 200,
+    "body": {
+      "examples": [
+        {
+          "name": "supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526/examples/0040be05-6f95-4231-b936-69da3527aab0",
+          "question": "What active alarms are on the CNC Bender (MCH-063) right now?",
+          "guidelines": [
+            "Route to manufacturing_analytics",
+            "Return alarm code, station and time"
+          ],
+          "example_id": "0040be05-6f95-4231-b936-69da3527aab0"
+        },
+        {
+          "name": "supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526/examples/5adcaefc-0ca4-4f6e-9ee1-cad0872da4e1",
+          "question": "What is the remedy for ACT_6304 on the CNC Bender (MCH-063)? Include numbered steps.",
+          "guidelines": [
+            "Route to document_expert",
+            "Cite the manual section"
+          ],
+          "example_id": "5adcaefc-0ca4-4f6e-9ee1-cad0872da4e1"
+        },
+        {
+          "name": "supervisor-agents/2e8a4ac6-17ca-492f-b00d-73df59a52526/examples/c4f4563d-e5cd-45d5-8c68-7a2d05f4fe6c",
+          "question": "The vertical actuator cylinder on MCH-063 is damaged. What part do I need and is it in stock?",
+          "guidelines": [
+            "Use document_expert for the part number and manufacturing_analytics for stock"
+          ],
+          "example_id": "c4f4563d-e5cd-45d5-8c68-7a2d05f4fe6c"
+        }
+      ]
+    }
+  },
+  "knowledge_assistants_list": {
+    "path": "GET /api/2.1/knowledge-assistants (page_size=100)",
+    "http": 200,
+    "top_level_keys": [
+      "knowledge_assistants"
+    ],
+    "pages": 1,
+    "count": 33,
+    "field_presence": {
+      "name": 33,
+      "id": 33,
+      "display_name": 33,
+      "description": 33,
+      "instructions": 32,
+      "creator": 33,
+      "create_time": 33,
+      "endpoint_name": 33,
+      "experiment_id": 33
+    },
+    "state_counts": {
+      "null": 33
+    },
+    "examples": [
+      {
+        "name": "knowledge-assistants/da062992-14f0-4cf2-aa5e-e009e478954c",
+        "id": "da062992-14f0-4cf2-aa5e-e009e478954c",
+        "display_name": "OOPPolicyKA",
+        "description": "Excellus OOP accumulator policy reference. Single policy doc POL-BEN-2024-015 covering 90-day lookback procedure, Facets-vs-Cognos discrepancy handling, and the strict no-auto-write-back rule for member liability decisions.\n\nBuilt with Data...<trimmed>",
+        "instructions": "When asked about accumulator review procedure, cite POL-BEN-2024-015 by name and section. Always remind the auditor that Facets accumulators are NEVER updated automatically \u2014 discrepancies require human approval and submission of an Accumul...<trimmed>",
+        "creator": "user01@example.com",
+        "create_time": "2026-05-24T00:58:51.049Z",
+        "endpoint_name": "ka-da062992-endpoint",
+        "experiment_id": "4160946839282454"
+      },
+      {
+        "name": "knowledge-assistants/651cec9b-cb05-467c-82d0-f2219e2873fb",
+        "id": "651cec9b-cb05-467c-82d0-f2219e2873fb",
+        "display_name": "rwe-regulatory-ka",
+        "description": "FDA/EMA regulatory guidance and RWE best practices.",
+        "instructions": "",
+        "creator": "user01@example.com",
+        "create_time": "2026-06-17T17:20:37.626Z",
+        "endpoint_name": "ka-651cec9b-endpoint",
+        "experiment_id": "2930879042287525"
+      }
+    ]
+  },
+  "knowledge_assistant_get": {
+    "path": "GET /api/2.1/knowledge-assistants/a176dc0c-1d6f-4f86-849a-a38eac9ca22c",
+    "http": 200,
+    "body": {
+      "name": "knowledge-assistants/a176dc0c-1d6f-4f86-849a-a38eac9ca22c",
+      "state": "ACTIVE",
+      "id": "a176dc0c-1d6f-4f86-849a-a38eac9ca22c",
+      "display_name": "brickwell-mfg-ai-docs",
+      "description": "Manufacturing document assistant for Brickwell Medical pod production.\nIndexes machine manuals, work instructions, maintenance procedures, and NCMR records.",
+      "instructions": "You are a manufacturing troubleshooting assistant for Brickwell Medical pod production.\nAnswer using ONLY the indexed documents (machine manuals, work instructions,\nmaintenance procedures, and NCMR records).\n\nWhen answering:\n- Cite the sour...<trimmed>",
+      "creator": "user03@example.com",
+      "create_time": "2026-10-21T18:10:26.282Z",
+      "endpoint_name": "ka-a176dc0c-endpoint",
+      "experiment_id": "2347446610473179",
+      "knowledge_assistant_id": "a176dc0c-1d6f-4f86-849a-a38eac9ca22c"
+    }
+  },
+  "knowledge_sources": {
+    "path": "GET /api/2.1/knowledge-assistants/a176dc0c-1d6f-4f86-849a-a38eac9ca22c/knowledge-sources",
+    "http": 200,
+    "body": {
+      "knowledge_sources": [
+        {
+          "name": "knowledge-assistants/a176dc0c-1d6f-4f86-849a-a38eac9ca22c/knowledge-sources/7932e48d-0e60-4f77-8708-ac6ef710921c",
+          "display_name": "source_brickwell-mfg-ai-docs",
+          "description": "",
+          "source_type": "files",
+          "files": {
+            "path": "/Volumes/main/brickwell_mfg_ai/source_docs/pdf"
+          },
+          "state": "UPDATED",
+          "id": "7932e48d-0e60-4f77-8708-ac6ef710921c",
+          "knowledge_cutoff_time": "2026-10-21T18:10:26.282Z",
+          "create_time": "2026-10-21T18:10:26.282Z"
+        }
+      ]
+    }
+  }
+}
